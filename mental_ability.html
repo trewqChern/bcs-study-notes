@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Ability — OCR Study Notes (34 Pages)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --accent: #7c3aed;
+  --accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+  --note-bg: #fffbeb;
+  --note-border: #f59e0b;
+  --qa-bg: #f0f9ff;
+  --qa-border: #0ea5e9;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #273449;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --note-bg: rgba(245, 158, 11, 0.12);
+  --note-border: #fbbf24;
+  --qa-bg: rgba(14, 165, 233, 0.12);
+  --qa-border: #38bdf8;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+.site-header.nav-hidden {
+  transform: translateY(-100%);
+}
+.header-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+.header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.brand .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.subject-nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 0 4px;
+  scrollbar-width: thin;
+}
+.subject-nav a {
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  background: var(--surface-alt);
+  border: 1px solid transparent;
+}
+.subject-nav a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.subject-nav a.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+}
+.search-input {
+  flex: 1 1 220px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+.search-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.jump-select {
+  flex: 1 1 200px;
+  max-width: 340px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+}
+.match-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+.page-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  scroll-margin-top: 150px;
+}
+.page-card.hidden {
+  display: none;
+}
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+}
+.card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.card-topic {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.filename-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  opacity: 0.85;
+}
+.card-body {
+  padding: 16px 20px;
+  overflow-x: auto;
+}
+.card-body h2, .card-body h3 {
+  margin: 14px 0 8px;
+  color: var(--accent);
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+.card-body h3:first-child, .card-body h2:first-child {
+  margin-top: 0;
+}
+.card-body h4 {
+  margin: 12px 0 6px;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.card-body p {
+  margin: 6px 0;
+}
+.card-body ul, .card-body ol {
+  margin: 6px 0 10px;
+  padding-left: 22px;
+}
+.card-body li {
+  margin: 4px 0;
+}
+.card-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.93rem;
+}
+.card-body th, .card-body td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.card-body th {
+  background: var(--surface-alt);
+  font-weight: 700;
+}
+.card-body tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--surface-alt) 45%, transparent);
+}
+.card-body .note {
+  background: var(--note-bg);
+  border-left: 4px solid var(--note-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body .qa {
+  background: var(--qa-bg);
+  border-left: 4px solid var(--qa-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body hr {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 14px 0;
+}
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+.back-top.visible {
+  display: inline-flex;
+}
+/* Hub Grid */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--card-accent, var(--accent));
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+.hub-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--card-accent, var(--accent));
+}
+.hub-card .bn-name {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.hub-card .count-pill {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--surface-alt);
+  color: var(--text);
+}
+.summary-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.summary-banner h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.summary-banner p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+@media (max-width: 768px) {
+  .header-inner { padding: 8px 12px; }
+  .brand h1 { font-size: 1.05rem; }
+  .card-header { padding: 10px 14px; }
+  .card-body { padding: 12px 14px; font-size: 15px; }
+  .controls-bar { gap: 6px; }
+  .jump-select { max-width: 100%; }
+}
+@media print {
+  .site-header, .back-top, .controls-bar, .subject-nav { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .container { max-width: 100%; padding: 0; }
+  .page-card { break-inside: avoid-page; box-shadow: none; border: 1px solid #ccc; margin-bottom: 12pt; }
+  .card-header { background: #f3f4f6 !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <h1>Mental Ability</h1>
+          <span class="subtitle">মানসিক দক্ষতা • 34 pages</span>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="btn" id="themeToggle">🌙 Dark</button>
+          <button type="button" class="btn" id="printBtn">🖨️ Print</button>
+        </div>
+      </div>
+      <nav class="subject-nav" aria-label="Subjects">
+        <a href="index.html" class="">🏠 All Subjects (250)</a>
+<a href="english_literature.html" class="">English Literature (58)</a>
+<a href="bangla_literature.html" class="">Bangla Literature (51)</a>
+<a href="mental_ability.html" class="active">Mental Ability (34)</a>
+<a href="mathematics.html" class="">Mathematics &amp; Mathematical Reasoning (32)</a>
+<a href="bangladesh_affairs.html" class="">Bangladesh Affairs (31)</a>
+<a href="international_affairs.html" class="">International Affairs (19)</a>
+<a href="bcs_syllabus.html" class="">BCS Written Syllabus (25)</a>
+      </nav>
+      <div class="controls-bar">
+        <input type="search" id="searchInput" class="search-input" placeholder="Search notes in Bengali or English..." aria-label="Search notes">
+        <select id="jumpSelect" class="jump-select" aria-label="Quick jump">
+          <option value="">Jump to topic / page...</option><option value="page-1">#1 — দিক নির্ণয় (Direction Sense) [লেকচার 5 (R-1)]</option><option value="page-2">#2 — দিক নির্ণয় ও ত্রিভুজ-চতুর্ভুজ সংখ্যা (Direction &amp; Counting Fig... [R-2]</option><option value="page-3">#3 — ত্রিভুজ, বর্গক্ষেত্র ও আয়তক্ষেত্র গণনা (Counting Triangles, Sq...</option><option value="page-4">#4 — রম্বস, সামান্তরিক, ট্রাপিজিয়াম ও আয়ত গণনা (Counting Quadrilate...</option><option value="page-5">#5 — ধারা (Number Series) [লেকচার - 6]</option><option value="page-6">#6 — ধারা ও চিত্রভিত্তিক সংখ্যা ধাঁধা (Series &amp; Visual Number Puzzles)</option><option value="page-7">#7 — ভিন্ন চিত্র নির্ণয় ও চিত্র ধারা (Odd One Out &amp; Figure Series) [R-3]</option><option value="page-8">#8 — ত্রিভুজ গণনা (Counting Triangles — Special Patterns)</option><option value="page-9">#9 — ঘড়ি সংক্রান্ত নিয়মাবলি (সঠিক সময় নির্ণয়) [Page 01 (৩/১২/২৪)]</option><option value="page-10">#10 — ঘড়ি সংক্রান্ত নিয়মাবলি (ঘড়ির কাঁটার দিক নির্ণয়) [Page 02 (3/12/24)]</option><option value="page-11">#11 — ঘড়ির কাটার মধ্যবর্তী কোণ নির্ণয় [Page 03]</option><option value="page-12">#12 — ঘড়ির মধ্যবর্তী কোণ, Reflex Angle ও আয়নায় ঘড়ির সময় [Page 04]</option><option value="page-13">#13 — আয়নায় ঘড়ির সময় (বিশেষ ব্যাখ্যা) [Page 05 (1)]</option><option value="page-14">#14 — আয়নায় ঘড়ির সময় ও কাঁটাগুলোর সমাপতিত (Coincide) হওয়া [Page 05 (2)]</option><option value="page-15">#15 — ঘড়ির কাঁটার বিপরীতমুখী, সরলরেখা ও সমকোণ অবস্থান [Page 06]</option><option value="page-16">#16 — বছর, মাস, দিন (Calendar Problems) [০৭]</option><option value="page-17">#17 — বছর, মাস, দিন (Multi-Year Calendar Problems) [০৮]</option><option value="page-18">#18 — বছর, মাস, দিন (Calendar &amp; Age/Birthday Problems) [০৯]</option><option value="page-19">#19 — বছর, মাস, দিন (আগামীকাল, গতকল্য ও তারিখ নির্ণয়) [10]</option><option value="page-20">#20 — দিন বের করার নিয়ম (Day of the Week Formula) [11]</option><option value="page-21">#21 — আয়না / দর্পণ / পানি (Mirror &amp; Water Image) [12]</option><option value="page-22">#22 — রক্তের সম্পর্ক (Blood Relations) [13]</option><option value="page-23">#23 — Coding-Decoding [14]</option><option value="page-24">#24 — দিক, দূরত্ব (Direction &amp; Distance) [15]</option><option value="page-25">#25 — Counting Figures (Triangle) — ত্রিভুজ নির্ণয় [16]</option><option value="page-26">#26 — Counting Figures (Triangle) — অর্ধেক রেখা, উল্টো ত্রিভুজ ও ত্র... [১৭]</option><option value="page-27">#27 — Counting Figures (ব্যতিক্রম) ও বৃত্ত ও ত্রিভুজ [18]</option><option value="page-28">#28 — Counting Figures — Dot Method [19]</option><option value="page-29">#29 — চতুর্ভুজের মধ্যে ত্রিভুজ সংখ্যা নির্ণয় [20]</option><option value="page-30">#30 — Counting Figures — জটিল চতুর্ভুজ ও ত্রিভুজ সংখ্যা নির্ণয় [21]</option><option value="page-31">#31 — আয়ত ও বর্গ নির্ণয় (Counting Rectangles &amp; Squares) [22]</option><option value="page-32">#32 — বর্গ নির্ণয় (Counting Squares — Complex Figures) [22(2)]</option><option value="page-33">#33 — বর্গ নির্ণয় (অসমান গ্রিড) ও আয়ত নির্ণয় [23]</option><option value="page-34">#34 — বর্গ, রম্বস, আয়ত ও সামান্তরিক নির্ণয় [24]</option>
+        </select>
+        <span id="matchCount" class="match-count">34 pages</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+        <article class="page-card" id="page-1">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#1</span>
+              <h2 class="card-topic">দিক নির্ণয় (Direction Sense)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">লেকচার 5 (R-1)</span>
+              <span class="filename-tag">photo_1_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>লেকচার ৫ — দিক (R-1)</h3><div class="qa"><p><strong>প্রশ্ন ১ (৩৭তম বিসিএস):</strong> ভোর বেলায় আপনি বেড়াতে বের হলেন। বের হওয়ার সময় সূর্য আপনার সামনে ছিল। কিছুক্ষণ পর আপনি বাম দিকে ঘুরলেন। আবার কয়েক মিনিট পর ডান দিকে ঘুরলেন। এখন আপনি কোন দিকে আছেন?</p><p><strong>উত্তর:</strong> পূর্ব দিকে।</p><p><em>[চিত্র: উত্তর-পূর্ব দিক অক্ষ; পূর্ব দিকে গিয়ে বামে (উত্তরে) ঘুরে আবার ডানে (পূর্বে) যাওয়ার তীরচিহ্ন]</em></p></div><div class="qa"><p><strong>প্রশ্ন ২ (৪১তম বিসিএস):</strong> রহিম উত্তর দিকে 10 মাইল হেঁটে ডান দিকে ঘুরে 5 মাইল হাঁটে। তারপর ডান দিকে ঘুরে 2 মাইল হাঁটে। এখন তিনি কোন দিকে হাঁটতেছেন?</p><p><strong>উত্তর:</strong> দক্ষিণ দিকে।</p><p><em>[চিত্র: উত্তরে গিয়ে ডানে (পূর্বে) এবং পুনরায় ডানে (দক্ষিণে) ঘোরার গতিপথ]</em></p></div><div class="qa"><p><strong>প্রশ্ন ৩:</strong> রহিম সোজা 2 কি.মি. যাবার পর বাম দিকে 3 কি.মি. এবং সেখান থেকে আবার বাম দিকে 2 কি.মি. (অথবা 3 km) গেল। যাত্রার স্থান থেকে শেষ স্থানের দূরত্ব কত?</p><p><strong>উত্তর:</strong> = 3 কি.মি. (বিকল্প ৩ কি.মি. ধরলে, <code>AC = √(1 + 9) = √10</code>)</p><p><em>[চিত্র: বামদিকে 2 ও 3 বাহুবিশিষ্ট আয়তাকার গতিপথ এবং ডানদিকে 3 km অতিক্রমের ফলে গঠিত সমকোণী ত্রিভুজ যেখানে AC = √(1 + 9) = √10]</em></p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-2">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#2</span>
+              <h2 class="card-topic">দিক নির্ণয় ও ত্রিভুজ-চতুর্ভুজ সংখ্যা (Direction &amp; Counting Figures)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">R-2</span>
+              <span class="filename-tag">photo_2_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>দিক নির্ণয় (চলমান)</h3><div class="qa"><p><strong>প্রশ্ন ১:</strong> একজন লোক যাত্রার স্থান A থেকে 12 কি.মি. উত্তরে গেল। সেখান থেকে 5 কি.মি. পূর্ব দিকে B স্থানে গেল। A থেকে B এর দূরত্ব কত?</p><p><strong>উত্তর:</strong> 13 কি.মি.</p><p><strong>সমাধান:</strong> <code>AB = √(144 + 25) = 13</code></p><p><em>[চিত্র: A বিন্দু থেকে 12 কি.মি. উত্তরে ও 5 কি.মি. পূর্বে B বিন্দু; অতিভুজ AB = 13]</em></p></div><div class="qa"><p><strong>প্রশ্ন ২:</strong> আলিহা 10 km উত্তরে যায়। তারপর 15 km পূর্বে যায়। তারপর 10 km উত্তরে যায়। তাহলে যাত্রার স্থান থেকে কত দূরত্বে সে আছে?</p><p><strong>উত্তর:</strong> 25 কি.মি.</p><p><strong>সমাধান:</strong> <code>AC = √(400 + 225) = 25</code> (মোট উত্তর = 10 + 10 = 20, পূর্ব = 15)</p><p><em>[চিত্র: A থেকে 10 উত্তরে, 15 পূর্বে ও 10 উত্তরে C বিন্দু; অতিভুজ AC = 25]</em></p></div><h3>R-2: ত্রিভুজ, চতুর্ভুজ সংখ্যা</h3><ul><li><em>[চিত্র: শীর্ষ থেকে ভূমিতে ২টি রেখা টেনে ১, ২, ৩—তিন ভাগে বিভক্ত ত্রিভুজ]</em> ⇒ <code>1 + 2 + 3 = 6 টি</code></li><li><em>[চিত্র: শীর্ষ থেকে ভূমিতে ১টি রেখা টেনে ১, ২—দুই ভাগে বিভক্ত ত্রিভুজ]</em> ⇒ <code>1 + 2 = 3 টি</code></li><li><em>[চিত্র: শীর্ষ থেকে ভূমিতে ৪টি রেখা টেনে ১, ২, ৩, ৪, ৫—পাঁচ ভাগে বিভক্ত ত্রিভুজ]</em> ⇒ <code>1 + 2 + 3 + 4 + 5 = 15 টি</code></li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-3">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#3</span>
+              <h2 class="card-topic">ত্রিভুজ, বর্গক্ষেত্র ও আয়তক্ষেত্র গণনা (Counting Triangles, Squares &amp; Rectangles)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_3_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ত্রিভুজ গণনা</h3><ul><li><em>[চিত্র: ত্রিভুজের অভ্যন্তরীণ একটি বিন্দু থেকে তিনটি শীর্ষে রেখা]</em> ⇒ <strong>৪টি</strong></li><li><strong>(32, 37 BCS):</strong> <em>[চিত্র: ত্রিভুজের তিনটি মধ্যমা অঙ্কিত, ভেতরে ১ থেকে ৬ চিহ্নিত]</em> ⇒ <code>2 × 2 × 2 × 2 = ১৬টি</code></li></ul><h3>বর্গক্ষেত্র গণনা</h3><ul><li><strong>(৩৫, ৩৬, ৪০ BCS):</strong> <em>[চিত্র: 2×2 বর্গাকার গ্রিড (1, 2, 3, 4)]</em> ⇒ <code>1² + 2² = 5 টি</code> (যেকোনো একপাশে)</li><li><strong>(BCS):</strong> <em>[চিত্র: 4×4 বর্গাকার গ্রিড (সারি ও কলাম 1, 2, 3, 4)]</em> ⇒ <code>1² + 2² + 3² + 4² = 30 টি</code></li></ul><h3>বর্গ ও আয়ত গণনা</h3><div class="qa"><p><em>[চিত্র: 3×3 বর্গাকার গ্রিড (1, 2, 3)]</em> <strong>প্রশ্ন:</strong> কয়টি বর্গ ও আয়ত আছে?</p><ul><li>মোট (বর্গ ও আয়ত) = <code>1³ + 2³ + 3³ = 1 + 8 + 27 = 36</code></li><li>শুধু বর্গ = <strong>১৪টি</strong></li><li>∴ শুধু আয়ত = <code>৩৬ - ১৪ = ২২টি</code></li></ul></div><h4># কয়টি বর্গ (দৈর্ঘ্য ও প্রস্থ সমান না হলে):</h4><p><em>[চিত্র: 3×4 আয়তাকার গ্রিড—উপরে ১, ২, ৩ এবং ডানে ৪, ৩, ২, ১ চিহ্নিত ও কোণাকুণি জোড়া দেখানো]</em></p><p><strong>গণনা:</strong> <code>৩×৪ + ২×৩ + ১×২ + ০×১ = ১২ + ৬ + ২ = ২০ টি</code></p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-4">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#4</span>
+              <h2 class="card-topic">রম্বস, সামান্তরিক, ট্রাপিজিয়াম ও আয়ত গণনা (Counting Quadrilaterals)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_4_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>রম্বস ও সামান্তরিক (সব same)</h3><ul><li><em>[চিত্র: 3×3 হেলানো গ্রিড (1, 2, 3)]</em> <strong>প্রশ্ন:</strong> ∴ কয়টি রম্বস? ⇒ <code>1² + 2² + 3² = 14 টি</code> <em>(খাতায় 15 লেখা থাকলেও 1+4+9 = 14)</em></li><li><strong># মোট চতুর্ভুজ কয়টি?</strong> = <code>1³ + 2³ + 3³ = ৩৬টি</code></li><li><em>[চিত্র: 4×3 (৪ কলাম ও ৩ সারি) হেলানো গ্রিড]</em> <strong>প্রশ্ন:</strong> কয়টি রম্বস? কয়টি সামান্তরিক?</li></ul><h3>ট্রাপিজিয়াম</h3><p><em>[চিত্র: 3×3 বিভক্ত ট্রাপিজিয়াম—কলাম ১, ২, ৩ (যোগফল ৬) এবং সারি ১, ২, ৩ (যোগফল ৬)]</em></p><p><strong>গণনা:</strong> <code>৬ × ৬ = ৩৬টি</code> চতুর্ভুজ আছে।</p><h3>আয়ত</h3><ul><li><em>[চিত্র: 1×4 আয়তাকার গ্রিড (১, ২, ৩, ৪)]</em> ⇒ <code>১ + ২ + ৩ + ৪ = ১০টি</code></li><li><em>[চিত্র: 2×4 আয়তাকার গ্রিড—উপরে ১, ২, ৩, ৪ (যোগফল ১০), বামে ১, ২ (যোগফল ৩)]</em> ⇒ <code>১০ × ৩ = ৩০টি</code></li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-5">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#5</span>
+              <h2 class="card-topic">ধারা (Number Series)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">লেকচার - 6</span>
+              <span class="filename-tag">photo_5_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>লেকচার - ৬ (ধারা)</h3><ol><li><code>3, 9, 27, 81, ?</code> (42 BCS) ⇒ <strong>243</strong></li><li><code>2, 4, 6, 8, ----</code> ৬ষ্ঠ পদ কত? ⇒ <strong>12</strong></li><li><code>0, 1, 1, 2, 3, ___ ?</code> ⇒ <strong>5</strong></li><li><code>1, 2, 4, 7, 11, ___ ?</code> (45) ⇒ <strong>16</strong></li><li><code>6, 8, 2, 1, 1, ½, ¼, ___ ?</code> [45 BCS] ⇒ <strong>1/6</strong> <em>(খাতায় অস্পষ্টভাবে 1/6 বা 1/8 লেখা)</em></li><li><code>17, 24, 15, 22, 13, 20, 11, ___, ___</code> [38 BCS] ⇒ <strong>18, 9</strong></li><li><code>3, 5, 9, 11, 15, 17, 21, ___, ___</code> [37 BCS] ⇒ <strong>23, 27</strong></li><li><code>4, 6, 10, 18, ___ ?</code> (37) ⇒ <strong>34</strong></li><li><code>3, 8, 6, 14, ?, 20, 12</code> (37 BCS) ⇒ <strong>9</strong></li><li><code>3, 7, 4, 14, 5, 21, 6, [?]</code> (36 BCS) ⇒ <strong>28</strong></li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-6">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#6</span>
+              <h2 class="card-topic">ধারা ও চিত্রভিত্তিক সংখ্যা ধাঁধা (Series &amp; Visual Number Puzzles)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_6_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ধারা ও সংখ্যা ধাঁধা</h3><ol><li><code>1, 2, 8, 48, 384, ?</code> (35 BCS) ⇒ <strong>3840</strong></li><li><code>5 × 6 = 42, 9 × 10 = ?</code> (40 BCS) ⇒ <code>(6×7=42, 10×11=110)</code> ⇒ <strong>110</strong></li><li><code>10 × 14 = ?</code> ⇒ <code>11 × 15 = 165</code> ⇒ <strong>165</strong></li><li><strong>(36 BCS):</strong> <em>[চিত্র: ৫ কোণা তারার কোণাগুলোতে সংখ্যা: 8, 14, 22, 32, ?]</em> ⇒ <strong>44</strong></li><li><strong>[41 BCS]:</strong> <em>[চিত্র: ৩টি বিভক্ত ত্রিভুজ]</em><ul><li>ত্রিভুজ ১ (শীর্ষ 4, বাম 8, ডান 7, মাঝে 39): <code>4 × 8 + 7 = 39</code></li><li>ত্রিভুজ ২ (শীর্ষ 6, বাম 3, ডান 9, মাঝে 27): <code>6 × 3 + 9 = 27</code></li><li>ত্রিভুজ ৩ (শীর্ষ 9, বাম 7, ডান 5, মাঝে ?): <code>9 × 7 + 5 = 68</code> ⇒ <strong>68</strong></li></ul></li><li><strong>[38 BCS]:</strong> <em>[চিত্র: ৩টি বিভক্ত ত্রিভুজ]</em><ul><li>ত্রিভুজ ১ (শীর্ষ 3, বাম 8, ডান 4, মাঝে 44): <code>(3 + 8) × 4 = 11 × 4 = 44</code></li><li>ত্রিভুজ ২ (শীর্ষ 9, বাম 7, ডান 2, মাঝে 32): <code>(9 + 7) × 2 = 16 × 2 = 32</code></li><li>ত্রিভুজ ৩ (শীর্ষ 8, বাম 7, ডান ?, মাঝে 75): <code>(8 + 7) × ? = 15 × 5 = 75</code> ⇒ <strong>5</strong></li></ul></li><li><em>[চিত্র: ৪ ভাগে বিভক্ত ৩টি বৃত্ত]</em><ul><li>বৃত্ত ১: উপরে (14, 1), নিচে (9, 6)</li><li>বৃত্ত ২: উপরে (11, 8), নিচে (15, 4)</li><li>বৃত্ত ৩: উপরে (20, 20), নিচে (?, 12) ⇒ <strong>28</strong></li></ul></li><li><em>[চিত্র: ৩ সেট বৃত্ত—উপরে ২টি, নিচে ১টি]</em><ul><li>সেট ১: উপরে (3), (6), নিচে (12)</li><li>সেট ২: উপরে (9), (1), নিচে (82)</li><li>সেট ৩: উপরে (?), (8), নিচে (20) ⇒ <strong>6</strong></li></ul></li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-7">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#7</span>
+              <h2 class="card-topic">ভিন্ন চিত্র নির্ণয় ও চিত্র ধারা (Odd One Out &amp; Figure Series)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">R-3</span>
+              <span class="filename-tag">photo_7_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="qa"><p><strong>প্রশ্ন ১:</strong> <code>2 / ? = ? / 18</code> ⇒ <code>x² = 36</code> ⇒ <code>x = 6</code> ⇒ <strong>উত্তর: ৬</strong></p></div><h3>R-3</h3><div class="qa"><p><strong>প্রশ্ন ২: নিচের কোনটি ভিন্ন?</strong></p><ul><li>ক) <em>[চিত্র: কর্ণযুক্ত আয়তক্ষেত্র]</em></li><li><strong>খ) <em>[চিত্র: বর্গক্ষেত্রের ভেতরে ক্রসযুক্ত বৃত্ত]</em> ← (কোনো ত্রিভুজ নাই) [সঠিক উত্তর]</strong></li><li>গ) <em>[চিত্র: ত্রিভুজের ভেতরে উল্টো ত্রিভুজ]</em></li><li>ঘ) <em>[চিত্র: দুটি ত্রিভুজ মিলে ষড়কোণা তারা]</em></li></ul></div><div class="qa"><p><strong>প্রশ্ন ৩: কোনটি ভিন্ন?</strong></p><ul><li>ক) <em>[চিত্র: সূক্ষ্মকোণ]</em></li><li>খ) <em>[চিত্র: সূক্ষ্মকোণ]</em></li><li><strong>গ) <em>[চিত্র: স্থূলকোণ]</em> [সঠিক উত্তর হিসেবে চিহ্নিত]</strong></li><li>ঘ) <em>[চিত্র: সূক্ষ্মকোণ]</em></li></ul></div><div class="qa"><p><strong>প্রশ্ন ৪ (চিত্র ধারা):</strong> <em>[চিত্র: ৪টি বৃত্ত, প্রতিটির ভেতরে (+) চিহ্ন এবং একটি বিন্দু ক্রমান্বয়ে ঘড়ির কাঁটার দিকে ঘুরছে]</em> ⇒ <code>?</code> (১ম চিত্রের অনুরূপ হবে)</p></div><div class="qa"><p><strong>প্রশ্ন ৫ (৩৭তম বিসিএস):</strong> <em>[চিত্র: খালি ত্রিভুজ → রেখাঙ্কিত (shaded) ত্রিভুজ :: খালি বর্গক্ষেত্র → ?]</em></p><p><strong>উত্তর:</strong> <em>[চিত্র: রেখাঙ্কিত (shaded) বর্গক্ষেত্র]</em></p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-8">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#8</span>
+              <h2 class="card-topic">ত্রিভুজ গণনা (Counting Triangles — Special Patterns)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_8_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ত্রিভুজ গণনা (বিভিন্ন ধরন)</h3><ul><li><em>[চিত্র: শীর্ষ থেকে ভূমিতে ১টি রেখা ও ১টি অনুভূমিক রেখা; ১, ২ চিহ্নিত]</em> ⇒ <code>১ + ২ = ৩ × ২ (যতগুলো লাইন থাকবে) = ৬ টি</code></li><li><em>[চিত্র: শীর্ষ থেকে ভূমিতে ১টি রেখা ও ২টি অনুভূমিক রেখা; ১, ২ চিহ্নিত]</em> ⇒ <code>১ + ২ = ৩ × ৩ = ৯টি</code></li><li><em>[চিত্র: ত্রিভুজের ভেতরে ২টি মধ্যমা]</em> ⇒ <code>২ × ২ × ২ = ৮টি</code> (অথবা <code>২ × ২ + ২ + ২ = ৮</code>)</li><li><em>[চিত্র: ত্রিভুজের ভেতরে ৩টি মধ্যমা]</em> ⇒ <code>২ × ২ × ২ × ২ = ১৬টি</code></li><li><em>[চিত্র: বড় ত্রিভুজের ভেতরে ১টি উল্টো ত্রিভুজ]</em> = <strong>৫টি</strong></li><li><em>[চিত্র: বড় ত্রিভুজের ভেতরে ২টি উল্টো ত্রিভুজ পরপর]</em> ⇒ <code>(৫ + ৪) = ৯টি</code></li><li><em>[চিত্র: বড় ত্রিভুজের ভেতরে ৩টি উল্টো ত্রিভুজ পরপর]</em> ⇒ <code>৫ + ৪ + ৪ = ১৩টি</code></li><li><em>[চিত্র: শীর্ষ থেকে ভূমিতে ৩টি রেখা (১, ২, ৩, ৪; যোগফল ১০) ও ৩টি অনুভূমিক স্তর]</em> ⇒ <code>১০ × ৩ = ৩০টি</code></li><li><em>[চিত্র: ত্রিভুজের ভেতরে দুই শীর্ষ থেকে বিপরীত বাহুতে রেখা ও বিভাজন]</em> ⇒ <code>২ × ২ × ২ + ২ = ১০টি</code></li><li><em>[চিত্র: ত্রিভুজের ভেতরে শীর্ষসমূহ থেকে অঙ্কিত রেখার সমন্বয়]</em> ⇒ <code>২ × ২ × ২ + ৪ = ১২টি</code></li><li><em>[চিত্র: অনুরূপ আরেকটি ত্রিভুজ বিভাজন]</em> ⇒ <code>২ × ২ × ২ + ৪ = ১২টি</code></li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-9">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#9</span>
+              <h2 class="card-topic">ঘড়ি সংক্রান্ত নিয়মাবলি (সঠিক সময় নির্ণয়)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 01 (৩/১২/২৪)</span>
+              <span class="filename-tag">photo_93_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ঘড়ি সংক্রান্ত নিয়মাবলি</h3>
+<p>[চিত্র: দুটি বৃত্তাকার চিত্র — প্রথমটিতে চারটি দিক (উপরে উত্তর, নিচে দক্ষিণ, ডানে পূর্ব, বামে পশ্চিম) এবং দ্বিতীয়টিতে ১ থেকে ১২ পর্যন্ত ঘড়ির ডায়াল দেখানো হয়েছে]</p>
+<div class="qa">
+  <p><strong>Q: একটি ঘড়ি প্রতিদিন ২০ মিনিট করে সময় হারায়। কতদিন পর ঘড়িটি সঠিক সময় দেবে?</strong></p>
+  <p>সমাধান: সময় = (১২ × ঘন্টা) / (যে সময় হারায়/এগিয়ে যায়) = (১২ × ৬০) / ২০ = <strong>৩৬ দিন</strong></p>
+</div>
+<div class="note">
+  <p><strong>N.B:</strong> ঘন্টা = ৬০ মিনিট। সময় মিনিটে থাকলে ৬০ নিতে হবে। আর সেকেন্ডে থাকলে ৩৬০০ নিতে হবে।</p>
+</div>
+<div class="qa">
+  <p><strong>Q: একটি ঘড়ি প্রতিদিন ১০ মিনিট করে সময় এগিয়ে যায়। কতদিন পর ঘড়িটি সঠিক সময় দিবে?</strong></p>
+  <p>সমাধান: সময় = (১২ × ঘন্টা) / (যে সময় হারায়/এগিয়ে যায়) = (১২ × ৬০) / ১০ = <strong>৭২ দিন</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q: একটি ঘড়ি প্রতিদিন ৩০ সেকেন্ড করে সময় হারায়। কতদিন পরে ঘড়িটি সঠিক সময় দিবে?</strong></p>
+  <p>সমাধান: সময় = (১২ × ৩৬০০) / (যে সময় হারায়/এগিয়ে যায়) = (১২ × ৩৬০০) / ৩০ = <strong>১৪৪০ দিন</strong></p>
+</div>
+<p><em>— সিনথিয়া জান্নাত</em></p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-10">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#10</span>
+              <h2 class="card-topic">ঘড়ি সংক্রান্ত নিয়মাবলি (ঘড়ির কাঁটার দিক নির্ণয়)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 02 (3/12/24)</span>
+              <span class="filename-tag">photo_94_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ঘড়ির কাঁটার দিক নির্ণয়</h3>
+<div class="qa">
+  <p><strong>Q: ঘড়িতে ৮.২০ বাজে। মিনিটের কাটাটি কোন দিকে আছে?</strong></p>
+  <p>উত্তর: <strong>দক্ষিণ-পূর্ব</strong></p>
+  <div class="note"><strong>N.B:</strong> যখন স্বাভাবিক দিক থাকে।</div>
+</div>
+<div class="qa">
+  <p><strong>Q: ঘড়িতে ৯.৫০ বাজে। মিনিটের কাটাটি কোন দিকে আছে?</strong></p>
+  <p>উত্তর: <strong>উত্তর-পশ্চিম।</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q: ঘড়িতে ৯.৩০ বাজে। মিনিটের কাটাটি পূর্ব দিকে থাকলে ঘন্টার কাটাটি কোন দিকে থাকবে?</strong></p>
+  <p>উত্তর: <strong>দক্ষিণ-পশ্চিম।</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q: ঘড়িতে ৯.৩০ বাজে। মিনিটের কাটাটি দক্ষিণ দিকে থাকলে ঘন্টার কাটা কোন দিকে থাকবে?</strong></p>
+  <p>উত্তর: <strong>দক্ষিণ-পূর্ব।</strong></p>
+</div>
+<p>[চিত্র: উপরের প্রশ্নগুলোর জন্য ৩টি ঘড়ির ডায়াল ও পরিবর্তিত দিক (উত্তর, দক্ষিণ, পূর্ব, পশ্চিম) দেখানো হয়েছে]</p>
+<h4>অতিরিক্ত অনুশীলন (চিত্র I–IV)</h4>
+<div class="qa">
+  <p><strong>Q (I): ঘড়িতে ৪.১৫ মিনিটের কাটাটি পূর্ব দিকে থাকলে ঘন্টার কাটা কোন দিকে থাকবে?</strong></p>
+  <p>উত্তর: <strong>উত্তর-পশ্চিম</strong> [চিত্র I: ৪:১৫ বাজা ঘড়ি]</p>
+</div>
+<div class="qa">
+  <p><strong>Q (II): ঘড়িতে ৪.০৫ বাজে। মিনিটের কাটাটি উত্তর-পূর্ব দিকে থাকলে ঘন্টার কাটা কোন দিকে থাকবে?</strong></p>
+  <p>উত্তর: <strong>দক্ষিণ-পশ্চিম</strong> [চিত্র II: ৪:০৫ বাজা ঘড়ি]</p>
+</div>
+<div class="qa">
+  <p><strong>Q (III): ঘড়িতে ৯.৪০ বাজে। মিনিটের কাটাটি উত্তর-পূর্ব দিকে থাকলে ঘন্টার কাটা কোন দিকে থাকবে?</strong></p>
+  <p>উত্তর: <strong>দক্ষিণ-পশ্চিম।</strong> [চিত্র III: ৯:৪০ বাজা ঘড়ি]</p>
+</div>
+<div class="qa">
+  <p><strong>Q (IV): উত্তর অভিমুখী একটি ঘড়িতে তার নিজের সময়ের অবস্থান ব্যতীত বা তা হতে দক্ষিণ-পশ্চিম অভিমুখের সাথে একটি কাটা কত ডিগ্রি কোণ ধারণ করে?</strong></p>
+  <p>উত্তর: <strong>১৮০° এর চেয়ে বেশি বা সোজাসুজি তখন অভাবে তাকিয়ে।</strong> [চিত্র IV: উত্তর-পূর্ব-দক্ষিণ-পশ্চিম চিহ্নিত ঘড়িতে ঘড়ির কাঁটার দিকে কোণের চাপ দেখানো হয়েছে]</p>
+</div>
+<p><em>— সিনথিয়া জান্নাত</em></p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-11">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#11</span>
+              <h2 class="card-topic">ঘড়ির কাটার মধ্যবর্তী কোণ নির্ণয়</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 03</span>
+              <span class="filename-tag">photo_95_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="qa">
+  <p><strong>Q: সকাল ১১ টা থেকে ১ টা পর্যন্ত মিনিটের কাটা ঘন্টার কাটাকে কতবার অতিক্রম করে?</strong></p>
+  <p>উত্তর: <strong>১ বার (১২টার সময়)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q: সাধারণ ঘড়ির মিনিটের কাটা ঘন্টার কাটা কত মিনিট পর ঘন্টার কাটাকে অতিক্রম করে?</strong></p>
+  <p>উত্তর: <strong>৬৫ মিনিট পর</strong></p>
+</div>
+<h3>ঘড়ির কাটার মধ্যবর্তী কোণ</h3>
+<div class="qa">
+  <p><strong>Q: ঘড়িতে ৪ টা বাজে। ঘন্টা ও মিনিটের কাটার মধ্যবর্তী কোণ কত?</strong></p>
+  <p>সূত্র: |(11 × M - 60 × H) / 2|</p>
+  <p>= |(11 × 0 - 60 × 4) / 2| = |-240 / 2| (লিখিত: |-2480/2| = 240)</p>
+  <p>∴ মধ্যবর্তী কোণ = 360 - 240 = <strong>120°</strong></p>
+  <p>[চিত্র: ৪টা বাজা ঘড়ির কাঁটা]</p>
+</div>
+<div class="note">
+  <p><strong>Note:</strong> ঘড়ির কাটার মধ্যবর্তী কোণ ১৮০° এর বেশি হলে ৩৬০° থেকে বিয়োগ করতে হয়।</p>
+</div>
+<div class="qa">
+  <p><strong>Q: ঘড়িতে ৪.৫৫ বাজে। ঘন্টা ও মিনিটের কাটার মধ্যবর্তী কোণ কত?</strong></p>
+  <p>=> |(11 × M - 60 × H) / 2|</p>
+  <p>= |(11 × 55 - 60 × 4) / 2|</p>
+  <p>= |(605 - 240) / 2|</p>
+  <p>= |365 / 2| = 182.5</p>
+  <p>∴ মধ্যবর্তী কোণ = 360 - 182.5 = <strong>177.5°</strong></p>
+  <p>এখানে, M = মিনিট, H = ঘন্টা। [চিত্র: ৪:৫৫ বাজা ঘড়ির কাঁটা]</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-12">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#12</span>
+              <h2 class="card-topic">ঘড়ির মধ্যবর্তী কোণ, Reflex Angle ও আয়নায় ঘড়ির সময়</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 04</span>
+              <span class="filename-tag">photo_96_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="qa">
+  <p><strong>Q: ঘড়িতে ৩.৩৫ বাজে। ঘন্টা ও মিনিটের কাটার মধ্যবর্তী কোণ কত?</strong></p>
+  <p>=> (11 × M - 60 × H) / 2</p>
+  <p>= (11 × 35 - 60 × 3) / 2 = (385 - 180) / 2 = 205 / 2 = <strong>102.5°</strong></p>
+  <p>Ans. 102.5° [চিত্র: ৩:৩৫ বাজা ঘড়ির কাঁটা]</p>
+</div>
+<div class="qa">
+  <p><strong>Q: The reflex angle between the hands of a clock at 10:25 is — ?</strong></p>
+  <p>=> (11 × M - 60 × H) / 2 = (11 × 25 - 60 × 10) / 2 = (275 - 600) / 2 = -325 / 2 = 162.5</p>
+  <p>∴ Reflex angle = 360 - 162.5 = <strong>197.5° (Ans)</strong></p>
+  <div class="note"><strong>Reflex Angle</strong> → প্রবৃদ্ধ কোণ</div>
+</div>
+<h3>ঘড়ির সময় (আয়নায় প্রতিবিম্ব)</h3>
+<div class="qa">
+  <p><strong>Q: আয়নায় দেখা গেল ঘড়িতে ৯.৩০ বাজে। প্রকৃত সময় কত?</strong></p>
+  <p>প্রকৃত সময় = 11.60 - 9.30 = <strong>2.30 (Ans.)</strong></p>
+  <div class="note">
+    <p><strong>স্মরণীয়:</strong> 12.00 = 11.60</p>
+    <p><strong>* অপশন ব্যবহার:</strong> (ক) 2.30 (খ) 3.30 (গ) 1.30 (ঘ) 4.30 — 9.30 এর সাথে যেটা যোগ করলে ১২ হবে সেটা উত্তর। 9.30 + 2.30 = 12.00 ✓</p>
+  </div>
+</div>
+<p><em>— সিনথিয়া জান্নাত</em></p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-13">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#13</span>
+              <h2 class="card-topic">আয়নায় ঘড়ির সময় (বিশেষ ব্যাখ্যা)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 05 (1)</span>
+              <span class="filename-tag">photo_97_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বিশেষ ব্যাখ্যা</h3>
+<div class="qa">
+  <p><strong>Q: আয়নায় ৩.৩০ বাজে। বাস্তবে সময় কতটা?</strong></p>
+  <p>[চিত্র: দুটি ঘড়ির মুখ — বাম পাশে বাস্তব ঘড়িতে ৩:৩০ বাজে এবং ডান পাশে আয়নায় উল্টো সংখ্যাসহ ৩:৩০ এর প্রতিবিম্ব দেখানো হয়েছে]</p>
+  <ul>
+    <li><strong>বাস্তবে:</strong> ঘড়ির কাটা → ডান থেকে বাম দিকে যায়।</li>
+    <li><strong>আয়নায়:</strong> ঘড়ির কাটা বাম থেকে ডান দিকে যায়। আয়নায় ডান-বাম কেমন দেখায় এর নিয়ম হচ্ছে ঘড়ির কাঁটা বা ইংরেজি অক্ষর কোনো সাদা কাগজে লিখে উল্টো দিক থেকে দেখলে আয়নার প্রতিবিম্ব বোঝা যায়।</li>
+  </ul>
+  <p><strong>আসল নিয়ম:</strong> 11.60 - 3.30 = <strong>8.30</strong></p>
+  <p><strong>অথবা:</strong> 12.00 এ মিলাতে হবে। তখন — 3.30 + 8.30 = 12.00।</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-14">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#14</span>
+              <h2 class="card-topic">আয়নায় ঘড়ির সময় ও কাঁটাগুলোর সমাপতিত (Coincide) হওয়া</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 05 (2)</span>
+              <span class="filename-tag">photo_98_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="qa">
+  <p><strong>Q: আয়নায় দেখা গেল ঘড়িতে 4.35 বাজে। প্রকৃত সময় কত?</strong></p>
+  <p>প্রকৃত সময় = 11.60 - 4.35 = <strong>7.25 (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q: আয়নায় দেখা গেল ঘড়িতে 12.17 বাজে। প্রকৃত সময় কত?</strong></p>
+  <p>প্রকৃত সময় = 11.60 - 0.17 = <strong>11.43 (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q: A clock seen through the mirror reads a quarter to nine. What is actual time?</strong></p>
+  <p>প্রকৃত সময় = 11.60 - 8.45 = <strong>3.15 (Ans)</strong></p>
+  <div class="note">
+    <p>A quarter to nine = 8.45<br>A quarter past/after nine = 9.15</p>
+  </div>
+</div>
+<div class="qa">
+  <p><strong>Q: How many times of hour hand and minute hand are coincide in ----?</strong></p>
+  <ol type="i">
+    <li>1 ঘন্টায় ১ বার</li>
+    <li>6 ঘন্টায় 6 বার</li>
+    <li>12 ঘন্টায় 11 বার</li>
+    <li>24 ঘন্টায় / ১ দিনে 22 বার</li>
+  </ol>
+  <p>[চিত্র: ঘড়ির কাঁটা ১২টার ওপর সমাপতিত অবস্থায়]</p>
+</div>
+<div class="note">
+  <p><strong>Coincide ⇒</strong> Straight in same direction / সমাপতিত হয় / একত্রে হয় / একটা আরেকটার ওপর ওঠে</p>
+</div>
+<p><em>— সিনথিয়া জান্নাত</em></p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-15">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#15</span>
+              <h2 class="card-topic">ঘড়ির কাঁটার বিপরীতমুখী, সরলরেখা ও সমকোণ অবস্থান</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 06</span>
+              <span class="filename-tag">photo_99_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="qa">
+  <p><strong>Q: How many times of hour hand and minute hand are straight in opposite direction in ---?</strong></p>
+  <ol type="i">
+    <li>1 ঘন্টায় ১ বার</li>
+    <li>6 ঘন্টায় 6 বার</li>
+    <li>12 ঘন্টায় 11 বার</li>
+    <li>24 ঘন্টায় / ১ দিনে 22 বার</li>
+  </ol>
+  <p>• বিপরীত দিকে [চিত্র: ঘড়ির কাঁটা ১২ ও ৬ বরাবর বিপরীতমুখী অবস্থায়]</p>
+</div>
+<div class="qa">
+  <p><strong>Q: How many times of hour hand and minute hand are straight direction in ---?</strong></p>
+  <ol type="i">
+    <li>1 ঘন্টায় 2 বার</li>
+    <li>6 ঘন্টায় 12 বার</li>
+    <li>12 ঘন্টায় 22 বার</li>
+    <li>24 ঘন্টায় / ১ দিনে 44 বার</li>
+  </ol>
+  <p>[চিত্র: দুটি ঘড়ি — 'Coincide' (একই দিকে) ও 'Opposite' (বিপরীত দিকে)]</p>
+  <div class="note">
+    <p><strong>N.B:</strong> Coincide + Opposite যোগ করলে সোজা অবস্থান (Straight direction) বোঝায়।</p>
+  </div>
+</div>
+<div class="qa">
+  <p><strong>Q: How many times of hour hand and minute hand meet at right angle in ----?</strong></p>
+  <ol type="i">
+    <li>1 ঘন্টায় 2 বার</li>
+    <li>6 ঘন্টায় 12 বার</li>
+    <li>12 ঘন্টায় 22 বার</li>
+    <li>24 ঘন্টায় / ১ দিনে 44 বার</li>
+  </ol>
+  <div class="note">
+    <p><strong>Right angle</strong> = সমকোণ 90°</p>
+  </div>
+</div>
+<p><em>— সিনথিয়া জান্নাত</em></p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-16">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#16</span>
+              <h2 class="card-topic">বছর, মাস, দিন (Calendar Problems)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">০৭</span>
+              <span class="filename-tag">photo_1_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বছর, মাস, দিন</h3>
+<div class="note"><strong>Note:</strong> বছরের শুরুর দিন যে বার হয় বছরের শেষ দিন একই বার হয় (লিপ ইয়ার ছাড়া)। যেমন— ২৪ সালের ১ জানুয়ারি সোমবার হলে, ৩১ ডিসেম্বর ও সোমবার হবে।</div>
+<div class="qa">
+  <p><strong>Q. ২০০৭ সালের ২৮ আগস্ট শুক্রবার হলে ঐ বছর ১ অক্টোবর কী বার হবে?</strong></p>
+  <p>আগস্ট = ৩<br>সেপ্টেম্বর = ৩০<br>অক্টোবর = ১<br>মোট = ৩ + ৩০ + ১ = ৩৪</p>
+  <p>৩৪ ÷ ৭ ⇒ ভাগফল = ৪, ভাগশেষ = ৬</p>
+  <p>∴ শুক্রবার + ৬ দিন = <strong>বৃহস্পতিবার (উত্তর)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. ২০১৫ সালের ২২ নভেম্বর বুধবার হলে ২০১৬ সালের ১ মার্চ কী বার হবে?</strong></p>
+  <p>নভেম্বর = ৮<br>ডিসেম্বর = ৩১<br>জানুয়ারি = ৩১<br>ফেব্রুয়ারি = ২৮<br>মার্চ = ১<br>মোট = ৯৯</p>
+  <p>৯৯ ÷ ৭ ⇒ ভাগফল = ১৪, ভাগশেষ = ১</p>
+  <p>∴ বুধবার + ১ দিন = <strong>বৃহস্পতিবার (উত্তর)</strong></p>
+  <div class="note"><strong>Note:</strong> যে বছর তার পরের সালের ফেব্রুয়ারি ধরে।</div>
+</div>
+<div class="qa">
+  <p><strong>Q. ২০১২ সালের ফেব্রুয়ারি মাসের ২৬ তারিখ সোমবার হলে ঐ বছরের ২৫ এপ্রিল কী বার হবে?</strong></p>
+  <p>জানুয়ারি = ৮<br>ফেব্রুয়ারি = ২৯<br>মার্চ = ৩১<br>এপ্রিল = ২৫<br>মোট = ৯৩</p>
+  <p>৯৩ ÷ ৭ ⇒ ভাগফল = ১৩, ভাগশেষ = ২</p>
+  <p>∴ সোমবার + ২ দিন = <strong>বুধবার (উত্তর)</strong></p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-17">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#17</span>
+              <h2 class="card-topic">বছর, মাস, দিন (Multi-Year Calendar Problems)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">০৮</span>
+              <span class="filename-tag">photo_2_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বছর, মাস, দিন (একাধিক বছরের তারিখ নির্ণয়)</h3>
+<div class="qa">
+  <p><strong>Q. ২০১৫ সালের ২১ অক্টোবর শনিবার হলে ২০১৬ সালের ২১ নভেম্বর কী বার?</strong></p>
+  <p>২০১৫ সালের ২১ অক্টোবর = শনিবার<br>২০১৬ সালের ২০ অক্টোবর = শনিবার</p>
+  <div class="note"><strong>N.B:</strong> ১ বছর গেলে বছর যখন চেঞ্জ করার সময় ১ দিন, আর লিপ-ইয়ার হলে ২ দিন (কমে)।</div>
+  <p>অক্টোবর = ১১<br>নভেম্বর = ২১<br>মোট = ৩২; ৩২ ÷ ৭ ⇒ ভাগফল = ৪, ভাগশেষ = ৪</p>
+  <p>∴ শনিবার + ৪ দিন = <strong>বুধবার (উত্তর)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. ২০০৯ সালের ২৮ আগস্ট শুক্রবার হলে ২০১০ সালের ৩০ সেপ্টেম্বর কী বার?</strong></p>
+  <p>২০০৯ সালের ২৮ আগস্ট = শুক্রবার<br>২০১০ সালের ২৭ আগস্ট = শুক্রবার</p>
+  <p>আগস্ট বাকি = ৪ দিন<br>সেপ্টেম্বর = ৩০ দিন<br>মোট = ৩৪; ৩৪ ÷ ৭ ⇒ ভাগফল = ৪, ভাগশেষ = ৬</p>
+  <p>∴ শুক্রবার + ৬ দিন = <strong>বৃহস্পতিবার (উত্তর)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. ২০১১ সালের ১০ মে মঙ্গলবার হলে ২০১২ সালের ২৫ জুলাই কী বার?</strong></p>
+  <p>২০১১ সালের ১০ মে = মঙ্গলবার<br>২০১২ সালের ৮ মে = মঙ্গলবার</p>
+  <p>মে = ২৩<br>জুন = ৩০<br>জুলাই = ২৫<br>মোট = ৭৮; ৭৮ ÷ ৭ ⇒ ভাগফল = ১১, ভাগশেষ = ১</p>
+  <p>∴ মঙ্গলবার + ১ দিন = <strong>বুধবার (উত্তর)</strong></p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-18">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#18</span>
+              <h2 class="card-topic">বছর, মাস, দিন (Calendar &amp; Age/Birthday Problems)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">০৯</span>
+              <span class="filename-tag">photo_3_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বছর, মাস, দিন (তারিখ: ৪/১২/২৪)</h3>
+<div class="qa">
+  <p><strong>Q. ২০০৯ সালের ২৮ আগস্ট শুক্রবার হলে ২০১৫ সালের ৩০ সেপ্টেম্বর কী বার হবে?</strong></p>
+  <ul>
+    <li>২০০৯ সালের ২৮ আগস্ট = শুক্রবার</li>
+    <li>২০১০ সালের ২৭ আগস্ট = শুক্রবার</li>
+    <li>২০১১ সালের ২৬ আগস্ট = শুক্রবার</li>
+    <li>২০১২ সালের ২৪ আগস্ট = শুক্রবার</li>
+    <li>২০১৩ সালের ২৩ আগস্ট = শুক্রবার</li>
+    <li>২০১৪ সালের ২২ আগস্ট = শুক্রবার</li>
+    <li>২০১৫ সালের ২১ আগস্ট = শুক্রবার</li>
+  </ul>
+  <div class="note">প্রতি বছর ১ দিন করে কমবে, Leap year হলে ২ দিন কমবে।</div>
+  <p>আগস্ট বাকি = ১০ দিন<br>সেপ্টেম্বর = ৩০ দিন<br>মোট = ৪০; ৪০ ÷ ৭ ⇒ ভাগফল = ৫, ভাগশেষ = ৫</p>
+  <p>∴ শুক্রবার + ৫ দিন = <strong>বুধবার (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. আজ যদি রবিবার হয় তবে ৩৫৩ দিন পরে কী বার হবে?</strong></p>
+  <p>৩৫৩ ÷ ৭ ⇒ ভাগফল = ৫০, ভাগশেষ = ৩</p>
+  <p>∴ রবিবার + ৩ দিন = <strong>বুধবার (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. একটি শিশু মাসের ১ তারিখে জন্মগ্রহণ করলে ১৫ তারিখে তার বয়স কত?</strong></p>
+  <p>১৫ − ১ = ১৪<br>১৪ + ১ = <strong>১৫ দিন (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. ১৫ দিন আগে লিপি বলেছিল তার জন্মদিন আগামীকাল। আজ যদি মাসের ৩০ তারিখ হয় তবে লিপির জন্মদিন কবে?</strong></p>
+  <p>৩০ − ১৫ = ১৫<br>১৫ + ১ = ১৬</p>
+  <p>∴ <strong>১৬ তারিখে (Ans)</strong></p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-19">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#19</span>
+              <h2 class="card-topic">বছর, মাস, দিন (আগামীকাল, গতকল্য ও তারিখ নির্ণয়)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">10</span>
+              <span class="filename-tag">photo_4_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>আগামীকাল, গতকল্য ও তারিখ নির্ণয়</h3>
+<div class="note"><strong>N.B:</strong> আগামী দিন বললে ১ দিন যোগ হয়। আগামী পরশু বললে ২ দিন যোগ, আগামী পরশুর পরের দিন ৩ দিন যোগ। তদ্রূপ গতকাল ১ দিন বিয়োগ, গত পরশু বললে ২ দিন বিয়োগ, গত পরশুর আগের দিন ৩ দিন বিয়োগ।</div>
+<div class="note"><strong>N.B:</strong> মাসের ১ তারিখে যে বার, ৮, ১৫, ২২, ২৯ তারিখে একই বার হয়।</div>
+<div class="qa">
+  <p><strong>Q. ১৭ দিন পূর্বে নাঈম বলেছিল আমার জন্মদিন আগামী পরশুর পরের দিন। আজ যদি মাসের ২৩ তারিখ হয় তবে তার জন্মদিন কত তারিখে?</strong></p>
+  <p>২৩ − ১৭ = ৬<br>৬ + ৩ = ৯</p>
+  <p>∴ <strong>৯ তারিখে (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. এক ব্যক্তি ৪২ খ্রিস্টপূর্বে জন্মগ্রহণ করে এবং ৫০ খ্রিস্টাব্দে মৃত্যুবরণ করেন। মৃত্যুকালে তার বয়স কত?</strong></p>
+  <p>৪২ + ৫০ = <strong>৯২ বছর (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. আগামী পরশুর পরদিন রবিবার হলে গতকালের আগের দিন কী বার?</strong></p>
+  <table>
+    <thead><tr><th>আগের দিন</th><th>গতকাল</th><th>আজ</th><th>আগামী</th><th>আগামী পরশু</th><th>পরের দিন</th></tr></thead>
+    <tbody><tr><td>মঙ্গলবার</td><td>বুধবার</td><td>বৃহস্পতি</td><td>শুক্রবার</td><td>শনিবার</td><td>রবিবার</td></tr></tbody>
+  </table>
+  <p><strong>উত্তর: মঙ্গলবার।</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. আগামী পরশুর পরের দিন যদি রোববার হতে ৩ দিন পূর্বে হয়, তবে গতকাল কী বার?</strong></p>
+  <table>
+    <thead><tr><th>গতকাল</th><th>আজ</th><th>আগামী</th><th>পরশু</th><th>পরের দিন</th><th>৪</th><th>৩</th><th>২</th><th>১</th></tr></thead>
+    <tbody><tr><td>রবি</td><td>সোম</td><td>মঙ্গল</td><td>বুধ</td><td>বৃহস্পতি</td><td>শুক্র</td><td>শনি</td><td>রবি</td><td>সোম</td></tr></tbody>
+  </table>
+  <p><strong>উত্তর: রবিবার।</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. ২০০৭ সালের ফেব্রুয়ারি মাসের ১ তারিখ সোমবার হলে ঐ মাসের শেষ তারিখ কী বার?</strong></p>
+  <p>২৮ ÷ ৭ ⇒ ভাগফল = ৪, ভাগশেষ = ০</p>
+  <p>∴ সোমবার + ০ দিন = <strong>সোমবার।</strong> (উত্তর: সোমবার।)</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-20">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#20</span>
+              <h2 class="card-topic">দিন বের করার নিয়ম (Day of the Week Formula)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">11</span>
+              <span class="filename-tag">photo_5_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>দিন বের করার নিয়ম</h3>
+<div class="note"><strong>সূত্র:</strong> <code>(A + B + C) ÷ ৭</code></div>
+<ul>
+  <li><strong>A</strong> = সালের শেষ ২ ডিজিট (যেমন: ১৯৭১ সালের জন্য ৭১)</li>
+  <li><strong>B</strong> = ঐ সাল পর্যন্ত ঐ শতাব্দীতে Leap Year-এর সংখ্যা (যেমন: ১৯০০–১৯৭১ পর্যন্ত = ১৭)</li>
+  <li><strong>C</strong> = ঐদিন পর্যন্ত সর্বমোট দিন (যেমন: ৩১ [J] + ২৮ [F] + ২৬ [M]; Leap Year হলে F = ২৯ দিন)</li>
+</ul>
+<h4>বার নির্ণয়ের কোড (ভাগশেষ অনুযায়ী)</h4>
+<ul>
+  <li>০ — শুক্রবার</li>
+  <li>১ — শনিবার</li>
+  <li>২ — রবিবার</li>
+  <li>৩ — সোমবার</li>
+  <li>৪ — মঙ্গলবার</li>
+  <li>৫ — বুধবার</li>
+  <li>৬ — বৃহস্পতিবার</li>
+</ul>
+<div class="note"><strong>গুরুত্বপূর্ণ নোট:</strong> ২০১৬ সাল বললে B হবে— ২০০০, ২০০৪, ২০০৮, ২০১২ = ৪টি (২০১৬ লিপ ইয়ার)।</div>
+<div class="note"><strong>ব্যতিক্রম:</strong> যে সাল দেওয়া থাকবে তার লাস্টের দুই সংখ্যা ৪ দিয়ে ভাগ করলে ভাগশেষ ০ হলে তা ব্যতিক্রম। যেমন: ২০২৪ — ২৪ ÷ ৪ = ৬ (ব্যতিক্রম)।</div>
+<div class="qa">
+  <p><strong>Q. ১৯৭১ সালের ২৬ মার্চ কী বার ছিল?</strong></p>
+  <p>= A + B + C<br>= ৭১ + ১৭ + ৩১ + ২৮ + ২৬ = ১৭৪ (গণনা অনুযায়ী)</p>
+  <p>(A + B + C) ÷ ৭ = ১৭৪ ÷ ৭ ⇒ ভাগফল = ২৪, ভাগশেষ = ৬ (বৃহস্পতিবার)</p>
+  <p>= বৃহস্পতিবার + ১ = <strong>শুক্রবার</strong> (১৯০০–১৯৯৯ শতাব্দীর জন্য)</p>
+</div>
+<div class="note">
+  <h4>শতাব্দী অনুযায়ী নিয়ম:</h4>
+  <ol>
+    <li><strong>২০০০ সালের মার্চ – ২০৯৯ সাল পর্যন্ত:</strong> Answer যে বার, কোড অনুযায়ী সরাসরি সেটিই হবে।</li>
+    <li><strong>১৯০০ – ১৯৯৯ সাল পর্যন্ত:</strong> কোডের সাথে ১ যোগ করতে হবে, অর্থাৎ ভাগশেষ ৬ (বৃহস্পতিবার) হলে তার পরের বার শুক্রবার হবে। (৬ → বৃহস্পতিবার, কিন্তু Answer হবে শুক্রবার।)</li>
+  </ol>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-21">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#21</span>
+              <h2 class="card-topic">আয়না / দর্পণ / পানি (Mirror &amp; Water Image)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">12</span>
+              <span class="filename-tag">photo_6_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>আয়না / দর্পণ / পানি</h3>
+<div class="note"><strong>Note:</strong> ১১টি বর্ণ আছে যা বাস্তবে এবং দর্পণে দেখতে একরকম → <strong>(MOTU VAI WHY X)</strong> — এই কয়টি করলেই হবে।</div>
+<ul>
+  <li><strong>দর্পণে শব্দের পরিবর্তন ঘটেনা:</strong> OTTO, MOM, MUM, WOW</li>
+  <li><strong>শব্দের পরিবর্তে কোনো কিছু বদলে (উল্লম্বভাবে) পরিবর্তন ঘটেনা:</strong> OATH, HIMU, OX, VAT, TATTOO, VOXY, TATA etc.</li>
+</ul>
+<div class="qa">
+  <p><strong>Q. Relation-এর চিত্র দর্পণে কেমন হবে? ***</strong></p>
+  <p>⇒ <strong>NOITALER</strong> (বর্ণগুলো ডান-বাম উল্টানো অবস্থায়: ИOITA⅃ƎЯ)</p>
+</div>
+<div class="note"><strong>Note:</strong> ৯টি বর্ণ আছে যা বাস্তবে এবং পানিতে একই রকম → <strong>(HI BCDE OK X) / [HI OX BCDEK]</strong><br>মনে রাখার কৌশল: হাই অক্স খাওয়া (খাবার) বিড়াল হয়েছে BCDEK।</div>
+<div class="qa">
+  <p><strong>Q. নিচের কোনটি ভিন্ন?</strong></p>
+  <p>(i) A &nbsp; (ii) E &nbsp; (iii) N &nbsp; (iv) Z</p>
+  <p><strong>Ans: (ii) E</strong> — কারণ ৪টি দাগ দিয়ে গঠিত। বাকিগুলোতে ৩টি দাগ!</p>
+</div>
+<h4>টেকনিক</h4>
+<p>[চিত্র: একটি আয়তাকার Page বক্সের নিচে RELATION লেখা, যেখান থেকে দুটি তীর চিহ্ন বের হয়েছে—একটি 'আয়না (ডান-বাম ঘুরবে)' এবং অপরটি 'পানি (উপর-নিচ)']</p>
+<div class="note">
+  <ul>
+    <li><strong>বাস্তবে ও দর্পণে ১১টি বর্ণ একই:</strong> (MOTU VAI WHY X) → মটু ভাই হোয়াই এক্স</li>
+    <li><strong>বাস্তবে ও পানিতে ৯টি বর্ণ কিংবা অক্ষর একই:</strong> (HI OX BCDEK) → হাই-OX খাওয়া (খাবার) বিড়াল হয়েছে BCDEK।</li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-22">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#22</span>
+              <h2 class="card-topic">রক্তের সম্পর্ক (Blood Relations)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">13</span>
+              <span class="filename-tag">photo_7_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>রক্তের সম্পর্ক</h3>
+<div class="qa">
+  <p><strong>Q. ক এর বাবা খ। খ-এর কন্যা ক না। তাহলে, ক ও খ এর মাঝে সম্পর্ক কি?</strong></p>
+  <p>⇒ বাবা — কন্যা না<br>খ — ক<br>আব্বা — সিনথিয়া<br>ক → <strong>ছেলে (Ans)</strong></p>
+</div>
+<div class="note"><strong>Note:</strong> একটা শব্দের ওপর ক, খ / A, B দিয়েও আসতে পারে। প্রথমে দেখবো প্রশ্নের উত্তরে নিজের পরিবারে মিলিয়ে দেখতে। তাহলে বুঝতে সুবিধা।</div>
+<div class="qa">
+  <p><strong>Q. ক, খ এর পুত্র। খ, গ পরস্পর ভাই। ঘ হচ্ছে গ এর মা। চ, ঘ এর কন্যা। চ, ক এর কি হয়?</strong></p>
+  <p>[চিত্র: ক, খ, গ, ঘ, চ-এর মধ্যে সম্পর্ক দেখানো তীরচিহ্নিত ডায়াগ্রাম—খ ও গ ভাই, ঘ হলো গ-এর মা, চ হলো ঘ-এর কন্যা]</p>
+  <p>এখানে, ক, খ, গ, ঘ, চ = ৫ জন</p>
+  <ul>
+    <li>ক = নিজে ধরলে → বাবার বোন</li>
+    <li>খ = বাবা</li>
+    <li>গ = চাচা</li>
+    <li>ঘ = দাদি</li>
+    <li>চ = ফুফু (ফুফি)</li>
+  </ul>
+  <p>∴ <strong>চ, ক-এর ফুফি হয়।</strong></p>
+</div>
+<div class="note"><strong>টিপস:</strong> নিজের পরিবার নিয়ে ভাবলে অংক বেশি সহজ লাগবে।</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-23">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#23</span>
+              <h2 class="card-topic">Coding-Decoding</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">14</span>
+              <span class="filename-tag">photo_8_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Coding-Decoding</h3>
+<div class="qa">
+  <p><strong>Q. ABC = ZYX, GIVV = কত?</strong></p>
+  <p>প্রথম দিক থেকে A(1), B(2), C(3) = শেষের দিক থেকে Z(1), Y(2), X(3) [বিপরীত বর্ণ]</p>
+  <table>
+    <tbody>
+      <tr><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td></tr>
+      <tr><td>Z</td><td>Y</td><td>X</td><td>W</td><td>V</td><td>U</td><td>T</td><td>S</td><td>R</td><td>Q</td><td>P</td><td>O</td><td>N</td></tr>
+    </tbody>
+  </table>
+  <p>∴ <strong>GIVV = TREE</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. TRAIN = 98726, TARIN = কত?</strong></p>
+  <p>TRAIN (9 8 7 2 6) → TARIN = <strong>97826</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. GAMES = HBNFT, SPORTS = ?</strong></p>
+  <p>প্রতিটি বর্ণের সাথে +1 যোগ হয়ে পরের বর্ণ:<br>GAMES (+1) → HBNFT<br>SPORTS (+1) → <strong>TQPSUT</strong></p>
+</div>
+<div class="note"><strong>Note:</strong> প্রশ্নে যেমন যে নিয়ম থাকবে উত্তর সে একই নিয়মে বের করতে হবে।</div>
+<div class="qa">
+  <p><strong>Q. GAMES = HCNGT, SPORTS = ?</strong></p>
+  <p>নিয়ম: পর্যায়ক্রমে +1, +2 যোগ [১ ও ২ সমান্তরাল +১, +২]:<br>GAMES (+1, +2, +1, +2, +1) → HCNGT<br>SPORTS (+1, +2, +1, +2, +1, +2) → <strong>TRPTUU</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. KITE = 45, WILD = ?</strong></p>
+  <p>K(11) + I(9) + T(20) + E(5) = 45<br>W(23) + I(9) + L(12) + D(4) = <strong>48</strong></p>
+</div>
+<div class="note">বিগত সালের প্রশ্ন খুব Practice করতে হবে, তাহলে সহজেই বুঝতে পারবে।</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-24">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#24</span>
+              <h2 class="card-topic">দিক, দূরত্ব (Direction &amp; Distance)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">15</span>
+              <span class="filename-tag">photo_9_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>দিক, দূরত্ব</h3>
+<div class="note"><strong>Note:</strong> আগে ভালো করে প্রশ্ন পড়তে হবে উত্তর দিক ধরে, নিচে তা ছক এর অনুযায়ী হবে।</div>
+<p>[চিত্র: দিক নির্দেশক কম্পাস (উত্তর, দক্ষিণ, পূর্ব, পশ্চিম)]</p>
+<div class="qa">
+  <p><strong>Q. একটি লোক প্রথমে ৪ মাইল দক্ষিণে গেল, তারপর ১২ মাইল পূর্বে, তারপর ১২ মাইল উত্তরে। দূরত্ব কত = ?</strong></p>
+  <p>[চিত্র: সমকোণী ত্রিভুজ ABC, যেখানে AD = ১২, DC = ৪ (মোট AC = ১৬), BC = ১২, DE = ১২, BE = ৪, এবং অতিভুজ AB = ?]</p>
+  <div class="note"><strong>Note:</strong> বাহুদ্বয়ের যোগফল সমকোণী ত্রিভুজ হয়। পিথাগোরাসের সূত্রের প্রয়োগ করে বের করতে হবে।</div>
+  <p>আমরা জানি,<br>
+  AB² = AC² + BC²<br>
+  বা, AB² = (AD + CD)² + BC²<br>
+  বা, AB² = (১২ + ৪)² + ১২²<br>
+  বা, AB² = ১৬² + ১২²<br>
+  বা, AB² = ২৫৬ + ১৪৪<br>
+  বা, AB² = ৪০০<br>
+  বা, AB = √৪০০<br>
+  ∴ AB = ২০ মাইল।<br>
+  ∴ <strong>দূরত্ব = ২০ মাইল।</strong></p>
+</div>
+<div class="note">নিজের খাতার উত্তর উপরদিকে ধরতে হবে।</div>
+<div class="qa">
+  <p><strong>Q. ২ কিমি পূর্বে, তার পিছে ঘুরে তারপর ২ কিমি বামপাশে ও উত্তরে গেলেন। লোকটি এখন কোন দিকে?</strong></p>
+  <p>[চিত্র: দিক নির্দেশক কম্পাস (উ, দ, প, পূ) এবং চলার পথের রেখাচিত্র—শুরু থেকে পূর্ব, তারপর উত্তর, তারপর বামে পশ্চিম]</p>
+  <p>∴ <strong>লোকটি পশ্চিম দিকে যাবে।</strong></p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-25">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#25</span>
+              <h2 class="card-topic">Counting Figures (Triangle) — ত্রিভুজ নির্ণয়</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">16</span>
+              <span class="filename-tag">photo_10_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Counting Figures (Triangle) — [ত্রিভুজ নির্ণয়]</h3>
+<p><strong>Q. কয়টি ত্রিভুজ আছে?</strong></p>
+<h4>১. একটি শীর্ষবিন্দু থেকে বিপরীত বাহুতে রেখা</h4>
+<ul>
+  <li>[চিত্র: ২টি অংশে বিভক্ত ত্রিভুজ (1, 2)] → 1 + 2 = <strong>3</strong></li>
+  <li>[চিত্র: ৫টি অংশে বিভক্ত ত্রিভুজ (1, 2, 3, 4, 5)] → 1 + 2 + 3 + 4 + 5 = <strong>15</strong></li>
+  <li>[চিত্র: ৬টি অংশে বিভক্ত ত্রিভুজ (1, 2, 3, 4, 5, 6)] → 1 + 2 + 3 + 4 + 5 + 6 = <strong>21</strong></li>
+</ul>
+<div class="note"><strong>Note:</strong> ত্রিভুজের ১টি শীর্ষবিন্দু দিয়ে যখন একাধিক রেখা বিপরীত বাহুকে স্পর্শ করলে ক্ষেত্রের নাম্বার বসিয়ে যোগ করতে হয়।</div>
+<h4>২. উল্লম্ব ও অনুভূমিক (সমান্তরাল) রেখা</h4>
+<ul>
+  <li>[চিত্র: ২টি উল্লম্ব অংশ (1, 2) এবং ৩টি অনুভূমিক স্তর (1, 2, 3)] → 3 × 3 = <strong>9</strong></li>
+  <li>[চিত্র: ৫টি উল্লম্ব অংশ (1–5) এবং ৩টি অনুভূমিক স্তর (1, 2, 3)] → 15 × 3 = <strong>45</strong></li>
+  <li>[চিত্র: ৬টি উল্লম্ব অংশ (1–6) এবং ৪টি অনুভূমিক স্তর (1, 2, 3, 4)] → 21 × 4 = <strong>84</strong></li>
+</ul>
+<div class="note"><strong>Note:</strong> যোগফলকে সমান্তরাল রেখার ও ভূমির সংখ্যা দ্বারা গুণ করতে হয়।</div>
+<h4>৩. ভিন্ন ভিন্ন শীর্ষবিন্দু থেকে রেখা</h4>
+<ul>
+  <li>[চিত্র: ২টি শীর্ষবিন্দু থেকে ১টি করে রেখা টানা ত্রিভুজ (1, 2, 3, 4)] → 2 (2 × 2) = <strong>8</strong></li>
+  <li>[চিত্র: ২টি শীর্ষবিন্দু থেকে রেখা টানা ত্রিভুজ (32th BCS)] → 2 (2 × 2) = <strong>8</strong></li>
+  <li>[চিত্র: ৩টি শীর্ষবিন্দু থেকে মধ্যমা টানা ত্রিভুজ] → 2 (2 × 2 × 2) = <strong>16</strong></li>
+  <li>[চিত্র: সাধারণ ১টি ত্রিভুজ] → <strong>1</strong></li>
+</ul>
+<div class="note"><strong>Note:</strong> ভিন্ন ভিন্ন শীর্ষবিন্দু দিয়ে একাধিক রেখা বিপরীত বাহুকে স্পর্শ করলে মোটামুটি বিপরীত বাহুর সংখ্যায় / রেখার জন্য ২ করে গুণ হয়। এবং অংক ১ম ত্রিভুজ ২ হতে হবে। উদাহরণ হলো: (২, ৪) (১২, ১৬) (১, ৩)...</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-26">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#26</span>
+              <h2 class="card-topic">Counting Figures (Triangle) — অর্ধেক রেখা, উল্টো ত্রিভুজ ও ত্রিভুজ গ্রিড</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">১৭</span>
+              <span class="filename-tag">photo_11_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ত্রিভুজ নির্ণয় (অর্ধেক রেখা, উল্টো ত্রিভুজ ও ত্রিভুজ গ্রিড)</h3>
+<h4>১. অর্ধেক রেখাযুক্ত ত্রিভুজ</h4>
+<ul>
+  <li>[চিত্র: ২টি শীর্ষ থেকে রেখা ও অর্ধেক রেখাযুক্ত ত্রিভুজ] → 2×2 + 2 + 2 = <strong>8</strong></li>
+  <li>[চিত্র: ২টি শীর্ষ থেকে পূর্ণ রেখা ও অতিরিক্ত অর্ধেক রেখাযুক্ত ত্রিভুজ] → 2(2×2) + 2 = <strong>10</strong></li>
+</ul>
+<div class="note"><strong>Note:</strong> প্রতিটি অর্ধেক রেখার জন্য ২ করে যোগ হয়।</div>
+<h4>২. ত্রিভুজের ভেতর উল্টো ত্রিভুজ</h4>
+<ul>
+  <li>[চিত্র: ১টি বড় ত্রিভুজের ভেতর ১টি উল্টো ত্রিভুজ (1, 2, 3, 4)] ⇒ <strong>5</strong></li>
+  <li>[চিত্র: ভেতরে ২টি স্তরে উল্টো ত্রিভুজ] ⇒ 5 + 4 = <strong>9</strong></li>
+  <li>[চিত্র: ভেতরে ৩টি স্তরে উল্টো ত্রিভুজ] ⇒ 5 + 4 + 4 = <strong>13</strong></li>
+  <li>[চিত্র: ভেতরে ৩টি উল্টো ত্রিভুজ ও উপরের কোণে ১টি উল্টো ত্রিভুজ] ⇒ 5 + 4 + 4 + 4 = <strong>17</strong></li>
+  <li>[চিত্র: বড় ত্রিভুজের ভেতর ১টি উল্টো ত্রিভুজ ও ৩ কোণে আরও ৩টি উল্টো ত্রিভুজ] ⇒ 5 + 4 + 4 + 4 = <strong>17</strong></li>
+</ul>
+<div class="note"><strong>Note:</strong> একটি ত্রিভুজের মধ্যে আরেকটি ত্রিভুজ থাকলে মোট ত্রিভুজ হয় ৫টি। [N.B — এরপর প্রতিটি ত্রিভুজের জন্য ৪টি করে যোগ হয়।]</div>
+<h4>৩. ছোট ত্রিভুজ দ্বারা পূর্ণ ত্রিভুজ গ্রিড</h4>
+<ul>
+  <li>[চিত্র: ৪ স্তরের ত্রিভুজাকার গ্রিড] ⇒ 20 + 7 = <strong>27</strong><br>(ক্রম: 1→1, 2→3, 3→6, 4→10; মোট = 20; নিচ থেকে একটি বাদ দিয়ে একটি যোগ: 6 + 1 = 7)</li>
+  <li>[চিত্র: ৫ স্তরের ত্রিভুজাকার গ্রিড] ⇒ 35 + 13 = <strong>48</strong><br>(ক্রম: 1→1, 2→3, 3→6, 4→10, 5→15; মোট = 35; নিচ থেকে একটি বাদ দিয়ে একটি যোগ: 10 + 3 = 13)</li>
+</ul>
+<div class="note"><strong>Note:</strong> বড় ত্রিভুজের ক্ষেত্রগুলো ছোট ত্রিভুজ দ্বারা পূর্ণ থাকলে এভাবেই নিয়মমতো করা যাবে।</div>
+<h4>৪. সম্মিলিত চিত্র (ভেতরে উল্টো ত্রিভুজ + শীর্ষরেখা)</h4>
+<ul>
+  <li>[চিত্র: ভেতরে উল্টো ত্রিভুজ ও ২টি শীর্ষ থেকে রেখা] → 2(2×2) = 8; 8 + 5 = 13; 13 − 1 = <strong>12</strong></li>
+  <li>[চিত্র: ভেতরে উল্টো ত্রিভুজ ও ৩টি শীর্ষ থেকে মধ্যমা] → 2(2×2×2) = 16; 16 + 5 = 21; 21 − 1 = <strong>20</strong></li>
+  <li>[চিত্র: ভেতরে উল্টো ত্রিভুজ ও অর্ধেক রেখাযুক্ত] → 2×2 + 2 + 2 = 8; 8 + 5 = 13; 13 − 1 = <strong>12</strong></li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-27">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#27</span>
+              <h2 class="card-topic">Counting Figures (ব্যতিক্রম) ও বৃত্ত ও ত্রিভুজ</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">18</span>
+              <span class="filename-tag">photo_12_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ত্রিভুজ নির্ণয় (সম্মিলিত ও ব্যতিক্রম)</h3>
+<ul>
+  <li>[চিত্র: ভেতরে উল্টো ত্রিভুজ ও ২টি পূর্ণ + ১টি অর্ধেক রেখা] → 2(2×2) + 2 = 10; 10 + 5 = 15; 15 − 1 = <strong>14</strong></li>
+  <li>[চিত্র: ভেতরে উল্টো ত্রিভুজ ও ৩টি শীর্ষ থেকে রেখা (35, 36, 37th V.V)] → 2(2×2×2) = 16; 16 + 5 = 21; 21 − 1 = <strong>20</strong></li>
+  <li>[চিত্র: ১ থেকে ৮ পর্যন্ত চিহ্নিত জটিল ত্রিভুজ] → 1, 2, 3, 4, 5, 6, 7, 8, (1,2), (1,3), (5,6), (6,7), (2,4,5), (3,4,7), (1,2,3,4,5,6,7,8) = <strong>14</strong></li>
+</ul>
+<div class="note"><strong>Note:</strong> দুটি সূত্র একত্রে হলে ১ বিয়োগ করতে হবে।</div>
+<h4>ব্যতিক্রম:</h4>
+<ul>
+  <li>[চিত্র: ভেতরের এক বিন্দু থেকে ৩টি শীর্ষে সংযুক্ত ত্রিভুজ (1, 2, 3)] ⇒ <strong>৪টি</strong></li>
+  <li>[চিত্র: ২টি শীর্ষ থেকে বিপরীত বাহুতে ও ৩য় শীর্ষ থেকে কেন্দ্রে রেখা] → 2(2×2) = 8; 8 + 4 = <strong>12</strong></li>
+  <li>[চিত্র: সমান্তরাল রেখা ও শীর্ষ থেকে রেখাযুক্ত ত্রিভুজ (এই বিন্দু থেকে রেখা)] → 5 + 5 = 10, 2(2×2) = 8; মোট = <strong>18</strong></li>
+  <li>[চিত্র: সমান্তরাল রেখা ও একাধিক শীর্ষ-রেখাযুক্ত ত্রিভুজ] → 5 + 5 + 5 = 15, 2(2×2×2×2) = 32; মোট = <strong>47</strong></li>
+</ul>
+<h3>বৃত্ত ও ত্রিভুজ</h3>
+<div class="qa">
+  <p><strong>১। একটি ত্রিভুজ ও একটি বৃত্ত ন্যূনতম কয়টি বিন্দুতে স্পর্শ করে?</strong> = <strong>১টি।</strong></p>
+  <p>[চিত্র: ত্রিভুজের এক বাহুতে বাইরে থেকে ও ভেতর থেকে ১টি বিন্দুতে স্পর্শ করা বৃত্ত]</p>
+</div>
+<div class="qa">
+  <p><strong>২। একটি ত্রিভুজ ও একটি বৃত্ত ন্যূনতম কয়টি বিন্দুতে ছেদ করে?</strong> ⇒ <strong>২টি।</strong></p>
+  <p>[চিত্র: ত্রিভুজের এক বাহু ও শীর্ষে ২টি বিন্দুতে ছেদ করা বৃত্ত]</p>
+</div>
+<div class="qa">
+  <p><strong>৩। একটি ত্রিভুজ ও একটি বৃত্ত সর্বোচ্চ কয়টি বিন্দুতে স্পর্শ করবে?</strong> = <strong>৩টি।</strong></p>
+  <p>[চিত্র: ত্রিভুজের পরিবৃত্ত (৩টি শীর্ষে স্পর্শ) এবং অন্তঃবৃত্ত (৩টি বাহুতে স্পর্শ)]</p>
+</div>
+<div class="qa">
+  <p><strong>৪। একটি ত্রিভুজ ও একটি বৃত্ত সর্বোচ্চ কয়টি বিন্দুতে ছেদ করে?</strong> = <strong>৬টি।</strong></p>
+  <p>[চিত্র: ত্রিভুজের তিনটি বাহুর প্রতিটিকে ২টি করে মোট ৬টি বিন্দুতে ছেদ করা বৃত্ত]</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-28">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#28</span>
+              <h2 class="card-topic">Counting Figures — Dot Method</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">19</span>
+              <span class="filename-tag">photo_13_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Dot Method:</h3>
+<p>[চিত্র: দুটি শীর্ষবিন্দু থেকে সমান সংখ্যক (৫টি করে) রেখা টানা ৬×৬ ত্রিভুজ, প্রতিটি খণ্ডে ১ থেকে ১১ পর্যন্ত সংখ্যা বসানো]</p>
+<ul>
+  <li>11 ⇒ (6 + 7 + 8 + 9 + 10 + 11) = 51</li>
+  <li>10 ⇒ (5 + 6 + 7 + 8 + 9 + 10) = 45</li>
+  <li>9 ⇒ (4 + 5 + 6 + 7 + 8 + 9) = 39</li>
+  <li>8 ⇒ (3 + 4 + 5 + 6 + 7 + 8) = 33</li>
+  <li>7 ⇒ (2 + 3 + 4 + 5 + 6 + 7) = 27</li>
+  <li>6 ⇒ (1 + 2 + 3 + 4 + 5 + 6) = 21</li>
+</ul>
+<p><strong>Total = 216 (Ans)</strong><br>Or, <strong>n³ = 6³ = 216</strong></p>
+<p>[চিত্র: ১ → ৬ → ১১ → ৬ → ১ পথ দেখানো ডায়াগ্রাম] ⇒ দুই foundation-এ Numbering বসাতে হবে।</p>
+<div class="note"><strong>Note:</strong> এই ধরনের বড় Triangle-এর ক্ষেত্রে <strong>n³</strong> সূত্র লাগবে।</div>
+<h4>উদাহরণ (৪×৪ ত্রিভুজ):</h4>
+<p>[চিত্র: দুটি শীর্ষবিন্দু থেকে ৩টি করে রেখা টানা ৪×৪ ত্রিভুজ (উভয় বাহুতে 1, 2, 3, 4)]</p>
+<p><strong>n³ = 4³ = 64</strong> টি ত্রিভুজ আছে।</p>
+<div class="note"><strong>Note:</strong> দু'দিকেই সমান part থাকতে হবে। (যেমন, ৪×৪ = ৪টি)</div>
+<h4>* যখন Diagonal line-এর Counting সমান না হয়:</h4>
+<p>[চিত্র: এক শীর্ষ থেকে ২টি এবং অন্য শীর্ষ থেকে ১টি রেখা টানা ত্রিভুজ (অংশ 1, 2, 3 এবং 2, 3, 4)]</p>
+<ul>
+  <li>4 → (2 + 3 + 4) = 9</li>
+  <li>3 → (1 + 2 + 3) = 6</li>
+</ul>
+<p><strong>Total = 15</strong></p>
+<h4>অন্যান্য উদাহরণ:</h4>
+<p>[চিত্র: বড় ত্রিভুজের ভেতর উল্টো ত্রিভুজ ও মাঝখান দিয়ে উল্লম্ব রেখা]</p>
+<p>3 + 3 + 3 + 1 + 1 = <strong>11</strong></p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-29">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#29</span>
+              <h2 class="card-topic">চতুর্ভুজের মধ্যে ত্রিভুজ সংখ্যা নির্ণয়</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">20</span>
+              <span class="filename-tag">photo_14_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>চতুর্ভুজের মধ্যে ত্রিভুজ সংখ্যা নির্ণয়</h3>
+<ul>
+  <li>[চিত্র: কর্ণদ্বয় যুক্ত ১টি বর্গক্ষেত্র (অংশ ১, ২, ৩, ৪)] → 4 × 2 = <strong>8</strong></li>
+  <li>[চিত্র: কর্ণ ও মধ্যরেখা যুক্ত বর্গক্ষেত্র (অংশ ১–৮)] → 8 × 2 = <strong>16</strong></li>
+  <li>[চিত্র: পাশাপাশি যুক্ত ২টি কর্ণযুক্ত বর্গক্ষেত্র (১–৪ ও ৫–৮)] → 8 × 2 = 16, + 2 = <strong>18</strong></li>
+</ul>
+<div class="note"><strong>Note:</strong> চতুর্ভুজের মধ্যে ত্রিভুজ সংখ্যা বের করতে হলে গুণিতক সর্বোচ্চ সংখ্যাকে ২ দ্বারা গুণ।</div>
+<ul>
+  <li>[চিত্র: পাশাপাশি যুক্ত ৩টি কর্ণযুক্ত বর্গক্ষেত্র] → 8 + 8 + 8 + 2 + 2 = <strong>28</strong></li>
+  <li>[চিত্র: L-আকৃতির যুক্ত ৪টি কর্ণযুক্ত বর্গক্ষেত্র] → 8 + 8 + 8 + 8 + 2 + 2 + 2 + 1 = <strong>39</strong></li>
+  <li>[চিত্র: ২×২ গ্রিডে যুক্ত ৪টি কর্ণযুক্ত বর্গক্ষেত্র] → 8 + 8 + 8 + 8 + 2 + 2 + 2 + 2 + (2×2) = <strong>44</strong></li>
+  <li>[চিত্র: ৬ অংশবিশিষ্ট আয়তক্ষেত্র যার দুই প্রান্তে ২টি ত্রিভুজ] → 6 × 2 = 12, + 2 = <strong>14</strong></li>
+  <li>[চিত্র: ৬ অংশবিশিষ্ট সামান্তরিক/আয়ত যার দুই প্রান্তে ২টি ত্রিভুজ] → 6 × 2 = 12, + 6 = <strong>18</strong></li>
+  <li>[চিত্র: ৮ অংশবিশিষ্ট আয়ত যার এক প্রান্তে ২ অংশবিশিষ্ট ত্রিভুজ (1, 2)] → 8 × 2 = 16, + 3 (এবং সংযোগস্থলে +2)</li>
+  <li>[চিত্র: বড় বর্গের ভেতর ছোট বর্গ, উভয়েই ৮ অংশে বিভক্ত] → 8 × 2 = 16 (Big) + 8 × 2 = 16 (Small) = <strong>32</strong></li>
+  <li>[চিত্র: ৬ অংশবিশিষ্ট আয়ত যার এক প্রান্তে ত্রিভুজ] → 6 × 2 = 12, − 2 (বাদ) = 10, + 5 = <strong>15</strong></li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-30">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#30</span>
+              <h2 class="card-topic">Counting Figures — জটিল চতুর্ভুজ ও ত্রিভুজ সংখ্যা নির্ণয়</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">21</span>
+              <span class="filename-tag">photo_15_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>জটিল চতুর্ভুজ ও ত্রিভুজ সংখ্যা নির্ণয়</h3>
+<ul>
+  <li><strong>৪×৪ কর্ণযুক্ত বর্গক্ষেত্র গ্রিড:</strong> [চিত্র: ৪×৪ বর্গক্ষেত্রের গ্রিড যার দুটি প্রধান কর্ণ ও কেন্দ্রের ২×২ অংশে মধ্যরেখা টানা]<br>Total ঘর = 24; ∴ 24 × 2 = 48; ত্রিভুজ হয়নি = 8; মোট = 48 − 8 = <strong>40টি</strong>।</li>
+  <li><strong>ভূমি বরাবর যুক্ত দুটি ত্রিভুজ [ত্রিভুজ]:</strong> [চিত্র: দুটি ত্রিভুজ ভূমি বরাবর যুক্ত (উপরে ১–৬, নিচে ১–৬)]<br>উপরে: 1 + 2 + 3 + 4 + 5 + 6 = 21<br>নিচে: 1 + 2 + 3 + 4 + 5 + 6 = 21<br>মোট: 21 + 21 = 42; মিলিত ত্রিভুজ ৬টি ⇒ 42 + 6 = <strong>48</strong>।</li>
+  <li><strong>ষড়ভুজাকৃতি ত্রিভুজ চিত্র:</strong> [চিত্র: কেন্দ্র থেকে তিনটি দিকে ৩ অংশবিশিষ্ট (1, 2, 3) ত্রিভুজ ও মাঝে ৩টি একক ত্রিভুজ]<br>প্রতি পাশে 1 + 2 + 3 = 6<br>∴ 1 + 1 + 1 + 6 + 6 + 6 = <strong>21</strong>।</li>
+  <li><strong>M-আকৃতির সম্মিলিত চিত্র:</strong> [চিত্র: A, B, C, D, E, F চিহ্নিত দুটি কর্ণযুক্ত বর্গ ও তিনটি ত্রিভুজের সমন্বয়ে গঠিত চিত্র]<br>⇒ (8 + 8 + 3 + 3 + 3) + 1 + 1 + 1 + 1 = <strong>29</strong><br>(Extra — ΔADE, ΔABE, ΔABF, ΔBCF)</li>
+  <li><strong>তারকাকৃতি (ষড়ভুজ-তারা) চিত্র:</strong> [চিত্র: কেন্দ্রে ৮টি ত্রিভুজ ও বাইরের কোণগুলোতে ১, ২ চিহ্নিত তারকা চিত্র, কোণায় (3−1) = 2]<br>= 21 + 2 + 2 + 1 + 1 + 1 = <strong>28</strong>।</li>
+  <li><strong>বহুস্তরীয় ত্রিভুজ:</strong> [চিত্র: বড় ত্রিভুজের ভেতর একাধিক স্তরে বিভক্ত ত্রিভুজ, প্রতিটি প্রান্তে 1+2 = 3 চিহ্নিত]<br>∴ 3 + 3 + 3 + 3 + 3 + 3 + 1 + 1 + 1 = <strong>21 (Ans)</strong></li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-31">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#31</span>
+              <h2 class="card-topic">আয়ত ও বর্গ নির্ণয় (Counting Rectangles &amp; Squares)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">22</span>
+              <span class="filename-tag">photo_16_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ত্রিভুজ গণনা (অনুশীলনী)</h3>
+<ul>
+  <li>[চিত্র: ১টি কর্ণযুক্ত বর্গ/আয়ত (অংশ ১, ২)] → = <strong>2</strong></li>
+  <li>[চিত্র: ৩ স্তরবিশিষ্ট ত্রিভুজ—উপরে (1, 2), মাঝে (1, 2, 3, 4), নিচে (1, 2, 3, 4)] → 3 + 10 + 10 = <strong>23</strong></li>
+  <li>[চিত্র: ২ স্তরবিশিষ্ট ত্রিভুজ—প্রতিটি স্তরে ১–৪] → 10 + 10 = <strong>20</strong></li>
+  <li>[চিত্র: ৩ স্তরবিশিষ্ট অসম ত্রিভুজ—উপরে (1, 2), মাঝে (1–4), নিচে (1–6)] → 3 + 10 + 21 = <strong>34</strong></li>
+  <li>[চিত্র: ৬ অংশবিশিষ্ট আয়ত ও দুই প্রান্তে ২টি একক ত্রিভুজ] → 6 × 2 = 12 + 1 + 1 = <strong>14</strong></li>
+</ul>
+<h3>আয়ত ও বর্গ নির্ণয়</h3>
+<div class="qa">
+  <p><strong>Q. এখানে কয়টি বর্গ ও আয়ত আছে?</strong></p>
+  <ul>
+    <li><strong>২×২ গ্রিড:</strong> [চিত্র: ২×২ বর্গক্ষেত্র গ্রিড (১, ২)]<br>বর্গ = 1² + 2² = <strong>5</strong><br>চতুর্ভুজ = 1³ + 2³ = <strong>9</strong><br>আয়ত = 9 − 5 = <strong>4</strong></li>
+    <li><strong>৩×৩ গ্রিড:</strong> [চিত্র: ৩×৩ বর্গক্ষেত্র গ্রিড (১, ২, ৩)]<br>বর্গ = 1² + 2² + 3² = <strong>14</strong><br>চতুর্ভুজ = 1³ + 2³ + 3³ = <strong>36</strong><br>আয়ত = 36 − 14 = <strong>22</strong></li>
+  </ul>
+  <div class="note"><strong>Note:</strong> উভয় দিকে ঘরসংখ্যা সমান হলে— বর্গ করলে বর্গ সংখ্যা পাওয়া যাবে। ঘন করলে চতুর্ভুজ সংখ্যা পাওয়া যাবে। ঘন থেকে বর্গ বাদ দিলে আয়ত পাওয়া যাবে।</div>
+</div>
+<div class="qa">
+  <p><strong>Q. কয়টি বর্গ আছে? (34th, 40th BCS)</strong></p>
+  <ul>
+    <li><strong>৩×৩ গ্রিড:</strong> [চিত্র: ৩×৩ গ্রিড] → বর্গ = 1² + 2² + 3² = 1 + 4 + 9 = <strong>14</strong></li>
+    <li><strong>৪×৪ গ্রিড:</strong> [চিত্র: ৪×৪ গ্রিড] → বর্গ = 1² + 2² + 3² + 4² = 1 + 4 + 9 + 16 = <strong>30</strong></li>
+  </ul>
+  <div class="note"><strong>Note:</strong> চতুর্ভুজ বলা থাকলে এবং আয়ত-র সংখ্যা হলে বর্গ বাদে আয়ত বললে শুধু আয়ত পাওয়া যাবে।</div>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-32">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#32</span>
+              <h2 class="card-topic">বর্গ নির্ণয় (Counting Squares — Complex Figures)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">22(2)</span>
+              <span class="filename-tag">photo_17_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বর্গ নির্ণয় (জটিল চিত্রসমূহ)</h3>
+<ol>
+  <li>[চিত্র: ৩×৩ গ্রিডের তিন পাশে ৩টি অতিরিক্ত ১×১ বর্গ যুক্ত] → (1² + 2² + 3² + 3) = <strong>17</strong></li>
+  <li>[চিত্র: ৪×৪ গ্রিডের চার কোণে ৪টি অতিরিক্ত ১×১ বর্গ যুক্ত ও কর্ণদ্বয় আঁকা] → (1² + 2² + 3² + 4² + 4) = <strong>34</strong></li>
+  <li>[চিত্র: ২×২ বড় বর্গের ভেতর কেন্দ্রে আরেকটি ২×২ ছোট বর্গ] → (1² + 2² + 1² + 2²) = (5 + 5) = <strong>10</strong></li>
+  <li>[চিত্র: ৪×৪ গ্রিডের ভেতর ৪ কোণে ২×২ করে ৪টি অতিরিক্ত বর্গ (প্রতিটি ৫টি করে)] → (1² + 2² + 3² + 4²) + 20 = 30 + 20 = <strong>50</strong></li>
+  <li>[চিত্র: ৩×৪ গ্রিডের ভেতর একটি হীরকাকৃতি বর্গ (অতিরিক্ত ১টি)] → (3×4 = 12, 2×3 = 6, 1×2 = 2) = 20 + 1 = <strong>21</strong></li>
+  <li>[চিত্র: সাধারণ ২×২ বর্গ গ্রিড] → <strong>৫টি বর্গ</strong></li>
+  <li>[চিত্র: ২×২ বর্গ (৫টি) এর সাথে ১টি কর্ণযুক্ত বর্গ ও পার্শ্ববর্তী বর্গ] → ∴ (5 + 2 + 1) = <strong>8</strong> (খাতায় ৭/৮ চিহ্নিত)</li>
+  <li>[চিত্র: ৩টি ২×২ বর্গ (প্রতিটি ৫টি করে) কোণাকুণিভাবে ২টি সাধারণ বর্গে ওভারল্যাপ করে যুক্ত] → ∴ (5 × 3) = 15টি, − 2 = <strong>13টি</strong></li>
+</ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-33">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#33</span>
+              <h2 class="card-topic">বর্গ নির্ণয় (অসমান গ্রিড) ও আয়ত নির্ণয়</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">23</span>
+              <span class="filename-tag">photo_18_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বর্গ নির্ণয় (অসমান সারি ও কলাম)</h3>
+<div class="qa">
+  <p><strong>Q. কয়টি বর্গ আছে?</strong></p>
+  <ul>
+    <li><strong>২×৩ গ্রিড:</strong> [চিত্র: ২ সারি × ৩ কলাম গ্রিড] → 2 × 3 = 6; 1 × 2 = 2; মোট = <strong>8</strong></li>
+    <li><strong>৩×৪ গ্রিড:</strong> [চিত্র: ৩ সারি × ৪ কলাম গ্রিড] → 3 × 4 = 12; 2 × 3 = 6; 1 × 2 = 2; মোট = <strong>20</strong></li>
+  </ul>
+  <div class="note"><strong>Note:</strong> সারি এবং কলামে ঘর সংখ্যা অসমান হলে কোণাকোণি ভাবে গুণফলের পর ১ করে কমতে থাকবে। এক পর্যন্ত গিয়ে থামবে।</div>
+</div>
+<div class="qa">
+  <p><strong>Q. মোট কয়টি বর্গ আছে?</strong></p>
+  <ul>
+    <li><strong>৩×৫ গ্রিড:</strong> [চিত্র: ৩ সারি × ৫ কলাম গ্রিড] → 3 × 5 = 15; 2 × 4 = 8; 1 × 3 = 3; মোট = <strong>26</strong></li>
+    <li><strong>৬×৩ গ্রিড:</strong> [চিত্র: ৬ সারি × ৩ কলাম গ্রিড] → 6 × 3 = 18; 5 × 2 = 10; 4 × 1 = 4; মোট = <strong>32</strong></li>
+  </ul>
+  <div class="note"><strong>Note:</strong> Extra থাকলে বাদ যাবে।</div>
+</div>
+<h3>আয়ত নির্ণয়</h3>
+<div class="qa">
+  <p><strong>Q. মোট কয়টি আয়ত আছে?</strong></p>
+  <ul>
+    <li><strong>১×৪ গ্রিড (অনুভূমিক):</strong> [চিত্র: ১ সারি × ৪ কলাম গ্রিড] → (1 + 2 + 3 + 4) × 1 = 10 × 1 = <strong>10</strong></li>
+    <li><strong>৪×১ গ্রিড (উল্লম্ব):</strong> [চিত্র: ৪ সারি × ১ কলাম গ্রিড] → (1 + 2 + 3 + 4) × 1 = 10 × 1 = <strong>10</strong></li>
+    <li><strong>২×৩ গ্রিড:</strong> [চিত্র: ২ সারি × ৩ কলাম গ্রিড] → (1 + 2 + 3) = 6; (1 + 2) = 3; মোট = 6 × 3 = <strong>18</strong></li>
+    <li><strong>৩×৩ গ্রিড:</strong> [চিত্র: ৩ সারি × ৩ কলাম গ্রিড] → 1 + 2 + 3 = 6 (সারি ও কলাম উভয় দিকে ৬ করে ⇒ 6 × 6 = 36)</li>
+  </ul>
+  <div class="note"><strong>Note:</strong> সারি এবং কলামের ঘর সংখ্যা অসমান বা সমান যাই হোক, আয়ত সংখ্যা = দৈর্ঘ্য × প্রস্থ (সারির যোগফল × কলামের যোগফল)।</div>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-34">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#34</span>
+              <h2 class="card-topic">বর্গ, রম্বস, আয়ত ও সামান্তরিক নির্ণয়</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">24</span>
+              <span class="filename-tag">photo_19_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বর্গ, রম্বস, আয়ত ও সামান্তরিক নির্ণয়</h3>
+<div class="note">বর্গ ও রম্বসের নিয়ম একই এবং আয়ত ও সামান্তরিকের নিয়ম একই। সুতরাং, <strong>রম্বস = বর্গ</strong> এবং <strong>আয়ত = সামান্তরিক</strong>।</div>
+<div class="qa">
+  <p><strong>Q. If four parallel lines are intersected by three perpendicular lines, then how many rectangles are formed?</strong></p>
+  <p>[চিত্র: ৪টি সমান্তরাল রেখা (৩টি ঘর: 1, 2, 3) ও ৩টি লম্ব রেখা (২টি ঘর: 1, 2) দ্বারা গঠিত গ্রিড]</p>
+  <p>1 + 2 = 3<br>1 + 2 + 3 = 6<br>∴ 3 × 6 = <strong>18</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. কয়টি সামান্তরিক ও রম্বস আছে?</strong></p>
+  <p>[চিত্র: ২×২ তির্যক গ্রিড (সামান্তরিক)]</p>
+  <p>রম্বস = 1² + 2² = 5<br>চতুর্ভুজ = 1³ + 2³ = 9<br>সামান্তরিক = 9 − 5 = 4<br><strong>Ans: (4, 5)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. কয়টি সামান্তরিক আছে?</strong></p>
+  <p>[চিত্র: ৩ সারি × ৪ কলাম তির্যক গ্রিড]</p>
+  <p>সারি: 1 + 2 + 3 = 6; কলাম: 1 + 2 + 3 + 4 = 10<br>⇒ 10 × 6 = <strong>60</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. কয়টি রম্বস আছে?</strong></p>
+  <ul>
+    <li><strong>৫×৪ তির্যক গ্রিড:</strong> [চিত্র: ৫ সারি × ৪ কলাম তির্যক গ্রিড]<br>5 × 4 = 20; 4 × 3 = 12; 3 × 2 = 6; 2 × 1 = 2; মোট = <strong>40</strong></li>
+    <li><strong>৫×৩ তির্যক গ্রিড:</strong> [চিত্র: ৫ সারি × ৩ কলাম তির্যক গ্রিড]<br>5 × 3 = 15; 4 × 2 = 8; 3 × 1 = 3; মোট = <strong>26</strong></li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+    <div id="emptyState" class="empty-state">No matching pages found. Try a different keyword.</div>
+  </main>
+
+  <button type="button" id="backTop" class="back-top" title="Back to top" aria-label="Back to top">↑</button>
+  <script>
+(function() {
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('ocr_notes_theme');
+  if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    const syncLabel = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      themeBtn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+    };
+    syncLabel();
+    themeBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('ocr_notes_theme', next);
+      syncLabel();
+    });
+  }
+
+  const printBtn = document.getElementById('printBtn');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => window.print());
+  }
+
+  // Mobile auto-hide header on scroll down, show on scroll up
+  const header = document.querySelector('.site-header');
+  let lastY = window.scrollY;
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (header && window.innerWidth <= 768) {
+      if (y > 90 && y > lastY + 8) {
+        header.classList.add('nav-hidden');
+      } else if (y < lastY - 8 || y <= 40) {
+        header.classList.remove('nav-hidden');
+      }
+    } else if (header) {
+      header.classList.remove('nav-hidden');
+    }
+    if (backTop) {
+      backTop.classList.toggle('visible', y > 400);
+    }
+    lastY = y;
+  }, { passive: true });
+
+  if (backTop) {
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // Search filter
+  const searchInput = document.getElementById('searchInput');
+  const cards = Array.from(document.querySelectorAll('.page-card'));
+  const matchCount = document.getElementById('matchCount');
+  const emptyState = document.getElementById('emptyState');
+
+  if (searchInput && cards.length) {
+    const filterCards = () => {
+      const q = searchInput.value.trim().toLowerCase();
+      let shown = 0;
+      cards.forEach(card => {
+        const text = (card.dataset.search || card.textContent).toLowerCase();
+        const match = !q || text.includes(q);
+        card.classList.toggle('hidden', !match);
+        if (match) shown++;
+      });
+      if (matchCount) {
+        matchCount.textContent = q ? `${shown} / ${cards.length} pages` : `${cards.length} pages`;
+      }
+      if (emptyState) {
+        emptyState.style.display = shown === 0 ? 'block' : 'none';
+      }
+    };
+    searchInput.addEventListener('input', filterCards);
+    filterCards();
+  }
+
+  // Quick jump
+  const jumpSelect = document.getElementById('jumpSelect');
+  if (jumpSelect) {
+    jumpSelect.addEventListener('change', () => {
+      const id = jumpSelect.value;
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

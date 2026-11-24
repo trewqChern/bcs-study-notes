@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCR Study Notes — All 250 Pages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --accent: #0f766e;
+  --accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+  --note-bg: #fffbeb;
+  --note-border: #f59e0b;
+  --qa-bg: #f0f9ff;
+  --qa-border: #0ea5e9;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #273449;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --note-bg: rgba(245, 158, 11, 0.12);
+  --note-border: #fbbf24;
+  --qa-bg: rgba(14, 165, 233, 0.12);
+  --qa-border: #38bdf8;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+.site-header.nav-hidden {
+  transform: translateY(-100%);
+}
+.header-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+.header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.brand .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.subject-nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 0 4px;
+  scrollbar-width: thin;
+}
+.subject-nav a {
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  background: var(--surface-alt);
+  border: 1px solid transparent;
+}
+.subject-nav a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.subject-nav a.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+}
+.search-input {
+  flex: 1 1 220px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+.search-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.jump-select {
+  flex: 1 1 200px;
+  max-width: 340px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+}
+.match-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+.page-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  scroll-margin-top: 150px;
+}
+.page-card.hidden {
+  display: none;
+}
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+}
+.card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.card-topic {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.filename-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  opacity: 0.85;
+}
+.card-body {
+  padding: 16px 20px;
+  overflow-x: auto;
+}
+.card-body h2, .card-body h3 {
+  margin: 14px 0 8px;
+  color: var(--accent);
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+.card-body h3:first-child, .card-body h2:first-child {
+  margin-top: 0;
+}
+.card-body h4 {
+  margin: 12px 0 6px;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.card-body p {
+  margin: 6px 0;
+}
+.card-body ul, .card-body ol {
+  margin: 6px 0 10px;
+  padding-left: 22px;
+}
+.card-body li {
+  margin: 4px 0;
+}
+.card-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.93rem;
+}
+.card-body th, .card-body td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.card-body th {
+  background: var(--surface-alt);
+  font-weight: 700;
+}
+.card-body tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--surface-alt) 45%, transparent);
+}
+.card-body .note {
+  background: var(--note-bg);
+  border-left: 4px solid var(--note-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body .qa {
+  background: var(--qa-bg);
+  border-left: 4px solid var(--qa-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body hr {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 14px 0;
+}
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+.back-top.visible {
+  display: inline-flex;
+}
+/* Hub Grid */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--card-accent, var(--accent));
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+.hub-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--card-accent, var(--accent));
+}
+.hub-card .bn-name {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.hub-card .count-pill {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--surface-alt);
+  color: var(--text);
+}
+.summary-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.summary-banner h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.summary-banner p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+@media (max-width: 768px) {
+  .header-inner { padding: 8px 12px; }
+  .brand h1 { font-size: 1.05rem; }
+  .card-header { padding: 10px 14px; }
+  .card-body { padding: 12px 14px; font-size: 15px; }
+  .controls-bar { gap: 6px; }
+  .jump-select { max-width: 100%; }
+}
+@media print {
+  .site-header, .back-top, .controls-bar, .subject-nav { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .container { max-width: 100%; padding: 0; }
+  .page-card { break-inside: avoid-page; box-shadow: none; border: 1px solid #ccc; margin-bottom: 12pt; }
+  .card-header { background: #f3f4f6 !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <h1>OCR Study Notes</h1>
+          <span class="subtitle">250 pages • 7 subjects • Verbatim Bengali &amp; English</span>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="btn" id="themeToggle">🌙 Dark</button>
+        </div>
+      </div>
+      <nav class="subject-nav" aria-label="Subjects">
+        <a href="index.html" class="active">🏠 All Subjects (250)</a>
+<a href="english_literature.html" class="">English Literature (58)</a>
+<a href="bangla_literature.html" class="">Bangla Literature (51)</a>
+<a href="mental_ability.html" class="">Mental Ability (34)</a>
+<a href="mathematics.html" class="">Mathematics &amp; Mathematical Reasoning (32)</a>
+<a href="bangladesh_affairs.html" class="">Bangladesh Affairs (31)</a>
+<a href="international_affairs.html" class="">International Affairs (19)</a>
+<a href="bcs_syllabus.html" class="">BCS Written Syllabus (25)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="summary-banner">
+      <h2>All Transcribed Notes &amp; Syllabus Pages</h2>
+      <p>Every image from <code>New folder.rar</code> has been visually transcribed verbatim (keeping original Bengali and English text as written) and organized into 7 searchable, mobile-friendly HTML files.</p>
+    </section>
+
+    <section class="hub-grid">
+      
+        <a href="english_literature.html" class="hub-card" style="--card-accent: #2563eb;">
+          <div>
+            <h2>English Literature</h2>
+            <div class="bn-name">ইংরেজি সাহিত্য</div>
+            <p style="font-size:0.86rem; color: var(--text-muted); margin: 0 0 14px;">Neo-Classical &amp; Restoration Period — John Milton • John Milton — Paradise Lost, Paradise Regained &amp; Famous Quotes • Restoration Period — John Dryden &amp; William Congreve • Restoration Period — John Bunyan, Samuel Butler, John Locke &amp; Aphra Behn</p>
+          </div>
+          <span class="count-pill">58 pages →</span>
+        </a>
+        
+        <a href="bangla_literature.html" class="hub-card" style="--card-accent: #059669;">
+          <div>
+            <h2>Bangla Literature</h2>
+            <div class="bn-name">বাংলা সাহিত্য</div>
+            <p style="font-size:0.86rem; color: var(--text-muted); margin: 0 0 14px;">বাংলা সাহিত্যের যুগবিভাগ ও প্রাচীন যুগ (চর্যাপদ) • চর্যাপদের ভাষা, পদসংখ্যা ও কবির সংখ্যা • চর্যাপদের ভাষা (স্টিকি নোটসহ), পদসংখ্যা ও কবির সংখ্যা • চর্যাপদের কবি পরিচিতি (লুইপা, কাহ্নপা, ভুসুকুপা, সরহপা, শবরপা, কুক্কুরীপা, ঢেণ্ঢণপা, তন্ত্রীপা)</p>
+          </div>
+          <span class="count-pill">51 pages →</span>
+        </a>
+        
+        <a href="mental_ability.html" class="hub-card" style="--card-accent: #7c3aed;">
+          <div>
+            <h2>Mental Ability</h2>
+            <div class="bn-name">মানসিক দক্ষতা</div>
+            <p style="font-size:0.86rem; color: var(--text-muted); margin: 0 0 14px;">দিক নির্ণয় (Direction Sense) • দিক নির্ণয় ও ত্রিভুজ-চতুর্ভুজ সংখ্যা (Direction &amp; Counting Figures) • ত্রিভুজ, বর্গক্ষেত্র ও আয়তক্ষেত্র গণনা (Counting Triangles, Squares &amp; Rectangles) • রম্বস, সামান্তরিক, ট্রাপিজিয়াম ও আয়ত গণনা (Counting Quadrilaterals)</p>
+          </div>
+          <span class="count-pill">34 pages →</span>
+        </a>
+        
+        <a href="mathematics.html" class="hub-card" style="--card-accent: #d97706;">
+          <div>
+            <h2>Mathematics &amp; Mathematical Reasoning</h2>
+            <div class="bn-name">গাণিতিক যুক্তি ও গণিত</div>
+            <p style="font-size:0.86rem; color: var(--text-muted); margin: 0 0 14px;">মূলদ, অমূলদ ও মৌলিক সংখ্যা (Rational, Irrational &amp; Prime Numbers) • মৌলিক সংখ্যা, সহমৌলিক সংখ্যা ও ভাজক সংখ্যা নির্ণয় (Primes, Co-primes &amp; Divisors) • ভাজক সংখ্যা, ভগ্নাংশের তুলনা ও জোড়-বিজোড় সংখ্যা (Divisors, Fractions &amp; Even-Odd) • ক্রমিক সংখ্যার গুণফল, বর্গের পার্থক্য ও বৃহত্তম-ক্ষুদ্রতম সংখ্যা (Consecutive Numbers)</p>
+          </div>
+          <span class="count-pill">32 pages →</span>
+        </a>
+        
+        <a href="bangladesh_affairs.html" class="hub-card" style="--card-accent: #0d9488;">
+          <div>
+            <h2>Bangladesh Affairs</h2>
+            <div class="bn-name">বাংলাদেশ বিষয়াবলি</div>
+            <p style="font-size:0.86rem; color: var(--text-muted); margin: 0 0 14px;">প্রাচীন বাংলার ইতিহাস: আলেকজান্ডার ও মৌর্য বংশ • প্রাচীন বাংলার ইতিহাস: সম্রাট অশোক, চাণক্য, বৃহদ্রথ ও গুপ্ত বংশ • গুপ্ত বংশ (২য় চন্দ্রগুপ্ত), গৌড় রাজ্য (শশাঙ্ক) ও হর্ষবর্ধন • পাল বংশ (গোপাল, ধর্মপাল, পাহাড়পুর/সোমপুর বিহার) ও চর্যাপদ</p>
+          </div>
+          <span class="count-pill">31 pages →</span>
+        </a>
+        
+        <a href="international_affairs.html" class="hub-card" style="--card-accent: #0284c7;">
+          <div>
+            <h2>International Affairs</h2>
+            <div class="bn-name">আন্তর্জাতিক বিষয়াবলি</div>
+            <p style="font-size:0.86rem; color: var(--text-muted); margin: 0 0 14px;">তাজমহল ও ভারত মানচিত্র (উত্তর ও উত্তর-পূর্ব ভারত) • এশিয়া পরিচিতি: চীন (৩টি বিপ্লব, তিয়েন আনমেন স্কয়ার, পিংপং ডিপ্লোম্যাসি) • চীন মানচিত্র, তিব্বত, হংকং ও ম্যাকাও • দক্ষিণ এশিয়ার ৮ দেশ, মুদ্রা ও রাজধানী</p>
+          </div>
+          <span class="count-pill">19 pages →</span>
+        </a>
+        
+        <a href="bcs_syllabus.html" class="hub-card" style="--card-accent: #dc2626;">
+          <div>
+            <h2>BCS Written Syllabus</h2>
+            <div class="bn-name">বিসিএস লিখিত সিলেবাস</div>
+            <p style="font-size:0.86rem; color: var(--text-muted); margin: 0 0 14px;">NEW BCS Preliminary Syllabus &amp; Mark Distribution (50th BCS onwards) • BCS Preliminary Syllabus — বাংলা • BCS Preliminary Syllabus — English (Part-I: Language, Sections A–D) • BCS Preliminary Syllabus — English (Part-I Sections E–G &amp; Part-II: Literature)</p>
+          </div>
+          <span class="count-pill">25 pages →</span>
+        </a>
+        
+    </section>
+  </main>
+
+  <script>
+(function() {
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('ocr_notes_theme');
+  if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    const syncLabel = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      themeBtn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+    };
+    syncLabel();
+    themeBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('ocr_notes_theme', next);
+      syncLabel();
+    });
+  }
+
+  const printBtn = document.getElementById('printBtn');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => window.print());
+  }
+
+  // Mobile auto-hide header on scroll down, show on scroll up
+  const header = document.querySelector('.site-header');
+  let lastY = window.scrollY;
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (header && window.innerWidth <= 768) {
+      if (y > 90 && y > lastY + 8) {
+        header.classList.add('nav-hidden');
+      } else if (y < lastY - 8 || y <= 40) {
+        header.classList.remove('nav-hidden');
+      }
+    } else if (header) {
+      header.classList.remove('nav-hidden');
+    }
+    if (backTop) {
+      backTop.classList.toggle('visible', y > 400);
+    }
+    lastY = y;
+  }, { passive: true });
+
+  if (backTop) {
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // Search filter
+  const searchInput = document.getElementById('searchInput');
+  const cards = Array.from(document.querySelectorAll('.page-card'));
+  const matchCount = document.getElementById('matchCount');
+  const emptyState = document.getElementById('emptyState');
+
+  if (searchInput && cards.length) {
+    const filterCards = () => {
+      const q = searchInput.value.trim().toLowerCase();
+      let shown = 0;
+      cards.forEach(card => {
+        const text = (card.dataset.search || card.textContent).toLowerCase();
+        const match = !q || text.includes(q);
+        card.classList.toggle('hidden', !match);
+        if (match) shown++;
+      });
+      if (matchCount) {
+        matchCount.textContent = q ? `${shown} / ${cards.length} pages` : `${cards.length} pages`;
+      }
+      if (emptyState) {
+        emptyState.style.display = shown === 0 ? 'block' : 'none';
+      }
+    };
+    searchInput.addEventListener('input', filterCards);
+    filterCards();
+  }
+
+  // Quick jump
+  const jumpSelect = document.getElementById('jumpSelect');
+  if (jumpSelect) {
+    jumpSelect.addEventListener('change', () => {
+      const id = jumpSelect.value;
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

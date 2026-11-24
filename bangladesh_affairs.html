@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangladesh Affairs — OCR Study Notes (31 Pages)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --accent: #0d9488;
+  --accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+  --note-bg: #fffbeb;
+  --note-border: #f59e0b;
+  --qa-bg: #f0f9ff;
+  --qa-border: #0ea5e9;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #273449;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --note-bg: rgba(245, 158, 11, 0.12);
+  --note-border: #fbbf24;
+  --qa-bg: rgba(14, 165, 233, 0.12);
+  --qa-border: #38bdf8;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+.site-header.nav-hidden {
+  transform: translateY(-100%);
+}
+.header-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+.header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.brand .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.subject-nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 0 4px;
+  scrollbar-width: thin;
+}
+.subject-nav a {
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  background: var(--surface-alt);
+  border: 1px solid transparent;
+}
+.subject-nav a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.subject-nav a.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+}
+.search-input {
+  flex: 1 1 220px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+.search-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.jump-select {
+  flex: 1 1 200px;
+  max-width: 340px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+}
+.match-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+.page-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  scroll-margin-top: 150px;
+}
+.page-card.hidden {
+  display: none;
+}
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+}
+.card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.card-topic {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.filename-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  opacity: 0.85;
+}
+.card-body {
+  padding: 16px 20px;
+  overflow-x: auto;
+}
+.card-body h2, .card-body h3 {
+  margin: 14px 0 8px;
+  color: var(--accent);
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+.card-body h3:first-child, .card-body h2:first-child {
+  margin-top: 0;
+}
+.card-body h4 {
+  margin: 12px 0 6px;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.card-body p {
+  margin: 6px 0;
+}
+.card-body ul, .card-body ol {
+  margin: 6px 0 10px;
+  padding-left: 22px;
+}
+.card-body li {
+  margin: 4px 0;
+}
+.card-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.93rem;
+}
+.card-body th, .card-body td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.card-body th {
+  background: var(--surface-alt);
+  font-weight: 700;
+}
+.card-body tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--surface-alt) 45%, transparent);
+}
+.card-body .note {
+  background: var(--note-bg);
+  border-left: 4px solid var(--note-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body .qa {
+  background: var(--qa-bg);
+  border-left: 4px solid var(--qa-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body hr {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 14px 0;
+}
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+.back-top.visible {
+  display: inline-flex;
+}
+/* Hub Grid */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--card-accent, var(--accent));
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+.hub-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--card-accent, var(--accent));
+}
+.hub-card .bn-name {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.hub-card .count-pill {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--surface-alt);
+  color: var(--text);
+}
+.summary-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.summary-banner h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.summary-banner p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+@media (max-width: 768px) {
+  .header-inner { padding: 8px 12px; }
+  .brand h1 { font-size: 1.05rem; }
+  .card-header { padding: 10px 14px; }
+  .card-body { padding: 12px 14px; font-size: 15px; }
+  .controls-bar { gap: 6px; }
+  .jump-select { max-width: 100%; }
+}
+@media print {
+  .site-header, .back-top, .controls-bar, .subject-nav { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .container { max-width: 100%; padding: 0; }
+  .page-card { break-inside: avoid-page; box-shadow: none; border: 1px solid #ccc; margin-bottom: 12pt; }
+  .card-header { background: #f3f4f6 !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <h1>Bangladesh Affairs</h1>
+          <span class="subtitle">বাংলাদেশ বিষয়াবলি • 31 pages</span>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="btn" id="themeToggle">🌙 Dark</button>
+          <button type="button" class="btn" id="printBtn">🖨️ Print</button>
+        </div>
+      </div>
+      <nav class="subject-nav" aria-label="Subjects">
+        <a href="index.html" class="">🏠 All Subjects (250)</a>
+<a href="english_literature.html" class="">English Literature (58)</a>
+<a href="bangla_literature.html" class="">Bangla Literature (51)</a>
+<a href="mental_ability.html" class="">Mental Ability (34)</a>
+<a href="mathematics.html" class="">Mathematics &amp; Mathematical Reasoning (32)</a>
+<a href="bangladesh_affairs.html" class="active">Bangladesh Affairs (31)</a>
+<a href="international_affairs.html" class="">International Affairs (19)</a>
+<a href="bcs_syllabus.html" class="">BCS Written Syllabus (25)</a>
+      </nav>
+      <div class="controls-bar">
+        <input type="search" id="searchInput" class="search-input" placeholder="Search notes in Bengali or English..." aria-label="Search notes">
+        <select id="jumpSelect" class="jump-select" aria-label="Quick jump">
+          <option value="">Jump to topic / page...</option><option value="page-1">#1 — প্রাচীন বাংলার ইতিহাস: আলেকজান্ডার ও মৌর্য বংশ</option><option value="page-2">#2 — প্রাচীন বাংলার ইতিহাস: সম্রাট অশোক, চাণক্য, বৃহদ্রথ ও গুপ্ত বংশ</option><option value="page-3">#3 — গুপ্ত বংশ (২য় চন্দ্রগুপ্ত), গৌড় রাজ্য (শশাঙ্ক) ও হর্ষবর্ধন</option><option value="page-4">#4 — পাল বংশ (গোপাল, ধর্মপাল, পাহাড়পুর/সোমপুর বিহার) ও চর্যাপদ</option><option value="page-5">#5 — বরেন্দ্র / কৈবর্ত বিদ্রোহ ও সেন বংশ</option><option value="page-6">#6 — সেন বংশের শাসক তালিকা ও বল্লাল সেনের গ্রন্থ</option><option value="page-7">#7 — মধ্যযুগের বাংলা (১২০৪–১৭৫৭): বখতিয়ার খলজি, সিন্ধু বিজয় ও সুলতা... [লেকচার-৩]</option><option value="page-8">#8 — তরাইনের যুদ্ধ, দিল্লি সালতানাত ও মুঘল শাসন (স্টিকি নোটের নিচের... [লেকচার-৩]</option><option value="page-9">#9 — দিল্লি সালতানাত: দাস বংশ, খলজি বংশ, তুঘলক বংশ ও লোদী বংশ</option><option value="page-10">#10 — দিল্লি সালতানাত: খলজি বংশ (আলাউদ্দিন খলজি), তুঘলক বংশ ও লোদী বংশ</option><option value="page-11">#11 — বাংলায় স্বাধীন সুলতানি যুগ (১৩৩৮–১৫৩৮): ফখরুদ্দিন মুবারক শাহ, ...</option><option value="page-12">#12 — নাসিরউদ্দিন নুসরত শাহ, রাজা গণেশ ও মুঘল সম্রাটদের ক্রম</option><option value="page-13">#13 — মুঘল শাসন প্রতিষ্ঠা ও পানিপথের ১ম যুদ্ধ (স্টিকি নোট সরানো অংশ)</option><option value="page-14">#14 — মুঘল সম্রাট বাবর, হুমায়ুন ও আফগান শাসক শের শাহ (১৫৪০–১৫৪৫)</option><option value="page-15">#15 — মুঘল আমল: সম্রাট আকবর</option><option value="page-16">#16 — মুঘল আমল: আকবর (বাকি অংশ), মান সিংহ ও সম্রাট জাহাঙ্গীর</option><option value="page-17">#17 — মুঘল আমল: সম্রাট শাহজাহান, শাহ সুজা, আওরঙ্গজেব, মীর জুমলা ও শা...</option><option value="page-18">#18 — মুঘল সাম্রাজ্যের পতন ও বারো ভূঁইয়া</option><option value="page-19">#19 — নবাবী শাসন ও পলাশী যুদ্ধ</option><option value="page-20">#20 — বক্সারের যুদ্ধ ও দেওয়ানী লাভ</option><option value="page-21">#21 — ব্রিটিশ শাসন (১৭৫৭-১৯৪৭): দ্বৈত শাসন, এলাহাবাদ চুক্তি, ছিয়াত্... [লেকচার-৭]</option><option value="page-22">#22 — ব্রিটিশ শাসকগণ (কর্নওয়ালিস, বেন্টিংক, ডালহৌসী, ক্যানিং, মেয়ো...</option><option value="page-23">#23 — সর্বভারতীয় কংগ্রেস, বঙ্গভঙ্গ ও জাতীয় সঙ্গীত</option><option value="page-24">#24 — রবীন্দ্রনাথের নাইট উপাধি, লক্ষ্ণৌ চুক্তি ও মন্টেগু-চেমসফোর্ড আইন</option><option value="page-25">#25 — স্বরাজ দল, বেঙ্গল প্যাক্ট ও বঙ্গীয় আইনসভা নির্বাচন (১৯৩৭)</option><option value="page-26">#26 — দ্বিজাতিতত্ত্ব, লাহোর প্রস্তাব, ভারত ছাড় আন্দোলন ও বঙ্গীয় আই...</option><option value="page-27">#27 — ভারতীয় স্বাধীনতা আইন (১৯৪৭) ও ভাষা আন্দোলনের সূচনা (তমদ্দুন ম... [Lecture-5]</option><option value="page-28">#28 — ভাষা আন্দোলন (১৯৪৮-১৯৫২), শহীদ মিনার ও ভাষা আন্দোলনভিত্তিক সাহ...</option><option value="page-29">#29 — বাংলা ভাষার স্বীকৃতি, বাংলা একাডেমি ও যুক্তফ্রন্ট নির্বাচন</option><option value="page-30">#30 — আইয়ুব খানের শাসন, ১৯৬২ সালের শিক্ষা আন্দোলন, স্বাধীনতা দিবস ও...</option><option value="page-31">#31 — মুক্তিযুদ্ধের সেক্টর ও সেক্টর কমান্ডারগণ</option>
+        </select>
+        <span id="matchCount" class="match-count">31 pages</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+        <article class="page-card" id="page-1">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#1</span>
+              <h2 class="card-topic">প্রাচীন বাংলার ইতিহাস: আলেকজান্ডার ও মৌর্য বংশ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_62_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>প্রাচীন বাংলার ইতিহাস: আলেকজান্ডার ও মৌর্য বংশ</h3>
+<p>[চিত্র: গ্রিক দার্শনিক পরম্পরা (S-P-A-A), আলেকজান্ডারের ভারত আক্রমণ ও মৌর্য বংশ প্রতিষ্ঠার ফ্লোচার্ট]</p>
+<h4>গ্রিক দার্শনিক ও সম্রাট পরম্পরা (S P A A)</h4>
+<ul>
+<li><strong>সক্রেটিস (S):</strong> উক্তি — <em>"Know thyself"</em>, <em>"Knowledge is virtue"</em>।</li>
+<li><strong>প্লেটো (P):</strong> গ্রন্থ — <em>The Republic</em>।</li>
+<li><strong>অ্যারিস্টটল (A):</strong> গ্রন্থ — <em>The Politics</em>।</li>
+<li><strong>আলেকজান্ডার (A):</strong> গ্রিক সম্রাট।</li>
+</ul>
+<h4>আলেকজান্ডার</h4>
+<ul>
+<li>খ্রিষ্টপূর্ব ৩২৭ সালে ভারত আক্রমণ করেন।</li>
+<li>সেনাপতি → সেলুকাস।</li>
+<li>৩২৩ খ্রিষ্টপূর্বে ব্যাবিলনে (ইরাক) মারা যান।</li>
+<li>পিতা → দ্বিতীয় ফিলিপ (গ্রিসের ম্যাসিডোনিয়ার রাজা)।</li>
+</ul>
+<h4>মৌর্য যুগ</h4>
+<ul>
+<li><strong>সেলুকাস</strong> পরাজিত হন <strong>চন্দ্রগুপ্ত মৌর্য</strong>-এর কাছে (৩২১ খ্রিষ্টপূর্বাব্দ)।</li>
+<li>সেলুকাসের গ্রিক দূত <strong>মেগাস্থিনিস</strong> চন্দ্রগুপ্ত মৌর্যের দরবারে আসেন এবং <strong>"ইন্ডিকা"</strong> গ্রন্থ রচনা করেন।</li>
+<li><strong>চন্দ্রগুপ্ত মৌর্য:</strong> মৌর্য সাম্রাজ্যের (ভারতের ১ম সাম্রাজ্য) প্রতিষ্ঠাতা। রাজধানী: <strong>পাটলিপুত্র</strong>।</li>
+</ul>
+<h4>মৌর্য বংশের প্রধান শাসক</h4>
+<ol>
+<li>চন্দ্রগুপ্ত মৌর্য</li>
+<li>বিন্দুসার</li>
+<li>অশোক</li>
+</ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-2">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#2</span>
+              <h2 class="card-topic">প্রাচীন বাংলার ইতিহাস: সম্রাট অশোক, চাণক্য, বৃহদ্রথ ও গুপ্ত বংশ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_63_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>মৌর্য বংশ (চলমান) ও গুপ্ত বংশ</h3>
+<p>[চিত্র: সম্রাট অশোক, চন্দ্রগুপ্ত মৌর্য-চাণক্য, বৃহদ্রথ এবং গুপ্ত বংশের মাইন্ডম্যাপ]</p>
+<h4>সম্রাট অশোক</h4>
+<ul>
+<li>বাংলায় মৌর্য শাসন বিস্তৃত করেন; মৌর্য বংশের শ্রেষ্ঠ সম্রাট।</li>
+<li><strong>কলিঙ্গের যুদ্ধ (খ্রিষ্টপূর্ব ২৬১ অব্দ):</strong> ভয়াবহ রক্তপাত ও কলিঙ্গের জনগণের পরাজয়ের পর তিনি <strong>বৌদ্ধ ধর্ম গ্রহণ ও প্রচার</strong> শুরু করেন।</li>
+</ul>
+<h4>চন্দ্রগুপ্ত মৌর্য ও চাণক্য</h4>
+<ul>
+<li>চন্দ্রগুপ্ত মৌর্যের প্রধানমন্ত্রী ছিলেন <strong>চাণক্য</strong> (মূল নাম: বিষ্ণুগুপ্ত, উপনাম: <strong>কৌটিল্য</strong>)।</li>
+<li>তাঁর বিখ্যাত গ্রন্থ → <strong>অর্থশাস্ত্র</strong> (<em>Science of Politics</em>)।</li>
+</ul>
+<h4>বৃহদ্রথ</h4>
+<ul>
+<li>শেষ মৌর্য সম্রাট।</li>
+<li>তাঁর সেনাপতি পুষ্যমিত্র শুঙ্গ তাঁকে হত্যা করে মৌর্য শাসনের অবসান ঘটান।</li>
+</ul>
+<h4>গুপ্ত বংশ (৩২০ খ্রিষ্টাব্দ / ৪র্থ শতক)</h4>
+<ul>
+<li><strong>বংশের প্রতিষ্ঠাতা:</strong> শ্রীগুপ্ত।</li>
+<li>প্রাচীন ভারতের <strong>স্বর্ণযুগ</strong> বলা হয়।</li>
+<li><strong>প্রকৃত প্রতিষ্ঠাতা:</strong> ১ম চন্দ্রগুপ্ত।</li>
+<li><strong>শ্রেষ্ঠ সম্রাট:</strong> সমুদ্রগুপ্ত (তাঁকে <strong>প্রাচীন ভারতের নেপোলিয়ন</strong> বলা হয়)।</li>
+<li><strong>রাজধানী:</strong> পাটলিপুত্র।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-3">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#3</span>
+              <h2 class="card-topic">গুপ্ত বংশ (২য় চন্দ্রগুপ্ত), গৌড় রাজ্য (শশাঙ্ক) ও হর্ষবর্ধন</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_64_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>গুপ্ত বংশ (২য় চন্দ্রগুপ্ত), গৌড় রাজ্য ও হর্ষবর্ধন</h3>
+<p>[চিত্র: ২য় চন্দ্রগুপ্তের রাজসভার পণ্ডিতগণ, শশাঙ্কের গৌড় রাজ্য ও হর্ষবর্ধনের ফ্লোচার্ট]</p>
+<h4>২য় চন্দ্রগুপ্ত (বিক্রমাদিত্য)</h4>
+<p>বংশধারা: প্রথম চন্দ্রগুপ্ত → সমুদ্রগুপ্ত → <strong>২য় চন্দ্রগুপ্ত</strong> (উপাধি: বিক্রমাদিত্য; হিন্দুধর্মের পৃষ্ঠপোষক)।</p>
+<ul>
+<li><strong>কালিদাস:</strong> মহাকবি (রচনা: মেঘদূত, শকুন্তলা, রঘুবংশ)।</li>
+<li><strong>অমরসিংহ:</strong> সংস্কৃত কবি ও ব্যাকরণবিদ; প্রাচীন ভারতের শ্রেষ্ঠ অভিধান প্রণেতা; বিখ্যাত অভিধান <strong>"অমর কোষ"</strong>।</li>
+<li><strong>ধন্বন্তরি:</strong> চিকিৎসক (কবিরাজ)।</li>
+<li><strong>চীনা পর্যটক ফা-হিয়েন:</strong> তাঁর সময়ে ভারত ভ্রমণ করেন; গ্রন্থ <strong>"ফো-কুয়ো-কি"</strong>।</li>
+<li><strong>আর্যভট্ট:</strong> গণিতবিদ ও জ্যোতির্বিজ্ঞানী — শূন্যের (০) ব্যবহার আবিষ্কার, পাটিগণিতের জনক, আহ্নিক ও বার্ষিক গতি নির্ণয়, সূর্যগ্রহণ ও চন্দ্রগ্রহণ তত্ত্ব।</li>
+<li><strong>শেষ গুপ্ত সম্রাট:</strong> জীবিতগুপ্ত।</li>
+</ul>
+<div class="note">
+<p><strong>প্রাচীন বাংলার শাসনক্রমের ধারা:</strong> মৌর্য → গুপ্ত → গৌড় → পাল → সেন</p>
+</div>
+<h4>গৌড় বংশ ও শশাঙ্ক (৬০৬–৬৩৭ খ্রি.)</h4>
+<ul>
+<li>গৌড় রাজ্যের (বঙ্গ, গৌড়) প্রতিষ্ঠাতা → <strong>শশাঙ্ক</strong>।</li>
+<li>বাংলার প্রথম স্বাধীন নরপতি / রাজা।</li>
+<li><strong>উপাধি:</strong> মহাসামন্ত।</li>
+<li><strong>রাজধানী:</strong> কর্ণসুবর্ণ (মুর্শিদাবাদ)।</li>
+<li><strong>ধর্ম:</strong> শৈব (বৌদ্ধ ধর্মের বিদ্বেষী)।</li>
+<li>শশাঙ্কের মৃত্যুর পর বাংলায় অরাজকতা শুরু হয়, যাকে <strong>মাৎস্যন্যায়</strong> বলে (৭ম–৮ম শতক, প্রায় ১০০ বছর স্থায়ী ছিল)।</li>
+</ul>
+<h4>হর্ষবর্ধন</h4>
+<ul>
+<li>চীনা পর্যটক <strong>হিউয়েন সাঙ</strong> তাঁর সময়ে আসেন।</li>
+<li><strong>নালন্দা বিশ্ববিদ্যালয়ের</strong> পৃষ্ঠপোষক।</li>
+<li>সভাকবি → <strong>বাণভট্ট</strong> (গ্রন্থ: <strong>হর্ষচরিত</strong>)।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-4">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#4</span>
+              <h2 class="card-topic">পাল বংশ (গোপাল, ধর্মপাল, পাহাড়পুর/সোমপুর বিহার) ও চর্যাপদ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_65_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>পাল বংশ ও পাহাড়পুর (সোমপুর মহাবিহার)</h3>
+<p>[চিত্র: পাল বংশের প্রতিষ্ঠা, ধর্মপাল, সোমপুর বিহার ও চর্যাপদের ফ্লোচার্ট]</p>
+<h4>মাৎস্যন্যায় ও পাল যুগ</h4>
+<ul>
+<li><strong>মাৎস্যন্যায়ের যুগ (৭ম–৮ম শতক):</strong> বাংলায় অরাজকতার কাল, যার অবসান ঘটান <strong>গোপাল</strong>।</li>
+<li><strong>পাল যুগ:</strong>
+  <ul>
+    <li>বাংলার প্রথম বংশানুক্রমিক শাসন ব্যবস্থা।</li>
+    <li>বাংলার দীর্ঘস্থায়ী রাজবংশ (প্রায় ৪০০ বছর)।</li>
+    <li>প্রতিষ্ঠাতা → <strong>গোপাল</strong> (মাৎস্যন্যায়ের অবসান ঘটান)।</li>
+  </ul>
+</li>
+</ul>
+<h4>ধর্মপাল</h4>
+<ul>
+<li>পাল বংশের শ্রেষ্ঠ রাজা।</li>
+<li>নির্মাণ করেন: <strong>সোমপুর বিহার</strong> (পাহাড়পুর, নওগাঁ) এবং <strong>বিক্রমশীলা বিহার</strong> (ভাগলপুর)।</li>
+</ul>
+<div class="note">
+<h4>পাহাড়পুর (সোমপুর মহাবিহার) [স্টিকি নোট]</h4>
+<ul>
+<li><strong>অবস্থান:</strong> নওগাঁ।</li>
+<li><strong>নির্মাণ:</strong> ধর্মপাল।</li>
+<li>এটি প্রাচীন বৌদ্ধ সভ্যতার নিদর্শন।</li>
+<li>প্রাচীন বাংলার স্থাপত্য কীর্তির শ্রেষ্ঠ নিদর্শন ও বৌদ্ধ ধর্মাবলম্বীদের তীর্থস্থান।</li>
+<li><strong>বিশ্ব ঐতিহ্যের স্বীকৃতি:</strong> ১৯৮৫ (ইউনেস্কো)।</li>
+<li><strong>প্রাপ্ত নিদর্শন:</strong> মৃৎপাত্র।</li>
+</ul>
+</div>
+<h4>চর্যাপদ (আংশিক স্টিকি নোটে ঢাকা)</h4>
+<ul>
+<li>সংগ্রাহক: <strong>হরপ্রসাদ শাস্ত্রী</strong>।</li>
+<li><strong>১৯০৭ সালে</strong> নেপালের রাজদরবার থেকে আবিষ্কার করেন।</li>
+<li><strong>১৯১৬ সালে</strong> প্রকাশ করেন।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-5">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#5</span>
+              <h2 class="card-topic">বরেন্দ্র / কৈবর্ত বিদ্রোহ ও সেন বংশ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_66_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বরেন্দ্র / কৈবর্ত বিদ্রোহ ও সেন বংশ</h3>
+<p>[চিত্র: বরেন্দ্র/কৈবর্ত বিদ্রোহ, রামচরিত এবং সেন বংশের ফ্লোচার্ট]</p>
+<h4>বরেন্দ্র / কৈবর্ত বিদ্রোহ</h4>
+<ul>
+<li><strong>১ম বিদ্রোহ (১০৭০ সালে):</strong> ২য় মহীপাল বনাম কৈবর্ত (জেলে) সম্প্রদায়ের নেতা দিব্যোক।</li>
+<li><strong>২য় বিদ্রোহ (১০৮২ সালে):</strong> রামপাল বনাম কৈবর্ত নেতা (দিব্যোক/ভীম); শেষ পর্যন্ত রামপাল বিজয়ী হন।</li>
+</ul>
+<h4>রামচরিত</h4>
+<ul>
+<li>পাল শাসকদের উপর রচিত।</li>
+<li><strong>রচয়িতা:</strong> সন্ধ্যাকর নন্দী।</li>
+<li>রামপালের কাহিনী বর্ণিত।</li>
+</ul>
+<h4>সেন বংশ</h4>
+<ul>
+<li><strong>প্রতিষ্ঠাতা:</strong> সামন্ত সেন।</li>
+<li><strong>প্রকৃত প্রতিষ্ঠাতা:</strong> হেমন্ত সেন।</li>
+<li><strong>শ্রেষ্ঠ সম্রাট:</strong> বিজয় সেন।</li>
+<li><strong>অন্যতম/শেষ উল্লেখযোগ্য সম্রাট (নোট অনুযায়ী):</strong> বল্লাল সেন।</li>
+</ul>
+<h4>লক্ষ্মণ সেন</h4>
+<ul>
+<li>বাংলার শেষ হিন্দু সম্রাট।</li>
+<li>খ্রিঃ ১২০৪ সালে বখতিয়ার খিলজীর কাছে পরাজিত হন → বাংলায় মুসলিম শাসনের সূচনা হয়।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-6">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#6</span>
+              <h2 class="card-topic">সেন বংশের শাসক তালিকা ও বল্লাল সেনের গ্রন্থ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_67_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সেন বংশের শাসক তালিকা</h3>
+<p>[চিত্র: সেন বংশের শাসকদের শাখাচিত্র]</p>
+<ul>
+<li>সামন্ত সেন</li>
+<li>হেমন্ত সেন</li>
+<li>বিজয় সেন (শ্রেষ্ঠ সম্রাট)</li>
+<li>বল্লাল সেন — গ্রন্থ: <strong>দানসাগর</strong>, <strong>অদ্ভুতসাগর</strong></li>
+<li>লক্ষ্মণ সেন</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-7">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#7</span>
+              <h2 class="card-topic">মধ্যযুগের বাংলা (১২০৪–১৭৫৭): বখতিয়ার খলজি, সিন্ধু বিজয় ও সুলতান মাহমুদ</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">লেকচার-৩</span>
+              <span class="filename-tag">photo_68_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>লেকচার-৩ (১২০৪–১৭৫৭): বাংলায় মুসলিম শাসনের সূচনা</h3>
+<h4>বখতিয়ার খলজি</h4>
+<ul>
+<li><strong>জন্ম:</strong> আফগানিস্তান; <strong>জাতি:</strong> তুর্কি।</li>
+<li>লক্ষ্মণ সেনকে পরাজিত করে বাংলায় মুসলিম শাসনের সূত্রপাত করেন (১২০৪ সালে)।</li>
+<li>বাংলার প্রথম মুসলিম শাসক (১২০৪ সালে)।</li>
+</ul>
+<h4>সিন্ধু বিজয় (৭১২ সালে)</h4>
+<ul>
+<li>মুসলিম সেনাপতি <strong>মুহম্মদ বিন কাসিম</strong> বিজয়ী হন; সিন্ধুর রাজা <strong>দাহির</strong> পরাজিত হন।</li>
+</ul>
+<h4>সুলতান মাহমুদ</h4>
+<ul>
+<li>গজনীর শাসনকর্তা; ভারত আক্রমণ করেন <strong>১৭ বার</strong>।</li>
+<li><strong>সভাকবি:</strong> ফেরদৌসী (গ্রন্থ: <em>শাহনামা</em>; উপাধি: প্রাচ্যের হোমার)।</li>
+<li><strong>সোমনাথ মন্দির আক্রমণ:</strong> ১০২৫ সালে (গুজরাটে)।</li>
+<li>দার্শনিক ও জ্যোতির্বিদ <strong>"আল বেরুনী"</strong> তাঁর সাথে ভারতবর্ষে আসেন।</li>
+</ul>
+<div class="note">
+<h4>বাংলায় মুসলিম শাসন [স্টিকি নোট]</h4>
+<ul>
+<li><strong>তুর্কি শাসন (১২০৪–১৩৩৮):</strong> সূচনাকারী বখতিয়ার খলজি; শেষ শাসক কাদির খান।</li>
+<li><strong>সুলতানি শাসন (১৩৩৮–১৫৩৮)</strong></li>
+<li><strong>আফগান শাসন (১৫৩৮–১৫৭৬)</strong></li>
+<li><strong>মুঘল শাসন (১৫৭৬–১৭৫৭)</strong></li>
+</ul>
+</div>
+<h4>তরাইনের যুদ্ধ ও দিল্লি শাসনকাল</h4>
+<ul>
+<li><strong>দিল্লি সালতানাত:</strong> ১২০৬–১৫২৬</li>
+<li><strong>মুঘল শাসন:</strong> ১৫২৬–১৮৫৭</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-8">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#8</span>
+              <h2 class="card-topic">তরাইনের যুদ্ধ, দিল্লি সালতানাত ও মুঘল শাসন (স্টিকি নোটের নিচের অংশ)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">লেকচার-৩</span>
+              <span class="filename-tag">photo_69_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>তরাইনের যুদ্ধ ও সালতানাত/মুঘল শাসনকাল (লেকচার-৩)</h3>
+<p><em>(পূর্ববর্তী পৃষ্ঠার স্টিকি নোট সরিয়ে তোলা অংশ)</em></p>
+<h4>তরাইনের যুদ্ধ</h4>
+<table>
+<thead><tr><th>যুদ্ধ ও সাল</th><th>মুহম্মদ ঘুরী</th><th>পৃথ্বীরাজ চৌহান</th></tr></thead>
+<tbody>
+<tr><td>১ম যুদ্ধ (১১৯১)</td><td>পরাজয়</td><td>জয়</td></tr>
+<tr><td>২য় যুদ্ধ (১১৯২)</td><td>জয়</td><td>পরাজয়</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>দিল্লি সালতানাত:</strong> ১২০৬–১৫২৬</li>
+<li><strong>মুঘল শাসন:</strong> ১৫২৬–১৮৫৭</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-9">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#9</span>
+              <h2 class="card-topic">দিল্লি সালতানাত: দাস বংশ, খলজি বংশ, তুঘলক বংশ ও লোদী বংশ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_70_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>দিল্লি সালতানাত (১২০৬–১৫২৬)</h3>
+<p><strong>প্রতিষ্ঠাতা:</strong> কুতুবউদ্দিন আইবেক (তুর্কি শাসক ছিলেন)।</p>
+<h4>দাস বংশ</h4>
+<ul>
+<li>মুহম্মদ ঘুরী → <strong>কুতুবউদ্দিন আইবেক</strong> (নির্মাণ করেন: <em>কুতুব মিনার</em>) → <strong>ইলতুৎমিশ</strong>।</li>
+<li>ইলতুৎমিশের পুত্র: <strong>সুলতান নাসিরউদ্দিন মাহমুদ</strong> (ফকির দরবেশ স্বভাবের)।</li>
+<li>ইলতুৎমিশের কন্যা: <strong>সুলতানা রাজিয়া</strong> (দিল্লির সিংহাসনে ১ম নারী)।</li>
+</ul>
+<div class="note">
+<h4>দাস বংশের গুরুত্বপূর্ণ শাসক [স্টিকি নোট]</h4>
+<ul>
+<li><strong>ইলতুৎমিশ:</strong> সুলতানি শাসনামলে 'টঙ্কা' মুদ্রা প্রচলন করেন।</li>
+<li><strong>সুলতানা রাজিয়া:</strong> ভারত-ই-ইসলামের বা হিন্দুস্তানের ১ম মহিলা শাসক।</li>
+<li><strong>সুলতান গিয়াসউদ্দিন বলবন:</strong> দৈবত্বের বিশ্বাসযুক্ত শাসন, সিজদা ও পাইবস প্রথা প্রবর্তন এবং নওরোজ উৎসব পালন শুরু করেন।</li>
+</ul>
+</div>
+<h4>খলজি বংশ (আংশিক স্টিকি নোটে ঢাকা)</h4>
+<ul>
+<li>দাক্ষিণাত্য জয়, বাজার নিয়ন্ত্রণ ব্যবস্থা এবং ডাক ব্যবস্থা প্রচলন (আলাউদ্দিন খলজি)।</li>
+</ul>
+<h4>তুঘলক বংশ</h4>
+<ul>
+<li><strong>মুহম্মদ বিন তুঘলক:</strong> রাজধানী দিল্লি থেকে <strong>দেবগিরিতে</strong> স্থানান্তর করেন।</li>
+<li>তাঁর শাসনামলে <strong>ইবনে বতুতা</strong> ভারতবর্ষে (দিল্লি) আসেন (<strong>১৩৩৩</strong> সালে)।</li>
+</ul>
+<h4>লোদী বংশ</h4>
+<ul>
+<li><strong>ইব্রাহিম লোদী:</strong> শেষ সম্রাট।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-10">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#10</span>
+              <h2 class="card-topic">দিল্লি সালতানাত: খলজি বংশ (আলাউদ্দিন খলজি), তুঘলক বংশ ও লোদী বংশ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_71_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>খলজি বংশ, তুঘলক বংশ ও লোদী বংশ (স্টিকি নোট সরানো অংশ)</h3>
+<h4>খলজি বংশ</h4>
+<ul>
+<li><strong>আলাউদ্দিন খলজি:</strong>
+  <ul>
+    <li>সেনাপতি: <strong>মালিক কাফুর</strong>।</li>
+    <li>দক্ষিণে <strong>দাক্ষিণাত্য (দেবগিরি)</strong> জয় করেন।</li>
+    <li><strong>দ্রব্যমূল্য ও বাজার নিয়ন্ত্রণ</strong> ব্যবস্থা প্রবর্তন।</li>
+    <li>১ম <strong>স্থায়ী সেনাবাহিনী</strong> গঠন করেন।</li>
+  </ul>
+</li>
+</ul>
+<h4>তুঘলক বংশ</h4>
+<ul>
+<li><strong>মুহম্মদ বিন তুঘলক:</strong> রাজধানী দিল্লি থেকে <strong>দেবগিরিতে</strong> নেন।</li>
+<li>তাঁর সময়ে <strong>ইবনে বতুতা</strong> ভারতবর্ষে (দিল্লি) আসেন (<strong>১৩৩৩</strong>)।</li>
+</ul>
+<h4>লোদী বংশ</h4>
+<ul>
+<li><strong>ইব্রাহিম লোদী:</strong> শেষ সম্রাট।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-11">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#11</span>
+              <h2 class="card-topic">বাংলায় স্বাধীন সুলতানি যুগ (১৩৩৮–১৫৩৮): ফখরুদ্দিন মুবারক শাহ, ইলিয়াস শাহ, গিয়াসউদ্দিন আজম শাহ ও আলাউদ্দিন হোসেন শাহ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_72_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বাংলায় স্বাধীন সুলতানি যুগ (১৩৩৮–১৫৩৮)</h3>
+<h4>ফখরুদ্দিন মুবারক শাহ (প্রতিষ্ঠাতা)</h4>
+<ul>
+<li>সূচনা: <strong>১৩৩৮</strong> (সোনারগাঁও)।</li>
+<li>তাঁর সময়ে <strong>ইবনে বতুতা</strong> বাংলায় আসেন (<strong>১৩৪৬</strong>)।</li>
+</ul>
+<h4>শামসুদ্দিন ইলিয়াস শাহ</h4>
+<ul>
+<li>প্রাচীন বাংলার জনপদগুলোকে একত্রিত করে <strong>"বাঙ্গালাহ"</strong> নামকরণ করেন।</li>
+<li><strong>"শাহ-ই-বাঙ্গালাহ"</strong> নামে পরিচিত।</li>
+</ul>
+<h4>গিয়াসউদ্দিন আজম শাহ</h4>
+<ul>
+<li>ধর্ম-ন্যায় পরায়ণ শাসক।</li>
+<li>বাংলা সাহিত্যের প্রথম পৃষ্ঠপোষক ছিলেন।</li>
+<li>তাঁর পৃষ্ঠপোষকতায় <strong>শাহ মুহম্মদ সগীর</strong> (বাংলা সাহিত্যের ১ম মুসলিম কবি) <em>ইউসুফ-জোলেখা</em> কাব্য রচনা করেন।</li>
+<li>পারস্যের কবি <strong>হাফিজের</strong> সাথে পত্রালাপ (পত্র বিনিময়) ছিল।</li>
+</ul>
+<h4>আলাউদ্দিন হোসেন শাহ</h4>
+<ul>
+<li>গৌড়ের <strong>ছোট সোনা মসজিদ</strong> নির্মাণ করেন।</li>
+<li>তাঁকে <strong>বাংলার আকবর</strong> বলা হয়।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-12">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#12</span>
+              <h2 class="card-topic">নাসিরউদ্দিন নুসরত শাহ, রাজা গণেশ ও মুঘল সম্রাটদের ক্রম</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_73_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>নাসিরউদ্দিন নুসরত শাহ, রাজা গণেশ ও মুঘল সম্রাটদের ক্রম</h3>
+<h4>নাসিরউদ্দিন নুসরত শাহ</h4>
+<p>তাঁর উল্লেখযোগ্য স্থাপত্য নির্মাণ:</p>
+<ul>
+<li>বাঘা শাহী মসজিদ</li>
+<li>গৌড়ের বড় সোনা মসজিদ</li>
+<li>কদম রসুল মসজিদ</li>
+</ul>
+<h4>রাজা গণেশ</h4>
+<ul>
+<li>গিয়াসউদ্দিন আজম শাহের মৃত্যুর পর ক্ষমতা দখল করেন (কিছুদিন জন্য স্বাধীন সুলতানি ক্ষমতার অবসান হয়)।</li>
+<li>দিনাজপুরের ভাতুরিয়া অঞ্চলের জমিদার ছিলেন।</li>
+<li>তাঁর পুত্র <strong>যদু</strong> ইসলাম ধর্ম গ্রহণ করে <strong>জালালউদ্দিন মাহমুদ শাহ</strong> নাম ধারণ করেন এবং রাজধানী গৌড়ে স্থানান্তর করেন।</li>
+</ul>
+<div class="note">
+<h4>বাংলার উল্লেখযোগ্য প্রথম ও শেষ শাসক [স্টিকি নোট ১]</h4>
+<ul>
+<li>বাংলার প্রথম স্বাধীন রাজা → <strong>শশাঙ্ক</strong></li>
+<li>বাংলার শেষ স্বাধীন রাজা → <strong>লক্ষ্মণ সেন</strong></li>
+<li>বাংলার প্রথম স্বাধীন সুলতান → <strong>ফখরুদ্দিন মোবারক শাহ</strong></li>
+<li>বাংলার শেষ সুলতান → <strong>গিয়াসউদ্দিন মাহমুদ শাহ</strong></li>
+</ul>
+</div>
+<div class="note">
+<h4>মুঘল সম্রাটদের ক্রম মনে রাখার ছন্দ [স্টিকি নোট ২]</h4>
+<p><em>"বাবার হইল একবার জ্বর, সারিল ঔষধে"</em></p>
+<ul>
+<li>বাবার → <strong>বাবর</strong></li>
+<li>হইল → <strong>হুমায়ুন</strong></li>
+<li>একবার → <strong>আকবর</strong></li>
+<li>জ্বর → <strong>জাহাঙ্গীর</strong></li>
+<li>সারিল → <strong>শাহজাহান</strong></li>
+<li>ঔষধে → <strong>আওরঙ্গজেব</strong></li>
+</ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-13">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#13</span>
+              <h2 class="card-topic">মুঘল শাসন প্রতিষ্ঠা ও পানিপথের ১ম যুদ্ধ (স্টিকি নোট সরানো অংশ)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_74_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>মুঘল শাসন প্রতিষ্ঠা (স্টিকি নোট সরানো অংশ)</h3>
+<ul>
+<li><strong>মুঘল শাসন:</strong> তুর্কি বংশোদ্ভূত।</li>
+<li><strong>প্রতিষ্ঠা:</strong> ১৫২৬ সালে, <strong>পানিপথের ১ম যুদ্ধের</strong> মাধ্যমে।</li>
+</ul>
+<table>
+<thead><tr><th>বিজয়ী</th><th>পরাজিত</th><th>ফলাফল</th></tr></thead>
+<tbody>
+<tr><td>বাবর (জয়)</td><td>ইব্রাহিম লোদী (পরাজয়)</td><td>মুঘল সাম্রাজ্য প্রতিষ্ঠা</td></tr>
+</tbody>
+</table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-14">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#14</span>
+              <h2 class="card-topic">মুঘল সম্রাট বাবর, হুমায়ুন ও আফগান শাসক শের শাহ (১৫৪০–১৫৪৫)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_75_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সম্রাট বাবর, সম্রাট হুমায়ুন ও শের শাহ</h3>
+<h4>বাবর</h4>
+<ul>
+<li>পূর্ণ নাম: <strong>জহির উদ্দিন মুহাম্মদ বাবর</strong>।</li>
+<li><strong>১৫২৬ সালে</strong> ভারতবর্ষে আগমন এবং <strong>ইব্রাহিম লোদীকে</strong> পরাজিত করেন।</li>
+<li>ভারতীয় উপমহাদেশে প্রথম <strong>কামানের ব্যবহার</strong> করেন (পানিপথের ১ম যুদ্ধ)।</li>
+<li>আত্মজীবনীমূলক গ্রন্থ: <strong>তুজুক-ই-বাবর / বাবরনামা</strong>।</li>
+</ul>
+<h4>সম্রাট হুমায়ুন</h4>
+<ul>
+<li>হুমায়ুন অর্থ 'ভাগ্যবান'; দুর্বল শাসক ও অধ্যাবসায়হীন মানুষ হিসেবে পরিচিত।</li>
+<li>বাংলার নাম রাখেন <strong>"জান্নাতাবাদ"</strong>।</li>
+<li>গ্রন্থাগারের সিঁড়ি হতে পড়ে মারা যান।</li>
+</ul>
+<h4>হুমায়ুন বনাম শের শাহের যুদ্ধসমূহ</h4>
+<ul>
+<li><strong>১ম যুদ্ধ:</strong> চৌসার যুদ্ধ (১৫৩৯)</li>
+<li><strong>২য় যুদ্ধ:</strong> কনৌজের যুদ্ধ (১৫৪০)</li>
+<li><strong>ফলাফল:</strong> হুমায়ুনের পরাজয় ও শের শাহের বিজয়।</li>
+</ul>
+<h4>শের শাহ (১৫৪০–১৫৪৫)</h4>
+<ul>
+<li>আসল নাম: <strong>"ফরিদ খান"</strong>; আফগান শাসক।</li>
+<li><strong>গ্র্যান্ড ট্রাঙ্ক রোড</strong> (সড়ক-ই-আজম) নির্মাণ — সোনারগাঁও থেকে লাহোর।</li>
+<li><strong>"ঘোড়ার ডাক"</strong> প্রচলন।</li>
+<li><strong>"দাম"</strong> মুদ্রা ও আফগান/রৌপ্য মুদ্রা চালু।</li>
+<li><strong>কবুলিয়ত ও পাট্টা</strong> আইন প্রবর্তন (ভূমিদান দলিল)।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-15">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#15</span>
+              <h2 class="card-topic">মুঘল আমল: সম্রাট আকবর</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_76_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>আকবর</h3>
+<ul>
+  <li><strong>পূর্ণ নাম:</strong> জালালউদ্দিন মুহাম্মদ আকবর</li>
+  <li><strong>অভিভাবক:</strong> বৈরাম খান (সেনাপতি)</li>
+  <li><strong>সিংহাসনে আরোহণ:</strong> ১৫৫৬ সালে ১৪ই ফেব্রুয়ারি (১৩ বছর বয়সে)</li>
+</ul>
+<h4>পানিপথের ২য় যুদ্ধ (১৫৫৬ সাল)</h4>
+<table>
+  <thead>
+    <tr><th>পক্ষ ১</th><th>পক্ষ ২</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>বৈরাম খান (জয়)</td><td>হিন্দু শাসক হিমু (পরাজয়)</td></tr>
+  </tbody>
+</table>
+<h4>আকবরের প্রধান কীর্তি</h4>
+<ul>
+  <li>বাংলায় মুঘল শাসন প্রতিষ্ঠা (১৫৭৬)</li>
+  <li>দ্বীন-ই-ইলাহি প্রবর্তন (১৫৮২) — ১৯ জন অনুসারী</li>
+  <li>ধর্ম নিরপেক্ষ সম্রাট</li>
+</ul>
+<h4>আবুল ফজল</h4>
+<ul>
+  <li>আকবরের সভাকবি</li>
+  <li><strong>"আইন-ই-আকবরী"</strong> গ্রন্থ রচনা (সেখানে "বাংলা" শব্দের প্রথম ব্যবহার)</li>
+</ul>
+<h4>নবরত্ন</h4>
+<ul>
+  <li><strong>রাজস্বমন্ত্রী:</strong> "টোডরমল"</li>
+  <li><strong>গায়ক:</strong> তানসেন</li>
+  <li><strong>বিখ্যাত কৌতুকবিদ:</strong> বীরবল</li>
+</ul>
+<h4>উল্লেখযোগ্য কর্ম</h4>
+<ul>
+  <li>মনসবদারি প্রথা চালু (সেনাবাহিনী শৃঙ্খলার প্রথা)</li>
+  <li>বাংলা সন চালু (১৫৫৬ সালে)</li>
+  <li>পহেলা বৈশাখ চালু / বাংলা নববর্ষ</li>
+  <li>রাজপুত নীতি চালু</li>
+  <li>ফতেহপুর দুর্গ সিক্রি নির্মাণ</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-16">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#16</span>
+              <h2 class="card-topic">মুঘল আমল: আকবর (বাকি অংশ), মান সিংহ ও সম্রাট জাহাঙ্গীর</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_77_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সম্রাট আকবর (বাকি অংশ)</h3>
+<ul>
+  <li>জিজিয়া কর ও তীর্থকর রহিতকরণ</li>
+  <li>বুলন্দ দরওয়াজা নির্মাণ (ফতেহপুর সিক্রিতে)</li>
+  <li>বাংলায় মুঘল সাম্রাজ্য প্রতিষ্ঠা (১৫৭৬)</li>
+</ul>
+<h4>মান সিংহ</h4>
+<ul>
+  <li>বাংলার সুবেদার নিয়োজিত</li>
+  <li>বারো ভূঁইয়াদের দমন করতে ব্যর্থ হন।</li>
+</ul>
+<h3>"জাহাঙ্গীর"</h3>
+<ul>
+  <li><strong>স্ত্রী:</strong> নূরজাহান (আরেক নাম মেহেরুন নেসা; প্রথম আতরের জননী)</li>
+  <li><strong>আত্মজীবনী:</strong> তুজুক-ই-জাহাঙ্গীর</li>
+  <li>ব্রিটিশরা বাংলায় আসে</li>
+  <li>সরকারী কাজে আরবি ভাষা চালু</li>
+</ul>
+<h4>বাংলার শাসক: ইসলাম খান</h4>
+<ul>
+  <li>বারো ভূঁইয়াদের দমন</li>
+  <li>বাংলার রাজধানী ঢাকা করেন (১৬১০) (১ম)</li>
+  <li>ঢাকার নাম "জাহাঙ্গীরনগর" করেন</li>
+  <li>"ধোলাই খাল" খনন করেন</li>
+</ul>
+<div class="note">
+  <h4>ঢাকা ৫ বার বাংলার রাজধানী হয়</h4>
+  <ol>
+    <li><strong>১৬১০</strong> **</li>
+    <li>১৬৬০</li>
+    <li>১৯০৫</li>
+    <li>১৯৪৭</li>
+    <li>১৯৭১</li>
+  </ol>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-17">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#17</span>
+              <h2 class="card-topic">মুঘল আমল: সম্রাট শাহজাহান, শাহ সুজা, আওরঙ্গজেব, মীর জুমলা ও শায়েস্তা খান</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_78_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>শাহজাহান (পঞ্চম মুঘল সম্রাট)</h3>
+<ul>
+  <li>স্ত্রী: মমতাজ</li>
+  <li>"প্রিন্স অব বিল্ডার্স" বলা হয়</li>
+  <li>ইংরেজরা প্রথম বাণিজ্য কুঠি স্থাপন করে (হুগলিতে)</li>
+</ul>
+<h4>উল্লেখযোগ্য কর্ম</h4>
+<ul>
+  <li><strong>আগ্রার তাজমহল</strong> (যমুনা নদীর তীরে): স্থপতি ওস্তাদ ঈসা খাঁ; ২০ হাজার শ্রমিকের ২২ বছর সময় লাগে</li>
+  <li><strong>ময়ূর সিংহাসন:</strong> নাদির শাহ চুরি করে (বর্তমানে ইরানে আছে)</li>
+  <li>আগ্রা দুর্গ ও মতি মসজিদ</li>
+</ul>
+<h4>শাহ সুজা</h4>
+<ul>
+  <li>বাংলার সুবেদার</li>
+  <li>শাহজাহানের ২য় পুত্র</li>
+  <li>চকবাজারের <strong>বড় কাটরা</strong> নির্মাণ</li>
+</ul>
+<h3>আওরঙ্গজেব</h3>
+<ul>
+  <li>আসল নাম "আলমগীর"</li>
+  <li>"জিন্দাপীর" বলা হয়</li>
+  <li>নিজের খরচ যোগায় (পেশা → কোরান নকল করা)</li>
+</ul>
+<h4>সুবেদারগণ</h4>
+<p><strong>১. মীর জুমলা:</strong></p>
+<ul>
+  <li>ঢাকা গেট নির্মাণ</li>
+  <li>আসাম যুদ্ধ জয়</li>
+</ul>
+<p><strong>২. শায়েস্তা খান:</strong></p>
+<ul>
+  <li>চট্টগ্রামের নাম "ইসলামাবাদ" করেন</li>
+  <li>টাকায় আট মণ চাল পাওয়া যেত</li>
+  <li>চকবাজারে "ছোট কাটরা" নির্মাণ</li>
+  <li>"চক মসজিদ" নির্মাণ</li>
+  <li>"সাত গম্বুজ" মসজিদ</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-18">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#18</span>
+              <h2 class="card-topic">মুঘল সাম্রাজ্যের পতন ও বারো ভূঁইয়া</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_79_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>মুঘল সাম্রাজ্যের পতন</h3>
+<ul>
+  <li><strong>শেষ সম্রাট:</strong> ২য় বাহাদুর শাহ (নির্বাসন → রেঙ্গুন, মিয়ানমার)</li>
+  <li><strong>পতন:</strong> সিপাহী বিদ্রোহের মাধ্যমে পতন (১৮৫৭ সাল)</li>
+  <li><strong>স্মৃতি বিজড়িত স্থান:</strong> বাহাদুর শাহ পার্ক (সিপাহী বিদ্রোহের সাথে সম্পর্কিত)</li>
+</ul>
+<h3>বারো ভূঁইয়া</h3>
+<ul>
+  <li>সংখ্যা অনির্দিষ্ট (১২ নয়)</li>
+  <li><strong>রাজধানী:</strong> সোনারগাঁও</li>
+  <li><strong>নেতা:</strong> ঈসা খাঁ — মৃত্যু → পুত্র: মুসা খাঁ</li>
+  <li><strong>প্রতাপ আদিত্য:</strong> শক্তিশালী শাসক ছিলেন</li>
+  <li><strong>দমন করেন:</strong> "ইসলাম খান" (জাহাঙ্গীর আমলে)</li>
+</ul>
+<div class="note">
+  <p>সম্রাট আকবর পুরো বাংলার উপর অধিকার প্রতিষ্ঠিত করতে পারেন নি। বাংলার বড় বড় জমিদাররা মুঘলদের অধীনতা মেনে নেয় নি। জমিদারগণ তাদের নিজ নিজ জমিদারিতে স্বাধীন ছিলেন। স্বাধীনতা রক্ষার জন্য তারা একজোট হয়ে মুঘলদের উপর ঝাঁপিয়ে পড়তেন। বাংলার ইতিহাসে এরাই <strong>"বারো ভূঁইয়া"</strong> নামে পরিচিত।</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-19">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#19</span>
+              <h2 class="card-topic">নবাবী শাসন ও পলাশী যুদ্ধ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_80_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>নবাবী শাসন</h3>
+<p>মুঘলরা দুর্বল হয়ে পড়লে বাংলায় স্বাধীন নবাবী শাসন শুরু হয়।</p>
+<ul>
+  <li><strong>বাংলার ১ম স্বাধীন নবাব:</strong> মুর্শিদকুলী খান</li>
+  <li><strong>বাংলার শেষ স্বাধীন নবাব:</strong> "সিরাজ-উদ-দৌলা"</li>
+</ul>
+<h4>পলাশী যুদ্ধ</h4>
+<ul>
+  <li><strong>তারিখ:</strong> ১৭৫৭ সালের ২৩ শে জুন</li>
+  <li><strong>স্থান:</strong> পলাশীর আম বাগান</li>
+</ul>
+<table>
+  <thead>
+    <tr><th>পক্ষ</th><th>বিপক্ষ</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>নবাব সিরাজ (পরাজয়)</td><td>লর্ড ক্লাইভ (বিজয়ী)</td></tr>
+  </tbody>
+</table>
+<ul>
+  <li>বাংলার স্বাধীনতার সূর্য অস্তমিত হয়</li>
+  <li>পলাশী <strong>ভাগীরথী</strong> নদীর তীরে অবস্থিত</li>
+</ul>
+<h4>নবাব সিরাজ</h4>
+<ul>
+  <li><strong>নানা:</strong> আলীর্বদী খাঁ</li>
+  <li><strong>সিংহাসনে আরোহন:</strong> ১৭৫৬ সালের ১০ এপ্রিল</li>
+  <li>বাংলার শেষ স্বাধীন নবাব</li>
+  <li>সেনাপতি মীর জাফর ও খালা ঘষেটি বেগমের বিশ্বাসঘাতকতার জন্য পরাজিত হয়</li>
+  <li>'ফোর্ট' উইলিয়াম দুর্গ আক্রমণ (১৭৫৬)</li>
+  <li><strong>হত্যাকারী:</strong> "মুহাম্মাদী বেগ"</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-20">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#20</span>
+              <h2 class="card-topic">বক্সারের যুদ্ধ ও দেওয়ানী লাভ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_81_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বক্সারের যুদ্ধ</h3>
+<ul>
+  <li>ফকির-সন্ন্যাসীদের সাহায্য কামনা করেছিলেন</li>
+  <li><strong>সংঘটিত:</strong> ১৭৬৪ সালে</li>
+  <li><strong>পক্ষ-বিপক্ষ:</strong> মীর কাশিম (পরাজিত) + লর্ড ক্লাইভ</li>
+</ul>
+<p>→ <strong>১৭৬৫ সালে</strong> ব্রিটিশরা দিউয়ানী লাভ করে → (ইস্ট ইন্ডিয়া কোম্পানির শাসন চালু)</p>
+<h4>রাষ্ট্রে ২ ধরনের কাজ থাকে</h4>
+<ol>
+  <li><strong>দিউয়ানী ⇒</strong> রাজস্ব সংক্রান্ত ক্ষমতা (ব্রিটিশরা লাভ করে)</li>
+  <li><strong>ফৌজদারী ⇒</strong> অন্যান্য ক্ষমতা</li>
+</ol>
+<h4>দিউয়ানী</h4>
+<ul>
+  <li>দিল্লী সম্রাট ২য় শাহ আলম (বার্ষিক ২৬ লাখ)</li>
+  <li>বাংলার নবাব নাজিমউদুল্লাহ (বার্ষিক ৫৩ লাখ)</li>
+</ul>
+<p>→ এঁরা উভয়ে ব্রিটিশদেরকে বাংলার দেওয়ানী ক্ষমতা প্রদান করেন।</p>
+<div class="note">
+  <p><strong>* লর্ড ক্লাইভ বাংলার প্রথম গভর্নর হন</strong> ← (দ্বৈত শাসন চালু)</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-21">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#21</span>
+              <h2 class="card-topic">ব্রিটিশ শাসন (১৭৫৭-১৯৪৭): দ্বৈত শাসন, এলাহাবাদ চুক্তি, ছিয়াত্তরের মন্বন্তর ও ওয়ারেন হেস্টিংস</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">লেকচার-৭</span>
+              <span class="filename-tag">photo_82_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>লেকচার-৭ (১৭৫৭ - ১৯৪৭)</h3>
+<h4>দ্বৈত শাসন (Dual administration / Di administration)</h4>
+<p>→ লর্ড ক্লাইভ</p>
+<h4>এলাহাবাদ চুক্তি</h4>
+<ul>
+  <li><strong>তারিখ:</strong> ১৭৬৫ সালের ১২ আগস্ট</li>
+  <li><strong>২ পক্ষের মধ্যে হয়:</strong>
+    <ul>
+      <li>ব্রিটিশ কোম্পানী</li>
+      <li>বাংলার নবাব ও দিল্লীর সম্রাট</li>
+    </ul>
+  </li>
+  <li><strong>ফলাফল:</strong> ব্রিটিশরা দিউয়ানী ক্ষমতা লাভ করে</li>
+</ul>
+<h4>১৭৭০ সালের দুর্ভিক্ষ</h4>
+<ul>
+  <li>বাংলা ১১৭৬ সন</li>
+  <li><strong>"ছিয়াত্তরের মন্বন্তর"</strong> নামে পরিচিত (জয়নুল আবেদীন ছবি আঁকেন)</li>
+  <li>বাংলার ১/৩ অংশ মানুষ মারা যায়</li>
+  <li>লর্ড কার্টিয়ারের সময় সংঘটিত হয়</li>
+</ul>
+<h4>ওয়ারেন হেস্টিংস</h4>
+<ul>
+  <li>১৭৭২ সালে ক্ষমতায় আসে</li>
+  <li>দ্বৈত শাসন ব্যবস্থা বিলোপ</li>
+  <li>৫ শালা বন্দোবস্তু করেন</li>
+</ul>
+<div class="note">
+  <p><strong>Note:</strong></p>
+  <ul>
+    <li>দ্বৈত শাসন চালু → লর্ড ক্লাইভ</li>
+    <li>দ্বৈত শাসন বাতিল → ওয়ারেন হেস্টিংস</li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-22">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#22</span>
+              <h2 class="card-topic">ব্রিটিশ শাসকগণ (কর্নওয়ালিস, বেন্টিংক, ডালহৌসী, ক্যানিং, মেয়ো) ও সিপাহী বিদ্রোহ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_83_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>লর্ড কর্নওয়ালিস</h3>
+<ul>
+  <li><strong>চিরস্থায়ী বন্দোবস্ত</strong> করেন (১৭৯৩)</li>
+  <li>চিরস্থায়ী বন্দোবস্ত চালু কার্যকর করার জন্য <strong>সূর্যাস্ত আইন</strong> চালু (১৭৯৩)</li>
+  <li>দশশালা ভূমি বন্দোবস্ত করেন</li>
+</ul>
+<h3>উইলিয়াম বেন্টিংক</h3>
+<ul>
+  <li>রাজা রাম মোহন রায়ের প্রচেষ্টায় সতীদাহ প্রথা বাতিল *(১৮২৯ সালে)</li>
+  <li>রাজা রাম মোহন রায়কে <strong>ভারতের ১ম আধুনিক পুরুষ</strong> বলা হয়</li>
+</ul>
+<h3>লর্ড ডালহৌসী</h3>
+<ul>
+  <li>১৮৫৩ সালে ভারতে ১ম রেলপথ চালু</li>
+  <li>স্বত্ব বিলোপ নীতি চালু ১৮৫৬ সালে (দত্তক প্রথা)</li>
+  <li>১৮৫৬ সালে এনফিল্ড নামক কার্তুজ (বন্দুকের টোটা) বানিয়েছিলেন</li>
+</ul>
+<h3>লর্ড ক্যানিং</h3>
+<ul>
+  <li>পুলিশ ব্যবস্থা চালু</li>
+  <li>কাগজী মুদ্রার প্রচলন</li>
+</ul>
+<h3>লর্ড মেয়ো</h3>
+<ul>
+  <li>ভারতবর্ষে ১ম আদম শুমারী চালু (১৮৭২ সালে)</li>
+</ul>
+<div class="note">
+  <h4>সিপাহী বিদ্রোহ (স্টিকি নোট)</h4>
+  <ul>
+    <li>১৮৫৭ সালে ব্যারাকপুর থেকে শুরু</li>
+    <li><strong>নেতা:</strong> মঙ্গল পান্ডে</li>
+    <li><strong>ঢাকার বিদ্রোহী:</strong> রজব আলি</li>
+    <li><strong>রংপুরের বিদ্রোহী:</strong> ওয়ালিদ মুহাম্মদ</li>
+    <li>২য় বাহাদুর শাহ নির্বাসন</li>
+    <li><strong>ফলাফল:</strong> ইস্ট ইন্ডিয়া কোম্পানির শাসনের অবসান ঘটে</li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-23">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#23</span>
+              <h2 class="card-topic">সর্বভারতীয় কংগ্রেস, বঙ্গভঙ্গ ও জাতীয় সঙ্গীত</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_84_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সর্বভারতীয় কংগ্রেস</h3>
+<ul>
+  <li>ভারতের ১ম রাজনৈতিক দল</li>
+  <li>১৮৮৫ সালের ২৮ ডিসেম্বর প্রতিষ্ঠা</li>
+  <li><strong>প্রতিষ্ঠাতা:</strong> অক্টোভিয়ান হিউম</li>
+  <li><strong>সভাপতি (১ম):</strong> উমেশচন্দ্র বন্দ্যোপাধ্যায়</li>
+</ul>
+<h3>বঙ্গভঙ্গ</h3>
+<ul>
+  <li><strong>ঘোষণাকারী:</strong> লর্ড কার্জন</li>
+  <li><strong>কার্যকর:</strong> ১৯০৫ সালের ১৬ অক্টোবর</li>
+  <li>এর ফলে <strong>স্বদেশী আন্দোলন</strong> হয়</li>
+  <li><strong>বাংলা প্রদেশ ২ ভাগ করেন:</strong>
+    <ol type="i">
+      <li>পূর্ববঙ্গ ও আসাম; রাজধানী → ঢাকা</li>
+      <li>পশ্চিম বঙ্গ; রাজধানী → কলকাতা</li>
+    </ol>
+  </li>
+</ul>
+<h4>জাতীয় সঙ্গীত প্রসঙ্গ</h4>
+<ul>
+  <li>বঙ্গভঙ্গের কারণে <strong>"আমার সোনার বাংলা"</strong> গানটি রচনা করেন রবীন্দ্র নাথ ঠাকুর (১৯০৫)</li>
+  <li>গীতবিতান কাব্যের স্বরবিতান খণ্ডের অংশ</li>
+  <li>২৫ লাইন থেকে ১০ লাইন নেয়া হয়েছে</li>
+  <li>রাষ্ট্রীয় অনুষ্ঠানে বাজানো হয় ১ম <strong>৪</strong> লাইন (সংবিধানের <strong>৪(১)</strong> অনুচ্ছেদে জাতীয় সঙ্গীতের কথা বলা হয়েছে)</li>
+  <li><strong>আসল সুরকার:</strong> "গগন হরকরা"</li>
+</ul>
+<h4>বঙ্গভঙ্গের ফলাফল</h4>
+<ul>
+  <li>স্বদেশী আন্দোলন (১৯০৫-১৯১১)</li>
+  <li>বঙ্গভঙ্গ বাতিল/রদ: ১৯১১ সালে (লর্ড হার্ডিঞ্জ করেন)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-24">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#24</span>
+              <h2 class="card-topic">রবীন্দ্রনাথের নাইট উপাধি, লক্ষ্ণৌ চুক্তি ও মন্টেগু-চেমসফোর্ড আইন</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_85_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>রবীন্দ্রনাথ ঠাকুরের নাইট উপাধি</h3>
+<ul>
+  <li><strong>নাইট উপাধি পান:</strong> ১৯১৫ সালে</li>
+  <li><strong>নাইট উপাধি পাওয়ার কারণ:</strong> ১৯১১ সালে বঙ্গভঙ্গ বাতিল হলে, তৎকালীন ইংল্যান্ডের রাজা পঞ্চম জর্জকে খুশি করার জন্য স্বরচিত ভারতের জাতীয় সঙ্গীতে রাজা ৫ম জর্জকে ভারতের ভাগ্য বিধাতা আখ্যায়িত করেন, তাই ইংল্যান্ডের সর্বোচ্চ খেতাব নাইট উপাধি পান।</li>
+  <li><strong>ভারতের জাতীয় সঙ্গীতের নাম:</strong> "জন গণমন"</li>
+  <li><strong>১৯১৯ সালে জালিয়ান ওয়ালাবাগ</strong> হত্যাকাণ্ডের কারণে নাইট উপাধি প্রত্যাখ্যান করেন।</li>
+</ul>
+<h3>লক্ষ্ণৌ চুক্তি (১৯১৬)</h3>
+<p>→ "ভারতীয় জাতীয় কংগ্রেস ও মুসলীম লীগের মধ্যে ১৯১৬ সালে লক্ষ্ণৌতে যে চুক্তি স্বাক্ষরিত হয়"</p>
+<h3>মন্টেগু চেমসফোর্ড আইন</h3>
+<ul>
+  <li>ভারত শাসন আইন ১৯১৯ নামেও পরিচিত</li>
+  <li>এটি ছিল মূলত ব্রিটিশ সরকার কর্তৃক ভারতে প্রবর্তিত একটি সাংবিধানিক সংস্কার</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-25">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#25</span>
+              <h2 class="card-topic">স্বরাজ দল, বেঙ্গল প্যাক্ট ও বঙ্গীয় আইনসভা নির্বাচন (১৯৩৭)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_86_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>স্বরাজ দল</h3>
+<ul>
+  <li>কংগ্রেস-খিলাফত স্বরাজ দল নামে প্রতিষ্ঠিত ব্রিটিশ ভারতের একটি রাজনৈতিক দল</li>
+  <li>১৯২২ সালে প্রতিষ্ঠিত</li>
+  <li><strong>প্রতিষ্ঠাতা:</strong> চিত্তরঞ্জন দাশ</li>
+  <li><strong>মহাসচিব:</strong> মতিলাল নেহরু</li>
+</ul>
+<h3>বেঙ্গল প্যাক্ট (১৯২৩ সালে)</h3>
+<ul>
+  <li><strong>উদ্যোক্তা:</strong> চিত্তরঞ্জন দাশ + হোসেন শহীদ সোহরাওয়ার্দী</li>
+  <li>হিন্দু ও মুসলমানের মধ্যে সাম্প্রদায়িক বিভেদ দূর করার লক্ষ্যে সম্পাদিত একটি চুক্তি</li>
+</ul>
+<h3>বঙ্গীয় আইনসভা নির্বাচন (১৯৩৭)</h3>
+<ul>
+  <li>ভারতের ইতিহাসে প্রথম নির্বাচন</li>
+  <li><strong>বঙ্গপ্রদেশের মুখ্যমন্ত্রী হন:</strong> কৃষক প্রজা পার্টির এ. কে. ফজলুল হক</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-26">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#26</span>
+              <h2 class="card-topic">দ্বিজাতিতত্ত্ব, লাহোর প্রস্তাব, ভারত ছাড় আন্দোলন ও বঙ্গীয় আইনসভা (১৯৪৬)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_87_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>দ্বিজাতিতত্ত্ব</h3>
+<ul>
+  <li><strong>প্রবক্তা:</strong> মুহাম্মদ আলী জিন্নাহ</li>
+  <li><strong>প্রদান:</strong> ১৯৩৯ সালে</li>
+  <li>এটি হলো একটি রাজনৈতিক মতবাদ, যা ভারতীয় উপমহাদেশে হিন্দু ও মুসলিম দুটি ভিন্ন জাতি এবং তাদের পৃথক আবাস ভূমির (রাষ্ট্র) প্রয়োজন, একটি হিন্দুদের জন্য অন্যটি মুসলমানদের জন্য।</li>
+</ul>
+<h3>লাহোর প্রস্তাব (১৯৪০ সালের ২৩ মার্চ)</h3>
+<ul>
+  <li>পাকিস্তান প্রস্তাব নামেও পরিচিত</li>
+  <li><strong>উত্থাপন করেন:</strong> শেরে বাংলা এ কে ফজলুল হক</li>
+  <li><strong>সভাপতিত্ব করেন:</strong> মোহাম্মদ আলী জিন্নাহ</li>
+  <li>লাহোরে অনুষ্ঠিত মুসলীম লীগের অধিবেশনে উত্থাপিত হয়।</li>
+</ul>
+<h3>ভারত ছাড় আন্দোলন</h3>
+<ul>
+  <li>নেতৃত্ব দেন মাহাত্মা গান্ধী</li>
+  <li>১৯৪২ সালের ৮ আগস্ট থেকে</li>
+  <li>ব্রিটিশদের ভারত ছাড়ার আন্দোলন</li>
+</ul>
+<h3>বঙ্গীয় আইনসভা ১৯৪৬</h3>
+<ul>
+  <li>ভারতের ইতিহাসে ২য় নির্বাচন</li>
+  <li><strong>বাংলার মুখ্যমন্ত্রী:</strong> নিখিল ভারত মুসলীম লীগের হোসেন শহীদ সোহরাওয়ার্দী</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-27">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#27</span>
+              <h2 class="card-topic">ভারতীয় স্বাধীনতা আইন (১৯৪৭) ও ভাষা আন্দোলনের সূচনা (তমদ্দুন মজলিস)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Lecture-5</span>
+              <span class="filename-tag">photo_88_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ভারতীয় স্বাধীনতা আন্দোলন (১৯৪৭ সালে)</h3>
+<ul>
+  <li>পাশ হয় ১৯৪৭ সালের ১৮ই জুলাই</li>
+  <li>ভারত ও পাকিস্তান ভিন্ন রাষ্ট্র গঠিত হয়</li>
+  <li><strong>পাকিস্তান:</strong> ১৯৪৭ সালের ১৪ই আগস্ট</li>
+  <li><strong>ভারত:</strong> ১৯৪৭ সালের ১৫ই আগস্ট</li>
+  <li><strong>পাকিস্তানের ১ম গভর্নর জেনারেল (গঃ গঃ):</strong> মুহাম্মদ আলী জিন্নাহ</li>
+  <li><strong>ভারতের ১ম গভর্নর জেনারেল (গঃ গঃ):</strong> লর্ড মাউন্ট ব্যাটেন</li>
+</ul>
+<h3>Lecture-5 (১৯৪৭-১৯৭১)</h3>
+<p><strong>১৯৪৭ সালে দেশ বিভাগের সময়:</strong></p>
+<ul>
+  <li>বাংলায় কথা বলত: 56%</li>
+  <li>উর্দুতে কথা বলত: 6%</li>
+</ul>
+<h4>** তমদ্দুন মজলিস</h4>
+<ul>
+  <li>গঠিত: ১৯৪৭ সালের ২ সেপ্টেম্বর</li>
+  <li>সাংস্কৃতিক সংগঠন</li>
+  <li>মাতৃভাষার জন্য প্রতিষ্ঠিত ১ম সংগঠন</li>
+  <li><strong>প্রতিষ্ঠাতা:</strong> আবুল কাশেম</li>
+</ul>
+<h4>* পাকিস্তানের রাষ্ট্রভাষা বাংলা নাকি উর্দু?</h4>
+<ul>
+  <li>ভাষা আন্দোলনের ১ম পুস্তিকা (বই)</li>
+  <li>প্রকাশিত: ১৯৪৭ সালের ১৫ সেপ্টেম্বর (তমদ্দুন মজলিস)</li>
+  <li>গণভোট হয় (সর্বোচ্চ মানুষ বাংলা ভাষার পক্ষে রায় দেয়)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-28">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#28</span>
+              <h2 class="card-topic">ভাষা আন্দোলন (১৯৪৮-১৯৫২), শহীদ মিনার ও ভাষা আন্দোলনভিত্তিক সাহিত্য</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_89_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>১৯৪৮ সালের ২৩ ফেব্রুয়ারী</h3>
+<ul>
+  <li>পূর্ব পাকিস্তানের গণপরিষদ অধিবেশন বসে</li>
+  <li>(ইংরেজি + উর্দু) রাষ্ট্রভাষা করা হয়</li>
+  <li>ধীরেন্দ্রনাথ দত্ত বাংলাকে রাষ্ট্রভাষা করার দাবি জানান (বাড়ি → কুমিল্লা)</li>
+</ul>
+<h3>ভাষা আন্দোলন নিয়ে লেখালেখি</h3>
+<ul>
+  <li><strong>ভাষা আন্দোলন:</strong> ১৯৫২ সালের ২১শে ফেব্রুয়ারী</li>
+  <li><strong>বাংলা তারিখ:</strong> ১৩৫৮ বঙ্গাব্দের ৮ই ফাল্গুন</li>
+  <li><strong>দিন:</strong> বৃহস্পতিবার</li>
+</ul>
+<h4>১ম শহীদ মিনার</h4>
+<ul>
+  <li>অস্থায়ী ছিল</li>
+  <li><strong>নির্মাণ:</strong> ২৩শে ফেব্রুয়ারী</li>
+  <li><strong>উদ্বোধন:</strong> শহীদ শফিউরের পিতা মাহবুবুর রহমান</li>
+</ul>
+<h4>বর্তমান কেন্দ্রীয় শহীদ মিনার</h4>
+<ul>
+  <li><strong>উদ্বোধন:</strong> ১৯৬৩ সালের ২১শে ফেব্রুয়ারী</li>
+  <li><strong>স্থপতি:</strong> হামিদুর রহমান (ঢাকা মেডিকেল কলেজের পাশে)</li>
+</ul>
+<div class="note">
+  <h4>ভাষা আন্দোলনভিত্তিক প্রথম সৃষ্টিসমূহ</h4>
+  <ul>
+    <li><strong>১ম উপন্যাস:</strong> আরেক ফাল্গুন (জহির রায়হান)</li>
+    <li><strong>১ম নাটক:</strong> কবর (মুনীর চৌধুরী)</li>
+    <li><strong>১ম কবিতা:</strong> কাঁদতে আসিনি ফাঁসির দাবি নিয়ে এসেছি (মাহবুবুল আলম চৌধুরী)</li>
+    <li><strong>১ম চলচ্চিত্র:</strong> জীবন থেকে নেওয়া (জহির রায়হান)</li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-29">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#29</span>
+              <h2 class="card-topic">বাংলা ভাষার স্বীকৃতি, বাংলা একাডেমি ও যুক্তফ্রন্ট নির্বাচন</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_90_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বাংলা ভাষার স্বীকৃতি (V.V.I)</h3>
+<ul>
+  <li>১৯৫৩ সালের ২১শে ফেব্রুয়ারী ১ম শহীদ দিবস পালন</li>
+  <li>১৯৫৪ সালের ৯ মে → পাকিস্তান গণপরিষদ রাষ্ট্রভাষার স্বীকৃতি দেয়</li>
+  <li>১৯৫৬ সালের ২৩শে মার্চ → পাকিস্তানের সংবিধান রাষ্ট্রভাষার স্বীকৃতি দেয়।</li>
+</ul>
+<h3>বাংলা একাডেমি</h3>
+<ul>
+  <li>প্রতিষ্ঠিত: ১৯৫৫ সালের ৩ ডিসেম্বর **</li>
+  <li>প্রেক্ষাপট: ভাষা আন্দোলন **</li>
+  <li>পূর্বনাম: বর্ধমান হাউজ **</li>
+  <li>প্রকাশিত পত্রিকা: "ধান শালিকের দেশ", "উত্তরাধিকার"</li>
+  <li>১ম মহাপরিচালক: মাযহারুল ইসলাম</li>
+  <li>১ম নারী মহাপরিচালক: নীলিমা ইব্রাহীম **</li>
+</ul>
+<h3>যুক্তফ্রন্ট নির্বাচন</h3>
+<ul>
+  <li><strong>গঠিত:</strong> ১৯৫৩ সালের ৪ ডিসেম্বর</li>
+  <li><strong>দল ৪ টা</strong> (তালিকায় লিখিত ৫টি):
+    <ol>
+      <li>আওয়ামী মুসলিম লীগ</li>
+      <li>কৃষক শ্রমিক পার্টি</li>
+      <li>নেজামে ইসলামি পার্টি</li>
+      <li>গণতন্ত্রী পার্টি</li>
+      <li>খেলাফত পার্টি</li>
+    </ol>
+  </li>
+  <li><strong>অংশ নেয়:</strong> ১৬ টি দল</li>
+  <li><strong>নির্বাচন হয়:</strong> ১৯৫৪ সালের (২-৮) মার্চ</li>
+  <li><strong>মন্ত্রীসভা গঠন:</strong> ১৯৫৪ সালের ৩ এপ্রিল</li>
+  <li><strong>মন্ত্রীসভা ভেঙ্গে যায়:</strong> ৩০ মে, ১৯৫৪</li>
+  <li><strong>মন্ত্রীসভা স্থায়ী:</strong> ৫৬ দিন</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-30">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#30</span>
+              <h2 class="card-topic">আইয়ুব খানের শাসন, ১৯৬২ সালের শিক্ষা আন্দোলন, স্বাধীনতা দিবস ও মুক্তিযুদ্ধের ফোর্স</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_91_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>আইয়ুব খানের শাসন</h3>
+<ul>
+  <li><strong>সামরিক শাসনজারি:</strong> ১৯৫৮ সালের ২৭ অক্টোবর</li>
+  <li><strong>চালু করেন:</strong>
+    <ol>
+      <li>মৌলিক গণতন্ত্র</li>
+      <li>মুসলিম পারিবারিক আইন</li>
+    </ol>
+  </li>
+  <li><strong>১ম সামরিক শাসনজারি:</strong> ইস্কান্দার মির্জা *(7 October, ১৯৫৮)</li>
+</ul>
+<h3>১৯৬২ সালের শিক্ষা আন্দোলন (সেপ্টেম্বর মাসে)</h3>
+<ul>
+  <li>আইয়ুব খানের শিক্ষানীতি "শরিফ কমিশন" নীতির বিরুদ্ধে আন্দোলন</li>
+  <li>১৭ই সেপ্টেম্বর ১৯৬২: ঢাকা বিশ্ববিদ্যালয় আন্দোলন</li>
+  <li><strong>শহিদ ৩ জন:</strong> (i) মোস্তফা, (ii) বাবুল, (iii) ওয়াজিউল্লাহ</li>
+</ul>
+<h3>স্বাধীনতা দিবস</h3>
+<ul>
+  <li>১৯৭১ সালের ২৬শে মার্চ (জাতীয় দিবস)</li>
+  <li><strong>স্বাধীনতা ঘোষণা করেন:</strong> জিয়াউর রহমান (কালুরঘাট বেতার কেন্দ্র, চট্টগ্রাম)</li>
+</ul>
+<h3>মুক্তিযুদ্ধের ফোর্স (৩টি)</h3>
+<ol type="i">
+  <li><strong>Z ফোর্স</strong> → জিয়াউর রহমান</li>
+  <li><strong>K ফোর্স</strong> → খালেদ মোশাররফ</li>
+  <li><strong>S ফোর্স</strong> → কে. এম. শফিউল্লাহ</li>
+</ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-31">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#31</span>
+              <h2 class="card-topic">মুক্তিযুদ্ধের সেক্টর ও সেক্টর কমান্ডারগণ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_92_2026-11-24_20-47-30.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>** সেক্টর</h3>
+<ul>
+  <li>মোট সেক্টর: ১১ টা</li>
+  <li>সাব সেক্টর: ৬৪</li>
+  <li>১০নং সেক্টরে কোন কমান্ডার ছিল না (নৌবাহিনীর অধীনে ছিল)</li>
+</ul>
+<h4>** কমান্ডার- ১০ জন</h4>
+<table>
+  <thead>
+    <tr><th>সেক্টর ও সংকেত</th><th>কমান্ডার</th><th>সেক্টর ও সংকেত</th><th>কমান্ডার</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>১। জি</td><td>জিয়াউর রহমান</td><td>৬। বা</td><td>মেজর বাশার</td></tr>
+    <tr><td>২। খা</td><td>খালেদ মোশাররফ</td><td>৭। নু</td><td>কাজী নুরুজ্জামান</td></tr>
+    <tr><td>৩। শ</td><td>শফিউল্লাহ</td><td>৮। ও</td><td>ওসমান</td></tr>
+    <tr><td>৪। সি</td><td>সি. আর. দত্ত</td><td>৯। জ</td><td>মেজর জলিল</td></tr>
+    <tr><td>৫। মী</td><td>মীর শওকত</td><td>১১। তা</td><td>তাহের</td></tr>
+  </tbody>
+</table>
+<h4>সেক্টর মুক্তিযুদ্ধের সময়</h4>
+<p>[চিত্র: বাংলাদেশের হাতে আঁকা মানচিত্রে মুক্তিযুদ্ধের সেক্টরসমূহের অবস্থান দেখানো হয়েছে — রংপুর (৬), রাজশাহী (৭), ময়মনসিংহ (১১), সিলেট (৩, ৪, ৫), ঢাকা (২), খুলনা (৮), বরিশাল (৯), চট্টগ্রাম (১), এবং দক্ষিণে সমুদ্র অঞ্চল ১০নং নৌবাহিনী]</p>
+          </div>
+        </article>
+        
+    <div id="emptyState" class="empty-state">No matching pages found. Try a different keyword.</div>
+  </main>
+
+  <button type="button" id="backTop" class="back-top" title="Back to top" aria-label="Back to top">↑</button>
+  <script>
+(function() {
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('ocr_notes_theme');
+  if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    const syncLabel = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      themeBtn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+    };
+    syncLabel();
+    themeBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('ocr_notes_theme', next);
+      syncLabel();
+    });
+  }
+
+  const printBtn = document.getElementById('printBtn');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => window.print());
+  }
+
+  // Mobile auto-hide header on scroll down, show on scroll up
+  const header = document.querySelector('.site-header');
+  let lastY = window.scrollY;
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (header && window.innerWidth <= 768) {
+      if (y > 90 && y > lastY + 8) {
+        header.classList.add('nav-hidden');
+      } else if (y < lastY - 8 || y <= 40) {
+        header.classList.remove('nav-hidden');
+      }
+    } else if (header) {
+      header.classList.remove('nav-hidden');
+    }
+    if (backTop) {
+      backTop.classList.toggle('visible', y > 400);
+    }
+    lastY = y;
+  }, { passive: true });
+
+  if (backTop) {
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // Search filter
+  const searchInput = document.getElementById('searchInput');
+  const cards = Array.from(document.querySelectorAll('.page-card'));
+  const matchCount = document.getElementById('matchCount');
+  const emptyState = document.getElementById('emptyState');
+
+  if (searchInput && cards.length) {
+    const filterCards = () => {
+      const q = searchInput.value.trim().toLowerCase();
+      let shown = 0;
+      cards.forEach(card => {
+        const text = (card.dataset.search || card.textContent).toLowerCase();
+        const match = !q || text.includes(q);
+        card.classList.toggle('hidden', !match);
+        if (match) shown++;
+      });
+      if (matchCount) {
+        matchCount.textContent = q ? `${shown} / ${cards.length} pages` : `${cards.length} pages`;
+      }
+      if (emptyState) {
+        emptyState.style.display = shown === 0 ? 'block' : 'none';
+      }
+    };
+    searchInput.addEventListener('input', filterCards);
+    filterCards();
+  }
+
+  // Quick jump
+  const jumpSelect = document.getElementById('jumpSelect');
+  if (jumpSelect) {
+    jumpSelect.addEventListener('change', () => {
+      const id = jumpSelect.value;
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

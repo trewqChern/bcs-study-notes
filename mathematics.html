@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathematics &amp; Mathematical Reasoning — OCR Study Notes (32 Pages)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --accent: #d97706;
+  --accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+  --note-bg: #fffbeb;
+  --note-border: #f59e0b;
+  --qa-bg: #f0f9ff;
+  --qa-border: #0ea5e9;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #273449;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --note-bg: rgba(245, 158, 11, 0.12);
+  --note-border: #fbbf24;
+  --qa-bg: rgba(14, 165, 233, 0.12);
+  --qa-border: #38bdf8;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+.site-header.nav-hidden {
+  transform: translateY(-100%);
+}
+.header-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+.header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.brand .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.subject-nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 0 4px;
+  scrollbar-width: thin;
+}
+.subject-nav a {
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  background: var(--surface-alt);
+  border: 1px solid transparent;
+}
+.subject-nav a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.subject-nav a.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+}
+.search-input {
+  flex: 1 1 220px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+.search-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.jump-select {
+  flex: 1 1 200px;
+  max-width: 340px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+}
+.match-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+.page-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  scroll-margin-top: 150px;
+}
+.page-card.hidden {
+  display: none;
+}
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+}
+.card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.card-topic {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.filename-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  opacity: 0.85;
+}
+.card-body {
+  padding: 16px 20px;
+  overflow-x: auto;
+}
+.card-body h2, .card-body h3 {
+  margin: 14px 0 8px;
+  color: var(--accent);
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+.card-body h3:first-child, .card-body h2:first-child {
+  margin-top: 0;
+}
+.card-body h4 {
+  margin: 12px 0 6px;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.card-body p {
+  margin: 6px 0;
+}
+.card-body ul, .card-body ol {
+  margin: 6px 0 10px;
+  padding-left: 22px;
+}
+.card-body li {
+  margin: 4px 0;
+}
+.card-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.93rem;
+}
+.card-body th, .card-body td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.card-body th {
+  background: var(--surface-alt);
+  font-weight: 700;
+}
+.card-body tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--surface-alt) 45%, transparent);
+}
+.card-body .note {
+  background: var(--note-bg);
+  border-left: 4px solid var(--note-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body .qa {
+  background: var(--qa-bg);
+  border-left: 4px solid var(--qa-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body hr {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 14px 0;
+}
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+.back-top.visible {
+  display: inline-flex;
+}
+/* Hub Grid */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--card-accent, var(--accent));
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+.hub-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--card-accent, var(--accent));
+}
+.hub-card .bn-name {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.hub-card .count-pill {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--surface-alt);
+  color: var(--text);
+}
+.summary-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.summary-banner h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.summary-banner p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+@media (max-width: 768px) {
+  .header-inner { padding: 8px 12px; }
+  .brand h1 { font-size: 1.05rem; }
+  .card-header { padding: 10px 14px; }
+  .card-body { padding: 12px 14px; font-size: 15px; }
+  .controls-bar { gap: 6px; }
+  .jump-select { max-width: 100%; }
+}
+@media print {
+  .site-header, .back-top, .controls-bar, .subject-nav { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .container { max-width: 100%; padding: 0; }
+  .page-card { break-inside: avoid-page; box-shadow: none; border: 1px solid #ccc; margin-bottom: 12pt; }
+  .card-header { background: #f3f4f6 !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <h1>Mathematics &amp; Mathematical Reasoning</h1>
+          <span class="subtitle">গাণিতিক যুক্তি ও গণিত • 32 pages</span>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="btn" id="themeToggle">🌙 Dark</button>
+          <button type="button" class="btn" id="printBtn">🖨️ Print</button>
+        </div>
+      </div>
+      <nav class="subject-nav" aria-label="Subjects">
+        <a href="index.html" class="">🏠 All Subjects (250)</a>
+<a href="english_literature.html" class="">English Literature (58)</a>
+<a href="bangla_literature.html" class="">Bangla Literature (51)</a>
+<a href="mental_ability.html" class="">Mental Ability (34)</a>
+<a href="mathematics.html" class="active">Mathematics &amp; Mathematical Reasoning (32)</a>
+<a href="bangladesh_affairs.html" class="">Bangladesh Affairs (31)</a>
+<a href="international_affairs.html" class="">International Affairs (19)</a>
+<a href="bcs_syllabus.html" class="">BCS Written Syllabus (25)</a>
+      </nav>
+      <div class="controls-bar">
+        <input type="search" id="searchInput" class="search-input" placeholder="Search notes in Bengali or English..." aria-label="Search notes">
+        <select id="jumpSelect" class="jump-select" aria-label="Quick jump">
+          <option value="">Jump to topic / page...</option><option value="page-1">#1 — মূলদ, অমূলদ ও মৌলিক সংখ্যা (Rational, Irrational &amp; Prime Numbers)</option><option value="page-2">#2 — মৌলিক সংখ্যা, সহমৌলিক সংখ্যা ও ভাজক সংখ্যা নির্ণয় (Primes, Co-...</option><option value="page-3">#3 — ভাজক সংখ্যা, ভগ্নাংশের তুলনা ও জোড়-বিজোড় সংখ্যা (Divisors, Fra...</option><option value="page-4">#4 — ক্রমিক সংখ্যার গুণফল, বর্গের পার্থক্য ও বৃহত্তম-ক্ষুদ্রতম সংখ্...</option><option value="page-5">#5 — সংখ্যারেখা, বিভাজ্যতার নিয়ম ও গড়ভিত্তিক অঙ্ক (Number Line, Div...</option><option value="page-6">#6 — ১০০-এর উপরের মৌলিক সংখ্যা, কাল্পনিক সংখ্যা ও বিভাজ্য সংখ্যার গ...</option><option value="page-7">#7 — বিভাজ্য সংখ্যার গণনা ও ক্রমিক সংখ্যার অনুশীলন (Counting Multip...</option><option value="page-8">#8 — ১০০–২০০ পর্যন্ত মৌলিক সংখ্যা এবং ৭ ও ১১ দ্বারা বিভাজ্যতা (Prim...</option><option value="page-9">#9 — শতকরা — Type-1 (Percentage Basics) [Type-1]</option><option value="page-10">#10 — শতকরা — R-2 (Percentage Word Problems) [R-2]</option><option value="page-11">#11 — শতকরা — R-3 (Successive Percentage Change) [R-3]</option><option value="page-12">#12 — শতকরা — ক্ষেত্রফল ও ক্রমিক পরিবর্তন, R-4 (Area &amp; Successive Ch... [R-4]</option><option value="page-13">#13 — শতকরা — R-4 ও R-5 (Percentage Word Problems &amp; Consumption) [R-4, R-5]</option><option value="page-14">#14 — শতকরা — শর্টকাট ও মূল্য-ব্যবহার সংক্রান্ত সমস্যা (Shortcut &amp; P...</option><option value="page-15">#15 — শতকরা — R-6 ও R-7 (Price Change Quantity &amp; Commission Problems) [R-6, R-7]</option><option value="page-16">#16 — শতকরা — নির্বাচন, সম্পত্তি ও তুলনামূলক শতকরা (Elections, Prope...</option><option value="page-17">#17 — সরল মুনাফা (Simple Interest)</option><option value="page-18">#18 — সরল মুনাফা (Simple Interest)</option><option value="page-19">#19 — সরল মুনাফা (আসল, সময় ও সুদের হার নির্ণয়)</option><option value="page-20">#20 — সরল মুনাফা (গুণ সংক্রান্ত) ও চক্রবৃদ্ধি মুনাফার সূত্র</option><option value="page-21">#21 — চক্রবৃদ্ধি মুনাফা (Compound Interest)</option><option value="page-22">#22 — বাস্তব সংখ্যা (Real Numbers) [25]</option><option value="page-23">#23 — মৌলিক সংখ্যা (Prime Numbers) [26]</option><option value="page-24">#24 — সহমৌলিক সংখ্যা ও ভগ্নাংশ অংক (Co-prime &amp; Fractions) [27]</option><option value="page-25">#25 — ভগ্নাংশ অংক (Fractions — Word Problems) [28]</option><option value="page-26">#26 — ক্ষুদ্রতম ও বৃহত্তম ভগ্নাংশ নির্ণয় এবং ভাজক নির্ণয় করা [29]</option><option value="page-27">#27 — দুটি সংখ্যার মধ্যে ভাজক / বিভাজ্য সংখ্যা নির্ণয় [30]</option><option value="page-28">#28 — বিভাজ্যতা (Type 3 ও Type 4) [Page: 31]</option><option value="page-29">#29 — বর্গমূল নির্ণয় ও দশমিক ও পূর্ণসংখ্যা নির্ণয় [Page: 32]</option><option value="page-30">#30 — পূর্ণবর্গ ও ক্রমিক সংখ্যা [Page: 33]</option><option value="page-31">#31 — সংখ্যাভিত্তিক সমস্যা ও মানসিক দক্ষতা প্রশ্ন [Page: 34]</option><option value="page-32">#32 — আবৃত দশমিক ও ক্রমিক সংখ্যার বর্গের অন্তর [Page: 35]</option>
+        </select>
+        <span id="matchCount" class="match-count">32 pages</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+        <article class="page-card" id="page-1">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#1</span>
+              <h2 class="card-topic">মূলদ, অমূলদ ও মৌলিক সংখ্যা (Rational, Irrational &amp; Prime Numbers)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_9_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Math — সংখ্যা তত্ত্ব</h3><h4># মূলদ সংখ্যা → <code>p/q</code> আকারে প্রকাশ করা যায়</h4><ol type="i"><li><strong>পূর্ণসংখ্যা:</strong> <code>0, 2, 5, 3, -1, -2, ...</code></li><li><strong>পূর্ণবর্গ সংখ্যার বর্গমূল:</strong> <code>√16 = 4, √36 = 6, ...</code></li><li><strong>পূর্ণঘন সংখ্যার ঘনমূল:</strong> <code>∛64 = 4, ∛27 = 3, ∛8 = 2, ∛125 = 5</code></li><li><strong>সসীম দশমিক যুক্ত সংখ্যা:</strong> <code>2.54, 3.497, ...</code></li><li><strong>আবৃত দশমিক যুক্ত সংখ্যা:</strong> <code>5.4̇, 9.23̇4̇</code><ul><li>মূলদ উদাহরণ: <code>5.4444...</code>, <code>1.101010...</code>, <code>2.400400400...</code></li><li>অমূলদ সংখ্যা (অনাবৃত অসীম দশমিক): <code>1.10010001...</code></li></ul></li></ol><div class="note"><p><strong>অমূলদ ও ধ্রুবক সংখ্যা (অসীম মান):</strong> <code>π, g, e, √2, ...</code></p></div><h4># মৌলিক সংখ্যা (১–১০০)</h4><table><thead><tr><th>পরিসর</th><th>মৌলিক সংখ্যাসমূহ</th><th>সংখ্যা</th></tr></thead><tbody><tr><td>1–10</td><td>2, 3, 5, 7</td><td>4</td></tr><tr><td>11–20</td><td>11, 13, 17, 19</td><td>4</td></tr><tr><td>21–30</td><td>23, 29</td><td>2</td></tr><tr><td>31–40</td><td>31, 37</td><td>2</td></tr><tr><td>41–50</td><td>41, 43, 47</td><td>3</td></tr><tr><td>51–60</td><td>53, 59</td><td>2</td></tr><tr><td>61–70</td><td>61, 67</td><td>2</td></tr><tr><td>71–80</td><td>71, 73, 79</td><td>3</td></tr><tr><td>81–90</td><td>83, 89</td><td>2</td></tr><tr><td>91–100</td><td>97</td><td>1</td></tr></tbody></table><div class="note"><ul><li><strong>মনে রাখার কোড:</strong> <code>4 4 2 2 3 2 2 3 2 1</code></li><li><strong>মোট মৌলিক সংখ্যা:</strong> ২৫টি</li><li><strong>মোট যোগফল:</strong> ১০৬০</li><li><strong>একমাত্র জোড় মৌলিক সংখ্যা:</strong> ১টি → (2)</li></ul></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-2">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#2</span>
+              <h2 class="card-topic">মৌলিক সংখ্যা, সহমৌলিক সংখ্যা ও ভাজক সংখ্যা নির্ণয় (Primes, Co-primes &amp; Divisors)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_10_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>মৌলিক সংখ্যার সমষ্টি</h3><div class="qa"><p><strong>প্রশ্ন ১ (২৫তম):</strong> 10–60 পর্যন্ত যে সকল মৌলিক সংখ্যার একক স্থানীয় অঙ্ক 9, তাদের সমষ্টি কত?</p><p><strong>সমাধান:</strong> সংখ্যাগুলো 19, 29, 59 (39 ও 49 মৌলিক নয়) ⇒ <code>19 + 29 + 59 = 107</code></p></div><div class="qa"><p><strong>প্রশ্ন ২:</strong> একক স্থানীয় অঙ্ক 7 হলে, তাদের সমষ্টি কত? <em>(নিচে আরেকটি প্রশ্ন: একক স্থানীয় অঙ্ক 3 হলে তাদের সমষ্টি কত?)</em></p><p><strong>সমাধান (একক স্থানীয় অঙ্ক 7):</strong> <code>17 + 37 + 47 = 101</code></p></div><h3># সহমৌলিক সংখ্যা</h3><p>১ ছাড়া অন্য কোনো সাধারণ গুণনীয়ক থাকবে না।</p><ul><li>উদাহরণ: <strong>8, 9</strong> → পরস্পর সহমৌলিক (<code>8 = 1, 2, 4, 8</code>; <code>9 = 1, 3, 9</code>)</li><li>উদাহরণ: <strong>(16, 25)</strong></li></ul><h3>ভাজক সংখ্যা নির্ণয়</h3><div class="qa"><p><strong>প্রশ্ন (২৬তম):</strong> 72 সংখ্যাটির কয়টি ভাজক আছে?</p><p><strong>সমাধান:</strong> <code>72 = 2³ × 3²</code> ⇒ ভাজক সংখ্যা = <code>(3 + 1) × (2 + 1) = 12টি</code></p><div class="note"><p><strong>শর্টকাট তালিকা:</strong> 72 → 12, 48 → 10, 24 → 8, 12 → 6</p></div></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-3">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#3</span>
+              <h2 class="card-topic">ভাজক সংখ্যা, ভগ্নাংশের তুলনা ও জোড়-বিজোড় সংখ্যা (Divisors, Fractions &amp; Even-Odd)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_11_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ভাজক সংখ্যা</h3><div class="qa"><p><strong>প্রশ্ন ১:</strong> 88-এর ভাজক সংখ্যা = ?</p><p><strong>সমাধান:</strong> <code>88 = 2³ × 11¹</code> ⇒ <code>(3 + 1) × (1 + 1) = 4 × 2 = 8টি</code></p></div><div class="qa"><p><strong>প্রশ্ন ২:</strong> 48-এর ভাজক সংখ্যা = ?</p><p><strong>সমাধান:</strong> <code>48 = 2⁴ × 3¹</code> ⇒ <code>(4 + 1) × (1 + 1) = 5 × 2 = 10টি</code></p></div><h3>সংখ্যা বড়-ছোট (ভগ্নাংশের তুলনা)</h3><div class="qa"><p><strong>Q-1:</strong> নিচের কোন ভগ্নাংশটি ছোট?</p><p>ক) ২/১১ &nbsp; খ) ৩/১১ &nbsp; <strong>গ) ২/১৩ [সঠিক]</strong> &nbsp; ঘ) ৪/১৫</p><p><strong>আড়গুণন তুলনা:</strong> ২/১১ ও ৩/১১ (২২ &lt; ৩৩); ২/১১ ও ২/১৩ (২৬ &gt; ২২); ২/১৩ ও ৪/১৫ (৩০ &lt; ৫২) ⇒ ক্ষুদ্রতম <strong>২/১৩</strong>।</p></div><div class="qa"><p><strong>Q-2 (১৪তম):</strong> কোন ভগ্নাংশটি ২/৩ থেকে বড়?</p><p>ক) ৩৩/৫০ &nbsp; <strong>খ) ৮/১১ [সঠিক]</strong> &nbsp; গ) ১৬/২৭</p><p><strong>তুলনা:</strong> ২/৩ ও ৩৩/৫০ (১০০ &gt; ৯৯, ×); ২/৩ ও ৮/১১ (২২ &lt; ২৪, ✓) ⇒ উত্তর <strong>৮/১১</strong>।</p></div><div class="qa"><p><strong>Q-3:</strong> x ও y উভয়েই বিজোড় হলে কোনটি জোড়?</p><p>ক) x + y + 1 &nbsp; খ) xy &nbsp; গ) xy + 2 &nbsp; <strong>ঘ) x + y [সঠিক]</strong></p><p class="note"><em>Hints: সংখ্যা ধরে নিয়ে করতে হবে।</em></p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-4">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#4</span>
+              <h2 class="card-topic">ক্রমিক সংখ্যার গুণফল, বর্গের পার্থক্য ও বৃহত্তম-ক্ষুদ্রতম সংখ্যা (Consecutive Numbers)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_12_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Type: পরপর ৩টি ক্রমিক সংখ্যার গুণফল (মুখস্থ)</h3><ul><li><code>1 × 2 × 3 = 6</code></li><li><code>2 × 3 × 4 = 24</code></li><li><code>3 × 4 × 5 = 60</code></li><li><code>4 × 5 × 6 = 120</code></li><li><code>5 × 6 × 7 = 210</code></li></ul><div class="qa"><p><strong>Q:</strong> পরপর ৩টি সংখ্যার গুণফল (i) 60, (ii) 120, (iii) 24, (iv) 210 হলে তাদের যোগফল কত?</p><ul><li>(i) 60 → <code>3 + 4 + 5 = 12</code></li><li>(ii) 120 → <code>4 + 5 + 6 = 15</code></li><li>(iii) 24 → <code>2 + 3 + 4 = 9</code></li><li>(iv) 210 → <code>5 + 6 + 7 = 18</code></li></ul></div><h3>Type: দুইটি ক্রমিক সংখ্যার বর্গের পার্থক্য</h3><div class="qa"><p><strong>Q:</strong> দুইটি ক্রমিক সংখ্যার বর্গের পার্থক্য (i) 199, (ii) 47 হলে বড় ও ছোট সংখ্যাটি কত?</p><ul><li>(i) <code>199 / 2 = 99.5</code> ⇒ বড় সংখ্যা = <strong>100</strong>, ছোট সংখ্যা = <strong>99</strong></li><li>(ii) <code>47 / 2 = 23.5</code> ⇒ বড় সংখ্যা = <strong>24</strong>, ছোট সংখ্যা = <strong>23</strong></li></ul></div><div class="note"><h4>বৃহত্তম ও ক্ষুদ্রতম সংখ্যা</h4><ul><li>৩ অঙ্কের বৃহত্তম সংখ্যা ও ক্ষুদ্রতম সংখ্যা = <strong>৯৯৯, ১০০</strong></li><li>৪ অঙ্কের বৃহত্তম সংখ্যা ও ক্ষুদ্রতম সংখ্যা = <strong>৯৯৯৯, ১০০০</strong></li><li>৫ অঙ্কের বৃহত্তম সংখ্যা ও ক্ষুদ্রতম সংখ্যা = <strong>৯৯৯৯৯, ১০০০০</strong></li></ul></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-5">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#5</span>
+              <h2 class="card-topic">সংখ্যারেখা, বিভাজ্যতার নিয়ম ও গড়ভিত্তিক অঙ্ক (Number Line, Divisibility &amp; Averages)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_13_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সংখ্যারেখা</h3><p><em>[চিত্র: সংখ্যারেখা (−∞ থেকে +∞); বামে ঋণাত্মক পূর্ণসংখ্যা (-3, -2, -1), মাঝে 0 (অঋণাত্মক পূর্ণসংখ্যা), ডানে ধনাত্মক পূর্ণসংখ্যা (1, 2, 3, 4)]</em></p><h3>বিভাজ্যতার নিয়ম</h3><ul><li><strong>২ দ্বারা:</strong> কোনো সংখ্যার শেষ অঙ্ক জোড় বা ০ হলে। উদাহরণ: ১০, ১২, ১২০০৪, ২৫২৫৬</li><li><strong>৫ দ্বারা:</strong> কোনো সংখ্যার শেষ অঙ্ক ০ বা ৫ হলে। উদাহরণ: ১০, ৪০, ২৫, ৫০০, ৭৭৭৩২৫</li><li><strong>৩ দ্বারা:</strong> কোনো সংখ্যার সবগুলো অঙ্কের যোগফল ৩ দ্বারা ভাগ গেলে। উদাহরণ: <code>123/3, 57/3, 3252/3, ...</code></li><li><strong>৯ দ্বারা:</strong> কোনো সংখ্যার সবগুলো অঙ্কের যোগফল ৯ দ্বারা ভাগ গেলে। উদাহরণ: <code>54/9, 13455/9</code> (খাতায় <code>527/9</code>-ও উদাহরণ হিসেবে লেখা আছে)</li><li><strong>৪ দ্বারা:</strong> কোনো সংখ্যার শেষ দুটি অঙ্ক ৪ দ্বারা ভাগ গেলে।</li><li><strong>৮ দ্বারা:</strong> কোনো সংখ্যার শেষ ৩টি অঙ্ক ৮ দ্বারা ভাগ গেলে।</li></ul><h3>গড়ভিত্তিক সমস্যা (Just গড় বের করতে হবে)</h3><ul><li>একটি সংখ্যা ১২০ থেকে যত বড়, ৩২০ থেকে তত ছোট, সংখ্যাটি কত? ⇒ <strong>২২০</strong></li><li>একটি সংখ্যা ৬৫০ থেকে যত বড়, ৮২০ থেকে তত ছোট, সংখ্যাটি কত? ⇒ <strong>৭৩৫</strong></li><li>একটি সংখ্যা ২২০ থেকে যত বড়, ৪৫০ থেকে তত ছোট, সংখ্যাটি কত? (৩৫তম) ⇒ <em>(গড় = ৩৩৫)</em></li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-6">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#6</span>
+              <h2 class="card-topic">১০০-এর উপরের মৌলিক সংখ্যা, কাল্পনিক সংখ্যা ও বিভাজ্য সংখ্যার গণনা (Primes &gt;100 &amp; Counting Multiples)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_14_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>১০০-এর উপরে মৌলিক সংখ্যা চেনার উপায়</h3><ul><li><strong>143:</strong> কাছাকাছি পূর্ণবর্গ <code>144 (12²)</code>। মৌলিক সংখ্যা <code>2, 3, 5, 7, 11</code>-এর মধ্যে 11 দ্বারা বিভাজ্য ⇒ <strong>মৌলিক নয়</strong>।</li><li><strong>117:</strong> কাছাকাছি পূর্ণবর্গ <code>121 (11²)</code>। মৌলিক সংখ্যা <code>2, 3, 5, 7</code>-এর মধ্যে 3 দ্বারা বিভাজ্য ⇒ <strong>মৌলিক নয়</strong>।</li><li><strong>101:</strong> কাছাকাছি পূর্ণবর্গ <code>100 (10²)</code>। <code>2, 3, 5, 7</code> কোনোটি দিয়েই বিভাজ্য নয় ⇒ <strong>মৌলিক সংখ্যা</strong>।</li></ul><div class="note"><ul><li><strong>পর্যন্ত →</strong> প্রথম এবং শেষ সংখ্যা থাকবে।</li><li><strong>মধ্যে →</strong> প্রথম এবং শেষ সংখ্যা থাকবে না।</li></ul></div><h3>কাল্পনিক সংখ্যার গুণ</h3><p><code>√(-8) × √(-2) = (√(-1))² × √16 = -4</code></p><h3>Type: বিভাজ্য সংখ্যার সংখ্যা নির্ণয়</h3><ul><li>1–10 পর্যন্ত কতগুলো সংখ্যা 3 দ্বারা বিভাজ্য? ⇒ <code>10/3 = 3.33 ≈ 3টি</code></li><li>1–40 পর্যন্ত কতগুলো সংখ্যা 5 দ্বারা বিভাজ্য? ⇒ <code>40/5 = 8টি</code></li><li>১০০ থেকে ২০০-এর মধ্যে ৩ দ্বারা বিভাজ্য সংখ্যা কয়টি? (৩১তম)<br>সীমা: <code>101 ... 199</code> ⇒ <code>(199/3 - 100/3) = 66 - 33 = 33টি</code></li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-7">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#7</span>
+              <h2 class="card-topic">বিভাজ্য সংখ্যার গণনা ও ক্রমিক সংখ্যার অনুশীলন (Counting Multiples &amp; Practice)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_15_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বিভাজ্য সংখ্যার গণনা</h3><ul><li><strong>২০০ থেকে ৫০০-এর মধ্যে</strong> ৭ দ্বারা বিভাজ্য সংখ্যা কয়টি? (৩১তম)<br>সীমা: <code>২০১ ... ৪৯৯</code> ⇒ <code>(499/7 - 200/7) = 71 - 28 = 43টি</code></li><li><strong>১২ ও ৯৬-এর মধ্যে</strong> ৪ দ্বারা বিভাজ্য সংখ্যা কয়টি? (৩১তম)<br>সীমা: <code>১৩ ... ৯৫</code> ⇒ <code>(95/4 - 12/4) = 23 - 3 = 20টি</code></li><li><strong>৫ ও ৯৫-এর মধ্যে</strong> ৫ ও ৩ দ্বারা বিভাজ্য সংখ্যা কয়টি? (৪১তম)<br>ল.সা.গু. = ১৫ ⇒ <code>(94/15 - 5/15) = 6 - 0 = 6টি</code></li></ul><h3>Extra</h3><ol><li>পরপর ৫টি সংখ্যার যোগফল ১০৫ হলে, প্রথম ২টি সংখ্যার যোগফল কত?<br><strong>সমাধান:</strong> মাঝের সংখ্যা = <code>১০৫ ÷ ৫ = ২১</code>। সংখ্যাগুলো: <code>১৯, ২০, ২১, ২২, ২৩</code> ⇒ প্রথম ২টির যোগফল = <strong>৩৯</strong>।</li><li>১০০–১১০ এর মধ্যে মৌলিক সংখ্যা কয়টি? ⇒ <strong>৪টি</strong> (১০১, ১০৩, ১০৭, ১০৯)</li><li>তিনটি ক্রমাগত বিজোড় সংখ্যার যোগফল ১৭৭। মধ্যম সংখ্যাটি কত? ⇒ <strong>59</strong></li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-8">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#8</span>
+              <h2 class="card-topic">১০০–২০০ পর্যন্ত মৌলিক সংখ্যা এবং ৭ ও ১১ দ্বারা বিভাজ্যতা (Primes 100–200 &amp; Divisibility by 7, 11)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_16_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>১০০–২০০ পর্যন্ত মৌলিক সংখ্যা</h3><ul><li>১০০–১৫০ → <strong>১০টি</strong></li><li>১৫০–২০০ → <strong>১১টি</strong></li><li><strong>মোট = ২১টি</strong></li></ul><div class="note"><p><strong>সূত্র (খাতায় বক্সে):</strong> <code>৪২২৩, ১২২২, ১৪</code> <em>(দশকভিত্তিক প্রকৃত সংখ্যা: ৪, ১, ১, ৩, ১, ২, ২, ২, ১, ৪)</em></p></div><h3>৭ দ্বারা বিভাজ্যতা</h3><ul><li><strong>ক) 371:</strong> শেষ অঙ্কের দ্বিগুণ <code>1 × 2 = 2</code>; বাকি অংশ থেকে বিয়োগ: <code>37 - 2 = 35</code>, যা 7 দ্বারা বিভাজ্য। ∴ 371, 7 দ্বারা বিভাজ্য।</li><li><strong>খ) 203:</strong> <code>3 × 2 = 6</code>; <code>20 - 6 = 14</code>, যা 7 দ্বারা বিভাজ্য। ∴ 203, 7 দ্বারা বিভাজ্য।</li></ul><h3>১১ দ্বারা বিভাজ্যতা</h3><p>নিয়ম: বিজোড় স্থানীয় অঙ্কের যোগফল − জোড় স্থানীয় অঙ্কের যোগফল = ০ বা ১১-এর গুণিতক।</p><ul><li><strong>121:</strong> বিজোড় স্থানীয় যোগফল = <code>1 + 1 = 2</code>, জোড় স্থানীয় = <code>2</code> ⇒ <code>2 - 2 = 0</code> (বিভাজ্য)</li><li><strong>132:</strong> <code>(1 + 2) - 3 = 3 - 3 = 0</code> (বিভাজ্য)</li><li><strong>৯৭৭৪৬:</strong> <code>(৯ + ৭ + ৬) - (৭ + ৪) = ২২ - ১১ = ১১</code> (বিভাজ্য)</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-9">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#9</span>
+              <h2 class="card-topic">শতকরা — Type-1 (Percentage Basics)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Type-1</span>
+              <span class="filename-tag">photo_17_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>শতকরা</h3><p class="note"><code>20% = 1/5</code> ← শতকরা একটি ভগ্নাংশ।</p><h4>Type-1</h4><ol><li><strong>0.0056-কে শতকরায় প্রকাশ কর?</strong><br>Ans: <code>(0.0056 × 100)% = 0.56%</code></li><li><strong>0.025-এর 1% কত?</strong> ⇒ <strong>0.00025</strong></li><li><strong>১ টাকার ২০০% কত?</strong> = <strong>২ টাকা</strong></li><li><strong>25% = ?</strong></li><li><strong>13¾% = ?</strong> = <strong>11/80</strong></li><li><strong>২-এর কত শতাংশ ৮ হবে?</strong> ⇒ <code>(৮/২ × ১০০)% = ৪০০%</code></li><li><strong>12-এর কত শতাংশ 18 হবে?</strong> ⇒ <code>(১৮/১২ × ১০০)% = ১৫০%</code></li><li><strong>২-এর কত শতাংশ ২.৫ হবে?</strong> ⇒ <code>(২.৫/২ × ১০০)% = ১২৫%</code></li><li><strong>১/২-এর শতকরা কত ৩/৪ হবে?</strong> ⇒ <code>(৩/৪ × ২/১ × ১০০)% = ১৫০%</code></li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-10">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#10</span>
+              <h2 class="card-topic">শতকরা — R-2 (Percentage Word Problems)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">R-2</span>
+              <span class="filename-tag">photo_18_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>শতকরা (চলমান)</h3><div class="qa"><p><strong>প্রশ্ন ১:</strong> 256 কোন সংখ্যার 40%?</p><p><strong>সমাধান:</strong> 40% → 256, 1% → 256/40, 100% → <code>(256 × 100) / 40 = 640</code></p></div><div class="qa"><p><strong>প্রশ্ন ২:</strong> 42 কোন সংখ্যার 60%?</p><p><strong>সমাধান:</strong> 60% → 42, 100% → <code>(42 × 100) / 60 = 70</code></p></div><h3>R-2</h3><div class="qa"><p><strong>প্রশ্ন ৩ (৩১তম):</strong> কোনো সংখ্যার 60% থেকে 60 বিয়োগ করলে বিয়োগফল 60 হয়। সংখ্যাটি কত?</p><p><strong>সমাধান:</strong> <code>(x × 60)/100 - 60 = 60</code> ⇒ <code>3x/5 = 120</code> ⇒ <code>x = (120 × 5)/3 = 200</code></p><p><strong>উত্তর:</strong> 200</p></div><div class="qa"><p><strong>প্রশ্ন ৪:</strong> কোনো সংখ্যার 40%-এর সাথে 42 যোগ করলে ফলাফল হয় ঐ সংখ্যাটি। সংখ্যাটি কত?</p><p><strong>সমাধান:</strong> <code>4x/10 = x - 42</code> ⇒ <code>x - 2x/5 = 42</code> ⇒ <code>3x/5 = 42</code> ⇒ <code>x = (42 × 5)/3 = 70</code></p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-11">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#11</span>
+              <h2 class="card-topic">শতকরা — R-3 (Successive Percentage Change)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">R-3</span>
+              <span class="filename-tag">photo_19_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>R-3 — সূত্র: <code>P + Q + (PQ)/100</code></h3><div class="qa"><p><strong>প্রশ্ন ১:</strong> করিম সাহেবের বেতন 10% হ্রাস করার পর হ্রাসকৃত বেতন আবার 10% বৃদ্ধি করা হলো। তার ক্ষতি কত?</p><p><strong>উত্তর:</strong> ১ টাকা (১% হ্রাস)</p><p><strong>বিস্তারিত সমাধান:</strong> ধরি, বেতন = ১০০ টাকা। ১০% হ্রাসে বেতন = ৯০ টাকা। হ্রাসকৃত বেতন আবার ১০% বৃদ্ধিতে বেতন = <code>৯০ + ৯০ × ১০/১০০ = ৯৯ টাকা</code>।</p><p><strong>শর্টকাট সূত্র:</strong> <code>-10 + 10 - (100/100) = -1</code> (১% হ্রাস)</p></div><div class="qa"><p><strong>প্রশ্ন ২:</strong> একটি আয়তাকার ক্ষেত্রের দৈর্ঘ্য 20% বৃদ্ধি ও প্রস্থ 10% হ্রাস করা হলো। ক্ষেত্রফলের শতকরা পরিবর্তন কত?</p><p><strong>পদ্ধতি ১:</strong> <code>((100+20)/100) × ((100-10)/100) = (120/100) × (90/100) = 108/100</code> ⇒ <strong>8% বৃদ্ধি পেয়েছে</strong>।</p><p><strong>পদ্ধতি ২ (সূত্র):</strong> <code>20 - 10 - (200/100) = 20 - 12 = 8% বৃদ্ধি</code></p><p class="note">সাধারণ সূত্র: <code>(100 ± বৃদ্ধি/হ্রাস)/100 × (100 ± বৃদ্ধি/হ্রাস)/100</code> অথবা <code>P + Q + (PQ)/100</code></p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-12">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#12</span>
+              <h2 class="card-topic">শতকরা — ক্ষেত্রফল ও ক্রমিক পরিবর্তন, R-4 (Area &amp; Successive Changes)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">R-4</span>
+              <span class="filename-tag">photo_20_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ক্রমিক শতকরা পরিবর্তন</h3><ol><li><strong>চায়ের দাম 20% কমে যাওয়ায় তার ব্যবহার 40% বেড়ে গেল। শতকরা কত ভাগ খরচ বৃদ্ধি পেল?</strong> ⇒ <strong>১২%</strong></li><li><strong>কোনো জিনিসের উপর প্রথম 20% ছাড় দেওয়া হলো এবং পুনরায় 12.5% ছাড় দেওয়া হলো। এককালীন ছাড়ের পরিমাণ কত?</strong> ⇒ <strong>30%</strong></li><li><strong>একটি আয়তাকার ক্ষেত্রের প্রত্যেক বাহুর দৈর্ঘ্য (i) 20% বৃদ্ধি পেলে, (ii) 20% হ্রাস পেলে ক্ষেত্রফলের শতকরা পরিবর্তন কত?</strong><br>⇒ (i) <strong>44%</strong> (বৃদ্ধি), (ii) <strong>36%</strong> (হ্রাস)</li><li><strong>একটি বৃত্তের ব্যাসার্ধ 10% বৃদ্ধি পেলে ক্ষেত্রফল শতকরা কত বাড়বে?</strong> = <strong>21%</strong></li><li><strong>একটি বর্গক্ষেত্রের প্রত্যেক বাহুর দৈর্ঘ্য 10% হ্রাস পেলে ক্ষেত্রফল শতকরা কত হ্রাস পাবে?</strong> ⇒ <strong>১৯%</strong></li></ol><h3>R-4</h3><div class="qa"><p><strong>প্রশ্ন:</strong> একটি শেয়ারের দাম 25% বেড়েছিল। এখন 25% কমেছে। এর কোনো পরিবর্তন হয়েছে কি?</p><p><strong>উত্তর:</strong> ৬.২৫% হ্রাস।</p><p><strong>সূত্র:</strong> <code>25 - 25 - (625/100) = -6.25%</code></p><p><strong>বিকল্প:</strong> <code>(125/100) × (75/100) = 93.75/100</code> (অর্থাৎ ৬.২৫% হ্রাস)</p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-13">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#13</span>
+              <h2 class="card-topic">শতকরা — R-4 ও R-5 (Percentage Word Problems &amp; Consumption)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">R-4, R-5</span>
+              <span class="filename-tag">photo_21_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>R-4</h3><div class="qa"><p><strong>প্রশ্ন ১:</strong> ফলের দোকান থেকে ১৮০টি আম কেনা হলো। ২ দিন পর ৯টি আম পঁচে গেল। শতকরা কতটি আম ভালো আছে?</p><p><strong>সমাধান:</strong> ১৮০ → ১৭১, ১০০ → <code>(১৭১ × ১০০)/১৮০ = ৯৫%</code> ⇒ <strong>উত্তর: ৯৫%</strong></p></div><div class="qa"><p><strong>প্রশ্ন ২:</strong> ১২০ জন ছাত্রের মধ্যে ৩০ জন ফেল করে। পাশের হার = ?</p><p><strong>সমাধান:</strong> ১২০ → ৯০, ১০০ → <code>(৯০ × ১০০)/১২০ = ৭৫%</code> ⇒ <strong>উত্তর: ৭৫%</strong></p></div><div class="qa"><p><strong>প্রশ্ন ৩:</strong> কোনো একটি বইয়ের প্রকৃত মূল্যের শতকরা ৮০ ভাগ মূল্যে ৭২ টাকায় বিক্রি করা হলো। বইয়ের প্রকৃত মূল্য কত?</p><p><strong>সমাধান:</strong> ৮০ → ৭২, ১০০ → <code>(৭২ × ১০০)/৮০ = ৯০ টাকা</code> ⇒ <strong>উত্তর: ৯০ টাকা</strong></p></div><h3>R-5</h3><div class="qa"><p><strong>প্রশ্ন ৪:</strong> যদি তেলের মূল্য 25% বৃদ্ধি পায়, তবে তেলের ব্যবহার শতকরা কত কমালে তেল বাবদ খরচ বৃদ্ধি পাবে না?</p><p><strong>সমাধান:</strong> 25% বৃদ্ধিতে বর্তমান মূল্য = ১২৫ টাকা।<br>১২৫ টাকায় ব্যবহার কমাবে = ২৫ টাকা<br>১ টাকায় ব্যবহার কমাবে = ২৫/১২৫ টাকা<br>১০০ টাকায় ব্যবহার কমাবে = <code>(২৫ × ১০০)/১২৫ = ২০%</code></p><p><strong>শর্টকাট:</strong> <code>(100 × 25)/(100 + 25) = 20%</code></p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-14">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#14</span>
+              <h2 class="card-topic">শতকরা — শর্টকাট ও মূল্য-ব্যবহার সংক্রান্ত সমস্যা (Shortcut &amp; Price-Consumption)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_22_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="note"><h4>শর্টকাট সূত্র</h4><p><code>(১০০ × বৃদ্ধি/হ্রাস) / (১০০ ± বৃদ্ধি/হ্রাস)</code></p><p>উদাহরণ: <code>(১০০ × ২৫)/(১০০ + ২৫) = (১০০ × ২৫)/১২৫ = ২০%</code></p></div><div class="qa"><p><strong>প্রশ্ন ১:</strong> চিনির মূল্য ১০% কমলে ব্যবহার খরচ ঠিক রেখে ব্যবহার শতকরা কত বাড়াতে (খাতায়: কমাতে) হবে?</p><p><strong>সমাধান:</strong> ৯০ → ১০, ১ → ১০/৯০, ১০০ → <code>(১০ × ১০০)/৯০ = ১০০/৯ = ১১⅑%</code></p><p><strong>উত্তর:</strong> ১১⅑%</p></div><div class="qa"><p><strong>প্রশ্ন ২:</strong> যদি চিনির মূল্য ২০% বৃদ্ধি পায়, তবে চিনির ব্যবহার শতকরা কী পরিমাণ পরিবর্তন করলে চিনি বাবদ মোট খরচ ৫% বৃদ্ধি পাবে?</p><p><strong>সমাধান:</strong> ২০% বৃদ্ধি → ১২০; ৫% বৃদ্ধি → ১০৫; পরিবর্তন → ১৫।<br>১২০ → ১৫, ১০০ → <code>(১৫ × ১০০)/১২০ = ১২.৫%</code> (অথবা শর্টকাট: <code>(১০০ × ১৫)/(১০০ + ২০) = ১২.৫%</code>)</p><p><strong>উত্তর:</strong> হ্রাস ১২.৫%</p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-15">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#15</span>
+              <h2 class="card-topic">শতকরা — R-6 ও R-7 (Price Change Quantity &amp; Commission Problems)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">R-6, R-7</span>
+              <span class="filename-tag">photo_23_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>R-6</h3><div class="qa"><p><strong>প্রশ্ন ১:</strong> কলার দাম ২০% কমে যাওয়ায় ১২ টাকায় পূর্বাপেক্ষা ২টি কলা বেশি পাওয়া যায়। বর্তমানে ১টি কলার দাম কত?</p><p><strong>উত্তর:</strong> ১.২ টাকা</p></div><div class="qa"><p><strong>প্রশ্ন ২:</strong> চালের মূল্য ১৫% কমে যাওয়ায় ৬০০০ টাকায় পূর্বাপেক্ষা ১ কুইন্টাল চাল বেশি পাওয়া যায়। ১ কেজি চালের বর্তমান মূল্য কত?</p><p><strong>উত্তর:</strong> ৯ টাকা</p></div><div class="qa"><p><strong>প্রশ্ন ৩:</strong> কলার মূল্য ২০% বৃদ্ধি পাওয়ায় ৪২০ টাকায় পূর্বাপেক্ষা ১০টি কলা কম পাওয়া যায়। বর্তমানে ১টি কলার দাম কত?</p><p><strong>সমাধান:</strong> <code>(৪২০ × ২০)/১০০ = ৮৪ টাকা</code> (১০টির দাম) ⇒ ১টির দাম = <strong>৮.৪ টাকা</strong>।</p></div><h3>R-7 → (নাইস অঙ্ক)</h3><div class="qa"><p><strong>প্রশ্ন ৪:</strong> একজন দালালের কমিশনের হার ৪% থেকে ৫% বৃদ্ধি পেলেও আয় অপরিবর্তিত থাকে। ব্যবসার শতকরা কত কমে গিয়েছে?</p><p><strong>সমাধান:</strong> ১০০ টাকায় ৪% = ৪ টাকা। ৫% কমিশনে ৪ টাকা আয় হলে মূলধন: ৫% → ৪, ১০০% → <code>(৪ × ১০০)/৫ = ৮০</code>। ∴ ব্যবসা কমেছে = <code>১০০ - ৮০ = ২০%</code>।</p><p><strong>উত্তর:</strong> ২০%</p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-16">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#16</span>
+              <h2 class="card-topic">শতকরা — নির্বাচন, সম্পত্তি ও তুলনামূলক শতকরা (Elections, Property &amp; Comparisons)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_24_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="qa"><p><strong>প্রশ্ন ১:</strong> ২ জন প্রতিদ্বন্দ্বীর মধ্যে ১ম প্রার্থী ৬২% ভোটে জিতল। সে ১৪৪ ভোটে জিতেছে। নির্বাচনে মোট কত ভোট পড়েছিল?</p><p><strong>সমাধান:</strong> পার্থক্য = <code>৬২% - ৩৮% = ২৪%</code>। ২৪% → ১৪৪, ১০০% → <code>(১৪৪ × ১০০)/২৪ = ৬০০</code>।</p><p><strong>উত্তর:</strong> ৬০০</p></div><div class="qa"><p><strong>প্রশ্ন ২:</strong> মি. রেজা তার সম্পদের ১২% স্ত্রীকে, ৫৮% ছেলেকে এবং অবশিষ্ট ৭২০০০০/- মেয়েকে দিলেন। তার মোট সম্পদের পরিমাণ কত?</p><p><strong>সমাধান:</strong> অবশিষ্ট = <code>১০০% - (১২% + ৫৮%) = ৩০%</code>। ৩০% → ৭২০০০০, ১০০% → <code>(৭২০০০০ × ১০০)/৩০ = ২৪০০০০০</code>।</p><p><strong>উত্তর:</strong> ২৪০০০০০ টাকা</p></div><div class="qa"><p><strong>প্রশ্ন ৩:</strong> ক-এর বেতন খ অপেক্ষা ১৫% বেশি। খ-এর বেতন ক অপেক্ষা শতকরা কত কম?</p><p><strong>সমাধান:</strong> খ = ১০০%, ক = ১১৫%। ১১৫% → ১৫, ১০০% → <code>(১৫ × ১০০)/১১৫ = ৩০০/২৩ = ১৩ ১/২৩%</code>।</p></div><div class="qa"><p><strong>প্রশ্ন ৪:</strong> এক ব্যক্তি তার স্ত্রীর বয়সের ১০% বড়। স্ত্রী তার চেয়ে শতকরা কত ছোট?</p><p><strong>সমাধান:</strong> স্ত্রী = ১০০%, ব্যক্তি = ১১০%। ১১০% → ১০, ১০০% → <code>(১০ × ১০০)/১১০ = ১০০/১১ = ৯ ১/১১%</code>।</p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-17">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#17</span>
+              <h2 class="card-topic">সরল মুনাফা (Simple Interest)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_25_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সরল মুনাফা</h3><div class="note"><p><strong>মূল সূত্র:</strong> <code>I = P r n</code> <em>(মনে রাখার কৌশল: আমি পারি না)</em></p><ul><li><code>P = (100 × I) / (r n)</code></li><li><code>r = (100 × I) / (P n)</code></li><li><code>n = (100 × I) / (P r)</code></li></ul><p><strong>প্রতীক পরিচিতি:</strong> <code>I</code> = মুনাফা/সুদ, <code>P</code> = মূলধন/আসল, <code>r</code> = মুনাফার হার, <code>n</code> = সময়</p></div><div class="qa"><p><strong>প্রশ্ন ১:</strong> ১০% বার্ষিক মুনাফায় ২০০০ টাকার ২ বছরের মুনাফা কত?</p><p><strong>সমাধান:</strong> <code>I = P r n = 2000 × 2 × (10/100) = 400 টাকা</code></p><p><strong>উত্তর:</strong> ৪০০ টাকা</p></div><div class="qa"><p><strong>প্রশ্ন ২:</strong> ৫% হারে ৭৫০ টাকার ৪ বছরের মুনাফা কত?</p><p><strong>সমাধান:</strong> <code>I = (750 × 5 × 4) / 100 = 150 টাকা</code></p><p><strong>উত্তর:</strong> ১৫০ টাকা</p></div><div class="qa"><p><strong>প্রশ্ন ৩:</strong> ৬% হারে ৯ মাসে ১০০০০ টাকার উপর সুদ কত?</p><p><strong>সমাধান:</strong> <code>I = (10000 × 6 × 9) / (100 × 12) = 450 টাকা</code></p><p><strong>উত্তর:</strong> ৪৫০ টাকা</p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-18">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#18</span>
+              <h2 class="card-topic">সরল মুনাফা (Simple Interest)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_26_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সরল মুনাফা (Simple Interest)</h3>
+<div class="qa">
+<p><strong>প্রশ্ন ১:</strong> M টাকার M% সরল সুদে ৪ বছরের সুদ M টাকা হলে M = ?</p>
+<p><strong>দেওয়া আছে:</strong> P = M, r = M%, n = 4, I = M</p>
+<p><strong>সমাধান:</strong><br>
+I = P r n<br>
+বা, M = M × (M / 100) × 4<br>
+বা, M = 25</p>
+</div>
+<div class="qa">
+<p><strong>প্রশ্ন ২:</strong> ৫% বার্ষিক মুনাফায় কত টাকার এক বছরের মুনাফা ২২০ টাকা হবে?</p>
+<p><strong>সমাধান:</strong><br>
+P = 100I / (rn) = (100 × 220) / (5 × 1) = 20 × 220</p>
+</div>
+<div class="qa">
+<p><strong>প্রশ্ন ৩:</strong> ৫% হার বার্ষিক কত টাকার দৈনিক সুদ ১ টাকা হবে?</p>
+<p><strong>উত্তর:</strong> ⇒ ৭৩০ টাকা (হাতে লেখা: P = (১০০ × ১) / (৫ × ১))</p>
+</div>
+<div class="qa">
+<p><strong>প্রশ্ন ৪:</strong> শতকরা ১ টাকা হার সুদে ১ টাকার সুদ ১ টাকা হবে কত বছরে?</p>
+<p><strong>সমাধান:</strong><br>
+n = (100 × 1) / (1 × 1) = 100<br>
+<strong>উত্তর:</strong> ⇒ ১০০</p>
+</div>
+<div class="qa">
+<p><strong>প্রশ্ন ৫:</strong> শতকরা বার্ষিক ৫ টাকা হার সুদে ৮৫০ টাকার ৪ বছরের সুদে আসলে কত হবে?</p>
+<p><strong>সমাধান:</strong><br>
+I = (850 × 5 × 4) / 100 = 170 টাকা<br>
+<strong>উত্তর:</strong> ⇒ ১০২০ টাকা (৮৫০ + ১৭০ = ১০২০)</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-19">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#19</span>
+              <h2 class="card-topic">সরল মুনাফা (আসল, সময় ও সুদের হার নির্ণয়)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_27_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সরল মুনাফা (আসল, সময় ও সুদের হার নির্ণয়)</h3>
+<div class="qa">
+<p><strong>প্রশ্ন ১:</strong> শতকরা বার্ষিক ৫ টাকা হার সুদে ১০ বছরে সুদাসলে ৩৭৫০ টাকা হলে মূলধন কত?</p>
+<p><strong>সমাধান:</strong><br>
+C = P(1 + rn)<br>
+P = C / (1 + rn) = 3750 / (1 + (5/100) × 10) = ২৫০০ টাকা</p>
+</div>
+<div class="qa">
+<p><strong>প্রশ্ন ২:</strong> বার্ষিক ৫% হার সুদে ৪৫০ টাকা কত বছরে সুদে আসলে ৫৪০ টাকা হবে?</p>
+<p><strong>সমাধান:</strong><br>
+C = P(1 + rn)<br>
+1 + rn = C / P<br>
+n = ((C / P) - 1) / r = ((540 / 450) - 1) / (5 / 100)</p>
+</div>
+<h4>Type</h4>
+<div class="qa">
+<p><strong>প্রশ্ন ৩:</strong> ৫০০ টাকার ৪ বছরের সুদ এবং ৬০০ টাকার ৫ বছরের সুদ একত্রে ১০০০ টাকা হলে সুদের হার কত?</p>
+<div class="note"><p><strong>সূত্র:</strong> r = 100I / (P₁n₁ + P₂n₂) &nbsp; [সাধারণ সূত্র: r = 100I / (Pn)]</p></div>
+<p><strong>সমাধান:</strong><br>
+r = (100 × 1000) / (2000 + 3000) = 100000 / 5000 = 20<br>
+<strong>উত্তর:</strong> ⇒ ২০%</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-20">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#20</span>
+              <h2 class="card-topic">সরল মুনাফা (গুণ সংক্রান্ত) ও চক্রবৃদ্ধি মুনাফার সূত্র</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_28_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Type (সরল সুদের হার নির্ণয়)</h3>
+<div class="qa">
+<p><strong>প্রশ্ন ১:</strong> সরল সুদের হার কত টাকা হলে যেকোনো মূলধন ৮ বছরে সুদে আসলে ৩ গুণ হবে?</p>
+<p><strong>সমাধান:</strong><br>
+ধরি, আসল = ১০০ টাকা<br>
+∴ সুদ = (৩০০ − ১০০) = ২০০ টাকা<br>
+১০০ টাকার ৮ বছরের সুদ = ২০০ টাকা<br>
+১০০ টাকার ১ বছরের সুদ = ২০০ / ৮ = ২৫%<br>
+<strong>উত্তর:</strong> ২৫%</p>
+</div>
+<div class="qa">
+<p><strong>প্রশ্ন ২:</strong> সরল সুদের হার কত টাকা হলে যেকোনো মূলধন ৫০ বছরে সুদে আসলে ১১ গুণ হবে?</p>
+<p><strong>সমাধান:</strong><br>
+(১১০০ − ১০০) / ৫০ = ১০০০ / ৫০ = ২০%<br>
+<strong>উত্তর:</strong> ২০%</p>
+</div>
+<h3>চক্রবৃদ্ধি মুনাফা</h3>
+<div class="note">
+<p><strong>সূত্র:</strong> C = P(1 + r)<sup>n</sup></p>
+<p>এখানে C → চক্রবৃদ্ধি মূলধন (হাতে লেখা: চক্রবৃদ্ধি মুনাফা)</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-21">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#21</span>
+              <h2 class="card-topic">চক্রবৃদ্ধি মুনাফা (Compound Interest)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_29_2026-11-24_20-47-29.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>চক্রবৃদ্ধি মুনাফা (Compound Interest)</h3>
+<div class="qa">
+<p><strong>প্রশ্ন ১:</strong> কবির সাহেব ১০% মুনাফায় ব্যাংকে ৬০০০ টাকা জমা রাখলেন। ১ম বছরান্তে তার চক্রবৃদ্ধি মূলধন = ?</p>
+<p><strong>সমাধান:</strong><br>
+C = 6000 × (1 + 10/100)¹ = 6000 × (11/10) = ৬৬০০ টাকা<br>
+<strong>উত্তর:</strong> ⇒ ৬৬০০ টাকা</p>
+</div>
+<div class="qa">
+<p><strong>প্রশ্ন ২:</strong> কবির সাহেব ১০% মুনাফায় ব্যাংকে ৬০০ টাকা জমা রাখলেন। ২ বছর পর তার চক্রবৃদ্ধি মূলধন কত?</p>
+<p><strong>সমাধান:</strong><br>
+C = 600 × (1 + 1/10)² = 600 × (11/10)² = 600 × (11/10) × (11/10) = 6 × 121 = ৭২৬<br>
+<strong>উত্তর:</strong> ⇒ ৭২৬ টাকা</p>
+</div>
+<div class="qa">
+<p><strong>প্রশ্ন ৩:</strong> বার্ষিক ১০% হারে ১০০০ টাকার ২ বছর পর সরল ও চক্রবৃদ্ধি মুনাফার পার্থক্য কত?</p>
+<p><strong>সমাধান:</strong><br>
+P = ১০০০<br>
+সরল মুনাফা, I = (1000 × 10 / 100) × 2 = ২০০ টাকা<br>
+চক্রবৃদ্ধি মূলধন, C = 1000 × (1 + 1/10)² = 1000 × (11/10) × (11/10) = 10 × 121 = ১২১০ টাকা<br>
+<strong>নোট:</strong> (হাতে লেখা উত্তর: ⇒ ১০১০ টাকা; প্রকৃত মুনাফার পার্থক্য = ২১০ − ২০০ = ১০ টাকা)</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-22">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#22</span>
+              <h2 class="card-topic">বাস্তব সংখ্যা (Real Numbers)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">25</span>
+              <span class="filename-tag">photo_20_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বাস্তব সংখ্যা</h3>
+<ul>
+  <li><strong>বাস্তব সংখ্যা:</strong> সকল মূলদ ও অমূলদ সংখ্যাকে বাস্তব সংখ্যা বলে। বাস্তব সংখ্যাকে <strong>R</strong> দ্বারা প্রকাশ করা হয়।</li>
+  <li><strong>স্বাভাবিক সংখ্যা (Natural Number):</strong> ০ ব্যতীত সকল ধনাত্মক সংখ্যাকে স্বাভাবিক সংখ্যা বলে। স্বাভাবিক সংখ্যাকে <strong>N</strong> দ্বারা প্রকাশ করা হয়।<br>N = 1, 2, 3, 4 ......</li>
+  <li><strong>পূর্ণ সংখ্যা (Integer Number):</strong> ০ সহ সকল ধনাত্মক ও ঋণাত্মক অখণ্ড সংখ্যাকে পূর্ণ সংখ্যা বলে। পূর্ণ সংখ্যাকে <strong>Z</strong> দ্বারা প্রকাশ করা হয়।
+    <ul>
+      <li>Z = ..... −3, −2, −1, 0, 1, 2, 3 .....</li>
+      <li>Z⁺ = 1, 2, 3 .....</li>
+      <li>Z⁻ = ..... −3, −2, −1</li>
+      <li><strong>0</strong> হলো অঋণাত্মক সংখ্যা।</li>
+      <li><strong>0</strong> হলো জোড় সংখ্যা।</li>
+    </ul>
+  </li>
+  <li><strong>মূলদ সংখ্যা (Rational Number):</strong> যে সকল সংখ্যাকে p/q আকারে, q ≠ 0 (খাতায় p ≠ 0 লেখা) এবং p ও q পরস্পর সহমৌলিক হলে লেখা যায় সে সকল সংখ্যাকে মূলদ সংখ্যা বলে। যেমন: 1/2, 3/4, 2। সকল পূর্ণ সংখ্যাই মূলদ সংখ্যা।</li>
+  <li><strong>অমূলদ সংখ্যা:</strong> যে সকল সংখ্যা p/q আকারে প্রকাশ করা যায় না তাদের অমূলদ সংখ্যা বলে। যেমন: √3, √5, π, e।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-23">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#23</span>
+              <h2 class="card-topic">মৌলিক সংখ্যা (Prime Numbers)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">26</span>
+              <span class="filename-tag">photo_21_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>মূলদ ও অমূলদ সংখ্যার উদাহরণ</h3>
+<table>
+  <thead><tr><th>মূলদ</th><th>অমূলদ</th></tr></thead>
+  <tbody><tr><td>22/7, 0.3̇ = 0.3333..., 1.6̇7̇, 1.674674...</td><td>π, 3.1416...</td></tr></tbody>
+</table>
+<div class="note"><strong>Note:</strong> পৌনঃপুনিক চিহ্নিত সংখ্যা মূলদ সংখ্যা।</div>
+<h3>মৌলিক সংখ্যা</h3>
+<p>১ থেকে বড় যে সকল সংখ্যা ১ এবং ঐ সংখ্যা ব্যতীত নিঃশেষে বিভাজ্য নয় সে সকল সংখ্যাকে মৌলিক সংখ্যা বলে।</p>
+<ul>
+  <li>1 মৌলিক সংখ্যা নয়, কারণ এর গুণনীয়ক ১টি।</li>
+  <li>সবচেয়ে ছোট মৌলিক সংখ্যা <strong>2</strong>।</li>
+  <li>একমাত্র জোড় মৌলিক সংখ্যা <strong>2</strong>।</li>
+  <li>১ – ১০০ পর্যন্ত মৌলিক সংখ্যা <strong>২৫টি</strong>।</li>
+  <li>১০১ – ২০০ পর্যন্ত মৌলিক সংখ্যা <strong>২১টি</strong>।</li>
+  <li>১ – ২০০ পর্যন্ত মৌলিক সংখ্যা <strong>৪৬টি</strong>।</li>
+  <li>১ – ১০০ পর্যন্ত মৌলিক সংখ্যার সমষ্টি <strong>১০৬০</strong>।</li>
+  <li>১ – ১০০ পর্যন্ত স্বাভাবিক সংখ্যার সমষ্টি <strong>৫০৫০</strong>।</li>
+</ul>
+<div class="qa">
+  <p><strong>Q. ৪৩–৬০ পর্যন্ত কয়টি মৌলিক সংখ্যা আছে?</strong></p>
+  <p>⇒ ৪৩, ৪৭, ৫৩, ৫৯ = <strong>৪টি</strong>।</p>
+</div>
+<div class="qa">
+  <p><strong>Q. ১০–৬০ পর্যন্ত যে সকল মৌলিক সংখ্যার একক স্থানীয় অংক ৯ তার সমষ্টি কত?</strong></p>
+  <p>⇒ ১৯ + ২৯ + ৫৯ = <strong>১০৭</strong>।</p>
+</div>
+<div class="qa">
+  <p><strong>Q. ৬০–৮০ পর্যন্ত বৃহত্তম ও ক্ষুদ্রতম মৌলিক সংখ্যার অন্তর?</strong></p>
+  <p>⇒ ৭৯ − ৬১ = <strong>১৮</strong>।</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-24">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#24</span>
+              <h2 class="card-topic">সহমৌলিক সংখ্যা ও ভগ্নাংশ অংক (Co-prime &amp; Fractions)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">27</span>
+              <span class="filename-tag">photo_22_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সহমৌলিক সংখ্যা (CO-PRIME)</h3>
+<p>দুটি সংখ্যার গ.সা.গু ১ হলে অর্থাৎ ১ ভিন্ন অন্য কোনো সাধারণ গুণনীয়ক না থাকলে সংখ্যা দুটিকে পরস্পরের সহমৌলিক বলা হয়।</p>
+<div class="qa">
+  <p><strong>Q. নিচের কোনটি সহমৌলিক নয়?</strong></p>
+  <p>(i) 13, 17 &nbsp; (ii) 8, 5 &nbsp; (iii) 19, 15 &nbsp; (iv) <strong>27, 12 ✓</strong></p>
+</div>
+<h3>ভগ্নাংশ অংক</h3>
+<div class="qa">
+  <p><strong>Q. কোন সংখ্যার 3/7 অংশ 48 এর সমান?</strong></p>
+  <p>x এর 3/7 = 48<br>বা, x = (48 × 7) / 3<br>বা, x = 16 × 7<br>বা, x = <strong>112</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. কোন সংখ্যার 4/7 অংশ 80 এর সমান?</strong></p>
+  <p>x এর 4/7 = 80<br>বা, x = (80 × 7) / 4<br>বা, x = <strong>140</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. এক ব্যক্তি তার সম্পত্তির 2/3 অংশ পুত্রকে এবং 1/3 অংশ কন্যাকে দিলেন। কন্যার মূল সম্পদ ১ লক্ষ ৫০ হাজার টাকা কম পান। তবে সম্পত্তির মূল্য কত?</strong></p>
+  <p><strong>পদ্ধতি ১:</strong><br>
+  পুত্র বেশি পায় = 2/3 − 1/3 = (2 − 1)/3 = 1/3<br>
+  1/3 অংশ = ১,৫০,০০০<br>
+  1 বা সম্পূর্ণ অংশ = ১,৫০,০০০ × ৩ = <strong>৪,৫০,০০০ টাকা</strong>।</p>
+  <p><strong>পদ্ধতি ২:</strong><br>
+  ধরি, মোট সম্পত্তি = x টাকা<br>
+  প্রশ্নমতে, 2x/3 − x/3 = ১,৫০,০০০<br>
+  বা, (2x − x)/3 = ১,৫০,০০০<br>
+  বা, x = ১,৫০,০০০ × ৩<br>
+  বা, x = <strong>৪,৫০,০০০</strong>।</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-25">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#25</span>
+              <h2 class="card-topic">ভগ্নাংশ অংক (Fractions — Word Problems)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">28</span>
+              <span class="filename-tag">photo_23_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ভগ্নাংশ অংক</h3>
+<div class="qa">
+  <p><strong>Q. একটি বাঁশের 2/5 অংশ লাল, 1/4 অংশ কালো এবং 1/3 অংশ সবুজ। অবশিষ্ট ৬ মিটার সাদা। তবে বাঁশের দৈর্ঘ্য কত?</strong></p>
+  <p><strong>সমাধান (পদ্ধতি ১):</strong><br>
+  লাল + কালো + সবুজ = 2/5 + 1/4 + 1/3 = (24 + 15 + 20) / 60 = 59/60<br>
+  ∴ অবশিষ্ট = 1 − 59/60 = (60 − 59) / 60 = 1/60<br>
+  1/60 অংশ = ৬ মিটার<br>
+  1 বা সম্পূর্ণ অংশ = ৬ × ৬০ মিটার = <strong>৩৬০ মিটার</strong>।</p>
+  <p><strong>সমাধান (পদ্ধতি ২):</strong><br>
+  ধরি, সম্পূর্ণ বাঁশের দৈর্ঘ্য x মিটার।<br>
+  প্রশ্নমতে, x − (2x/5 + x/4 + x/3) = 6<br>
+  বা, x − ((24x + 15x + 20x) / 60) = 6<br>
+  বা, x − 59x/60 = 6<br>
+  বা, (60x − 59x) / 60 = 6<br>
+  বা, x/60 = 6<br>
+  বা, x = 6 × 60 ∴ <strong>x = 360</strong>।</p>
+</div>
+<div class="qa">
+  <p><strong>Q. দুটি ভগ্নাংশের গুণফল 15/28। একটি ভগ্নাংশ যদি 5/7 হয় তবে অপর ভগ্নাংশটি কত?</strong></p>
+  <p>বা, x × 5/7 = 15/28<br>
+  বা, x = (15 × 7) / (28 × 5)<br>
+  বা, x = <strong>3/4 (Ans)</strong></p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-26">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#26</span>
+              <h2 class="card-topic">ক্ষুদ্রতম ও বৃহত্তম ভগ্নাংশ নির্ণয় এবং ভাজক নির্ণয় করা</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">29</span>
+              <span class="filename-tag">photo_24_2026-11-24_20-48-05.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ক্ষুদ্রতম ও বৃহত্তম ভগ্নাংশ নির্ণয়</h3>
+<div class="qa">
+  <p><strong>Q. 5/7, 8/13, 9/11, 7/9 এর মধ্যে কোনটি বৃহত্তম / ক্ষুদ্রতম?</strong></p>
+  <p>আড়গুণন করে:<br>
+  5/7 বনাম 8/13 ⇒ 65 &gt; 56 (5/7 বড়, 8/13 ছোট)<br>
+  5/7 বনাম 9/11 ⇒ 55 &lt; 63 (9/11 বড়)<br>
+  9/11 বনাম 7/9 ⇒ 81 &gt; 77 (9/11 বড়)<br>
+  8/13 বনাম 7/9 ⇒ 72 &lt; 91 (8/13 ছোট)</p>
+  <p>∴ <strong>9/11 বৃহত্তম</strong> / <strong>8/13 ক্ষুদ্রতম</strong>।</p>
+</div>
+<div class="qa">
+  <p><strong>Q. 7/13, 3/19, 13/17, 5/23 এর মধ্যে কোনটি বৃহত্তম / ক্ষুদ্রতম?</strong></p>
+  <p>আড়গুণন করে:<br>
+  7/13 বনাম 3/19 ⇒ 133 &gt; 39<br>
+  7/13 বনাম 13/17 ⇒ 119 &lt; 169 (13/17 বড়)<br>
+  13/17 বনাম 5/23 ⇒ 299 &gt; 85 (13/17 বড়)<br>
+  3/19 বনাম 5/23 ⇒ 69 &lt; 95 (3/19 ছোট)</p>
+  <p>∴ <strong>13/17 বৃহত্তম</strong> / <strong>3/19 ক্ষুদ্রতম</strong>।</p>
+</div>
+<h3>ভাজক নির্ণয় করা</h3>
+<div class="qa">
+  <p><strong>Q. 72 এর ভাজক সংখ্যা কতটি?</strong></p>
+  <p>72 = 2³ × 3²<br>= (3 + 1)(2 + 1) = 4 × 3 = <strong>12 (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. 128 এবং 96 এর ভাজক সংখ্যা কতটি?</strong></p>
+  <ul>
+    <li>128 = 2⁷ ⇒ 7 + 1 = <strong>8</strong></li>
+    <li>96 = 2⁵ × 3¹ ⇒ (5 + 1)(1 + 1) = 6 × 2 = <strong>12</strong></li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-27">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#27</span>
+              <h2 class="card-topic">দুটি সংখ্যার মধ্যে ভাজক / বিভাজ্য সংখ্যা নির্ণয়</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">30</span>
+              <span class="filename-tag">photo_25_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>দুটি সংখ্যার মধ্যে ভাজক সংখ্যা নির্ণয়</h3>
+<h4>(ক) (Type - 01) দুটি সংখ্যার মধ্যে একটি সংখ্যা দ্বারা—</h4>
+<div class="qa">
+  <p><strong>Q. 16 থেকে 100 পর্যন্ত 4 দ্বারা বিভাজ্য সংখ্যা কতটি?</strong></p>
+  <p>বিভাজ্য সংখ্যা = (বড় সংখ্যা − ছোট সংখ্যা) / নির্দিষ্ট সংখ্যা + 1<br>
+  = (100 − 16) / 4 + 1<br>
+  = 84 / 4 + 1 = 21 + 1 = <strong>22 (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. 12 থেকে 100 এর মধ্যবর্তী 4 দ্বারা বিভাজ্য সংখ্যা কতটি?</strong></p>
+  <p>বিভাজ্য সংখ্যা = (96 − 16) / 4 + 1<br>
+  = 80 / 4 + 1 = 20 + 1 = <strong>21 (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q. 101–199 পর্যন্ত 3 দ্বারা বিভাজ্য সংখ্যা কতটি?</strong></p>
+  <p>বিভাজ্য সংখ্যা = (198 − 102) / 3 + 1<br>
+  = 96 / 3 + 1 = 32 + 1 = <strong>33 (Ans)</strong></p>
+</div>
+<h4>(Type - 02) দুটি সংখ্যার মধ্যে দুটি সংখ্যা দ্বারা—</h4>
+<div class="qa">
+  <p><strong>Q. 5 থেকে 95 পর্যন্ত 3 ও 5 দ্বারা বিভাজ্য সংখ্যা কতটি?</strong></p>
+  <p>3 ও 5 এর ল.সা.গু = 15<br>
+  15 দ্বারা বিভাজ্য সংখ্যা = (90 − 15) / 15 + 1<br>
+  = 75 / 15 + 1 = 5 + 1 = <strong>6 (Ans)</strong></p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-28">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#28</span>
+              <h2 class="card-topic">বিভাজ্যতা (Type 3 ও Type 4)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page: 31</span>
+              <span class="filename-tag">photo_26_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>(Type - 3) একটি দ্বারা বিভাজ্য কিন্তু অন্যটি দ্বারা নয়</h3>
+<div class="qa">
+  <p><strong>Q.</strong> ১ থেকে ১০০০ পর্যন্ত ৩০ দ্বারা বিভাজ্য কিন্তু ১৬ দ্বারা বিভাজ্য নয় এমন সংখ্যা কয়টি?</p>
+  <p>30 দ্বারা বিভাজ্য = (990 - 30) / 30 + 1 = 960 / 30 + 1 = 32 + 1 = 33</p>
+  <p>16 ও 30 এর ল.সা.গু = 240</p>
+  <p>240 দ্বারা বিভাজ্য = (960 - 240) / 240 + 1 = 720 / 240 + 1 = 3 + 1 =&gt; 4</p>
+  <p><strong>∴ 30 দ্বারা বিভাজ্য সংখ্যা কিন্তু 16 দ্বারা নয় = 33 - 4 = 29 (Ans)</strong></p>
+</div>
+<p><em>[হাতে লেখা স্বাক্ষর: Sintheya Jannat]</em></p>
+
+<h3>(Type - 04) দুই সংখ্যার মধ্যে একটি অথবা অন্যটি দ্বারা</h3>
+<div class="note">
+  <p><strong>সূত্র:</strong> n(A ∪ B) = n(A) + n(B) - n(A ∩ B)</p>
+  <p>এখানে, A ∪ B = অথবা এবং A ∩ B = এবং</p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> 5 - 195 পর্যন্ত 5 অথবা 7 দ্বারা বিভাজ্য সংখ্যা কয়টি?</p>
+  <p>5 দ্বারা বিভাজ্য = (195 - 5) / 5 + 1 = 190 / 5 + 1 = 38 + 1 =&gt; 39</p>
+  <p>7 দ্বারা বিভাজ্য = (189 - 7) / 7 + 1 = 182 / 7 + 1 = 26 + 1 =&gt; 27</p>
+  <p>5 ও 7 এর ল.সা.গু = 35</p>
+  <p>35 দ্বারা বিভাজ্য = (175 - 35) / 35 + 1 = 140 / 35 + 1 = 4 + 1 =&gt; 5</p>
+  <p><strong>∴ 5 অথবা 7 দ্বারা বিভাজ্য = 39 + 27 - 5 = 66 - 5 = 61</strong></p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-29">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#29</span>
+              <h2 class="card-topic">বর্গমূল নির্ণয় ও দশমিক ও পূর্ণসংখ্যা নির্ণয়</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page: 32</span>
+              <span class="filename-tag">photo_27_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বর্গমূল নির্ণয়</h3>
+<div class="qa">
+  <p><strong>Q.</strong> 1024 এর বর্গমূল নির্ণয়:</p>
+  <p>[চিত্র: ভাগ প্রক্রিয়ায় বর্গমূল — 1024 | 32; 10 - 9 = 1; 62 × 2 = 124; ভাগশেষ 0]</p>
+  <p><strong>∴ √1024 = 32</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> 0.0090 এর বর্গমূল নির্ণয়:</p>
+  <p>[চিত্র: ভাগ প্রক্রিয়ায় বর্গমূল — 0.0090 | .094; 00, 90 - 81 = 9; 184 × 4 = 736; 900 - 736 = 164]</p>
+  <p><strong>∴ √0.0090 = 0.094...</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> 841 এর বর্গমূল নির্ণয়:</p>
+  <p>[চিত্র: ভাগ প্রক্রিয়ায় বর্গমূল — 841 | 29; 8 - 4 = 4; 49 × 9 = 441; ভাগশেষ 0]</p>
+  <p><strong>∴ √841 = 29</strong></p>
+</div>
+<div class="note">
+  <p><strong>Note:</strong> পূর্ণসংখ্যায় ডানদিক থেকে জোড়া তৈরি করতে হয় কিন্তু দশমিক সংখ্যার দশমিকের পর বাম দিক থেকে জোড়া তৈরি করতে হয়।</p>
+</div>
+
+<h3>দশমিক ও পূর্ণসংখ্যা নির্ণয়</h3>
+<div class="note">
+  <p><strong>Note:</strong> উত্তরসংখ্যা বলার জন্য মূল সংখ্যার দশমিক বসাতে হয়।</p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> 15.6025 এর বর্গমূল নির্ণয়:</p>
+  <p>[চিত্র: ভাগ প্রক্রিয়ায় বর্গমূল — 15.6025 | 3.95; 15 - 9 = 6; 69 × 9 = 621; 660 - 621 = 39; 785 × 5 = 3925; ভাগশেষ 0]</p>
+  <p><strong>∴ √15.6025 = 3.95</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> 20,740 জন সৈন্যকে বর্গাকারে সাজালে 4 জন সৈন্য অতিরিক্ত হয়। প্রতিসারিতে সৈন্য সংখ্যা কত?</p>
+  <p>=&gt; 20,740 - 4 = 20736</p>
+  <p>[চিত্র: ভাগ প্রক্রিয়ায় বর্গমূল — 20736 | 144; 2 - 1 = 1; 24 × 4 = 96; 107 - 96 = 11; 284 × 4 = 1136]</p>
+  <p><strong>∴ প্রতিসারিতে সৈন্য সংখ্যা = 144 জন।</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> (√7 + √7)²</p>
+  <p>= (2√7)² = (4 × 7) = <strong>28</strong></p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-30">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#30</span>
+              <h2 class="card-topic">পূর্ণবর্গ ও ক্রমিক সংখ্যা</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page: 33</span>
+              <span class="filename-tag">photo_28_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>পূর্ণবর্গ</h3>
+<div class="qa">
+  <p><strong>Q.</strong> (24)⁵ এর সাথে ন্যূনতম কত গুণ করলে পূর্ণবর্গ হবে?</p>
+  <p>=&gt; (24)⁵ = (8 × 3)⁵ = (2³ × 3)⁵ = 2¹⁵ × 3⁵ =&gt; 2 × 3 = <strong>6</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> (96)⁷ এর সাথে কত দ্বারা গুণ করলে পূর্ণবর্গ হবে?</p>
+  <p>=&gt; (32 × 3)⁷ = (2⁵ × 3)⁷ = 2³⁵ × 3⁷ =&gt; 2 × 3 = <strong>6</strong></p>
+</div>
+<p><em>[হাতে লেখা স্বাক্ষর: Sintheya]</em></p>
+<div class="note">
+  <p><strong>Note:</strong> গুণ/ভাগ একই নিয়ম। শুধু পাওয়ার জোড় তৈরি করতে হবে।</p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> 72 × 75 × 2⁸ × 3³ × 4³ কে ন্যূনতম কত দিয়ে গুণ/ভাগ করলে পূর্ণবর্গ হবে?</p>
+  <p>=&gt; 72 × 75 × 2⁸ × 3³ × 4³</p>
+  <p>= (8 × 9) × (3 × 25) × 2⁸ × 3³ × (2²)³</p>
+  <p>= 2³ × 3² × 3 × 5² × 2⁸ × 3³ × 2⁶</p>
+  <p>= 2³⁺⁸⁺⁶ × 3²⁺³⁺¹ × 5²</p>
+  <p>= 2¹⁷ × 3⁶ × 5² = <strong>2</strong></p>
+  <p><em>[নোট: 3⁶ = পূর্ণবর্গ, 5² = পূর্ণবর্গ]</em></p>
+</div>
+
+<h3>ক্রমিক সংখ্যা</h3>
+<div class="qa">
+  <p><strong>Q.</strong> একটি সংখ্যার বর্গমূলের সাথে 9 যোগ করলে যোগফল 14 হয়। সংখ্যাটি কত?</p>
+  <p>=&gt; √x + 9 = 14</p>
+  <p>বা, √x = 5</p>
+  <p><strong>বা, x = 25 (Ans)</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> -1 থেকে কত বিয়োগ করলে বিয়োগফল 0 হয়?</p>
+  <p>=&gt; -1 - x = 0 =&gt; বা, -x = 1 =&gt; <strong>বা, x = -1</strong></p>
+  <p><em>বিকল্প:</em> -1 - x = 0 =&gt; বা, -1 = x</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-31">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#31</span>
+              <h2 class="card-topic">সংখ্যাভিত্তিক সমস্যা ও মানসিক দক্ষতা প্রশ্ন</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page: 34</span>
+              <span class="filename-tag">photo_29_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সংখ্যাভিত্তিক সমস্যা ও মানসিক দক্ষতা</h3>
+<div class="qa">
+  <p><strong>Q.</strong> কোনো সংখ্যাকে 4 দ্বারা গুণ করে 1 যোগ করলে যোগফল ঐ সংখ্যার 3 গুণের চেয়ে 5 বেশি হয়। সংখ্যাটি কত?</p>
+  <p>4x + 1 = 3x + 5</p>
+  <p>বা, 4x - 3x = 5 - 1</p>
+  <p><strong>বা, x = 4</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> একটি সংখ্যাকে 35 দ্বারা ভাগ করলে 10 অবশিষ্ট থাকে। যদি ঐ সংখ্যাকে 7 দ্বারা ভাগ করা হলে তবে অবশিষ্ট কত?</p>
+  <p>(x - 10) / 35 = 1 =&gt; বা, x - 10 = 35 =&gt; বা, x = 45</p>
+  <p>অথবা, 35 + 10 = 45</p>
+  <p>[চিত্র: 45 কে 7 দ্বারা ভাগ — 7 × 6 = 42, ভাগশেষ = 3]</p>
+  <p><strong>উত্তর: 3</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> 0, 1, 2, 3 দ্বারা গঠিত চার অংকের বৃহত্তম ও ক্ষুদ্রতম সংখ্যার পার্থক্য কত?</p>
+  <p>3210 - 1023 = <strong>2187</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> Divide 30 by half and add 10. What do you get?</p>
+  <p>=&gt; 30 / (1/2) + 10 = 30 × 2 + 10 = 60 + 10 = <strong>70</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> A farmer had 17 hens. All but 9 died. How many hens are alive?</p>
+  <p><strong>=&gt; 9 (Ans)</strong></p>
+</div>
+<p><em>[হাতে লেখা স্বাক্ষর: Sintheya Jannat]</em></p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-32">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#32</span>
+              <h2 class="card-topic">আবৃত দশমিক ও ক্রমিক সংখ্যার বর্গের অন্তর</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page: 35</span>
+              <span class="filename-tag">photo_30_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>আবৃত দশমিক (H.W)</h3>
+<div class="qa">
+  <p><strong>Q.</strong> 0.3̇ = 3/9 = <strong>1/3</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> 0.2̇4̇ = 24/99 = <strong>8/33</strong></p>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> 0.12̇6̇ = (126 - 1) / 990 = 125 / 990 = <strong>25/198</strong></p>
+  <div class="note"><p>[দশমিকের পর যে কয়টি আবৃত নেই ততোটি 0 বসাতে হয়।]</p></div>
+</div>
+<div class="qa">
+  <p><strong>Q.</strong> কোনো সংখ্যার 0.1̇ ও 0.1 এর পার্থক্য 1.0 হলে সংখ্যাটি কত?</p>
+  <p>=&gt; ধরি, সংখ্যাটি x</p>
+  <p>∴ x এর 0.1̇ - x এর 0.1 = 1</p>
+  <p>বা, x এর 1/9 - x এর 1/10 = 1</p>
+  <p>বা, x/9 - x/10 = 1</p>
+  <p>বা, (10x - 9x) / 90 = 1</p>
+  <p>বা, x/90 = 1</p>
+  <p><strong>∴ x = 90 (Ans)</strong></p>
+</div>
+<p><em>[হাতে লেখা স্বাক্ষর: Sintheya Jannat (GAMC) - Jamalpur | Doeby]</em></p>
+
+<h3>ক্রমিক সংখ্যার বর্গের অন্তর</h3>
+<div class="qa">
+  <p><strong>Q.</strong> দুটি ক্রমিক সংখ্যার বর্গের অন্তর 47 হলে সংখ্যা দুটি কত?</p>
+  <p><strong>বিস্তারিত নিয়ম:</strong></p>
+  <p>=&gt; ধরি, ছোট সংখ্যাটি = x; বড় সংখ্যাটি = x + 1</p>
+  <p>প্রশ্নমতে, (x + 1)² - x² = 47</p>
+  <p>বা, x² + 2x·1 + 1² - x² = 47</p>
+  <p>বা, x² + 2x + 1 - x² = 47</p>
+  <p>বা, 2x + 1 = 47 =&gt; বা, 2x = 46 =&gt; <strong>বা, x = 23</strong></p>
+  <p><strong>অথবা (শর্টকাট):</strong></p>
+  <ul>
+    <li>বড় সংখ্যা = (পার্থক্য + 1) / 2 = (47 + 1) / 2 = 48 / 2 = <strong>24</strong></li>
+    <li>ছোট সংখ্যা = (পার্থক্য - 1) / 2 = (47 - 1) / 2 = 46 / 2 = <strong>23</strong></li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+    <div id="emptyState" class="empty-state">No matching pages found. Try a different keyword.</div>
+  </main>
+
+  <button type="button" id="backTop" class="back-top" title="Back to top" aria-label="Back to top">↑</button>
+  <script>
+(function() {
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('ocr_notes_theme');
+  if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    const syncLabel = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      themeBtn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+    };
+    syncLabel();
+    themeBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('ocr_notes_theme', next);
+      syncLabel();
+    });
+  }
+
+  const printBtn = document.getElementById('printBtn');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => window.print());
+  }
+
+  // Mobile auto-hide header on scroll down, show on scroll up
+  const header = document.querySelector('.site-header');
+  let lastY = window.scrollY;
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (header && window.innerWidth <= 768) {
+      if (y > 90 && y > lastY + 8) {
+        header.classList.add('nav-hidden');
+      } else if (y < lastY - 8 || y <= 40) {
+        header.classList.remove('nav-hidden');
+      }
+    } else if (header) {
+      header.classList.remove('nav-hidden');
+    }
+    if (backTop) {
+      backTop.classList.toggle('visible', y > 400);
+    }
+    lastY = y;
+  }, { passive: true });
+
+  if (backTop) {
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // Search filter
+  const searchInput = document.getElementById('searchInput');
+  const cards = Array.from(document.querySelectorAll('.page-card'));
+  const matchCount = document.getElementById('matchCount');
+  const emptyState = document.getElementById('emptyState');
+
+  if (searchInput && cards.length) {
+    const filterCards = () => {
+      const q = searchInput.value.trim().toLowerCase();
+      let shown = 0;
+      cards.forEach(card => {
+        const text = (card.dataset.search || card.textContent).toLowerCase();
+        const match = !q || text.includes(q);
+        card.classList.toggle('hidden', !match);
+        if (match) shown++;
+      });
+      if (matchCount) {
+        matchCount.textContent = q ? `${shown} / ${cards.length} pages` : `${cards.length} pages`;
+      }
+      if (emptyState) {
+        emptyState.style.display = shown === 0 ? 'block' : 'none';
+      }
+    };
+    searchInput.addEventListener('input', filterCards);
+    filterCards();
+  }
+
+  // Quick jump
+  const jumpSelect = document.getElementById('jumpSelect');
+  if (jumpSelect) {
+    jumpSelect.addEventListener('change', () => {
+      const id = jumpSelect.value;
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

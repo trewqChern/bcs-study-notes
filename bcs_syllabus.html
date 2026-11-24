@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCS Written Syllabus — OCR Study Notes (25 Pages)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --accent: #dc2626;
+  --accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+  --note-bg: #fffbeb;
+  --note-border: #f59e0b;
+  --qa-bg: #f0f9ff;
+  --qa-border: #0ea5e9;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #273449;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --note-bg: rgba(245, 158, 11, 0.12);
+  --note-border: #fbbf24;
+  --qa-bg: rgba(14, 165, 233, 0.12);
+  --qa-border: #38bdf8;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+.site-header.nav-hidden {
+  transform: translateY(-100%);
+}
+.header-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+.header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.brand .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.subject-nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 0 4px;
+  scrollbar-width: thin;
+}
+.subject-nav a {
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  background: var(--surface-alt);
+  border: 1px solid transparent;
+}
+.subject-nav a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.subject-nav a.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+}
+.search-input {
+  flex: 1 1 220px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+.search-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.jump-select {
+  flex: 1 1 200px;
+  max-width: 340px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+}
+.match-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+.page-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  scroll-margin-top: 150px;
+}
+.page-card.hidden {
+  display: none;
+}
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+}
+.card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.card-topic {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.filename-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  opacity: 0.85;
+}
+.card-body {
+  padding: 16px 20px;
+  overflow-x: auto;
+}
+.card-body h2, .card-body h3 {
+  margin: 14px 0 8px;
+  color: var(--accent);
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+.card-body h3:first-child, .card-body h2:first-child {
+  margin-top: 0;
+}
+.card-body h4 {
+  margin: 12px 0 6px;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.card-body p {
+  margin: 6px 0;
+}
+.card-body ul, .card-body ol {
+  margin: 6px 0 10px;
+  padding-left: 22px;
+}
+.card-body li {
+  margin: 4px 0;
+}
+.card-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.93rem;
+}
+.card-body th, .card-body td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.card-body th {
+  background: var(--surface-alt);
+  font-weight: 700;
+}
+.card-body tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--surface-alt) 45%, transparent);
+}
+.card-body .note {
+  background: var(--note-bg);
+  border-left: 4px solid var(--note-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body .qa {
+  background: var(--qa-bg);
+  border-left: 4px solid var(--qa-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body hr {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 14px 0;
+}
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+.back-top.visible {
+  display: inline-flex;
+}
+/* Hub Grid */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--card-accent, var(--accent));
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+.hub-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--card-accent, var(--accent));
+}
+.hub-card .bn-name {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.hub-card .count-pill {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--surface-alt);
+  color: var(--text);
+}
+.summary-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.summary-banner h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.summary-banner p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+@media (max-width: 768px) {
+  .header-inner { padding: 8px 12px; }
+  .brand h1 { font-size: 1.05rem; }
+  .card-header { padding: 10px 14px; }
+  .card-body { padding: 12px 14px; font-size: 15px; }
+  .controls-bar { gap: 6px; }
+  .jump-select { max-width: 100%; }
+}
+@media print {
+  .site-header, .back-top, .controls-bar, .subject-nav { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .container { max-width: 100%; padding: 0; }
+  .page-card { break-inside: avoid-page; box-shadow: none; border: 1px solid #ccc; margin-bottom: 12pt; }
+  .card-header { background: #f3f4f6 !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <h1>BCS Written Syllabus</h1>
+          <span class="subtitle">বিসিএস লিখিত সিলেবাস • 25 pages</span>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="btn" id="themeToggle">🌙 Dark</button>
+          <button type="button" class="btn" id="printBtn">🖨️ Print</button>
+        </div>
+      </div>
+      <nav class="subject-nav" aria-label="Subjects">
+        <a href="index.html" class="">🏠 All Subjects (250)</a>
+<a href="english_literature.html" class="">English Literature (58)</a>
+<a href="bangla_literature.html" class="">Bangla Literature (51)</a>
+<a href="mental_ability.html" class="">Mental Ability (34)</a>
+<a href="mathematics.html" class="">Mathematics &amp; Mathematical Reasoning (32)</a>
+<a href="bangladesh_affairs.html" class="">Bangladesh Affairs (31)</a>
+<a href="international_affairs.html" class="">International Affairs (19)</a>
+<a href="bcs_syllabus.html" class="active">BCS Written Syllabus (25)</a>
+      </nav>
+      <div class="controls-bar">
+        <input type="search" id="searchInput" class="search-input" placeholder="Search notes in Bengali or English..." aria-label="Search notes">
+        <select id="jumpSelect" class="jump-select" aria-label="Quick jump">
+          <option value="">Jump to topic / page...</option><option value="page-1">#1 — NEW BCS Preliminary Syllabus &amp; Mark Distribution (50th BCS onw... [Page 1 of 13]</option><option value="page-2">#2 — BCS Preliminary Syllabus — বাংলা [Page 2 of 13]</option><option value="page-3">#3 — BCS Preliminary Syllabus — English (Part-I: Language, Sections... [Page 3 of 13]</option><option value="page-4">#4 — BCS Preliminary Syllabus — English (Part-I Sections E–G &amp; Part... [Page 4 of 13]</option><option value="page-5">#5 — BCS Preliminary Syllabus — বাংলাদেশ বিষয়াবলি (অধ্যায় ১–৬) [Page 5 of 13]</option><option value="page-6">#6 — BCS Preliminary Syllabus — বাংলাদেশ বিষয়াবলি (অধ্যায় ৭–৯) ও ... [Page 6 of 13]</option><option value="page-7">#7 — BCS Preliminary Syllabus — সাধারণ বিজ্ঞান (১. ভৌত বিজ্ঞান) [Page 7 of 13]</option><option value="page-8">#8 — BCS Preliminary Syllabus — সাধারণ বিজ্ঞান (২. জীব বিজ্ঞান) [Page 8 of 13]</option><option value="page-9">#9 — BCS Preliminary Syllabus — সাধারণ বিজ্ঞান (৩. আধুনিক বিজ্ঞান) [Page 9 of 13]</option><option value="page-10">#10 — BCS Preliminary Syllabus — ভূগোল (বাংলাদেশ ও বিশ্ব), পরিবেশ ও ... [Page 10 of 13]</option><option value="page-11">#11 — BCS Preliminary Syllabus — কম্পিউটার ও তথ্য প্রযুক্তি [Page 11 of 13]</option><option value="page-12">#12 — BCS Preliminary Syllabus — গাণিতিক যুক্তি ও মানসিক দক্ষতা [Page 12 of 13]</option><option value="page-13">#13 — BCS Preliminary Syllabus — নৈতিকতা, মূল্যবোধ ও সু-শাসন [Page 13 of 13]</option><option value="page-14">#14 — BCS Written Examination Syllabus — বাংলা (আবশ্যিক) (বিষয় কোড:...</option><option value="page-15">#15 — BCS Written Examination Syllabus — English (Compulsory) (Subje...</option><option value="page-16">#16 — BCS Written Examination Syllabus — Bangladesh Affairs (Compuls...</option><option value="page-17">#17 — BCS Written Examination Syllabus — Bangladesh Affairs (Compuls...</option><option value="page-18">#18 — BCS Written Examination Syllabus — International Affairs (Comp... [৮/২৩৫]</option><option value="page-19">#19 — BCS Written Examination Syllabus — International Affairs (Sect...</option><option value="page-20">#20 — BCS Written Examination Syllabus — Mathematical Reasoning (Com...</option><option value="page-21">#21 — BCS Written Examination Syllabus — Mental Ability (Compulsory,...</option><option value="page-22">#22 — BCS Written Examination Syllabus — Mental Ability (Compulsory,...</option><option value="page-23">#23 — BCS Written Examination Syllabus — General Science and Technol...</option><option value="page-24">#24 — BCS Written Examination Syllabus — General Science and Technol...</option><option value="page-25">#25 — BCS Written Examination Syllabus — General Science and Technol... [১৫/২৩৫]</option>
+        </select>
+        <span id="matchCount" class="match-count">25 pages</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+        <article class="page-card" id="page-1">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#1</span>
+              <h2 class="card-topic">NEW BCS Preliminary Syllabus &amp; Mark Distribution (50th BCS onwards)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 1 of 13</span>
+              <span class="filename-tag">photo_29_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>NEW BCS Preliminary Syllabus &amp; Mark Distribution</h3><p><em>Start from the 50th BCS to...</em></p><table><thead><tr><th>#</th><th>বিষয়ের নাম</th><th>নম্বর বণ্টন</th><th>সেকশন</th></tr></thead><tbody><tr><td>১</td><td>বাংলা ভাষা ও সাহিত্য (-৫)</td><td>৩০</td><td rowspan="2">ভাষা = ৬০</td></tr><tr><td>২</td><td>ইংরেজি ভাষা ও সাহিত্য (-৫)</td><td>৩০</td></tr><tr><td>৩</td><td>বাংলাদেশ বিষয়াবলি (-৫)</td><td>২৫</td><td rowspan="3">GK = ৬০</td></tr><tr><td>৪</td><td>আন্তর্জাতিক বিষয়াবলি (+৫)</td><td>২৫</td></tr><tr><td>৫</td><td>ভূগোল (বাংলাদেশ ও বিশ্ব), পরিবেশ ও দুর্যোগ ব্যবস্থাপনা</td><td>১০</td></tr><tr><td>৬</td><td>সাধারণ বিজ্ঞান</td><td>১৫</td><td rowspan="4">Science = ৬৫</td></tr><tr><td>৭</td><td>কম্পিউটার ও তথ্য প্রযুক্তি</td><td>১৫</td></tr><tr><td>৮</td><td>গাণিতিক যুক্তি (+৫)</td><td>২০</td></tr><tr><td>৯</td><td>মানসিক দক্ষতা</td><td>১৫</td></tr><tr><td>১০</td><td>নৈতিকতা, মূল্যবোধ ও সুশাসন (+৫)</td><td>১৫</td><td>১৫</td></tr><tr><td colspan="2"><strong>মোট</strong></td><td><strong>২০০</strong></td><td><strong>২০০</strong></td></tr></tbody></table><h4>পরিবর্তনসমূহ:</h4><ul><li>বাংলা সাহিত্য আধুনিক যুগে নম্বর কমেছে।</li><li>ইংরেজি গ্রামার অংশের নম্বর কমেছে।</li><li>বাংলাদেশ বিষয়াবলি ২, ৩, ৪, ৫ এবং ৯ এই অধ্যায়ে মোট নম্বর কমেছে।</li><li>আন্তর্জাতিক বিষয়াবলি প্রতিটি অধ্যায়ে ১ করে মোট নম্বর বেড়েছে।</li><li>গণিত প্রতিটি অধ্যায়ে ১ করে মোট নম্বর বেড়েছে।</li><li>নৈতিকতা, মূল্যবোধ ও সুশাসনে মোট নম্বর বেড়েছে।</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-2">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#2</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — বাংলা</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 2 of 13</span>
+              <span class="filename-tag">photo_30_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বাংলা</h3><p><strong>পূর্ণমান: ৩০ (-৫)</strong></p><h4>১. ভাষা (ব্যাকরণ পার্ট) (১৫)</h4><table><thead><tr><th>টপিক</th><th>±</th><th>মান বণ্টন</th></tr></thead><tbody><tr><td><ol><li>প্রয়োগ-অপপ্রয়োগ</li><li>বানান ও বাক্য শুদ্ধি</li><li>পরিভাষা</li><li>সমার্থক ও বিপরীতার্থক শব্দ</li><li>ধ্বনি</li><li>বর্ণ</li><li>শব্দ</li><li>পদ</li><li>বাক্য</li><li>প্রত্যয়</li><li>সন্ধি ও সমাস</li></ol></td><td>০</td><td>১৫</td></tr></tbody></table><h4>২. সাহিত্য (১৫) (-৫)</h4><table><thead><tr><th>টপিক</th><th>±</th><th>মান বণ্টন</th></tr></thead><tbody><tr><td>প্রাচীন ও মধ্যযুগ</td><td>০</td><td>৫</td></tr><tr><td>আধুনিক যুগ (১৮০০-বর্তমান পর্যন্ত)</td><td>-৫</td><td>১০</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-3">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#3</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — English (Part-I: Language, Sections A–D)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 3 of 13</span>
+              <span class="filename-tag">photo_31_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ENGLISH (30 Marks) (-5)</h3><h4>PART-I: Language (15) (-5)</h4><table><thead><tr><th>#</th><th>Topic</th><th>Item Marks</th></tr></thead><tbody><tr><td>A</td><td><strong>Parts of Speech</strong><ol><li><strong>The Noun:</strong><ol type="i"><li>The Determiner</li><li>The Gender</li><li>The Number</li></ol></li><li><strong>The Pronoun</strong></li><li><strong>The Verb:</strong><ol type="i"><li>The Finite: transitive, intransitive</li><li>The Non-finite: participles, infinitives, gerund</li><li>The Linking Verb</li><li>The Phrasal Verb</li><li>Modals</li></ol></li><li><strong>The Adjective</strong></li><li><strong>The Adverb</strong></li><li><strong>The Preposition</strong></li><li><strong>The Conjunction</strong></li></ol></td><td>Not Fixed</td></tr><tr><td>B</td><td><strong>Idioms &amp; Phrases:</strong><ol><li>Meanings of Phrases</li><li>Kinds of Phrases</li><li>Identifying Phrases</li></ol></td><td>Not Fixed</td></tr><tr><td>C</td><td><strong>Clauses:</strong><ol><li>The Principal Clause</li><li>The Subordinate Clause:<ol type="i"><li>The Noun Clause</li><li>The Adjective Clause</li><li>The Adverbial Clause &amp; Its types</li></ol></li></ol></td><td>Not Fixed</td></tr><tr><td>D</td><td><strong>Corrections:</strong><ol><li>The Tense</li><li>The Verb</li><li>The Preposition</li><li>The Determiner</li><li>The Gender</li><li>The Number</li><li>Subject-Verb Agreement</li></ol></td><td>Not Fixed</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-4">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#4</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — English (Part-I Sections E–G &amp; Part-II: Literature)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 4 of 13</span>
+              <span class="filename-tag">photo_32_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <table><tbody><tr><td>E</td><td><strong>Sentences &amp; Transformations:</strong><ol><li>The Simple Sentence</li><li>The Compound Sentence,</li><li>The Complex Sentence,</li></ol><strong>Voice:</strong><ol><li>The Active Voice</li><li>The Passive Voice</li></ol><strong>Degree:</strong><ol><li>The Positive Degree</li><li>The Comparative Degree</li><li>The Superlative Degree</li></ol></td><td>Not Fixed</td></tr><tr><td>F</td><td><strong>Words:</strong><ol><li>Meanings</li><li>Synonyms</li><li>Antonyms</li><li>Spellings</li><li>Usage of words as various parts of speech</li><li>Formation of new words by adding prefixes and suffixes</li></ol></td><td>Not Fixed</td></tr><tr><td>G</td><td><strong>Composition</strong><ol><li>Names of parts of paragraphs or</li><li>letters or</li><li>applications</li></ol></td><td>Not Fixed</td></tr></tbody></table><h4>PART-II: Literature (15)</h4><table><tbody><tr><td>H</td><td><strong>English Literature:</strong><ol><li>Names of writers of literary pieces from <strong>Elizabethan</strong> period to the 21<sup>st</sup> Century</li><li>Quotations from drama/poetry of different ages</li></ol></td><td>15</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-5">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#5</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — বাংলাদেশ বিষয়াবলি (অধ্যায় ১–৬)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 5 of 13</span>
+              <span class="filename-tag">photo_33_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বাংলাদেশ বিষয়াবলি (BANGLADESH AFFAIRS)</h3><p><strong>পূর্ণমান : ২৫ (-৫)</strong></p><table><thead><tr><th>#</th><th>টপিক</th><th>±</th><th>মান বণ্টন</th></tr></thead><tbody><tr><td>১</td><td><strong>বাংলাদেশের জাতীয় বিষয়াবলি:</strong><ol><li>প্রাচীনকাল হতে সম-সাময়িক কালের ইতিহাস কৃষ্টি ও সংস্কৃতি</li><li>ভাষা আন্দোলন</li><li>১৯৫৪ সালের নির্বাচন</li><li>গণঅভ্যুত্থান ১৯৬৯</li><li>১৯৭১ সালের স্বাধীনতা সংগ্রাম ও মহান মুক্তিযুদ্ধের ইতিহাস</li><li>মুক্তিযুদ্ধের রণকৌশল</li><li>মুক্তিযুদ্ধে বৃহৎ শক্তিবর্গের ভূমিকা</li><li>পাকিস্তানী বাহিনীর আত্মসমর্পণ এবং বাংলাদেশের অভ্যুদয়।</li></ol></td><td>০</td><td>৩</td></tr><tr><td>২</td><td><strong>বাংলাদেশের কৃষিজ সম্পদ:</strong><ol><li>শস্য উৎপাদন এবং এর বহুমুখীকরণ</li><li>খাদ্য উৎপাদন ও ব্যবস্থাপনা।</li></ol></td><td>-১</td><td>২</td></tr><tr><td>৩</td><td><strong>বাংলাদেশের জনসংখ্যা:</strong><ol><li>জনসংখ্যা</li><li>জনশুমারি</li><li>জাতি</li><li>গোষ্ঠী ও ক্ষুদ্র নৃগোষ্ঠী সংক্রান্ত বিষয়াদি।</li></ol></td><td>-১</td><td>২</td></tr><tr><td>৪</td><td><strong>বাংলাদেশের অর্থনীতি:</strong><ol><li>উন্নয়ন পরিকল্পনা প্রেক্ষিত</li><li>জাতীয় আয়-ব্যয়</li><li>রাজস্বনীতি ও বার্ষিক উন্নয়ন কর্মসূচি</li><li>দারিদ্র্য বিমোচন ইত্যাদি।</li></ol></td><td>-১</td><td>২</td></tr><tr><td>৫</td><td><strong>বাংলাদেশের শিল্প ও বাণিজ্য:</strong><ol><li>শিল্প উৎপাদন</li><li>পণ্য আমদানি ও রপ্তানিকরণ</li><li>গার্মেন্টস শিল্প ও এর সার্বিক ব্যবস্থাপনা,</li><li>অন্যান্য শিল্পসমূহ</li><li>বৈদেশিক লেনদেন</li><li>অর্থ প্রেরণ</li><li>ব্যাংক ও বীমা ব্যবস্থাপনা ইত্যাদি।</li></ol></td><td>-১</td><td>২</td></tr><tr><td>৬</td><td><strong>বাংলাদেশের সংবিধান:</strong><ol><li>প্রস্তাবনা ও বৈশিষ্ট্য</li><li>মৌলিক অধিকারসহ রাষ্ট্রের পরিচালনামূলক মূলনীতিসমূহ</li><li>সংবিধানের সংশোধনীসমূহ।</li></ol></td><td>০</td><td>৩</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-6">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#6</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — বাংলাদেশ বিষয়াবলি (অধ্যায় ৭–৯) ও আন্তর্জাতিক বিষয়াবলি</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 6 of 13</span>
+              <span class="filename-tag">photo_34_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <table><tbody><tr><td>৭</td><td><strong>বাংলাদেশের রাজনৈতিক ব্যবস্থা:</strong><ol><li>রাজনৈতিক দলসমূহের গঠন,</li><li>ভূমিকা ও কার্যক্রম</li><li>ক্ষমতাসীন ও বিরোধী দলের পারস্পরিক সম্পর্কাদি</li><li>সুশীল সমাজ ও চাপ সৃষ্টিকারী গোষ্ঠীসমূহ এবং এর ভূমিকা।</li></ol></td><td>০</td><td>৩</td></tr><tr><td>৮</td><td><strong>বাংলাদেশের সরকার ব্যবস্থা:</strong><ol><li>আইন</li><li>শাসন ও বিচার বিভাগ সমূহ</li><li>আইন প্রণয়ন</li><li>নীতি নির্ধারণ</li><li>জাতীয় ও স্থানীয় পর্যায়ের প্রশাসনিক ব্যবস্থাসমূহ কাঠামো</li><li>প্রশাসনিক পুনর্বিন্যাস ও সংস্কার; স্মার্ট সরকার ব্যবস্থাপনা।</li></ol></td><td>০</td><td>৩</td></tr><tr><td>৯</td><td><strong>বাংলাদেশের জাতীয় অর্জন:</strong><ol><li>বাংলাদেশের জাতীয় অর্জন</li><li>বিশিষ্ট ব্যক্তিত্ব</li><li>গুরুত্বপূর্ণ প্রতিষ্ঠানসমূহ</li><li>জাতীয় পুরস্কার</li><li>বাংলাদেশের খেলাধুলাসহ চলচ্চিত্র</li><li>গণমাধ্যম-সংক্রান্ত বিষয়াদি।</li></ol></td><td>-১</td><td>২</td></tr></tbody></table><h3>আন্তর্জাতিক বিষয়াবলি (INTERNATIONAL AFFAIRS)</h3><p><strong>পূর্ণমান: ২৫ (+৫)</strong></p><table><thead><tr><th>#</th><th>টপিক</th><th>±</th><th>মান বণ্টন</th></tr></thead><tbody><tr><td>১</td><td><ul><li>বৈশ্বিক ইতিহাস</li><li>আঞ্চলিক ও আন্তর্জাতিক ব্যবস্থা</li><li>ভূ-রাজনীতি</li></ul></td><td>+১</td><td>৫</td></tr><tr><td>২</td><td>আন্তর্জাতিক নিরাপত্তা ও আন্তঃরাষ্ট্রীয় ক্ষমতা সম্পর্ক।</td><td>+১</td><td>৫</td></tr><tr><td>৩</td><td>বিশ্বের সাম্প্রতিক ও চলমান ঘটনাপ্রবাহ।</td><td>+১</td><td>৫</td></tr><tr><td>৪</td><td>আন্তর্জাতিক পরিবেশগত ইস্যু ও কূটনীতি।</td><td>+১</td><td>৫</td></tr><tr><td>৫</td><td>আন্তর্জাতিক সংগঠনসমূহ এবং বৈশ্বিক অর্থনৈতিক প্রতিষ্ঠানাদি।</td><td>+১</td><td>৫</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-7">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#7</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — সাধারণ বিজ্ঞান (১. ভৌত বিজ্ঞান)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 7 of 13</span>
+              <span class="filename-tag">photo_35_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>সাধারণ বিজ্ঞান (GENERAL SCIENCE)</h3><p><strong>পূর্ণমান: ১৫</strong></p><h4>১. ভৌত বিজ্ঞান</h4><table><thead><tr><th>টপিক</th><th>±</th><th>মান বণ্টন</th></tr></thead><tbody><tr><td><ol><li>পদার্থের অবস্থা</li><li>এটমের গঠন</li><li>কার্বনের বহুমুখী ব্যবহার</li><li>এসিড</li><li>ক্ষার</li><li>লবণ</li><li>পদার্থের ক্ষয়</li><li>সাবানের কাজ</li><li>ভৌত রাশি এবং এর পরিমাপ</li><li>ভৌত বিজ্ঞানের উন্নয়ন</li><li>চৌম্বকত্ব</li><li>তরঙ্গ এবং শব্দ</li><li>তাপ ও তাপগতি বিদ্যা</li><li>আলোর প্রকৃতি</li><li>স্থির এবং চল তড়িৎ</li><li>ইলেকট্রনিক্স,</li><li>আধুনিক পদার্থবিজ্ঞান,</li><li>শক্তির উৎস এবং এর প্রয়োগ,</li><li>নবায়নযোগ্য শক্তির উৎস,</li><li>পারমাণবিক শক্তি</li><li>খনিজ উৎস</li><li>শক্তির রূপান্তর</li><li>আলোক যন্ত্রপাতি</li><li>মৌলিক কণা</li><li>খাদ্যের পদার্থ এবং তাদের যোগসমূহ</li><li>অজৈব পদার্থ,</li><li>জৈব-বিজারণ,</li><li>তড়িৎ কোষ,</li><li>অজৈব যৌগ,</li><li>জৈব যৌগ,</li><li>তড়িৎ চৌম্বক,</li><li>ট্রান্সফর্মার,</li><li>এক্স-রে</li><li>তেজস্ক্রিয়তা ইত্যাদি।</li></ol></td><td>০</td><td>৫</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-8">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#8</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — সাধারণ বিজ্ঞান (২. জীব বিজ্ঞান)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 8 of 13</span>
+              <span class="filename-tag">photo_36_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>২. জীব বিজ্ঞান</h4><table><thead><tr><th>টপিক</th><th>±</th><th>মান বণ্টন</th></tr></thead><tbody><tr><td><ol><li>পদার্থের জীববিজ্ঞান-বিষয়ক ধর্ম</li><li>টিস্যু</li><li>জেনেটিক্স</li><li>জীববৈচিত্র্য</li><li>এনিম্যাল ডাইভারসিটি</li><li>প্লান্ট ডাইভারসিটি</li><li>এনিম্যাল টিস্যু</li><li>অর্গান এবং অর্গান সিস্টেম</li><li>সালোক সংশ্লেষণ</li><li>ভাইরাস</li><li>ব্যাকটেরিয়া</li><li>জুওলজিক্যাল নমেনক্লেচার</li><li>বোটানিক্যাল নমেনক্লেচার</li><li>প্রাণিজগৎ</li><li>উদ্ভিদ</li><li>ফুল</li><li>ফল</li><li>রক্ত ও রক্ত সঞ্চালন</li><li>রক্তচাপ</li><li>হৃদপিণ্ড এবং হৃদরোগ</li><li>স্নায়ু এবং স্নায়ুরোগ</li><li>খাদ্য ও পুষ্টি</li><li>ভিটামিন</li><li>মাইক্রোবায়োলজি</li><li>প্লান্ট নিউট্রিশন</li><li>পরাগায়ণ ইত্যাদি।</li></ol></td><td>০</td><td>৫</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-9">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#9</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — সাধারণ বিজ্ঞান (৩. আধুনিক বিজ্ঞান)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 9 of 13</span>
+              <span class="filename-tag">photo_37_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>৩. আধুনিক বিজ্ঞান</h4><table><thead><tr><th>টপিক</th><th>±</th><th>মান বণ্টন</th></tr></thead><tbody><tr><td><ol><li>পৃথিবীর সৃষ্টি ইতিহাস</li><li>কসমিক রে</li><li>ব্ল্যাক হোল</li><li>হিগেল কণা</li><li>বারিমণ্ডল</li><li>টাইট</li><li>বায়ুমণ্ডল</li><li>টেকটোনিক প্লেট</li><li>সাইক্লোন</li><li>সুনামি</li><li>বিবর্তন</li><li>সামুদ্রিক জীবন</li><li>মানবদেহ</li><li>রোগের কারণ ও প্রতিকার</li><li>সংক্রামক রোগ</li><li>রোগ জীবাণুর জীবনধারণ</li><li>মা ও শিশু স্বাস্থ্য</li><li>ইমিউনাইজেশন এবং ভ্যাকসিনেশন</li><li>এইচআইভি</li><li>এইডস</li><li>টিবি</li><li>পোলিও</li><li>জোয়ার-ভাটা</li><li>এপিকালচার</li><li>সেরিকালচার</li><li>পিসিকালচার</li><li>হর্টিকালচার</li><li>ডায়োড</li><li>ট্রানজিস্টর</li><li>আইসি</li><li>আপেক্ষিক তত্ত্ব</li><li>ফোটন কণা ইত্যাদি।</li></ol></td><td>০</td><td>৫</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-10">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#10</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — ভূগোল (বাংলাদেশ ও বিশ্ব), পরিবেশ ও দুর্যোগ ব্যবস্থাপনা</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 10 of 13</span>
+              <span class="filename-tag">photo_38_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ভূগোল (বাংলাদেশ ও বিশ্ব), পরিবেশ ও দুর্যোগ ব্যবস্থাপনা (GEOGRAPHY, ENVIRONMENT &amp; DISASTER MANAGEMENT)</h3><p><strong>পূর্ণমান: ১০</strong></p><table><thead><tr><th>#</th><th>টপিক</th><th>±</th><th>মান বণ্টন</th></tr></thead><tbody><tr><td>১</td><td>বাংলাদেশ ও আন্তর্জাতিক ভৌগোলিক অবস্থান, সীমানা, পরিবেশিক, আর্থ সামাজিক ও ভূ-রাজনৈতিক গুরুত্ব।</td><td>০</td><td>২</td></tr><tr><td>২</td><td>অভ্যন্তরীণ ভৌগোলিক অবস্থান (ভূ-প্রকৃতি), সম্পদের বণ্টন ও গুরুত্ব।</td><td>০</td><td>২</td></tr><tr><td>৩</td><td><strong>বাংলাদেশের পরিবেশ:</strong> প্রকৃতি ও সম্পদ, প্রধান চ্যালেঞ্জসমূহ।</td><td>০</td><td>২</td></tr><tr><td>৪</td><td><strong>বাংলাদেশ ও বৈশ্বিক পরিবেশ পরিবর্তন:</strong> আবহাওয়া ও জলবায়ু নিয়ন্ত্রণসমূহের সেইলরটেলিক (যেমন: প্রতিষ্ঠান, কৃষি, শিল্প, মৎস্য ইত্যাদি) স্থানীয়, আঞ্চলিক ও বৈশ্বিক প্রভাব।</td><td>০</td><td>২</td></tr><tr><td>৫</td><td><strong>প্রাকৃতিক দুর্যোগ ও ব্যবস্থাপনা:</strong> দুর্যোগের ধরণ, প্রকৃতি ও ব্যবস্থাপনা।</td><td>০</td><td>২</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-11">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#11</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — কম্পিউটার ও তথ্য প্রযুক্তি</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 11 of 13</span>
+              <span class="filename-tag">photo_39_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>কম্পিউটার ও তথ্য প্রযুক্তি (COMPUTER AND INFORMATION TECHNOLOGY)</h3><p><strong>পূর্ণমান: ১৫</strong></p><h4>১. কম্পিউটার</h4><table><thead><tr><th>#</th><th>Topic</th><th>Item Marks</th></tr></thead><tbody><tr><td>1</td><td>Computer Peripherals: Keyboard, Mouse, OCR ইত্যাদি;</td><td rowspan="11">10</td></tr><tr><td>2</td><td>Computer Architecture: CPU, Hard Disk, ALU ইত্যাদি;</td></tr><tr><td>3</td><td>Computer Performance;</td></tr><tr><td>4</td><td>Computer in Practical Fields: কৃষি, যোগাযোগ, শিক্ষা, স্বাস্থ্য, খেলাধুলা ইত্যাদি;</td></tr><tr><td>5</td><td>Number Systems of Computer;</td></tr><tr><td>6</td><td>Operating Systems;</td></tr><tr><td>7</td><td>Embedded Computer;</td></tr><tr><td>8</td><td>History of Computer;</td></tr><tr><td>9</td><td>Types of Computers;</td></tr><tr><td>10</td><td>Computer Program: VIRUS, Firewall ইত্যাদি;</td></tr><tr><td>11</td><td>Database System</td></tr></tbody></table><h4>২. তথ্যপ্রযুক্তি</h4><table><thead><tr><th>#</th><th>Topic</th><th>Item Marks</th></tr></thead><tbody><tr><td>1</td><td>E-Commerce;</td><td rowspan="15">05</td></tr><tr><td>2</td><td>Cellular Data Network: 2G, 3G, 4G ইত্যাদি; <strong>(5G Not included in syllabus)</strong></td></tr><tr><td>3</td><td>Computer Network: LAN, MAN, Wi-Fi, Wimax ইত্যাদি;</td></tr><tr><td>4</td><td>Information Technologies in Practical Fields;</td></tr><tr><td>5</td><td>Smartphone;</td></tr><tr><td>6</td><td>World Wide Web – WWW;</td></tr><tr><td>7</td><td>Internet;</td></tr><tr><td>8</td><td>Daily-Use Computing Technology: E-mail, Fax ইত্যাদি;</td></tr><tr><td>9</td><td>Client-Server Management;</td></tr><tr><td>10</td><td>Mobile Features;</td></tr><tr><td>11</td><td>Tech Giants Services &amp; News: Google, Microsoft, IBM ইত্যাদি;</td></tr><tr><td>12</td><td>Cloud Computing;</td></tr><tr><td>13</td><td>Social Networking: Facebook, Instagram, Twitter ইত্যাদি;</td></tr><tr><td>14</td><td>Robotics;</td></tr><tr><td>15</td><td>Cyber Crime</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-12">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#12</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — গাণিতিক যুক্তি ও মানসিক দক্ষতা</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 12 of 13</span>
+              <span class="filename-tag">photo_40_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>গাণিতিক যুক্তি (Mathematical Reasoning)</h3><p><strong>পূর্ণমান: ২০ (+৫)</strong></p><table><thead><tr><th>#</th><th>টপিক</th><th>±</th><th>মান বণ্টন</th></tr></thead><tbody><tr><td>১</td><td><ol><li>বাস্তব সংখ্যা</li><li>ল.সা.গু</li><li>গ.সা.গু</li><li>শতকরা</li><li>সরল ও যৌগিক মুনাফা</li><li>অনুপাত ও সমানুপাত</li><li>লাভ ও ক্ষতি</li></ol></td><td>+১</td><td>০৪</td></tr><tr><td>২</td><td><ol><li>বীজগাণিতিক সূত্রাবলি</li><li>বহুপদী উৎপাদক</li><li>সরল ও দ্বিঘাত সমীকরণ</li><li>সরল ও দ্বিঘাত অসমতা</li><li>সরল সহসমীকরণ</li></ol></td><td>+১</td><td>০৪</td></tr><tr><td>৩</td><td><ol><li>সূচক ও লগারিদম</li><li>সমান্তর ও গুণোত্তর অনুক্রম ও ধারা।</li></ol></td><td>+১</td><td>০৪</td></tr><tr><td>৪</td><td><ol><li>রেখা</li><li>কোণ</li><li>ত্রিভুজ ও চতুর্ভুজ সংক্রান্ত উপপাদ্য</li><li>পিথাগোরাসের উপপাদ্য</li><li>বৃত্ত সংক্রান্ত উপপাদ্য</li><li>পরিমিতি-সরলক্ষেত্র ও ঘনবস্তু</li></ol></td><td>+১</td><td>০৪</td></tr><tr><td>৫</td><td><ol><li>সেট</li><li>বিন্যাস ও সমাবেশ</li><li>পরিসংখ্যান ও সম্ভাব্যতা।</li></ol></td><td>+১</td><td>০৪</td></tr></tbody></table><h3>মানসিক দক্ষতা (Mental Ability)</h3><p><strong>পূর্ণমান: ১৫</strong></p><table><thead><tr><th>#</th><th>টপিক</th><th>মান বণ্টন</th></tr></thead><tbody><tr><td>১</td><td>ভাষাগত যৌক্তিক বিচার (Verbal Reasoning)</td><td rowspan="6">Not Fixed</td></tr><tr><td>২</td><td>সমস্যা সমাধান (Problem Solving)</td></tr><tr><td>৩</td><td>বানান ও ভাষা (Spelling and Language)</td></tr><tr><td>৪</td><td>যান্ত্রিক দক্ষতা (Mechanical Reasoning)</td></tr><tr><td>৫</td><td>স্থানিক সম্পর্ক (Space Relation)</td></tr><tr><td>৬</td><td>সংখ্যাগত দক্ষতা (Numerical Ability)</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-13">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#13</span>
+              <h2 class="card-topic">BCS Preliminary Syllabus — নৈতিকতা, মূল্যবোধ ও সু-শাসন</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">Page 13 of 13</span>
+              <span class="filename-tag">photo_41_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>নৈতিকতা, মূল্যবোধ ও সু-শাসন (ETHICS, VALUES &amp; GOOD GOVERNANCE)</h3><p><strong>পূর্ণমান: ১৫ (+৫)</strong></p><table><thead><tr><th>#</th><th>Topic</th><th>Item Marks</th></tr></thead><tbody><tr><td>১</td><td>Definition of Values and Good Governance; (মূল্যবোধ ও সু-শাসনের সংজ্ঞা)</td><td rowspan="7">10</td></tr><tr><td>২</td><td>Relation between Values and Good Governance; (মূল্যবোধ ও সু-শাসনের মধ্যে সম্পর্ক)</td></tr><tr><td>৩</td><td>General Perception of Values and Good Governance; (মূল্যবোধ ও সু-শাসন সম্পর্কে সাধারণ ধারণা)</td></tr><tr><td>৪</td><td>Importance of Values and Good Governance in the life of an individual as a citizen as well as in the making of society and national ideals; (নাগরিক হিসাবে ব্যক্তির জীবনে, সেইসাথে সমাজ এবং জাতীয় আদর্শ গঠনে মূল্যবোধ ও সু-শাসনের গুরুত্ব)</td></tr><tr><td>৫</td><td>Impact of Values and Good Governance in national development; (জাতীয় উন্নয়নে মূল্যবোধ ও সু-শাসনের প্রভাব)</td></tr><tr><td>৬</td><td>How the element of Good Governance and Values can be established in society in a given social context; (একটি নির্দিষ্ট সামাজিক প্রেক্ষাপটে কীভাবে সমাজে সু-শাসন ও মূল্যবোধের উপাদান প্রতিষ্ঠা করা যায়)</td></tr><tr><td>৭</td><td>The benefit of Values and Good Governance and the cost society pays adversely in their absence. (মূল্যবোধ ও সু-শাসনের সুবিধা এবং এদের অনুপস্থিতিতে সমাজের উপর যে নেতিবাচক প্রভাব ও মূল্য দিতে হয়)</td></tr></tbody></table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-14">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#14</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — বাংলা (আবশ্যিক) (বিষয় কোড: ০০১ ও ০০২)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_42_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><h4>বাংলা (আবশ্যিক)</h4><p>['কারিগরি/পেশাগত' এবং 'সাধারণ ও কারিগরি/পেশাগত' উভয় ক্যাডারের প্রার্থীদের জন্য]<br><strong>বিষয় কোড: ০০১</strong> | <strong>পূর্ণমান-১০০</strong></p><ol><li>ব্যাকরণ — ৫ × ৬ = ৩০<ul><li>ক) শব্দগঠন</li><li>খ) বানান/ বানানের নিয়ম</li><li>গ) বাক্যশুদ্ধি/ প্রয়োগ-অপপ্রয়োগ</li><li>ঘ) প্রবাদ-প্রবচনের নিহিতার্থ প্রকাশ</li><li>ঙ) বাক্যগঠন</li></ul></li><li>ভাব-সম্প্রসারণ — ২০</li><li>সারমর্ম — ২০</li><li>বাংলা ভাষা ও সাহিত্য-বিষয়ক প্রশ্নের উত্তর — ৩০</li></ol><h4>বাংলা (আবশ্যিক)</h4><p>['সাধারণ' এবং 'সাধারণ ও কারিগরি/পেশাগত' উভয় ক্যাডারের প্রার্থীদের জন্য]]<br><strong>বিষয় কোড: ০০২</strong> | <strong>পূর্ণমান-২০০</strong></p><h4>পার্ট- I (মান-১০০)</h4><ol><li>ব্যাকরণ — ৫ × ৬ = ৩০<ul><li>ক) শব্দগঠন</li><li>খ) বানান/ বানানের নিয়ম</li><li>গ) বাক্যশুদ্ধি/ প্রয়োগ-অপপ্রয়োগ</li><li>ঘ) প্রবাদ-প্রবচনের নিহিতার্থ প্রকাশ</li><li>ঙ) বাক্যগঠন</li></ul></li><li>ভাব-সম্প্রসারণ — ২০</li><li>সারমর্ম — ২০</li><li>বাংলা ভাষা ও সাহিত্য-বিষয়ক প্রশ্নের উত্তর — ৩০</li></ol><h4>পার্ট- II (মান-১০০)</h4><ol><li>অনুবাদ (ইংরেজি থেকে বাংলা) — ১৫</li><li>কাল্পনিক সংলাপ — ১৫</li><li>পত্রলিখন — ১৫</li><li>গ্রন্থ-সমালোচনা — ১৫</li><li>রচনা — ৪০</li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-15">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#15</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — English (Compulsory) (Subject Code: 003)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_43_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><h4>ENGLISH (COMPULSORY)</h4><p><strong>Subject Code: 003</strong> | <strong>Total Marks-200</strong></p><h4>Part-A (Marks-100)</h4><ol><li><strong>Reading Comprehension:</strong> An unseen passage dealing with a topic relevant to our times will be set. Candidates will be required to answer (a) a number of thematic questions that will test their understanding of the passage (30 marks), and (b) a number of questions related to grammar and usage. (30 marks)</li><li>Candidates will be required to write a summary of the given passage in their own words within 100 words. (20 marks)</li><li>Candidates will have to write a letter relating to the thematic issue of the given passage to the editor of an English newspaper. (20 marks)</li></ol><h4>Part-B (Marks-100)</h4><ol><li>Candidates will be required to compose an essay on a topic related to an issue of topical relevance. The essay must conform to the word limit set and must convey a candidate's ability to express his or her ideas clearly and correctly in English as well as reflect and analyze a topic of contemporary interest. (50 marks)</li><li><strong>Translation from English into Bangla and Bangla into English:</strong> Candidates will be required to translate a short passage from Bangla into English and another from English into Bangla. (25+25=50 marks)</li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-16">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#16</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — Bangladesh Affairs (Compulsory, Topics 1–10)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_44_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><h4>BANGLADESH AFFAIRS (COMPULSORY)</h4><p><strong>Subject Code: 005</strong> | <strong>Total Marks: 200</strong></p><p>This paper is designed to cover various issues/topics concerning Bangladesh affairs which include history, geography, environment, society, culture, economy and politics.</p><p>The topics/areas that should be covered are stated below:</p><ol><li>Geography of Bangladesh that should include topographical features of different areas/regions and their developments over time.</li><li>Demographic features including ethnic and cultural diversity.</li><li>History and culture of Bangladesh from ancient to recent times.</li><li>Economy, society, literature and culture of Bangladesh with particular emphasis on developments including Poverty Alleviation, Vision- 2021, GNP, NNP, GDP etc. after the emergence of the country.</li><li>Bangladesh's environment and nature and challenges and prospects with particular emphasis on conservation, preservation and sustainability.</li><li>Natural resources of Bangladesh with focus on their sustainable harnessing and management.</li><li>The Constitution of the People's Republic of Bangladesh: Preamble, Features, Directive Principles of State Policy, Constitutional Amendments.</li><li>Organs of the Government:<ol type="a"><li>Legislature: Representation, Law-making, Financial and Oversight functions; Rules of Procedure, Gender Issues, Caucuses, Parliament Secretariat.</li><li>Executive: Chief and Real executive e.g., President and Prime Minister, Powers and Functions; Cabinet, Council of Ministers, Rules of Business, Bureaucracy, Secretariat, Law enforcing agencies; Administrative setup- National and Local Government structures, Decentralization Programmes and Local Level Planning.</li><li>Judiciary: Structure: Supreme, High and other Subordinate Courts, Organization, Powers and functions of the Supreme Court, Appointment, Tenure and Removal of Judges, Organization of Subordinate Courts, Separation of Judiciary from the Executive, Judicial Review, Adjudication, Gram Adalat, Alternative Dispute Resolution (ADR).</li></ol></li><li>Foreign Policy and External Relations of Bangladesh: Goals, Determinants and policy formulation process; Factors of National Power; Security Strategies; Geo-Politics and Environment Issues; Economic Diplomacy; Man-power exploitation, Participation in International Organizations; UNO and UN Peace Keeping Missions, NAM, SAARC, OIC, BIMSTEC, D-8 etc, and International Economic Institutions, Foreign Aid, International Trade.</li><li>Political Parties: Historical development; Leadership; Social Bases; Structure; Ideology and Programmes; Factionalism; Politics of Alliances; Inter and Intra-Party Relations; Electoral Behaviour; Parties in Government and Opposition.</li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-17">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#17</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — Bangladesh Affairs (Compulsory, Topics 11–16)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_45_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><ol start="11"><li>Elections in Bangladesh, Management of Electoral Politics: Role of the Election Commission; Electoral Law; Campaigns; Representation of People's Order (RPO); Election Observation Teams.</li><li>Contemporary Communication; ICT, Role of Media; Right to Information (RTI), and E-Governance.</li><li>Non-formal Institutions; Role of Civil Society; Interest Groups; and NGOs in Bangladesh.</li><li>Globalization and Bangladesh: Economic and Political Dimensions; Roles of the WTO, World Bank, IMF, ADB, IDB and other development partners and Multi National Corporations (MNCs).</li><li>Gender issues and Development in Bangladesh.</li><li>The Liberation War and its Background: Language Movement 1952, 1954 Election, Six-Point Movement, 1966, Mass Upsurge 1968-69, General Elections 1970, Non-cooperation Movement, 1971, Bangabandhu's Historic Speech of 7<sup>th</sup> March, Formation and Functions of Mujibnagar government, Role of Major Powers and of the UN, Surrender of Pakistani Army, Bangabandhu's return to liberated Bangladesh, Withdrawal of Indian armed forces from Bangladesh. <strong>(Marks: 50)</strong></li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-18">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#18</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — International Affairs (Compulsory, Section A)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">৮/২৩৫</span>
+              <span class="filename-tag">photo_46_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><h4>INTERNATIONAL AFFAIRS (COMPULSORY)</h4><p><strong>Subject Code: 007</strong> | <strong>Total Marks 100</strong></p><h4>Brief Description</h4><p>International Affairs is a compulsory paper for candidates of competitive examinations under the Public Service Commission, Bangladesh and applicable to both general and professional cadre. This paper deals with conceptual issues and actors in the study of international affairs. It starts with a basic understanding of international affairs, its nature and evolution. It focuses on both conceptual and empirical issues in international affairs. Under this paper basic concepts and theories such as power, balance of power, realism, liberalism/neo-liberalism, foreign policy, security, trade, and environment will be addressed. The empirical focus of the paper is on understanding bilateral and multilateral relations, processes, functions, and politics of regional and global institutions. The paper is divided into two sections: conceptual and empirical issues.</p><h4>Objective</h4><p>The paper strives to understand a basic knowledge about international affairs. It aims to examine whether the candidates are well equipped with the key concepts, perspectives and theories for explaining global phenomena to deal with policy matters effectively. Another purpose of the paper is to examine analytical capacity of the candidates about global issues and events that are closely linked with domestic arena.</p><h4>Proposed Distribution of Marks:</h4><ol><li>Short Conceptual Notes : 10 x 4 = 40</li><li>Analytical Questions: 3 x 15 = 45</li><li>Problem-solving question: 1 x 15 = 15</li></ol><h4>Section A: Conceptual Issues</h4><ul><li><strong>Introduction to International Affairs:</strong> Significance of international affairs; meaning and scope of international affairs; linkage between international affairs and international politics</li><li><strong>Actors in the World:</strong> Modern state, types of state, sovereignty, non-state actors, international institutions, relations between state and non-state actors</li><li><strong>Power and Security:</strong> power, national power, balance of power, disarmament, arms control, geopolitics, terrorism</li><li><strong>Major Ideas and Ideologies:</strong> Nationalism, imperialism, colonialism, neo-colonialism, post-modernism, globalization and new world order</li><li><strong>Foreign policy and Diplomacy:</strong> concepts of foreign policy and diplomacy, decision-making process, determinants of foreign policy, diplomatic functions, immunities, and privileges</li><li><strong>International Economic Relations:</strong> International trade, free trade, protectionism, foreign aid, debt crisis, foreign direct investment (FDI), financial liberalization, regionalism, regionalization, North-South gap, global poverty, MDGs</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-19">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#19</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — International Affairs (Sections B &amp; C)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_47_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><p><strong>Global Environment:</strong> Environmental issues challenges, climate change, global warming, climate adaptation, climate diplomacy</p><h4>Section B: Empirical Issues</h4><ul><li><strong>The United Nations System:</strong> The UN and its organs, importance and limitations of the UN, Reforms of the UN, Role of the Security Council, UN Peacekeeping and peace-building functions, Human rights agenda, Environmental agenda, International Court of Justice, and Women empowerment</li><li><strong>Foreign Relations of Major Powers:</strong> USA, Russia, UK, China, France, Germany, India, Japan etc.</li><li><strong>Global Initiatives and Institutions:</strong> World Bank, IMF, ADB, G8, G-77, WTO, Kyoto Protocol, COP etc.</li><li><strong>Regional Institutions:</strong> SAARC, BIMSTEC, EU, ASEAN, NATO, APEC, OIC, AU, GCC</li><li><strong>Major Issues and Conflicts in the World:</strong> The Palestine Problem, the Arab Spring, the Kashmir Issue, the Syrian Crisis, Persian Gulf Conflict, nuclear issue and Iran, the North Korean issue, territorial disputes in Southeast and East Asia, Nuclear proliferation and other contemporary issues.</li><li><strong>Politics in South Asia:</strong> India-Pakistan relations, Bangladesh-India relations, regional integration, water dispute, border problems and terrorism</li><li><strong>Bangladesh in International Affairs:</strong> Major achievements, challenges, future directions</li></ul><h4>Section C: Problem-solving</h4><p>The candidates may be asked to come up with an analysis of a problem and its solution on any aspect of global developments and security issues, such as trade, climate change, foreign aid, arms proliferation etc.</p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-20">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#20</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — Mathematical Reasoning (Compulsory, Subject Code: 008)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_48_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><h4>MATHEMATICAL REASONING (COMPULSORY)</h4><p><strong>Subject Code: 008</strong> | <strong>Total Marks-50</strong></p><p>Mathematical Reasoning is based on the principles of Logic. A sound knowledge of Mathematical Reasoning prepares one not only to solve mathematical problems but also develops the intellectual ability to resolve problems in all spheres of public life and to arrive at impartial and impersonal intelligent decisions.</p><p>The examination in Mathematical Reasoning will test the ability of the candidate to apply knowledge of Mathematics and Mathematical Reasoning acquired up to secondary level, especially to concrete application-oriented problems.</p><p>The syllabus of the examination is given below:</p><ol><li>Simplification of Arithmetic and Algebraic Expressions.</li><li>Unitary Method, Average, Percentage, Simple and Compound interest, LCM, GCD, Ratio and Proportion, Profit and Loss.</li><li>Algebraic Formulas, Factorization of Polynomials, Linear and Quadratic Equations, Linear and Quadratic Inequalities.</li><li>Systems of Linear Equations with two or three unknowns.</li><li>Exponents and Logarithms. Exponential and Logarithmic functions.</li><li>Arithmetic and Geometric Sequences and Series.</li><li>Line, Angle, Triangle related theorems. Theorem of Pythagoras, Circle – Theorems, Corollaries.</li><li>Area related theorems and construction, Mensuration – plane figures and solid objects.</li><li>Cartesian Geometry- Distance, Equation of a Straight Line.</li><li>Trigonometric ratios and functions. Problems on height and distances.</li><li>Set theory. Venn diagram.</li><li>Counting Principles, Permutations and Combinations. Elementary Probability.</li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-21">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#21</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — Mental Ability (Compulsory, Areas 1–3)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_49_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><h4>MENTAL ABILITY (COMPULSORY)</h4><p><strong>Subject Code: 009</strong> | <strong>Total Marks-50</strong></p><p>The objective of mental ability test is to assess differential aptitude of the candidate. The following areas are likely to be covered:</p><ol><li><strong>Verbal Reasoning:</strong> The verbal reasoning test, as its name implies, is a measure of ability to understand concepts framed in pairs of words. The word used in these items may come from history, geography, literature, science, or any other content area. The item thus samples the candidate's knowledge and his/her ability to abstract and generalize relationships inherent in that knowledge.<div class="qa"><p><strong>Example:</strong> Man has an inborn desire to.........the unknown.</p><p><strong>Answer:</strong></p><ol type="a"><li>Invent</li><li>Discover</li><li>Recover</li><li>Solve</li><li>fear</li></ol></div></li><li><strong>Abstract Reasoning:</strong> The abstract reasoning test is intended as a nonverbal measure of the candidate's reasoning ability. The series presented in each problem requires the perception of an operating principle in the changing diagrams. In each instance, the candidate must discover the principle or principles governing the change of the figures and give evidence of his understanding by designating the diagram which should follow.<div class="qa"><p><strong>Example:</strong></p><p>[চিত্র: Program figures — ৪টি বক্সে একটি সরলরেখা ক্রমান্বয়ে ঘড়ির কাঁটার দিকে ঘুরছে: (১) উল্লম্ব রেখা, (২) ডানদিকে সামান্য হেলানো, (৩) আরও ডানদিকে হেলানো, (৪) প্রায় অনুভূমিকের কাছাকাছি হেলানো। Answer figures — A থেকে E পর্যন্ত ৫টি বক্সে বিভিন্ন কোণে রেখা: A (বামদিকে হেলানো \), B (উল্লম্ব |), C (বামদিকে বেশি হেলানো), D (অনুভূমিক —, টিক চিহ্নিত), E (ডানদিকে হেলানো /)।]</p></div></li><li><strong>Space Relations:</strong> The Space Relation test is a measure of ability to deal with concrete materials through visualization. The ability to visualize a constructed object from a picture of a pattern has been used frequently in test of structural visualization. The ability to imagine how an object would appear if rotated in various ways has been used effectively in the measurement of space perception.<div class="qa"><p><strong>Example:</strong> A man travels 1 mile, then turn left and travels 1 mile, then he turns right and travels 2 miles, then again he turns right, and travels 5 miles. How far is he from the starting point?</p><p><strong>Answer:</strong></p><ol type="a"><li>5 Miles</li><li>1 mile</li><li>9 miles</li><li>6 miles</li></ol></div></li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-22">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#22</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — Mental Ability (Compulsory, Areas 4–6)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_50_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><ol start="4"><li><strong>Numerical Ability:</strong> The test is a measure of the candidate's ability to reason with numbers, to manipulate numerical relationship and to deal intelligently with quantitative materials.<div class="qa"><p><strong>Example:</strong> What number has been left out?</p><table><tbody><tr><td>4</td><td>√25</td><td>6</td><td>√49</td><td>?</td></tr></tbody></table><p><strong>Ans:</strong></p><ol type="A"><li>8</li><li>√81</li><li>24</li><li>√121</li><li>None of these</li></ol></div></li><li><strong>Spelling and Language:</strong> The spelling and language test is intended to measure the candidate's ability to detect errors in grammar, punctuation, and capitalization. The items reflect the principles of present day formal writing, and the ability measured by the test is highly predictive of success in a variety of academic courses.<div class="qa"><p><strong>Example:</strong> নিচের অক্ষরগুলো দিয়ে শব্দ গঠন করুন।</p><p>র &nbsp; লা &nbsp; দ্যা &nbsp; প &nbsp; ফ &nbsp; ল</p></div></li><li><strong>Mechanical Reasoning:</strong> The ability measured by the Mechanical Reasoning test may be regarded as one aspect of intelligence, if intelligence is broadly defined. The person who stands high in this characteristic finds it easy to learn the principles of operation and repair of complex devices.<div class="qa"><p><strong>Example:</strong> আয়নার মধ্যে একটি ঘড়িকে যেমন দেখায় তা কোন ছবিতে দেখা যাচ্ছে?</p><p>[চিত্র: তিনটি বক্সে A, B, C চিহ্নিত তিনটি ঘড়ির ছবি — (A) সাধারণ ডায়ালে ১২ উপরে, ৩ বামে, ৬ নিচে, ৯ ডানে এবং কাঁটা ১২ ও ৪-এর দিকে; (B) উল্টো ডায়ালে ৬ উপরে, ৯ বামে, ১২ নিচে, ৩ ডানে এবং কাঁটা ১০ ও ৬-এর দিকে; (C) আয়নায় প্রতিফলিত (ডান-বাম উল্টানো) ডায়ালে ১২ উপরে উল্টোভাবে, ৩ ডানে, ৬ নিচে, ৯ বামে এবং কাঁটা ১২ ও ৪-এর দিকে।]</p></div></li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-23">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#23</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — General Science and Technology (Part A: General Science, i–viii)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_51_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><h4>GENERAL SCIENCE AND TECHNOLOGY (COMPULSORY)</h4><p><strong>Subject Code: 010</strong><br><strong>Part – A: General Science</strong> | <strong>Marks - 60</strong></p><ol type="i"><li><strong>Light:</strong> Nature, Spectrum, Different colours and wavelengths, UV, IR, and LASER, Reflection of Light, Refraction of Light, Total Internal Reflection of Light, Lenses, Thin converging lens, Dispersion of light, particle nature of light, Einstein's photoelectric equation, photocells</li><li><strong>Sound:</strong> Hearing mechanism, Decibel, Frequency, Sound machines in home and around –, Microphone, Loud speaker, Public address system, Characteristics of a sound note, Formation of stationary waves in stretched string, Laws of vibrating strings, Beats, Doppler Effect, Applications and limitations of Doppler Effect, Echoes, Absorption of sound wave, Reverberations, Fundamentals of Building acoustics, Statement of Sabine's formula</li><li><strong>Magnetism:</strong> Polarity and relationship with current, Bar magnet, Magnetic lines of force, Torque on a bar magnet in a magnetic field, Earth's magnetic field as a bar magnet, Tangent galvanometer, Vibration magnetometer, Para, dia and ferromagnetic substances with examples, Electromagnets and permanent magnets</li><li><strong>Acid, Base and Salt:</strong> Acid-base concepts; characteristics of acids and bases; acid-base indicators; uses of acids and bases in daily life and caution in handling them; social effects of misuse of acids; reason for acidity in stomach and selection of the right food; pH; measurement and importance of pH of substances; salts; characteristics of salts; necessity of salt in daily life; uses of salts in agriculture and industries</li><li><strong>Water:</strong> Properties of water; melting and boiling points of water; electrical conductivity; structure of water; hydrogen bonding; sources of water; sources of fresh water in Bangladesh; water quality parameters (colour and taste; turbidity; presence of radioactive substances; presence of waste; dissolved oxygen; temperature; pH and salinity); recycling of water; role of water in conservation of nature; necessity of quality water; purification of water (filtration; chlorination; boiling and distillation); reasons for pollution of water sources in Bangladesh; effects of water pollution on plants, animals and human beings; effects of global warming on fresh water; strategy for preventing water pollution and responsibility of citizens or public awareness; prevention of water pollution by industries; prevention of water pollution due to soil erosion from agricultural land; conservation of water sources and development</li><li><strong>Our resources:</strong> Soil; types of soil; soil pH; reasons and effects of soil pollution; natural gas and its main compositions; processing, uses and sources of natural gas, petroleum and coal; forestry; limitations and conservation of our resources</li><li><strong>Polymer:</strong> Natural and synthetic polymer; polymerization process; sources, characteristics and usage of natural and synthetic polymers; manufacturing process, characteristics and uses of fibers, silk, wool, nylon and rayon; physical and chemical properties of rubber and plastic; role of rubber and plastic for environmental imbalance; aware of using rubber and plastic</li><li><strong>Atmosphere:</strong> Biosphere and Hydrosphere, Ionosphere, role of oxygen, carbon dioxide and nitrogen. Potable and polluted water, Pasteurization.</li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-24">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#24</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — General Science and Technology (Part A: General Science, ix–xi)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_52_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><ol type="i" start="9"><li><strong>Food and Nutrition:</strong> Elements of food; carbohydrates; protein; fats and lipid; vitamins; types and sources of carbohydrates, proteins; nutritional value; menu of balanced diet; the pyramid of balanced diet; body mass index (BMI); fast food or junk food; preservation of food; various processes of storing food; use of chemicals for preservation of foods and its physiological effects.</li><li><strong>Biotechnology:</strong> Chromosome; shape, structure and chemical composition of chromosome; nucleic acid; deoxyribonucleic acid (DNA); ribonucleic acid (RNA); protein; gene; DNA test; forensic test; genetic disorder in human beings; Biotechnology and Genetic Engineering; cloning; social effects of cloning; transgenic plants and animals; Use of biotechnology in agricultural, milk products and pharmaceutics; Gene therapy; Genetically modified organism; Nanotechnology; Pharmacology; Pharmacokinetics.</li><li><strong>Disease and Healthcare:</strong> Deficiency, Infection, Antiseptic, Antibiotics, Stroke, Heart Attack, Blood Pressure, Hypertension and Diabetes, Dengue; Diarrhoea; Drug addiction, Vaccination, Cataract, food poisoning, X-ray; Ultrasonography; CT Scan; MRI; ECG; Endoscopy; Radiotherapy; Chemotherapy; Angiography; uses, risk and side-effects of above techniques; Basic concept of Cancer, AIDS and Hepatitis.</li></ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-25">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#25</span>
+              <h2 class="card-topic">BCS Written Examination Syllabus — General Science and Technology (Parts B &amp; C)</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">১৫/২৩৫</span>
+              <span class="filename-tag">photo_53_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>SYLLABUS FOR BCS (WRITTEN) EXAMINATION</h3><h4>GENERAL SCIENCE AND TECHNOLOGY (COMPULSORY)</h4><p><strong>Subject Code: 010</strong></p><h4>Part – B: Computer and Information Technology (Marks - 25)</h4><ol type="i"><li><strong>Computer Technology:</strong> Organization of modern personal computer and its major functional units, computer generations, History of computers, central processing unit and microprocessor, computer memories and their classification and characteristics, input and output devices with characteristics and uses. The role of BIOS. Bus architecture, Motherboard and its components, functions and organization of microprocessors, Arithmetic Logic Unit(ALU), Control unit, Language translator, Text editor, Compiler, Interpreter, Computer software, system software, operating system, application software with examples of applications, Computer virus, office automation. Computational biology; Role of computer in Drug design; Programming languages, their types and levels, steps for software development. Impacts of computer on society.</li><li><strong>Information Technology:</strong> Data communication and information, information collection, processing, and distribution, System analysis and information systems, expert systems. Database software and structures, Database Management System (DBMS), Basics of multimedia systems with examples of hardware and software, concept of data compression, multimedia system development life cycle. Local area, metropolitan area and wide area computer networks,(LAN, MAN,WAN ), LAN Topology, Networking devices(Router, Switch, HUB),TCP/IP Protocol suite, Internet, Internet services and protocols, Internet Service Providers(ISPs) and their responsibilities, intranet and extranet, Word Wide Web(WWW) and web technology. Popular websites. Access control security and privacy. E-mail, Social media (facebook, twitter, blog) and their impacts. Different types of Transmission media with examples, bandwidth. Major components of telecommunication systems, mobile telephone systems, satellite communication systems and VSAT, importance of fibre optic communication system, Wi-Fi, E-Commerce technology and its impact to society, examples of E-Commerce websites, B2B, B2C, M-Commerce, Smart phones, GPS</li></ol><h4>Part – C: Electrical and Electronic Technology (Marks - 15)</h4><ol type="i"><li><strong>Electrical Technology:</strong> Electrical components, voltage, current, Ohm's Law, Electrical power and energy, Electromagnet and magnetic field, electromagnetic induction, Circuits Breakers, GFCI's and Fuses, Power Distribution and Series circuit, Voltage Sources in a Series, Kirchoff's Voltage Law, Voltage Division in a Series Circuit, Interchanging Series Elements, Voltage Regulation and the Internal Resistance of Voltage Sources, Parallel Resistors, Parallel Circuits, Power Distribution in a Parallel Circuit, Kirchhoff's Current Law, Open and Short Circuits, Generation of AC and DC voltages, thermal, hydraulic and nuclear power generators. Electric motors and their applications. Transformers, AC transmission and distribution, Electrical instruments, voltage stabilizers, IPS and UPS</li><li><strong>Electronics Technology:</strong> Electronic components, analog and digital signals, analog electronic devices, amplifiers and oscillators, resistance, types of resistors, conductance, ohmmeters, Capacitance, Capacitors, Inductors, Inductance, Sinusoidal Alternating, Waveforms, Frequency Spectrum, The Sinusoidal Waveform, General format for the sinusoidal Voltage of current, Phase Relations, The Basic Elements and Phasors, Response of Basic R,L and C, Elements to a Sinusoidal Voltage or Current, Frequency Response of the Basic Elements, Average Power and Power Factor, Complex Numbers, Rectangular Form, Polar Form, Conversion between Forms, Impedance and the Phasor Diagram, Introduction to 3 phase Systems, Elementary Concepts of Generation, Transmission, and Distribution, Various Levels of Power, Basic Concepts of Transformers, radio, television, and radar. Digital devices and digital integrated circuits, impact of digital integrated circuits, counters and digital display devices, digital instruments.</li></ol>
+          </div>
+        </article>
+        
+    <div id="emptyState" class="empty-state">No matching pages found. Try a different keyword.</div>
+  </main>
+
+  <button type="button" id="backTop" class="back-top" title="Back to top" aria-label="Back to top">↑</button>
+  <script>
+(function() {
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('ocr_notes_theme');
+  if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    const syncLabel = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      themeBtn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+    };
+    syncLabel();
+    themeBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('ocr_notes_theme', next);
+      syncLabel();
+    });
+  }
+
+  const printBtn = document.getElementById('printBtn');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => window.print());
+  }
+
+  // Mobile auto-hide header on scroll down, show on scroll up
+  const header = document.querySelector('.site-header');
+  let lastY = window.scrollY;
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (header && window.innerWidth <= 768) {
+      if (y > 90 && y > lastY + 8) {
+        header.classList.add('nav-hidden');
+      } else if (y < lastY - 8 || y <= 40) {
+        header.classList.remove('nav-hidden');
+      }
+    } else if (header) {
+      header.classList.remove('nav-hidden');
+    }
+    if (backTop) {
+      backTop.classList.toggle('visible', y > 400);
+    }
+    lastY = y;
+  }, { passive: true });
+
+  if (backTop) {
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // Search filter
+  const searchInput = document.getElementById('searchInput');
+  const cards = Array.from(document.querySelectorAll('.page-card'));
+  const matchCount = document.getElementById('matchCount');
+  const emptyState = document.getElementById('emptyState');
+
+  if (searchInput && cards.length) {
+    const filterCards = () => {
+      const q = searchInput.value.trim().toLowerCase();
+      let shown = 0;
+      cards.forEach(card => {
+        const text = (card.dataset.search || card.textContent).toLowerCase();
+        const match = !q || text.includes(q);
+        card.classList.toggle('hidden', !match);
+        if (match) shown++;
+      });
+      if (matchCount) {
+        matchCount.textContent = q ? `${shown} / ${cards.length} pages` : `${cards.length} pages`;
+      }
+      if (emptyState) {
+        emptyState.style.display = shown === 0 ? 'block' : 'none';
+      }
+    };
+    searchInput.addEventListener('input', filterCards);
+    filterCards();
+  }
+
+  // Quick jump
+  const jumpSelect = document.getElementById('jumpSelect');
+  if (jumpSelect) {
+    jumpSelect.addEventListener('change', () => {
+      const id = jumpSelect.value;
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

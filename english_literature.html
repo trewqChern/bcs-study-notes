@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Literature — OCR Study Notes (58 Pages)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --accent: #2563eb;
+  --accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+  --note-bg: #fffbeb;
+  --note-border: #f59e0b;
+  --qa-bg: #f0f9ff;
+  --qa-border: #0ea5e9;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #273449;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --note-bg: rgba(245, 158, 11, 0.12);
+  --note-border: #fbbf24;
+  --qa-bg: rgba(14, 165, 233, 0.12);
+  --qa-border: #38bdf8;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+.site-header.nav-hidden {
+  transform: translateY(-100%);
+}
+.header-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+.header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.brand .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.subject-nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 0 4px;
+  scrollbar-width: thin;
+}
+.subject-nav a {
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  background: var(--surface-alt);
+  border: 1px solid transparent;
+}
+.subject-nav a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.subject-nav a.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+}
+.search-input {
+  flex: 1 1 220px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+.search-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.jump-select {
+  flex: 1 1 200px;
+  max-width: 340px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+}
+.match-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+.page-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  scroll-margin-top: 150px;
+}
+.page-card.hidden {
+  display: none;
+}
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+}
+.card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.card-topic {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.filename-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  opacity: 0.85;
+}
+.card-body {
+  padding: 16px 20px;
+  overflow-x: auto;
+}
+.card-body h2, .card-body h3 {
+  margin: 14px 0 8px;
+  color: var(--accent);
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+.card-body h3:first-child, .card-body h2:first-child {
+  margin-top: 0;
+}
+.card-body h4 {
+  margin: 12px 0 6px;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.card-body p {
+  margin: 6px 0;
+}
+.card-body ul, .card-body ol {
+  margin: 6px 0 10px;
+  padding-left: 22px;
+}
+.card-body li {
+  margin: 4px 0;
+}
+.card-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.93rem;
+}
+.card-body th, .card-body td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.card-body th {
+  background: var(--surface-alt);
+  font-weight: 700;
+}
+.card-body tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--surface-alt) 45%, transparent);
+}
+.card-body .note {
+  background: var(--note-bg);
+  border-left: 4px solid var(--note-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body .qa {
+  background: var(--qa-bg);
+  border-left: 4px solid var(--qa-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body hr {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 14px 0;
+}
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+.back-top.visible {
+  display: inline-flex;
+}
+/* Hub Grid */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--card-accent, var(--accent));
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+.hub-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--card-accent, var(--accent));
+}
+.hub-card .bn-name {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.hub-card .count-pill {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--surface-alt);
+  color: var(--text);
+}
+.summary-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.summary-banner h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.summary-banner p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+@media (max-width: 768px) {
+  .header-inner { padding: 8px 12px; }
+  .brand h1 { font-size: 1.05rem; }
+  .card-header { padding: 10px 14px; }
+  .card-body { padding: 12px 14px; font-size: 15px; }
+  .controls-bar { gap: 6px; }
+  .jump-select { max-width: 100%; }
+}
+@media print {
+  .site-header, .back-top, .controls-bar, .subject-nav { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .container { max-width: 100%; padding: 0; }
+  .page-card { break-inside: avoid-page; box-shadow: none; border: 1px solid #ccc; margin-bottom: 12pt; }
+  .card-header { background: #f3f4f6 !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <h1>English Literature</h1>
+          <span class="subtitle">ইংরেজি সাহিত্য • 58 pages</span>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="btn" id="themeToggle">🌙 Dark</button>
+          <button type="button" class="btn" id="printBtn">🖨️ Print</button>
+        </div>
+      </div>
+      <nav class="subject-nav" aria-label="Subjects">
+        <a href="index.html" class="">🏠 All Subjects (250)</a>
+<a href="english_literature.html" class="active">English Literature (58)</a>
+<a href="bangla_literature.html" class="">Bangla Literature (51)</a>
+<a href="mental_ability.html" class="">Mental Ability (34)</a>
+<a href="mathematics.html" class="">Mathematics &amp; Mathematical Reasoning (32)</a>
+<a href="bangladesh_affairs.html" class="">Bangladesh Affairs (31)</a>
+<a href="international_affairs.html" class="">International Affairs (19)</a>
+<a href="bcs_syllabus.html" class="">BCS Written Syllabus (25)</a>
+      </nav>
+      <div class="controls-bar">
+        <input type="search" id="searchInput" class="search-input" placeholder="Search notes in Bengali or English..." aria-label="Search notes">
+        <select id="jumpSelect" class="jump-select" aria-label="Quick jump">
+          <option value="">Jump to topic / page...</option><option value="page-1">#1 — Neo-Classical &amp; Restoration Period — John Milton</option><option value="page-2">#2 — John Milton — Paradise Lost, Paradise Regained &amp; Famous Quotes</option><option value="page-3">#3 — Restoration Period — John Dryden &amp; William Congreve</option><option value="page-4">#4 — Restoration Period — John Bunyan, Samuel Butler, John Locke &amp; ...</option><option value="page-5">#5 — The Augustan Period — Alexander Pope &amp; Jonathan Swift</option><option value="page-6">#6 — The Augustan Period — Daniel Defoe &amp; Samuel Richardson</option><option value="page-7">#7 — Age of Sensibility — Dr. Samuel Johnson &amp; Henry Fielding</option><option value="page-8">#8 — Thomas Gray, Oliver Goldsmith &amp; Sir Walter Scott</option><option value="page-9">#9 — William Blake</option><option value="page-10">#10 — Victorian Period (1832–1901) &amp; Alfred Tennyson</option><option value="page-11">#11 — Matthew Arnold &amp; Robert Browning</option><option value="page-12">#12 — Robert Browning: The Patriot &amp; My Last Duchess</option><option value="page-13">#13 — My Last Duchess (Characters) &amp; Charles Dickens</option><option value="page-14">#14 — Thomas Hardy &amp; John Stuart Mill</option><option value="page-15">#15 — অন্যান্য লেখক: Charlotte Bronte</option><option value="page-16">#16 — Modern Period &amp; G. B. Shaw</option><option value="page-17">#17 — W. B. Yeats, Joseph Conrad &amp; Jules Verne</option><option value="page-18">#18 — Bertrand Russell, John Millington Synge &amp; Rudyard Kipling</option><option value="page-19">#19 — O&#x27;Henry, H. G. Wells, W. Somerset Maugham &amp; Winston Churchill</option><option value="page-20">#20 — O&#x27;Henry, H. G. Wells, W. Somerset Maugham &amp; Winston Churchill ...</option><option value="page-21">#21 — E. M. Forster, James Joyce &amp; D. H. Lawrence</option><option value="page-22">#22 — E. M. Forster, James Joyce &amp; D. H. Lawrence (Duplicate)</option><option value="page-23">#23 — T. S. Eliot &amp; Ernest Hemingway</option><option value="page-24">#24 — Romantic Period (1798–1832) Overview</option><option value="page-25">#25 — William Wordsworth</option><option value="page-26">#26 — Wordsworth Mnemonic &amp; S. T. Coleridge</option><option value="page-27">#27 — P. B. Shelley</option><option value="page-28">#28 — John Keats</option><option value="page-29">#29 — John Keats (Duplicate)</option><option value="page-30">#30 — Lord Byron</option><option value="page-31">#31 — Jane Austen</option><option value="page-32">#32 — Periods of English Literature</option><option value="page-33">#33 — Anglo-Saxon / Old English Period (450–1066)</option><option value="page-34">#34 — Middle English Period (1066–1500) — Overview &amp; Sub-periods</option><option value="page-35">#35 — Middle English Period (1066–1500) — Chaucer&#x27;s Works &amp; Quotes</option><option value="page-36">#36 — Renaissance Period (1500–1660)</option><option value="page-37">#37 — Preparation of Renaissance (1500–1558)</option><option value="page-38">#38 — Preparation of Renaissance — Udall, Howard, Wyatt &amp; Machiavelli</option><option value="page-39">#39 — Elizabethan Age (1558–1603) &amp; University Wits</option><option value="page-40">#40 — Elizabethan Age — Major Writers &amp; University Wits</option><option value="page-41">#41 — Metaphysical Poets &amp; First English Tragedy</option><option value="page-42">#42 — Edmund Spenser &amp; Sir Philip Sidney</option><option value="page-43">#43 — John Lyly, Thomas Kyd &amp; Francis Bacon</option><option value="page-44">#44 — Christopher Marlowe &amp; Doctor Faustus</option><option value="page-45">#45 — Doctor Faustus — Plot &amp; Famous Quotes</option><option value="page-46">#46 — Marlowe&#x27;s Plays — The Jew of Malta, Tamburlaine &amp; Edward II</option><option value="page-47">#47 — William Shakespeare — Biography &amp; Titles</option><option value="page-48">#48 — William Shakespeare — Key Facts &amp; Characteristics</option><option value="page-49">#49 — William Shakespeare — Works Count, Sonnets &amp; Notable Plays</option><option value="page-50">#50 — William Shakespeare — Classification of Plays</option><option value="page-51">#51 — Shakespeare — Poems, Problem Plays, Roman Plays &amp; Translations</option><option value="page-52">#52 — Shakespeare&#x27;s Adapted Plays &amp; Hamlet</option><option value="page-53">#53 — Shakespeare — Macbeth &amp; Othello</option><option value="page-54">#54 — Jacobean Period (1603–1625) &amp; John Donne</option><option value="page-55">#55 — John Donne vs. Hemingway &amp; Ben Jonson</option><option value="page-56">#56 — John Webster, Andrew Marvell &amp; Henry Vaughan</option><option value="page-57">#57 — The Caroline Period (1625–1649) — Robert Herrick &amp; George Herbert</option><option value="page-58">#58 — Commonwealth Period</option>
+        </select>
+        <span id="matchCount" class="match-count">58 pages</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+        <article class="page-card" id="page-1">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#1</span>
+              <h2 class="card-topic">Neo-Classical &amp; Restoration Period — John Milton</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_69_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Neo-Classical Period</h3>
+<ul>
+  <li><strong>শ্লোগান:</strong> "Art for the humanity's sake, not art for art's sake"</li>
+  <li><strong>রোমান্টিক যুগের শ্লোগান:</strong> "Art for Art's sake"</li>
+</ul>
+
+<h3>Restoration Period — John Milton</h3>
+<ul>
+  <li><strong>Epic poet</strong> (বাংলায় মিল্টন বলা হয় হেমচন্দ্রকে)</li>
+  <li><strong>Blind poet</strong></li>
+  <li><strong>A great master of verse</strong></li>
+</ul>
+
+<h4>বিখ্যাত সাহিত্য কর্ম (Mnemonic: B P L A Night match of)</h4>
+<ul>
+  <li><strong>B</strong> = On the Blindness (sonnet)</li>
+  <li><strong>P</strong> → Paradise Lost (***), Paradise Regained (***) — Epics</li>
+  <li><strong>L</strong> → Lycidas (Elegy poem / শোক গীতি)</li>
+  <li><strong>A</strong> → Areopagitica (prose), Samson Agonistes</li>
+  <li><strong>Night</strong> → Nightingale</li>
+  <li><strong>of</strong> → Of Education</li>
+</ul>
+
+<div class="note">
+  <strong>Restoration Period-এর ৪ জন প্রধান লেখক:</strong> John Milton, John Dryden, William Congreve, John Bunyan।
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-2">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#2</span>
+              <h2 class="card-topic">John Milton — Paradise Lost, Paradise Regained &amp; Famous Quotes</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_70_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Paradise Lost</h3>
+<p><strong>Theme:</strong> To justify the way of God to man (40th BCS)</p>
+<h4>Main characters</h4>
+<ul>
+  <li>Adam</li>
+  <li>Eva</li>
+  <li><strong>Satan (Lucifer)</strong> → main character</li>
+  <li>Mammon</li>
+</ul>
+
+<h3>Paradise Regained</h3>
+
+<h4>Famous Quotes</h4>
+<ul>
+  <li>"Better to reign in hell, than serve in heaven." <em>(Paradise Lost)</em></li>
+  <li>"Childhood shows the man as morning shows the day." <em>(Paradise Regained)</em></li>
+  <li>"Who best can suffer, best can do." <em>(Paradise Regained)</em></li>
+  <li>"Death is the golden key that opens the place of eternity."</li>
+  <li>"Solitude sometimes is best society."</li>
+  <li>"Awake, arise or be forever fallen."</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-3">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#3</span>
+              <h2 class="card-topic">Restoration Period — John Dryden &amp; William Congreve</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_71_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>John Dryden</h3>
+<ul>
+  <li><strong>The father of modern English criticism</strong> (William Shakespeare-এর সমালোচক)</li>
+  <li><strong>Glorious John</strong> (Sir Walter Scott তাকে উপাধি দেন)</li>
+  <li>The precursor of Enlightenment</li>
+</ul>
+<h4>Famous Works</h4>
+<ul>
+  <li>The Indian Emperor</li>
+  <li>Aureng-Zebe</li>
+  <li>Secret Love</li>
+  <li><strong>All for Love</strong> (44th BCS) — Drama</li>
+  <li>Marriage A la Mode</li>
+  <li>Absalom and Achitophel</li>
+</ul>
+<h4>Famous Quotes</h4>
+<ul>
+  <li>"They think too little who talk too much."</li>
+  <li>"We first make our habits then habits make us."</li>
+</ul>
+
+<h3>William Congreve</h3>
+<ul>
+  <li><strong>Comedy of manners</strong> বলা হয়</li>
+  <li><strong>Bachelor poet</strong> বলা হয়</li>
+</ul>
+<h4>Famous Works</h4>
+<ul>
+  <li><strong>The Way of the World</strong> → comedy (43th BCS)
+    <ul>
+      <li><strong>Characters:</strong> Lady Wishfort (মহিলা), Edward Mirabell (নায়ক), Millamant (নায়িকা), Mr. Fainall (ভিলেন)।</li>
+    </ul>
+  </li>
+  <li>Love for Love</li>
+  <li>The Double Dealer</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-4">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#4</span>
+              <h2 class="card-topic">Restoration Period — John Bunyan, Samuel Butler, John Locke &amp; Aphra Behn</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_72_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>John Bunyan</h3>
+<ul>
+  <li><strong>Famous work:</strong> "The Pilgrim's Progress" [হাতে লেখা: The pilgrim's process] (Allegory prose, wrote in jail; বাংলায় অনুবাদ হয়)।</li>
+  <li><strong>Famous Quote:</strong> "In prayer it is better to have a heart without words than words without a heart."</li>
+</ul>
+
+<h3>Samuel Butler</h3>
+<p><strong>Famous works:</strong></p>
+<ol type="i">
+  <li>Hudibras</li>
+  <li>The Way of All Flesh [হাতে লেখা: The way all flesh]</li>
+</ol>
+
+<h3>John Locke</h3>
+<ul>
+  <li><strong>Father of modern democracy</strong></li>
+  <li><strong>Famous works:</strong>
+    <ol type="i">
+      <li>Two Treatises on Government</li>
+      <li>Elements of Natural Philosophy</li>
+    </ol>
+  </li>
+</ul>
+
+<h3>Aphra Behn (woman)</h3>
+<p><strong>Famous works:</strong></p>
+<ol type="i">
+  <li>Oroonoko or The Royal Slave</li>
+  <li>The Emperor of the Moon</li>
+</ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-5">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#5</span>
+              <h2 class="card-topic">The Augustan Period — Alexander Pope &amp; Jonathan Swift</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_73_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>The Augustan Period (PSDR)</h3>
+<ol type="i">
+  <li>Alexander Pope (3**)</li>
+  <li>Jonathan Swift (2**)</li>
+  <li>Daniel Defoe (*)</li>
+  <li>Samuel Richardson (*)</li>
+</ol>
+
+<h3>Alexander Pope</h3>
+<ul>
+  <li>Mock heroic poet / mock epic poet</li>
+</ul>
+<h4>Famous Works (Poems)</h4>
+<ol>
+  <li><strong>The Rape of the Lock</strong> (40th BCS) → mock epic; <strong>Characters:</strong> Baron (নায়ক), Belinda (নায়িকা), Ariel (দেহরক্ষী)।</li>
+  <li><strong>An Essay on Man</strong> (44th BCS)</li>
+  <li><strong>An Essay on Criticism</strong></li>
+</ol>
+
+<h3>Jonathan Swift</h3>
+<ul>
+  <li>Famous satirist in English Literature / the greatest bitterest satirist (38th BCS)</li>
+  <li><strong>ছদ্মনাম:</strong> Isaac Bickerstaff</li>
+</ul>
+<h4>বিখ্যাত সাহিত্য কর্ম</h4>
+<ul>
+  <li><strong>Gulliver's Travels</strong> (novel)</li>
+  <li><strong>A Tale of a Tub</strong></li>
+  <li><strong>The Battle of the Books</strong></li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-6">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#6</span>
+              <h2 class="card-topic">The Augustan Period — Daniel Defoe &amp; Samuel Richardson</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_74_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Daniel Defoe</h3>
+<ul>
+  <li>Journalist ছিলেন।</li>
+  <li><strong>তার পত্রিকা:</strong> The Review</li>
+  <li><strong>Famous novel:</strong> Robinson Crusoe</li>
+  <li><strong>Character:</strong> (নোট খাতায় খালি)</li>
+</ul>
+
+<h3>Samuel Richardson</h3>
+<h4>Novel</h4>
+<ul>
+  <li><strong>Pamela or Virtue Rewarded</strong> — (1st modern novel; ইংরেজি সাহিত্যের ১ম সার্থক উপন্যাস)</li>
+  <li><strong>Clarissa or the History of a Young Lady</strong> [হাতে লেখা: Calarissa or the history of a young lady.]</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-7">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#7</span>
+              <h2 class="card-topic">Age of Sensibility — Dr. Samuel Johnson &amp; Henry Fielding</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_75_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Age of Sensibility</h3>
+<p>Age of Transition / Age of Johnson</p>
+
+<h3>Dr. Samuel Johnson</h3>
+<ul>
+  <li>১৭৫৫ সালে সর্বপ্রথম ইংরেজিতে Dictionary লেখেন।</li>
+  <li>"1st Lexicographer in English"</li>
+  <li><strong>Lexicographer:</strong> A lexicographer is a person who writes Dictionaries.</li>
+  <li>Father of English dictionary &amp; Lexicographer.</li>
+</ul>
+<h4>Famous Works</h4>
+<ul>
+  <li>A Dictionary of the English Language (1755)</li>
+  <li>The Vanity of Human Wishes (famous poem)</li>
+  <li>Rasselas: Prince of Abyssinia</li>
+  <li>A Preface to Shakespeare</li>
+</ul>
+
+<h3>Henry Fielding</h3>
+<ul>
+  <li>Father of English novel</li>
+  <li><strong>Pen name:</strong> Captain Hercules Vinegar</li>
+</ul>
+<h4>Novels</h4>
+<ul>
+  <li><strong>The History of Tom Jones</strong> (শ্রেষ্ঠ)</li>
+  <li><strong>Joseph Andrews</strong></li>
+  <li><strong>The Modern Husband</strong></li>
+</ul>
+<div class="note">
+  <strong>Mnemonic:</strong> (Tom and hus) good fielding করে।
+</div>
+
+<div class="note">
+  <strong>Age of Sensibility Writers Mnemonic:</strong> <em>"Dr. Sa Fi Blade দিয়ে Gray Gold কাটে"</em>
+  <ul>
+    <li><strong>Dr. Sa</strong> → Dr. Samuel Johnson</li>
+    <li><strong>Fi</strong> → Henry Fielding</li>
+    <li><strong>Blade</strong> → William Blake</li>
+    <li><strong>Gray</strong> → Thomas Gray</li>
+    <li><strong>Gold</strong> → (Oliver Goldsmith)</li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-8">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#8</span>
+              <h2 class="card-topic">Thomas Gray, Oliver Goldsmith &amp; Sir Walter Scott</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_76_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Thomas Gray</h3><p>→ Graveyard poet (বিষন্নতার কবি)</p><h4>Famous work:</h4><ul><li>Elegy Written in a Country Churchyard (elegy poem / শোকগাঁথা)</li></ul><div class="note"><p>"Full many a flower is born to blush unseen, and waste its sweetness on desert air"</p></div><h3>Oliver Goldsmith</h3><ul><li>The Traveller</li><li>She Stoops to Conquer</li><li>The Citizen of the World</li></ul><h3>Sir Walter Scott</h3><ul><li>Waverly (১ম)</li><li>Patriotism</li><li>Ivanhoe (শ্রেষ্ঠ)</li><li>The Abbot</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-9">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#9</span>
+              <h2 class="card-topic">William Blake</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_77_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>William Blake</h3><ul><li>The precursor of Romanticism</li><li>Poet and painter</li><li>Poet of Bible</li></ul><h4>Famous works:</h4><ul><li>The Tyger</li><li>The Schoolboy</li><li>London</li><li>Chimney Sweeper</li><li>Holy Thursday</li><li>The Marriage of Heaven and Hell</li><li>The Lamb (হাতে লেখা: The lamp)</li><li>Songs of Innocence and of Experience (হাতে লেখা: Songs of Innocence and of Experiences)</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-10">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#10</span>
+              <h2 class="card-topic">Victorian Period (1832–1901) &amp; Alfred Tennyson</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_78_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Victorian Period (1832–1901) [১৯ শতক]</h3><ul><li>Golden age of Novel</li><li>The theory of evolution (বিবর্তনবাদ)</li><li>The concept of communism</li><li>The origin of species</li></ul><div class="qa"><p><strong>Writer:</strong> কে Victorian period-এর কবি নন? (17, 38, 45 BCS)</p></div><div class="note"><p><strong>Mnemonic:</strong> Vai, <strong>TAB</strong> এর <strong>Disk</strong> এর <strong>Hard</strong>copy <strong>mail</strong> করা।</p></div><h4>Main লেখক (কবি / Poet):</h4><ul><li><strong>T</strong> = Lord Alfred Tennyson → শ্রেষ্ঠ কবি</li><li><strong>A</strong> = Matthew Arnold (Thyrsis)</li><li><strong>B</strong> = Robert Browning (My Last Duchess)</li></ul><h4>Novelist ও অন্যান্য লেখক:</h4><ul><li><strong>Disk</strong> = Charles Dickens (শ্রেষ্ঠ ঔপন্যাসিক / Great English novelist) — <em>Novel:</em> David Copperfield, A Tale of Two Cities</li><li><strong>Hard</strong> = Thomas Hardy — <em>Novel:</em> The Return of the Native</li><li><strong>mail</strong> = Stuart Mill — Utilitarianism, On Liberty (হাতে লেখা: on library)</li><li>Herman Melville (Moby Dick)</li><li>Leo Tolstoy (War and Peace — novel)</li></ul><h3>Alfred Tennyson</h3><p>Shakespeare-কে <strong>Dazzling Sun</strong> ও Christopher Marlowe-কে <strong>The Morning Star</strong> উপাধি দেন।</p><div class="note"><p><strong>Mnemonic:</strong> <em>Me, thusth you Arthur Eats Loey &amp; Light Burger</em></p><ul><li><strong>Me</strong> → In Memoriam (40 BCS) — বন্ধু Arthur Henry Hallam-এর মৃত্যুকে কেন্দ্র করে (Elegy)</li><li><strong>thusth</strong> → Tithonus (45 BCS)</li><li><strong>you</strong> → Ulysses (গ্রীক বীর, 45 BCS)</li><li><strong>Arthur</strong> → Morte D'Arthur (40 BCS)</li><li><strong>Eats</strong> → Lotos Eaters</li><li><strong>Loey</strong> → Locksley Hall</li><li><strong>Light Burger</strong> → The Charge of the Light Brigade</li></ul></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-11">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#11</span>
+              <h2 class="card-topic">Matthew Arnold &amp; Robert Browning</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_79_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Matthew Arnold</h3><p>→ Melancholic / Elegiac poet (দুঃখবাদী কবি)</p><h4>Famous work:</h4><ul><li>The Scholar Gipsy</li><li>Sohrab &amp; Rustom</li><li>Rugby Chapel → বাবার মৃত্যুতে লেখেন (Elegies)</li><li>Thyrsis (crisis) → বন্ধুর মৃত্যুতে লেখেন (Elegies, 45 BCS)</li><li>Dover Beach</li></ul><h3>Robert Browning</h3><p>→ Father of English Dramatic Monologue</p><h4>Famous poem:</h4><ul><li>The Patriot</li><li>My Last Duchess (44 BCS)</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-12">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#12</span>
+              <h2 class="card-topic">Robert Browning: The Patriot &amp; My Last Duchess</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_80_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>The Patriot</h3><p>→ <em>Men &amp; Women</em> কাব্যগ্রন্থ থেকে নেয়া।</p><div class="note"><p>"কবিতাটিতে দেখানো হয়েছে কিভাবে সাধারণ জনগণ একজন আদর্শবান নেতাকে সম্মানের সর্বোচ্চ শিখরে নিয়ে যায় এবং আবার তারাই তাকে টেনে নামিয়ে হত্যা পর্যন্ত করতে পারে।"</p></div><h3>My Last Duchess</h3><ul><li><strong>Main character:</strong> Duke of Ferrara</li><li><strong>Duke of Ferrara</strong> → Envoy (দূত) এসেছে (হাতে লেখা: convey) → বিয়ের proposal নিয়ে এসেছে।</li><li>"That's my last Duchess painted on the wall" → "Fra Pandolf" painted the portrait → "monk painter"</li><li><strong>Duke of Ferrara:</strong> proud, jealous, cruel, controlling, speaker of the poem, killed his wife.</li><li><strong>Duchess:</strong> kind, innocent, friendly, she smiled at everyone — যার কারণে তাকে হত্যা করে Duke।</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-13">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#13</span>
+              <h2 class="card-topic">My Last Duchess (Characters) &amp; Charles Dickens</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_81_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>My Last Duchess (অবশিষ্ট অংশ):</h4><ul><li><strong>Fra Pandolf:</strong> painter of the portrait.</li><li><strong>Envoy (silent listener):</strong> listener, he came for marriage proposal.</li><li><strong>Neptune:</strong> control sea-horse (সমুদ্রের দেবতা) statue, symbolizes control and power.</li></ul><h3>Charles Dickens</h3><p>→ "Morning Chronicle" পত্রিকার সাংবাদিক ছিলেন।</p><h4>Novels:</h4><ul><li>Hard Times</li><li>A Tale of Two Cities</li><li>Oliver Twist</li><li>A Christmas Carol (39 BCS)</li><li>David Copperfield (36 BCS)</li><li>Great Expectations</li><li>The Pickwick Papers</li></ul><div class="note"><p><strong>A Tale of Two Cities</strong> → (London &amp; Paris) (46 BCS)</p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-14">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#14</span>
+              <h2 class="card-topic">Thomas Hardy &amp; John Stuart Mill</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_82_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Thomas Hardy</h3><p>→ Pessimistic Novelist (হতাশাবাদী ঔপন্যাসিক)</p><h4>Novels:</h4><ul><li>Tess of the D'Urbervilles</li><li><strong>The Return of the Native</strong> — Tragic novel; Main character: Clym Yeobright, wife: Eustacia; "Egdon Heath" (হাতে লেখা: Egdon health) জায়গাকে নিয়ে উপন্যাস</li><li>Under the Greenwood Tree</li><li>The Mayor of Casterbridge</li><li>A Pair of Blue Eyes</li></ul><p><strong>Poem:</strong> At an Inn, A Meeting with Despair</p><h4>Tess of the D'Urbervilles:</h4><ul><li><strong>Main character:</strong> Tess Durbeyfield</li><li><strong>Other characters:</strong> John Durbeyfield (বাবা), Angel Clare (স্বামী ছিল; হাতে লেখা: Alange clear)</li><li><strong>লেখকের ভাষায়:</strong> "The greater the sinner, the greater the saint"</li></ul><h3>John Stuart Mill</h3><p>→ Liberalism (ব্যক্তি স্বাতন্ত্র্যবাদের জনক)</p><h4>Famous work:</h4><ul><li>On Liberty</li><li>Utilitarianism (উপযোগবাদ)</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-15">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#15</span>
+              <h2 class="card-topic">অন্যান্য লেখক: Charlotte Bronte</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_83_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>অন্যান্য লেখক</h3><h4>Charlotte Bronte</h4><ul><li>The Professor</li><li><strong>Jane Eyre</strong> (novel) — Currer Bell (pen name) ছদ্মনামে প্রকাশ করেন।</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-16">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#16</span>
+              <h2 class="card-topic">Modern Period &amp; G. B. Shaw</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_84_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Modern Period</h3><ul><li>G. B. Shaw (****)</li><li>W. B. Yeats (****)</li><li>Joseph Conrad (**)</li><li>John Millington Synge</li><li>W. Somerset Maugham</li><li>E. M. Forster (***)</li><li>T. S. Eliot (***)</li><li>Ernest Hemingway (***)</li></ul><h3>G. B. Shaw</h3><ul><li>১৯২৫ সালে নোবেল পান</li><li>Father of Modern English literature and Drama</li></ul><h4>Famous Drama/Plays:</h4><div class="note"><p><strong>Mnemonic:</strong> <em>Arms বিশেষজ্ঞ Doctor Carina, সুপারম্যানের মতো Cancer চিকিৎসা করে কোথায়, Can you tell?</em></p><ul><li><strong>Arms</strong> → Arms and the Man</li><li><strong>Doctor</strong> → Doctor's Dilemma</li><li><strong>Carina</strong> → Caesar and Cleopatra</li><li><strong>সুপারম্যান</strong> → Man and Superman (Comedy নাটক)</li><li><strong>Cancer</strong> → Candida</li><li><strong>Can you tell</strong> → You Never Can Tell</li></ul></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-17">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#17</span>
+              <h2 class="card-topic">W. B. Yeats, Joseph Conrad &amp; Jules Verne</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_85_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>William Butler Yeats (W. B. Yeats)</h3><ul><li>National poet of আয়ারল্যান্ড</li><li>Symbolism and Mysticism ব্যবহারের জন্য বিখ্যাত</li><li>Song Offerings-এর ভূমিকা লেখেন (BCS)</li></ul><h4>Famous Poems:</h4><ul><li>Lake Isle of Innisfree (BCS)</li><li>No Second Troy (BCS)</li><li>Sailing to Byzantium (Bank)</li></ul><div class="note"><p><strong>Tricks:</strong> <em>Yea বায়েজিদ বোস্তামী Troy নগরী হানাদার শত্রু থেকে free করেছে।</em></p><ul><li><strong>Yea</strong> → Yeats</li><li><strong>বায়েজিদ বোস্তামী</strong> → Sailing to Byzantium</li><li><strong>Troy</strong> → No Second Troy</li><li><strong>free</strong> → Lake Isle of Innisfree</li></ul></div><h3>Joseph Conrad</h3><p>→ British philosopher (হাতে লেখা: Brutist philosopher)</p><h4>Novels:</h4><ul><li>Heart of Darkness</li><li>A Tale</li><li>The Secret Agent</li></ul><h3>Jules Verne</h3><p>→ Father of science fiction</p><p><strong>Novel:</strong> Around the World in 80 Days (adventure)</p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-18">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#18</span>
+              <h2 class="card-topic">Bertrand Russell, John Millington Synge &amp; Rudyard Kipling</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_86_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Russell (Bertrand Russell)</h3><p>→ Philosopher</p><h4>Essays &amp; Books:</h4><ul><li>Human Society in Ethics and Politics</li><li>Political Ideals</li><li>Road to Freedom</li></ul><div class="note"><p><strong>Mnemonic:</strong> R. P পরিবহন → Politics, Political, Philosopher</p></div><h3>John Millington Synge</h3><p>→ Irish poet</p><p><strong>Famous play (নাটক):</strong> Riders to the Sea (Tragic one act play)</p><h3>Rudyard Kipling</h3><ul><li>Jungle Book (short story / শিশুতোষ)</li><li>Second Jungle Book (short story)</li><li>The White Man's Burden (poem)</li></ul><div class="note"><p><strong>Mnemonic:</strong> (শ্বেতাঙ্গদের জঙ্গলে kidnap করে)</p></div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-19">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#19</span>
+              <h2 class="card-topic">O&#x27;Henry, H. G. Wells, W. Somerset Maugham &amp; Winston Churchill</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_87_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>O' Henry</h3><ul><li>American ছোটগল্পকার (BCS)</li><li><strong>Real name:</strong> William Sydney Porter</li><li><strong>Short story:</strong> "The Gift of the Magi"</li></ul><h3>Herbert George Wells (H. G. Wells)</h3><ul><li><strong>The Time Machine</strong> (Scientific Romance) — <span class="note">মনে রাখার সূত্র: machine → Oil → Wells</span></li></ul><h3>W. Somerset Maugham</h3><ul><li>The Ant and the Grasshopper (short story)</li><li>Of Human Bondage</li></ul><h3>Winston Churchill</h3><ul><li>একজন রাজনীতিবিদ হয়েও সাহিত্যে নোবেল পুরস্কার পান</li><li><strong>Novel:</strong> History of the Second World War</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-20">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#20</span>
+              <h2 class="card-topic">O&#x27;Henry, H. G. Wells, W. Somerset Maugham &amp; Winston Churchill (Duplicate)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_88_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>O' Henry</h3><ul><li>American ছোটগল্পকার (BCS)</li><li><strong>Real name:</strong> William Sydney Porter</li><li><strong>Short story:</strong> "The Gift of the Magi"</li></ul><h3>Herbert George Wells (H. G. Wells)</h3><ul><li><strong>The Time Machine</strong> (Scientific Romance) — <span class="note">মনে রাখার সূত্র: machine → Oil → Wells</span></li></ul><h3>W. Somerset Maugham</h3><ul><li>The Ant and the Grasshopper (short story)</li><li>Of Human Bondage</li></ul><h3>Winston Churchill</h3><ul><li>একজন রাজনীতিবিদ হয়েও সাহিত্যে নোবেল পুরস্কার পান</li><li><strong>Novel:</strong> History of the Second World War</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-21">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#21</span>
+              <h2 class="card-topic">E. M. Forster, James Joyce &amp; D. H. Lawrence</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_89_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>E. M. Forster</h3><ul><li><strong>Famous novel:</strong> A Passage to India<div class="note"><strong>৪টি main চরিত্র:</strong><ol><li>ডাঃ আজিজ</li><li>Adela</li><li>Cyril Fielding</li><li>Mrs. Moore (হাতে লেখা: Mrs. Mur)</li></ol></div></li><li>Aspects of the Novel (critical work)</li></ul><h3>James Joyce</h3><ul><li><strong>Novel:</strong> "Ulysses" <span class="note">(Mnemonic: JU → Joyce &amp; Ulysses)</span></li></ul><h3>D. H. Lawrence</h3><h4>Novels:</h4><ul><li>Sons and Lovers</li><li>Lady Chatterley's Lover</li><li>The Rainbow</li><li>The White Peacock</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-22">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#22</span>
+              <h2 class="card-topic">E. M. Forster, James Joyce &amp; D. H. Lawrence (Duplicate)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_90_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>E. M. Forster</h3><ul><li><strong>Famous novel:</strong> A Passage to India<div class="note"><strong>৪টি main চরিত্র:</strong><ol><li>ডাঃ আজিজ</li><li>Adela</li><li>Cyril Fielding</li><li>Mrs. Moore (হাতে লেখা: Mrs. Mur)</li></ol></div></li><li>Aspects of the Novel (critical work)</li></ul><h3>James Joyce</h3><ul><li><strong>Novel:</strong> "Ulysses" <span class="note">(Mnemonic: JU → Joyce &amp; Ulysses)</span></li></ul><h3>D. H. Lawrence</h3><h4>Novels:</h4><ul><li>Sons and Lovers</li><li>Lady Chatterley's Lover</li><li>The Rainbow</li><li>The White Peacock</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-23">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#23</span>
+              <h2 class="card-topic">T. S. Eliot &amp; Ernest Hemingway</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_91_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>T. S. Eliot</h3><p>→ <em>The Journey of the Magi</em> কবিতার অনুদিত রূপ হলো রবীন্দ্রনাথের "তীর্থযাত্রী"।</p><h4>Poems:</h4><ul><li>The Waste Land (****)</li><li>Gerontion</li><li>Journey of the Magi</li></ul><p><strong>শ্রেষ্ঠ নাটক (play):</strong> Murder in the Cathedral</p><h4>The Waste Land কবিতার ৫টি অংশ:</h4><ol><li>The Burial of the Dead (<em>"April is the cruelest month"</em>)</li><li>A Game of Chess</li><li>The Fire Sermon (সবচেয়ে বড় part)</li><li>Death by Water (সবচেয়ে ছোট part)</li><li>What the Thunder Said</li></ol><h3>Ernest Hemingway</h3><p><em>(পৃষ্ঠার নিচে কেবল শিরোনাম লেখা আছে)</em></p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-24">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#24</span>
+              <h2 class="card-topic">Romantic Period (1798–1832) Overview</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_92_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>English — Romantic Period (1798–1832)</h3><ul><li><strong>প্রভাব:</strong> French Revolution; "Art for Art's Sake"</li><li><strong>সময়কাল:</strong> 1798–1832 (BCS, PSC)</li><li><strong>1798 — Book publish (২৩টি কবিতা):</strong> <em>Lyrical Ballads</em> (BCS, PSC)<ul><li>William Wordsworth (১৯টি) — শেষ কবিতা: Tintern Abbey</li><li>S. T. Coleridge (৪টি) — The Ancient Mariner</li></ul></li><li><strong>Main features:</strong> Subjectivity (হাতে লেখা: Subjunctivity), Golden age of lyrics</li></ul><h4>Poets of Romantic Period (৮ জন):</h4><ul><li><strong>William Wordsworth (***)</strong> — Poet of nature, most famous in R.A. → The Solitary Reaper, The Daffodils / I Wandered Lonely as a Cloud</li><li><strong>S. T. Coleridge (***)</strong> — Opium addicted → The Ancient Mariner (A), Biographia Literaria (B), Kubla Khan (C, D)</li><li><strong>P. B. Shelley (**)</strong> — Poet of Revolution → Ozymandias, West Wind, Adonais (Elegy, Keats-এর মৃত্যুতে লেখেন)</li><li><strong>John Keats (***)</strong> — Poet of beauty, poet of sensuousness, poet of medicine → (MEGHNALIA)</li><li><strong>Sir Walter Scott (*)</strong></li><li><strong>Jane Austen (**)</strong> — মহিলা ঔপন্যাসিক (novel) → Pride and Prejudice (***) — Darcy (নায়ক), Elizabeth Bennet (নায়িকা)</li><li><strong>Lord Byron (**)</strong> — Rebel poet → Don Juan</li><li><strong>William Blake (*)</strong></li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-25">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#25</span>
+              <h2 class="card-topic">William Wordsworth</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_93_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>William Wordsworth</h3><ul><li>Lake poet</li><li>Romantic poet</li><li>Poet of Nature (***)</li><li>Poet of childhood</li><li>ফরাসি বিপ্লবে প্রভাবিত হন</li><li><strong>Founder of pantheism</strong> → "God presents in everywhere" → "The creator exists in the midst in nature" (প্রকৃতির মধ্যে সৃষ্টিকর্তা নিহিত)</li></ul><h4>Important Quotations:</h4><ul><li>Nature never did betray (হাতে লেখা: Nature never did not betray)</li><li>Poetry is the spontaneous overflow</li><li>I saw Ten</li><li>The child is the father of nation (মূল উক্তি: The child is the father of the man)</li></ul><h4>Famous Books:</h4><ul><li>Michael</li><li>The Prelude (একাকীত্ব)</li><li>Lucy</li><li>Written in March</li><li>The Excursion</li><li>Tintern Abbey</li><li>The Solitary Reaper</li><li>Daffodils</li><li>Ode to Duty</li><li>Cuckoo</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-26">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#26</span>
+              <h2 class="card-topic">Wordsworth Mnemonic &amp; S. T. Coleridge</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_94_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="note"><p><strong>Wordsworth-এর বই মনে রাখার সূত্র:</strong> একাকীত্ব (The Prelude) Michael Duty (Ode to Duty) শেষ করে তার ex-gf (The Excursion) Lucy-কে নিয়ে Tintern (Tintern Abbey) Solitary (The Solitary Reaper) কবিতা (Cuckoo) লিখলেন (written → Written in March)।</p></div><h3>S. T. Coleridge</h3><ul><li><strong>Birth:</strong> 1772; <strong>Death:</strong> 1834</li><li>Lake poet</li><li>Poet of Supernaturalism</li><li>Opium Eater / Addicted to Opium</li></ul><h4>Books (A, B, C, D):</h4><ul><li><strong>A</strong> → Ancient Mariner (****), Aids to Reflection</li><li><strong>B</strong> → Biographia Literaria (Essay)</li><li><strong>C</strong> → Christabel &amp; Kubla Khan</li><li><strong>D</strong> → An Ode to Dejection</li></ul><h4>Famous Quotations:</h4><ul><li>Poetry is the first and last of all knowledge.</li><li>Imagination is the soul of poetic genius.</li><li>Water, water everywhere, nor any drop to drink (হাতে লেখা: nor any drop to water).</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-27">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#27</span>
+              <h2 class="card-topic">P. B. Shelley</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_95_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>P. B. Shelley</h3><ul><li><strong>Birth:</strong> 1792; <strong>Death:</strong> 1822 (নৌকাডুবিতে মারা যান)</li><li>Revolutionary poet</li><li>Poet of wind</li><li>Optimist (আশাবাদী) + Pessimist (হতাশাবাদী)</li><li>Poet of hope and Regeneration</li><li><em>Necessity of Atheism</em> → ১৮১১ সালে Oxford থেকে বহিষ্কার হন</li></ul><h4>Quotations:</h4><ul><li>If winter comes, can spring be far behind?</li><li>I am daughter of the Earth &amp; water</li><li>Oh life as a wave.</li><li>Poets are the...</li></ul><h4>Famous Books (Q, A, show):</h4><ul><li>Ozymandias</li><li>Adonais (Elegy)</li><li>Ode to the West Wind</li><li>Ode to a Skylark</li><li>Necessity of Atheism (essay)</li><li>A Defence of Poetry (essay)</li><li>Alastor (হাতে লেখা: Alaston)</li><li>Queen Mab (হাতে লেখা: Queen mob)</li><li>Revolt of Islam</li><li>The Masque of Anarchy (হাতে লেখা: The mosque of Anarchy)</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-28">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#28</span>
+              <h2 class="card-topic">John Keats</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_96_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>John Keats</h3><ul><li>যক্ষ্মারোগে মারা যান</li><li>Poet of Beauty</li><li>Man of Medicine</li><li>Poet of Sensuousness</li><li>Collaborator (সমসাময়িক) of P. B. Shelley</li></ul><h4>Quotations:</h4><ul><li>"Beauty is truth, truth is beauty."</li><li>"A thing of beauty is a joy forever."</li><li>"My heart aches and a drowsy..."</li></ul><h4>Important Books (Mnemonic: <strong>MEGHNALIA</strong>):</h4><ul><li><strong>M</strong> — Melancholy</li><li><strong>E</strong> — Endymion</li><li><strong>G</strong> — Grecian Urn</li><li><strong>H</strong> — Hyperion</li><li><strong>N</strong> — Ode to Nightingale</li><li><strong>A</strong> — Ode to Autumn</li><li><strong>L</strong> — Lamia</li><li><strong>I</strong> — Isabella (হাতে লেখা: Isabela)</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-29">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#29</span>
+              <h2 class="card-topic">John Keats (Duplicate)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_97_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>John Keats</h3><ul><li>যক্ষ্মারোগে মারা যান</li><li>Poet of Beauty</li><li>Man of Medicine</li><li>Poet of Sensuousness</li><li>Collaborator (সমসাময়িক) of P. B. Shelley</li></ul><h4>Quotations:</h4><ul><li>"Beauty is truth, truth is beauty."</li><li>"A thing of beauty is a joy forever."</li><li>"My heart aches and a drowsy..."</li></ul><h4>Important Books (Mnemonic: <strong>MEGHNALIA</strong>):</h4><ul><li><strong>M</strong> — Melancholy</li><li><strong>E</strong> — Endymion</li><li><strong>G</strong> — Grecian Urn</li><li><strong>H</strong> — Hyperion</li><li><strong>N</strong> — Ode to Nightingale</li><li><strong>A</strong> — Ode to Autumn</li><li><strong>L</strong> — Lamia</li><li><strong>I</strong> — Isabella (হাতে লেখা: Isabela)</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-30">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#30</span>
+              <h2 class="card-topic">Lord Byron</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_98_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Lord Byron</h3><ul><li>Rebel poet</li><li>Romantic poet</li><li>Byron Bridge নির্মাণ</li><li>Poet + Painter</li><li>বাইপোলার রোগে আক্রান্ত (চোখের রোগ)</li></ul><h4>Quotations:</h4><ul><li>Man conscience is the oracle of God.</li><li>Sweet is revenge, specially to women (হাতে লেখা: two women).</li><li>I loved, love you.</li></ul><h4>Important Books:</h4><ul><li>Don Juan</li><li>Childe Harold's Pilgrimage</li><li>Hours of Idleness</li><li>She Walks in Beauty</li><li>The Vision of Judgement</li></ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-31">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#31</span>
+              <h2 class="card-topic">Jane Austen</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_1_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Jane Austen</h3>
+<p>→ মহিলা ঔপন্যাসিক</p>
+<h4>Novel:</h4>
+<ul>
+  <li><strong>Pride and Prejudice</strong></li>
+  <li><strong>Sense and Sensibility</strong></li>
+  <li><strong>Love and Friendship</strong></li>
+</ul>
+<div class="note">
+  <p><strong>Pride and Prejudice</strong> → Romantic novel</p>
+  <p>→ ১ম শিরোনাম: <em>1st Impression</em></p>
+  <p><strong>মূল বিষয়বস্তু:</strong> প্রেম ও বিয়ে (love and marriage)</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-32">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#32</span>
+              <h2 class="card-topic">Periods of English Literature</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_2_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Periods of English Literature</h3>
+<ul>
+  <li><strong>The Old English period</strong> → (450 – 1066)</li>
+  <li><strong>The Middle English period</strong> → (1066 – 1500)</li>
+  <li><strong>The Renaissance period</strong> → (1500 – 1660)</li>
+  <li><strong>Neo-classical period</strong> → (1660 – 1798)</li>
+  <li><strong>Romantic Period</strong> (early 19th century) → (1798 – 1832)</li>
+  <li><strong>Victorian period</strong> (19th century) → (1832 – 1901)</li>
+  <li><strong>Modern period</strong> (1st half of 20th century) → (1901 – 1939)</li>
+  <li><strong>Post modern period</strong> → (1939 – Present)</li>
+</ul>
+<div class="note"><p><strong>মনে রাখার কৌশল:</strong> (রেটিনায় class নেয় Roman Vi)</p></div>
+<h4># Shorter Ages of Renaissance</h4>
+<ul>
+  <li><strong>(1500 – 1558)</strong> → Preparation of Renaissance</li>
+  <li><strong>(1558 – 1603)</strong> [3**] → The Elizabethan Period (2nd half of 16th century)</li>
+  <li><strong>(1603 – 1625)</strong> → The Jacobean Period</li>
+  <li><strong>(1590 – 1616)</strong> [3**] → Age of Shakespeare</li>
+</ul>
+<h4># Neo-classical (হাতে লেখা: Non-classical)</h4>
+<ul>
+  <li><strong>(1660 – 1700)</strong> → The Restoration Period (Age of poet John Dryden)*</li>
+  <li><strong>(1700 – 1745)</strong> → Augustan Period (Alexander's Age)*</li>
+  <li><strong>(1745 – 1785/98)</strong> → Age of Sensibility / Reason / Transition (Dr. Samuel Johnson's age)*</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-33">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#33</span>
+              <h2 class="card-topic">Anglo-Saxon / Old English Period (450–1066)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_3_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Anglo-Saxon / Old English period</h3>
+<ul>
+  <li>সময়কাল: (450 – 1066)</li>
+  <li><strong>Caedmon, Cynewulf</strong> (famous poet)</li>
+  <li><strong>Alfred the Great</strong> (পূর্বের লেখা Alexander কেটে Alfred লেখা) → Anglo-Saxon Chronicle সংরক্ষণে ভূমিকা</li>
+</ul>
+<div class="note">
+  <h4>[স্টিকি নোট] Beowulf (***) → দীর্ঘকবিতা</h4>
+  <ul>
+    <li>ইংরেজি সাহিত্যের আদি নিদর্শন</li>
+    <li>The earliest <strong>epic</strong> (মহাকাব্য) in England.</li>
+    <li>There were 2 parts</li>
+    <li>লেখকের নাম জানা যায় নাই</li>
+    <li>অনেকের মতে Caedmon লিখেছেন</li>
+  </ul>
+</div>
+<h4>Caedmon (English poet)</h4>
+<ul>
+  <li>Father of English Sacred (পবিত্র) Song</li>
+  <li>Milton of Anglo-Saxon period</li>
+  <li><strong>Book:</strong>
+    <ul>
+      <li>Hymn of Caedmon (Religious Poetry)</li>
+      <li>Paraphrase (***)</li>
+    </ul>
+  </li>
+</ul>
+<h4>* Cynewulf</h4>
+<ul>
+  <li><strong>Book:</strong> Christ, The Fates of the Apostles</li>
+  <li><strong>কবিতা:</strong>
+    <ul>
+      <li>Juliana (3**) (famous poet)</li>
+      <li>The Dream of the Rood</li>
+    </ul>
+  </li>
+</ul>
+<h4>* Saint Venerable Bede</h4>
+<ul>
+  <li>Father of English learning</li>
+  <li>First Historian in English language</li>
+  <li>Doctor of the church → (Ecclesiastical গ্রন্থের জন্য)</li>
+  <li>Death Song</li>
+</ul>
+<h4>* King Alfred the Great</h4>
+<ul>
+  <li>Founder of English prose (গদ্য)</li>
+  <li>Anglo-Saxon Chronicle সংরক্ষণ → 1st monument in English prose (ইংরেজি গদ্যের আদি নিদর্শন)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-34">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#34</span>
+              <h2 class="card-topic">Middle English Period (1066–1500) — Overview &amp; Sub-periods</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_4_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Middle English period (1066–1500)</h3>
+<p>(William Conqueror Anglo-Saxon কে পরাজিত করে ইংল্যান্ড দখল করে ১০৬৬ সালে; Norman / নরওয়ে)</p>
+<h4>* Geoffrey Chaucer (চসার)</h4>
+<ul>
+  <li>Father of English modern poetry</li>
+  <li>1st humourist in English literature</li>
+  <li>Poet and diplomat</li>
+  <li>1st national poet of England</li>
+</ul>
+<div class="note">
+  <h4>[স্টিকি নোট] Middle English period এর ভাগসমূহ</h4>
+  <ul>
+    <li><strong>Anglo Norman period</strong> (1066–1340)</li>
+    <li><strong>The Age of Chaucer</strong> (1340–1400) [***] → 14th century</li>
+    <li><strong>The age of Barren / Dark age</strong> (1400–1500)</li>
+  </ul>
+</div>
+<h4>Chaucer's famous works</h4>
+<ul>
+  <li><strong>The Canterbury Tales</strong> (5*) — সর্বাধিক অকৃত্রিম ও আদি ইংরেজি সাহিত্য; (24 stories: 1st story: Knight, last story: Palamon and Arcite)</li>
+  <li><strong>The Book of Duchess</strong></li>
+  <li><strong>Troilus and Criseyde</strong> (দুঃখজনক কাহিনী) → Rhyme Royal stanza (বিশেষ ছন্দমিল)</li>
+  <li><strong>The Legend of Good Women</strong> (১০ জন মহিলাকে নিয়ে লেখা)</li>
+  <li><strong>The House of Fame</strong> [PSC]</li>
+</ul>
+<p class="note"><em>[বাম পাশে স্টিকি নোটের নিচে আংশিক দৃশ্যমান: "Urbanity" সাহিত্যের বৈশিষ্ট্য]</em></p>
+<h4>* William Langland</h4>
+<ul>
+  <li><strong>Vision of Piers Plowman</strong> (famous; An allegorical poem)</li>
+  <li><strong>Famous উক্তি:</strong> "Who will bell the cat?"</li>
+</ul>
+<h4>* Sir Thomas Malory</h4>
+<ul>
+  <li><strong>বিখ্যাত গ্রন্থ:</strong> "Morte D'Arthur" (prose; ইংরেজি সাহিত্যে 1st Romance in prose)</li>
+  <li><em>তুলনা:</em> Morte D'Arthur (poem) → Alfred Tennyson</li>
+</ul>
+<h4>John Wycliffe</h4>
+<ul>
+  <li>First ইংরেজিতে Bible Translate</li>
+  <li>New Testament</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-35">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#35</span>
+              <h2 class="card-topic">Middle English Period (1066–1500) — Chaucer&#x27;s Works &amp; Quotes</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_5_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Middle English period (1066–1500)</h3>
+<p>(William Conqueror Anglo-Saxon কে পরাজিত করে ইংল্যান্ড দখল করে ১০৬৬ সালে; Norman / নরওয়ে)</p>
+<p><em>[স্টিকি নোট উল্টে নিচের অংশ দেখানো হয়েছে]</em></p>
+<h4>Geoffrey Chaucer</h4>
+<ul>
+  <li>Father of English modern poetry</li>
+  <li>1st humourist in English literature</li>
+  <li>Poet and diplomat</li>
+  <li>1st national poet of England</li>
+</ul>
+<h4>Chaucer's famous works</h4>
+<ul>
+  <li><strong>The Canterbury Tales</strong> [PSC] (5*) — সর্বাধিক অকৃত্রিম ও আদি ইংরেজি সাহিত্য; (24 stories: 1st story: Knight, last story: Palamon and Arcite)</li>
+  <li><strong>The Book of Duchess</strong></li>
+  <li><strong>Troilus and Criseyde</strong> (দুঃখজনক কাহিনী) → Rhyme Royal stanza (বিশেষ ছন্দমিল)</li>
+  <li><strong>The Legend of Good Women</strong> (১০ জন মহিলাকে নিয়ে লেখা)</li>
+  <li><strong>The House of Fame</strong> [PSC]</li>
+</ul>
+<div class="note">
+  <h4>বিখ্যাত উক্তি (Chaucer):</h4>
+  <ul>
+    <li>"Time and Tide wait for no man"</li>
+    <li>"Love is blind"</li>
+  </ul>
+  <p><strong>"Urbanity"</strong> সাহিত্যের বৈশিষ্ট্য</p>
+</div>
+<h4>* William Langland</h4>
+<ul>
+  <li><strong>Vision of Piers Plowman</strong> (famous; An allegorical poem)</li>
+  <li><strong>Famous উক্তি:</strong> "Who will bell the cat?"</li>
+</ul>
+<h4>* Sir Thomas Malory</h4>
+<ul>
+  <li><strong>বিখ্যাত গ্রন্থ:</strong> "Morte D'Arthur" (prose; ইংরেজি সাহিত্যে 1st Romance in prose)</li>
+  <li><em>তুলনা:</em> Morte D'Arthur (poem) → Alfred Tennyson</li>
+</ul>
+<h4>John Wycliffe</h4>
+<ul>
+  <li>First ইংরেজিতে Bible Translate</li>
+  <li>New Testament</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-36">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#36</span>
+              <h2 class="card-topic">Renaissance Period (1500–1660)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_6_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Renaissance period (1500–1660) [5***] (2/3 mark)</h3>
+<h4>Life during middle age was dominated by:</h4>
+<ul>
+  <li>Religious faith</li>
+  <li>Catholic Church</li>
+  <li>Feudalism (সামন্ত system)</li>
+  <li>Crusades (যুদ্ধ)</li>
+  <li>Black Death (১৩৪৮) (প্লেগ রোগ)</li>
+</ul>
+<h4>Renaissance (পুনর্জাগরণ) [P.S.C]</h4>
+<ul>
+  <li>নবজীবন</li>
+  <li>Revival</li>
+  <li>Regeneration</li>
+  <li>Rebirth</li>
+</ul>
+<div class="note"><p><em>[মার্জিন নোট]</em> PK Haldar অসীম সম্পদ ও ক্ষমতার অধিকারী</p></div>
+<h4>Feature: Humanism (মানবতাবাদ)</h4>
+<ul>
+  <li>Curiosity about knowledge and learning [***]</li>
+  <li>Love of beauty</li>
+  <li>Love of humanism</li>
+  <li>Love for the past</li>
+</ul>
+<h4>Renaissance (1500–1660) — Sub-periods</h4>
+<ul>
+  <li><strong>Elizabethan Age</strong> (1558–1603)</li>
+  <li><strong>Jacobean Age</strong> (1603–1625)</li>
+  <li><strong>Caroline Age</strong> (1625–1649)</li>
+  <li><strong>Commonwealth period</strong> (1649–1660)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-37">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#37</span>
+              <h2 class="card-topic">Preparation of Renaissance (1500–1558)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_7_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Renaissance (রি-নাই-সেন্স)</h3>
+<p>Re-nai-ssance → <strong>Florence</strong> [PSC] ← ইতালি → (Beginning of Renaissance)</p>
+<h3>Preparation of Renaissance (1500–1558)</h3>
+<h4>Writers:</h4>
+<ul>
+  <li><strong>Sir Thomas More</strong> → Utopia (novel)</li>
+  <li><strong>Nicholas Udall</strong> → Ralph Roister Doister (1st comedy book); Father of English comedy</li>
+  <li><strong>Sir David Lindsay</strong></li>
+  <li><strong>Henry Howard</strong> ও <strong>Thomas Wyatt</strong> (বন্ধু) → "Tottel's Miscellany" (1st sonnet book); Father of "blank verse" (অমিত্রাক্ষর ছন্দ)</li>
+</ul>
+<h4>* Sir Thomas More [***]</h4>
+<ul>
+  <li>Written: <strong>Utopia</strong> → Novel (উপন্যাস)
+    <ul>
+      <li>আদর্শ সমাজ ব্যবস্থা কল্পনা</li>
+      <li>যেটা বাস্তবে প্রায় অসম্ভব</li>
+    </ul>
+  </li>
+  <li><strong>Characters:</strong> More, Peter Giles, Raphael Hythloday</li>
+</ul>
+<h4>* Sir David Lindsay</h4>
+<ul>
+  <li><strong>The Dreme</strong> (poem)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-38">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#38</span>
+              <h2 class="card-topic">Preparation of Renaissance — Udall, Howard, Wyatt &amp; Machiavelli</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_8_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Nicholas Udall</h3>
+<ul>
+  <li>Father of English comedy</li>
+  <li><strong>Ralph Roister Doister</strong> (1st comedy book)</li>
+</ul>
+<h3>Henry Howard (বন্ধু: Thomas Wyatt)</h3>
+<ul>
+  <li>Father of <strong>Blank verse</strong> (অমিত্রাক্ষর ছন্দ — অনুমিল বিহীন কবিতা)</li>
+  <li><strong>Earl of Surrey</strong> (Book)</li>
+</ul>
+<h3>Thomas Wyatt</h3>
+<ul>
+  <li>First sonneteer in English literature</li>
+</ul>
+<div class="note">
+  <h4>Tottel's Miscellany</h4>
+  <ul>
+    <li>লেখক: Henry Howard ও Thomas Wyatt</li>
+    <li>1st sonnet book</li>
+    <li>First fruit of Renaissance</li>
+  </ul>
+</div>
+<h3>Niccolo Machiavelli</h3>
+<ul>
+  <li>Father of modern political science</li>
+  <li><strong>বিখ্যাত গ্রন্থ:</strong>
+    <ol type="i">
+      <li>The Prince</li>
+      <li>Discourses on Livy</li>
+    </ol>
+  </li>
+  <li><strong>Machiavelli character</strong> [P.S.C] → "selfish character" বলা হয়</li>
+  <li>উক্তি: <em>"The ends justify the meanness"</em> (means)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-39">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#39</span>
+              <h2 class="card-topic">Elizabethan Age (1558–1603) &amp; University Wits</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_9_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Elizabethan Age (1558–1603)</h3>
+<ul>
+  <li>First impression is last impression</li>
+  <li>Golden age of English literature</li>
+  <li><em>"A good face is the best letter of recommendation"</em> — Queen Elizabeth</li>
+  <li>Nest of singing birds / An age of original romanticism</li>
+  <li><strong>Nature of drama in Elizabethan period</strong> → Revenge and love</li>
+  <li>Option এ ২টাই থাকলে Ans: <strong>Revenge</strong></li>
+</ul>
+<div class="note">
+  <h4>Major writer [স্টিকি নোট]:</h4>
+  <ul>
+    <li>Thomas Sackville</li>
+    <li>Edmund Spenser</li>
+    <li>Sir Philip Sidney</li>
+    <li>John Lyly</li>
+    <li>Francis Bacon</li>
+    <li>Christopher Marlowe</li>
+    <li>William (Shakespeare)</li>
+  </ul>
+</div>
+<h3>University Wits</h3>
+<p><strong>মনে রাখার কৌশল:</strong> "গ্রিন লিলি পিলি লজে নেশা করে কিডকে মারলো"</p>
+<p>[চিত্র: প্রতিটি শব্দের নিচে তীরচিহ্ন দিয়ে ৭ জন University Wits এবং তাদের বিশ্ববিদ্যালয়ের নাম দেখানো হয়েছে]</p>
+<ul>
+  <li><strong>গ্রিন</strong> → Robert Greene (Cam)</li>
+  <li><strong>লিলি</strong> → John Lyly (Oxford University)</li>
+  <li><strong>পিলি</strong> → George Peele (Oxford University) — best work: "The Fall of Troy"</li>
+  <li><strong>লজে</strong> → Thomas Lodge (Oxford University)</li>
+  <li><strong>নেশা করে</strong> → Thomas Nashe (Cam)</li>
+  <li><strong>কিডকে</strong> → Thomas Kyd (Ox, Cam ছাত্র ছিলেন না)</li>
+  <li><strong>মারলো</strong> → Marlowe (Cam, ***, most famous)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-40">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#40</span>
+              <h2 class="card-topic">Elizabethan Age — Major Writers &amp; University Wits</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_10_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Elizabethan Age (1558–1603) — Major Writers</h3>
+<p><em>[স্টিকি নোট উল্টে নিচের তালিকা দেখানো হয়েছে]</em></p>
+<ul>
+  <li>(i) <em>[স্টিকি নোটের ভাঁজে আংশিক ঢাকা — William Shakespeare]</em></li>
+  <li>(ii) <strong>Christopher Marlowe</strong> — [(i) ও (ii) একসাথে: most im]</li>
+  <li>(iii) <strong>Thomas Kyd</strong></li>
+  <li>(iv) <strong>Francis Bacon</strong></li>
+  <li>* <strong>Edmund Spenser</strong></li>
+</ul>
+<h3>University Wits</h3>
+<p><strong>মনে রাখার কৌশল:</strong> "গ্রিন লিলি পিলি লজে নেশা করে কিডকে মারলো"</p>
+<ul>
+  <li><strong>গ্রিন</strong> → Robert Greene (Cam)</li>
+  <li><strong>লিলি</strong> → John Lyly (Oxford University)</li>
+  <li><strong>পিলি</strong> → George Peele (Oxford University) — best work: "The Fall of Troy"</li>
+  <li><strong>লজে</strong> → Thomas Lodge (Oxford University)</li>
+  <li><strong>নেশা করে</strong> → Thomas Nashe (Cam)</li>
+  <li><strong>কিডকে</strong> → Thomas Kyd (Ox, Cam ছাত্র ছিলেন না)</li>
+  <li><strong>মারলো</strong> → Marlowe (Cam, ***, most famous)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-41">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#41</span>
+              <h2 class="card-topic">Metaphysical Poets &amp; First English Tragedy</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_11_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Metaphysical questions</h3>
+<ul>
+  <li>Is there a god?</li>
+  <li>Can we control our destiny?</li>
+  <li>Do we have immortal souls?</li>
+  <li>How can we know what is real?</li>
+</ul>
+<h3>* Metaphysical poet</h3>
+<p>(Samuel Johnson 1st coined the term)</p>
+<ul>
+  <li>John Donne</li>
+  <li>George Herbert</li>
+  <li>Henry Vaughan</li>
+  <li>Andrew Marvell</li>
+</ul>
+<h3>Thomas Sackville ও Thomas Norton</h3>
+<ul>
+  <li>1st tragedy লেখেন → <strong>Gorboduc</strong> or <strong>Ferrex</strong> (বড় সন্তান) and <strong>Porrex</strong> (ছোট সন্তান)</li>
+  <li>রানী এলিজাবেথের সামনে মঞ্চস্থ হওয়া প্রথম নাটক</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-42">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#42</span>
+              <h2 class="card-topic">Edmund Spenser &amp; Sir Philip Sidney</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_12_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Edmund Spenser</h3>
+<ul>
+  <li><strong>Poet of poet</strong> (কবিদের কবি বলা হয়)</li>
+  <li><strong>Pseudonym (ছদ্মনাম):</strong> Immerito</li>
+  <li><strong>Major book:</strong>
+    <ul>
+      <li>The Shepherd's Calendar (শোকগাঁথা)</li>
+      <li>The Faerie Queene* (Epic, মহাকাব্য)</li>
+      <li>Amoretti (sonnet)**</li>
+      <li>Astrophel — Sir Philip Sidney (বন্ধু) এর মৃত্যুতে লেখেন এবং তাকে উৎসর্গ করেন (তীরচিহ্ন Shepherd's Calendar ও Astrophel থেকে)</li>
+    </ul>
+  </li>
+</ul>
+<div class="note">
+  <p><strong>মনে রাখার কৌশল:</strong> (কাল কুইন আম এস্টার) / (কালকে কুইন আমার বাড়ি ৫টি অ্যাপল নিয়ে আসবে)</p>
+</div>
+<h4>The Faerie Queene</h4>
+<p><em>Also known as Gloriana (রানি এলিজাবেথ)</em></p>
+<ul>
+  <li>রূপকধর্মী (Allegorical) উপাখ্যান; মহাকাব্য</li>
+  <li><strong>কেন্দ্রীয় চরিত্র:</strong> Arthur</li>
+  <li><strong>Duessa:</strong> মিথ্যার প্রতীক</li>
+  <li><strong>নায়ক:</strong> Red Cross Knight</li>
+  <li><strong>নায়িকা:</strong> Una</li>
+  <li><strong>Theme:</strong> Duty and responsibility (দেশপ্রেম)</li>
+</ul>
+<h3>Sir Philip Sidney</h3>
+<p><em>[মনে রাখার কৌশল: Australia → AAA]</em></p>
+<ul>
+  <li>Father of English literary criticism</li>
+  <li>Renaissance Ideal</li>
+  <li><strong>Major book [AAA]:</strong>
+    <ul>
+      <li><strong>A</strong>n Apology for Poetry*** (Literary Criticism)</li>
+      <li><strong>A</strong>rcadia** (Novel)</li>
+      <li><strong>A</strong>strophel and Stella (sonnet)</li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-43">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#43</span>
+              <h2 class="card-topic">John Lyly, Thomas Kyd &amp; Francis Bacon</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_13_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>John Lyly</h3>
+<ul>
+  <li>Writer of <strong>King Midas</strong></li>
+</ul>
+<h3>Thomas Kyd</h3>
+<ul>
+  <li>Father of <strong>Revenge Tragedy</strong> (Romantic Tragedy)</li>
+  <li><strong>Play:</strong> The Spanish Tragedy (book — copy করে Hamlet লেখে)</li>
+  <li>নাটকের প্রধান চরিত্র: <strong>হিরোনিমো</strong> [ছেলে]</li>
+  <li>নাটকের প্রধান নারী চরিত্র: <strong>বেলিম্পেরিয়া</strong></li>
+</ul>
+<h3>Francis Bacon (Cambridge)</h3>
+<p>→ Father of modern English prose</p>
+<h4>উপাধি সমূহ:</h4>
+<ul>
+  <li>Father of English essay (প্রবন্ধের জনক)</li>
+  <li>1st Essayist in English literature</li>
+  <li>Father of modern prose (আধুনিক গদ্যের জনক)</li>
+  <li>Father of Empiricism (প্রয়োগবাদের জনক)</li>
+  <li>Father of experimental science (পরীক্ষামূলক বিজ্ঞানের জনক)</li>
+</ul>
+<h4>Major book:</h4>
+<ul>
+  <li><strong>Essays:</strong>
+    <ul>
+      <li>Of Studies***</li>
+      <li>Of Beauty</li>
+      <li>Of Friendship</li>
+      <li>Of Love</li>
+      <li>Of Marriage &amp; Single Life***</li>
+      <li>Of Revenge</li>
+      <li>Of Death</li>
+      <li>Of Truth</li>
+    </ul>
+  </li>
+  <li><strong>The Advancement of Learning</strong></li>
+  <li><strong>Novum Organum</strong></li>
+  <li><strong>New Atlantis</strong></li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-44">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#44</span>
+              <h2 class="card-topic">Christopher Marlowe &amp; Doctor Faustus</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_14_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Christopher Marlowe (1564–1593)</h3>
+<ul>
+  <li>Father of English Tragedy</li>
+  <li>নাটকে ১ম Blank verse use করেন (অমিত্রাক্ষর ছন্দ)</li>
+  <li>Predecessor of Shakespeare (পূর্বসূরি)</li>
+  <li>True founder of English Drama</li>
+</ul>
+<h4>নাটক:</h4>
+<ul>
+  <li><strong>Doctor Faustus</strong> (জার্মান ব্যক্তি Faustus কে নিয়ে লেখা)
+    <ul>
+      <li><strong>Main character:</strong> Dr. Faustus, Lucifer (শয়তান), Mephistophilis (শয়তানের শিষ্য)</li>
+    </ul>
+  </li>
+  <li><strong>The Jew of Malta</strong> (Barabas, Abigail [মেয়ে], Calymath, Ferneze) → এখান থেকে "দ্যা মার্চেন্ট অব ভেনিস" লেখেন</li>
+  <li><strong>Tamburlaine the Great</strong> (তৈমুর)</li>
+  <li><strong>Edward II</strong></li>
+</ul>
+<p>* <strong>"The Passionate Shepherd to His Love"</strong> → বিখ্যাত poem</p>
+<h3>Doctor Faustus (পতন)</h3>
+<p>[চিত্র: ৫ ধাপের ফ্লোচার্ট — ফস্টাসের আকাঙ্ক্ষা → মেফিস্টোফিলিসের সাথে সাক্ষাৎ → চুক্তির চূড়ান্তকরণ → যাদু চর্চা শুরু → হেলেনের উপস্থিতি]</p>
+<ol>
+  <li><strong>ফস্টাসের আকাঙ্ক্ষা:</strong> অসীম জ্ঞান ও ক্ষমতা লাভের আকাঙ্ক্ষা</li>
+  <li><strong>মেফিস্টোফিলিসের সাথে সাক্ষাৎ</strong></li>
+  <li><strong>চুক্তির চূড়ান্তকরণ:</strong> ফস্টাস লুসিফারের সাথে একটি চুক্তি করে ২৪ বছরের জন্য নিজের রক্ত দিতে চেয়ে চুক্তিতে সই করেন</li>
+  <li><strong>যাদু চর্চা শুরু</strong></li>
+  <li><strong>হেলেনের উপস্থিতি:</strong> ফস্টাস হেলেনের সাথে আনন্দ উপভোগ করতে চায়</li>
+</ol>
+<div class="note">
+  <h4>অনুশোচনা</h4>
+  <p>ফস্টাস ঈশ্বরের প্রতি অনুশোচনা করে</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-45">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#45</span>
+              <h2 class="card-topic">Doctor Faustus — Plot &amp; Famous Quotes</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_15_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Doctor Faustus (অবশিষ্টাংশ ও বিখ্যাত উক্তি)</h3>
+<ul>
+  <li>২৪ বছর পর লুসিফার তার আত্মাকে তার রাজ্যে নিয়ে যাবে।</li>
+  <li>চুক্তির ফলে ফস্টাস মেফিস্টোফিলিসের সাহায্য নিয়ে যেকোন কিছু করার ক্ষমতা লাভ করে। ক্ষমতার গর্বে তিনি বলেন, <em>"Divinity! adieu"</em>, <em>"These metaphysical books are heavenly."</em></li>
+  <li>Good Angel তাকে যাদু বিদ্যা ত্যাগের পরামর্শ দেয়।</li>
+</ul>
+<h4>Helen</h4>
+<p>আনন্দ উপভোগ করার জন্য মেফিস্টোফিলিসের সাহায্যে অতিসুন্দরী Helen নিয়ে আসেন। Helen কে উদ্দেশ্যে বলেছে, <em>"Sweet Helen, make me immortal with a kiss"</em></p>
+<h4>শেষ পরিণতি ও উক্তি</h4>
+<ul>
+  <li>চুক্তির শেষের দিকে → অনুশোচনা → ঈশ্বরের কাছে প্রার্থনা করে ব্যর্থ হন। শেষ সময়ে কেঁদে ওঠেন এবং বলেন:
+    <blockquote>"See, see, where Christ's blood stream in the firmament / One drop would save my [soul], half a drop..."</blockquote>
+  </li>
+  <li><em>"Hell is just a frame of mind"</em></li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-46">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#46</span>
+              <h2 class="card-topic">Marlowe&#x27;s Plays — The Jew of Malta, Tamburlaine &amp; Edward II</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_16_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>The Jew of Malta</h3>
+<ul>
+  <li><strong>Main character:</strong> বারাবাস (লোভী ইহুদি বণিক)</li>
+  <li>বারাবাস লোভী ও সুদখোর → অনেক ধন সম্পদের মালিক → সে আরও ধনসম্পদ চায় → মাল্টার শাসক তার সম্পত্তি বাজেয়াপ্ত করে।</li>
+  <li>এই নাটক থেকে Shakespeare তার <strong>"দ্যা মার্চেন্ট অব ভেনিস"</strong> বই লেখেন।</li>
+</ul>
+<h3>Tamburlaine the Great</h3>
+<ul>
+  <li>ক্ষমতা লিপ্সু তৈমুর লং কে নিয়ে লেখা</li>
+  <li>এই নাটকে Marlowe অমিত্রাক্ষর ছন্দের সার্থক ব্যবহার করে।</li>
+</ul>
+<h3>Edward II</h3>
+<p>[চিত্র: চরিত্র ও কাহিনীর সম্পর্ক ডায়াগ্রাম — Edward II এর স্ত্রী ইসাবেলা, favourite ব্যক্তি Piers Gaveston, এবং Roger Mortimer]</p>
+<ul>
+  <li><strong>Edward II</strong> → favourite ব্যক্তি: <strong>Piers Gaveston</strong></li>
+  <li><strong>Edward II</strong> এর স্ত্রী <strong>ইসাবেলা</strong> ও <strong>Roger Mortimer</strong> → ষড়যন্ত্র করে রাজাকে ক্ষমতাচ্যুত করে</li>
+  <li>→ <strong>Edward III</strong> ক্ষমতায় বসে → বাবার হত্যার প্রতিশোধ, Mortimer কে হত্যা করে</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-47">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#47</span>
+              <h2 class="card-topic">William Shakespeare — Biography &amp; Titles</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_17_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="note"><p><strong>The Passionate Shepherd to His Love</strong> → মার্লোর বিখ্যাত poem</p></div>
+<h3>William Shakespeare</h3>
+<ul>
+  <li>Lived 52 years; Lived during 16th &amp; 17th century</li>
+  <li><strong>Birth:</strong> 23 April, 1564</li>
+  <li><strong>Death:</strong> 23 April, 1616</li>
+  <li><strong>Father and mother:</strong> John Shakespeare and Mary Shakespeare</li>
+  <li><strong>Wife:</strong> Anne Hathaway</li>
+  <li><strong>Children:</strong> Hamnet, Susanna Hall, Judith Quiney</li>
+  <li><strong>Birth place:</strong> Stratford-upon-Avon, UK</li>
+  <li>Playwright, poet ও Actor</li>
+</ul>
+<h4>উপাধি সমূহ</h4>
+<ul>
+  <li>National poet of England</li>
+  <li>King without crown (মুকুটবিহীন সম্রাট)</li>
+  <li>The greatest Dramatist / playwright (সর্বশ্রেষ্ঠ নাট্যকার)</li>
+  <li>Father of English Drama <em>(True founder of Drama: Christopher Marlowe)</em></li>
+  <li>Bard of Avon (এভেনের ভ্রাম্যমাণ চারণ কবি)</li>
+  <li>Poet of human nature (Dr. Samuel Johnson)</li>
+  <li>The Dazzling Sun (Lord Alfred Tennyson)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-48">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#48</span>
+              <h2 class="card-topic">William Shakespeare — Key Facts &amp; Characteristics</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_18_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>William Shakespeare — আরও উপাধি ও সমালোচনা</h3>
+<ul>
+  <li><strong>The Swan of Avon</strong> (এভেনের রাজহাঁস) → (Ben Jonson)</li>
+  <li><em>"An upstart crow beautified with our feathers"</em> → (Robert Greene criticized)</li>
+</ul>
+<h3>William Shakespeare সম্পর্কে গুরুত্বপূর্ণ তথ্য</h3>
+<ul>
+  <li><strong>1585–1592</strong> → actor এবং playwright হিসেবে খ্যাতি অর্জন</li>
+  <li><strong>1590–1616</strong> → সাহিত্য জীবন (২৬ বছর)</li>
+  <li><strong>1599</strong> → Globe Theatre প্রতিষ্ঠা</li>
+  <li><strong>Iambic Pentameter</strong> usage (37th BCS)</li>
+  <li><strong>Five-act structure</strong> (নাটকগুলো ৫ অংক বিশিষ্ট, 3rd act এ ক্লাইম্যাক্স দেখা যায়)</li>
+  <li><strong>Tragic Endings</strong> (নায়ক, নায়িকা প্রায়ই মৃত্যুবরণ করেন)</li>
+  <li><strong>Absence of poetic justice</strong> (পুণ্যবানদের পুরস্কার এবং পাপীদের শাস্তি অনুপস্থিত)</li>
+</ul>
+<div class="note">
+  <h4>Note:</h4>
+  <ul>
+    <li>** প্রেম, বিশেষত প্রথম দর্শনে প্রেম তার কমেডির প্রধান উপজীব্য।</li>
+    <li>** এরিস্টটল যে ৩ unities (PTA) এর কথা বলেছেন, Shakespeare তা পুরোপুরি মানেন নি:
+      <ul>
+        <li>Unity of Place</li>
+        <li>Unity of Time</li>
+        <li>Unity of Action</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-49">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#49</span>
+              <h2 class="card-topic">William Shakespeare — Works Count, Sonnets &amp; Notable Plays</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_19_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>William Shakespeare — সাহিত্যকর্মের সংখ্যা ও তথ্য [***]</h3>
+<ul>
+  <li><strong>Number of plays:</strong> 37 / 39</li>
+  <li><strong>Number of sonnets:</strong> 154</li>
+  <li><strong>Number of long narrative poem:</strong> 3</li>
+  <li><strong>Acts in play:</strong> 5</li>
+</ul>
+<h4>Sonnet উৎসর্গ:</h4>
+<ul>
+  <li><strong>Henry Wriothesley, Earl of Southampton</strong> (বন্ধু): (1–126)</li>
+  <li><strong>Dark lady</strong> (কৃষ্ণা রানী): (127–154) → (২৮টা)</li>
+</ul>
+<h4>গুরুত্বপূর্ণ নাটকসমূহ:</h4>
+<ul>
+  <li><strong>1st play:</strong> Henry VI Part 2</li>
+  <li><strong>Last play (swan song):</strong> The Tempest → 37th and last [37th BCS]</li>
+  <li><strong>Longest play:</strong> Hamlet</li>
+  <li><strong>Shortest play:</strong> The Comedy of Errors</li>
+  <li><strong>Unfinished play:</strong> Timon of Athens → (38th তম নাটক)</li>
+</ul>
+<div class="note">
+  <h4>দুটি নাটক হারিয়ে যায়:</h4>
+  <ol>
+    <li>Love's Labour's Won</li>
+    <li>The History of Cardenio</li>
+  </ol>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-50">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#50</span>
+              <h2 class="card-topic">William Shakespeare — Classification of Plays</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_20_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>William Shakespeare — নাটকের শ্রেণিবিভাগ</h3>
+<p><em>[শীর্ষে মনে রাখার কৌশল: Prince, Winter, ATM, CARD, LOST]</em></p>
+<table>
+  <thead>
+    <tr>
+      <th>Tragedy (12)</th>
+      <th>Comedy (15)</th>
+      <th>Historical (10)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li>Hamlet (১৬০১)</li>
+          <li>Romeo &amp; Juliet</li>
+          <li>Julius Caesar</li>
+          <li>Othello (১৬০৪)</li>
+          <li>King Lear</li>
+          <li>Macbeth (১৬০৬)</li>
+          <li>Antony and Cleopatra (ক্লিওপেট্রা)</li>
+          <li>Titus Andronicus</li>
+          <li>Troilus and Cressida</li>
+          <li>Timon of Athens</li>
+        </ul>
+        <p><strong>কৌশল:</strong> {CC, RAM, HTTP / HTTP} → OK</p>
+      </td>
+      <td>
+        <ul>
+          <li>As You Like It (হাতে লেখা: As you like you)</li>
+          <li>Merchant of Venice</li>
+          <li>Taming of the Shrew</li>
+          <li>Tempest</li>
+          <li>Twelfth Night</li>
+          <li>Measure for Measure</li>
+          <li>Comedy of Errors</li>
+          <li>All's Well That Ends Well</li>
+          <li>Midsummer Night's Dream</li>
+          <li>Much Ado About Nothing</li>
+          <li>Love's Labour's Lost</li>
+          <li>Prince of Tyre</li>
+          <li>Winter's Tale</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Henry IV, Part I</li>
+          <li>Henry IV, Part II</li>
+          <li>Henry V</li>
+          <li>Henry VI, Part I</li>
+          <li>Henry VI, Part II (১ম)</li>
+          <li>Henry VI, Part III</li>
+          <li>Henry VII (মূলত VIII)</li>
+          <li>King John</li>
+          <li>Richard II</li>
+          <li>Richard III</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4>Tragi-comedy</h4>
+<ul>
+  <li><strong>The Merchant of Venice</strong> [***]</li>
+  <li><strong>Measure for Measure</strong> [***]</li>
+  <li><strong>All's Well That Ends Well</strong> [***]</li>
+  <li>Cymbeline</li>
+  <li>The Winter's Tale</li>
+</ul>
+<div class="note">
+  <p>প্রথম ৩টি সম্পর্কে নোট: <em>maximum এই ৩টাকে মনে করে</em> — মনে রাখার কৌশল: <strong>ভেনিসে পরিমাপ ভালো</strong></p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-51">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#51</span>
+              <h2 class="card-topic">Shakespeare — Poems, Problem Plays, Roman Plays &amp; Translations</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_21_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Poems (William Shakespeare)</h3>
+<ul>
+  <li>The Passionate Pilgrim**</li>
+  <li>The Phoenix &amp; the Turtle</li>
+  <li><strong>Long narrative poems:</strong>
+    <ul>
+      <li>A Lover's Complaint**</li>
+      <li>Rape of Lucrece**</li>
+      <li>Venus and Adonis** (1st published)</li>
+    </ul>
+  </li>
+</ul>
+<div class="note"><p><strong>কৌশল:</strong> VAT Rape করে লুচ্চারা, Lover কে complain, yt phon → চেপে বলে</p></div>
+<h3>Problem plays (সমাজের নানাবিধ সমস্যা নিয়ে লেখা)</h3>
+<ul>
+  <li>Measure for Measure [***]</li>
+  <li>Troilus and Cressida</li>
+  <li>All's Well That Ends Well [***]</li>
+  <li>The Winter's Tale</li>
+</ul>
+<p><strong>[বক্সে লেখা]:</strong> Hamlet</p>
+<h3>Roman plays (রোমান সাম্রাজ্য নিয়ে লেখা)</h3>
+<ul>
+  <li>Antony and Cleopatra [***]</li>
+  <li>Coriolanus</li>
+  <li>Julius Caesar [***]</li>
+</ul>
+<h3>Shakespeare এর নাটকের অনুবাদ</h3>
+<ol>
+  <li><strong>Comedy of Errors</strong> — W. Shakespeare → <strong>ভ্রান্তিবিলাস</strong> — ঈশ্বরচন্দ্র বিদ্যাসাগর</li>
+  <li><strong>The Taming of the Shrew</strong> — W. Shakespeare → <strong>মুখরা রমণী বশীকরণ</strong> — মুনীর চৌধুরী</li>
+</ol>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-52">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#52</span>
+              <h2 class="card-topic">Shakespeare&#x27;s Adapted Plays &amp; Hamlet</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_22_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>অন্যের অনুকরণে W. Shakespeare এর নাটক</h3>
+<ol>
+  <li><strong>The Jew of Malta</strong> (Barabas) — Christopher Marlowe
+    <ul>
+      <li>→ <strong>The Merchant of Venice</strong> (Shylock — ইহুদির বণিক) — W. Shakespeare</li>
+      <li>→ <strong>Volpone</strong> (37th BCS) — Ben Jonson</li>
+    </ul>
+  </li>
+  <li><strong>The Spanish Tragedy</strong> — Thomas Kyd
+    <ul>
+      <li>→ <strong>Hamlet</strong> — W. Shakespeare (38th BCS)</li>
+    </ul>
+  </li>
+</ol>
+<h3>Hamlet</h3>
+<ul>
+  <li>শাব্দিক অর্থ: ছোট গ্রাম</li>
+  <li>সর্ববৃহৎ ও সবচেয়ে জনপ্রিয়</li>
+  <li><strong>Full name:</strong> "The Tragedy of Hamlet, Prince of Denmark"</li>
+</ul>
+<h4>Main character:</h4>
+<ul>
+  <li><strong>Prince Hamlet</strong></li>
+  <li><strong>Ophelia (ওফেলিয়া)</strong> → হ্যামলেটের প্রেমিকা</li>
+  <li><strong>Claudius (ক্লডিয়াস)</strong> → হ্যামলেটের চাচা! (Antagonist)</li>
+  <li><strong>Horatio (হোরাশিও)</strong> → হ্যামলেটের প্রিয় বন্ধু</li>
+  <li><strong>Gertrude</strong> → হ্যামলেটের মা</li>
+  <li><strong>Polonius</strong> → Claudius এর উপদেষ্টা ও Ophelia এর বাবা</li>
+</ul>
+<h4>গুরুত্বপূর্ণ উক্তি:</h4>
+<ul>
+  <li><em>"To be, or not to be, that is the question"</em></li>
+  <li><em>"Frailty (noun), thy name is woman"</em> — "চাতুরী, তোমার অপর নাম নারী"</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-53">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#53</span>
+              <h2 class="card-topic">Shakespeare — Macbeth &amp; Othello</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_23_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Macbeth</h3>
+<p>Scotland এর রাজা Duncan এর হত্যার পূর্ব ও পরবর্তী ঘটনাপুঞ্জি এ নাটকের মূল বিষয়বস্তু।</p>
+<h4>Main character:</h4>
+<ul>
+  <li><strong>Duncan (ডানকান)</strong> → Scotland এর রাজা</li>
+  <li><strong>Macbeth</strong> → Duncan এর অন্যতম সেনাপতি। গল্পের নায়ক</li>
+  <li><strong>Banquo</strong> → Macbeth এর বন্ধু</li>
+  <li><strong>Malcolm</strong> ও <strong>Donalbain</strong> → ডানকানের দুই পুত্র</li>
+  <li><strong>Witches</strong> → তিন ডাইনি (তারা বলেছিল Macbeth একদিন Scotland এর রাজা হবে)</li>
+  <li><strong>Macduff</strong> → বীর। Macbeth কে হত্যা করে</li>
+</ul>
+<h4>গুরুত্বপূর্ণ উক্তি:</h4>
+<ul>
+  <li><em>"Fair is foul, and foul is fair"</em> — (Witches / ডাইনি বলেছে)</li>
+  <li><em>"Here is still the smell of blood. All the perfume of Arabia will not sweeten this little hand"</em> → Lady Macbeth (Macbeth এর স্ত্রীর উক্তি)</li>
+</ul>
+<h3>Othello</h3>
+<p><em>(The Tragedy of Othello, the Moor of Venice)</em></p>
+<p><strong>বিষয়বস্তু:</strong> সন্দেহ ও স্বার্থপরতা (Fatal consequence of doubt)</p>
+<ul>
+  <li><strong>Othello</strong> → Protagonist (ভেনিসের সেনাপতি) — <em>[Desdemona কে রুমাল উপহার দেয়]</em></li>
+  <li><strong>Desdemona</strong> → Othello র নায়িকা</li>
+  <li><strong>Iago</strong> → খলনায়ক (Antagonist)</li>
+  <li><strong>Emilia</strong> → Iago's wife ও Desdemona র সহচর — <em>[রুমাল চুরি করে Iago কে দেয়]</em></li>
+  <li><strong>Cassio</strong> → Othello র সহচর (লেফটেন্যান্ট)</li>
+  <li><strong>Brabantio</strong> → Desdemona র বাবা ও ভেনিসের সিনেটর</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-54">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#54</span>
+              <h2 class="card-topic">Jacobean Period (1603–1625) &amp; John Donne</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_24_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Jacobean period (1603–1625)</h3>
+<ul>
+  <li>রাজা ১ম জেমসের শাসনামল
+    <ul>
+      <li>"The Wisest Fool of Christendom" বলা হয়</li>
+      <li>The Divine Right theory of kings (ঈশ্বরের রাজতান্ত্রিক ক্ষমতায় বিশ্বাসী)</li>
+    </ul>
+  </li>
+  <li><strong>"Metaphysical poets and metaphysical poetry"</strong> (দার্শনিক কবিগোষ্ঠী ও কবিতা) জন্ম হয়</li>
+</ul>
+<h4>প্রধান কবি ও নাট্যকার (DJ party):</h4>
+<ul>
+  <li>John Donne [***]</li>
+  <li>Ben Jonson [**]</li>
+  <li>John Webster</li>
+  <li>Andrew Marvell [**]</li>
+</ul>
+<h3>John Donne (BPL)</h3>
+<ul>
+  <li>Poet of love (ভালোবাসার কবি) [***]</li>
+  <li>Father / leader of metaphysical poets [***]</li>
+  <li>Poet of religion</li>
+  <li>Metaphysical টার্ম ১ম use করে <strong>"An Anatomy of the World"</strong> গ্রন্থে</li>
+  <li><strong>তার বিখ্যাত কবিতা:</strong> Go and Catch the Falling Star</li>
+</ul>
+<h4>* অন্যান্য বিখ্যাত কবিতা:</h4>
+<ul>
+  <li>A Good Morrow (সুপ্রভাত)</li>
+  <li>A Forbidding Mourning (হাতে লেখা: A Forbidding morning)</li>
+  <li>The Sun Rising</li>
+  <li>The Calm</li>
+  <li>The Flea (Religious poem)</li>
+  <li>The Ecstasy</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-55">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#55</span>
+              <h2 class="card-topic">John Donne vs. Hemingway &amp; Ben Jonson</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_25_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="note">
+  <h4>তুলনামূলক তালিকা (John Donne ও Ernest Hemingway)</h4>
+  <ul>
+    <li><strong>The Sun Rising</strong> → John Donne</li>
+    <li><strong>The Sun Also Rises</strong> (novel) → Ernest Hemingway</li>
+    <li><strong>For Whom the Bell Tolls</strong> → John Donne</li>
+    <li><strong>For Whom the Bell Tolls</strong> (novel) → Ernest Hemingway</li>
+  </ul>
+</div>
+<h3>Ben Jonson</h3>
+<ul>
+  <li>Father of English Realistic comedy</li>
+  <li>Father of English <strong>comedy of humours</strong> [P.S.C]</li>
+</ul>
+<h4>Famous plays (নাটক) — (S A V E), T</h4>
+<ul>
+  <li><strong>S</strong> → The Silent Woman</li>
+  <li><strong>A</strong> → Alchemist; The Case is Altered (১ম নাটক)</li>
+  <li><strong>V</strong> → Volpone [***]</li>
+  <li><strong>E</strong> → Every Man in His Humour [P.S.C]; Every Man out of His Humour</li>
+  <li><strong>T</strong> → A Tale of a Tub</li>
+</ul>
+<div class="note">
+  <h4>Confusion (কমন জিনিস → ফারাক):</h4>
+  <ul>
+    <li><strong>A Tale of a Tub</strong> (play) → Ben Jonson</li>
+    <li><strong>A Tale of a Tub</strong> (novel) → Jonathan Swift</li>
+    <li><strong>A Tale of Two Cities</strong> (novel) → Charles Dickens</li>
+    <li><strong>The Canterbury Tales</strong> → Chaucer</li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-56">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#56</span>
+              <h2 class="card-topic">John Webster, Andrew Marvell &amp; Henry Vaughan</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_26_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>John Webster</h3>
+<h4>বিখ্যাত play (Tragedy):</h4>
+<ol type="i">
+  <li><strong>The White Devil</strong> (সাদা শাল)</li>
+  <li><strong>The Duchess of Malfi</strong> (Revenge Tragedy; সবচেয়ে সেরা; Bosola character — selfish / Machiavellian character আছে)</li>
+</ol>
+<h3>Andrew Marvell</h3>
+<h4>Famous poem:</h4>
+<ul>
+  <li><strong>To His Coy Mistress</strong> (***) [BCS]</li>
+  <li><strong>The Definition of Love</strong></li>
+  <li><strong>The Garden</strong></li>
+</ul>
+<h3>Henry Vaughan</h3>
+<h4>Famous poem:</h4>
+<ul>
+  <li><strong>The Retreat</strong></li>
+  <li><strong>Mount of Olives</strong></li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-57">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#57</span>
+              <h2 class="card-topic">The Caroline Period (1625–1649) — Robert Herrick &amp; George Herbert</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_27_2026-11-24_20-48-23.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>The Caroline period (1625–1649)</h3>
+<h4>Robert Herrick [***]</h4>
+<p>→ A true cavalier poet</p>
+<p><strong>বিখ্যাত কবিতা:</strong></p>
+<ol type="i">
+  <li><strong>To Daffodils</strong> [***] (Theme: short living of human being)</li>
+  <li><strong>Delight in Disorder</strong></li>
+</ol>
+<div class="note">
+  <h4>To Daffodils</h4>
+  <p>ড্যাফোডিল ফুলের সাথে মানুষের পার্থিব জীবনের ক্ষণস্থায়িত্বকে তুলে ধরা হয়েছে।</p>
+  <p><strong>মূল বিষয়বস্তু:</strong> short living of human being/life.</p>
+</div>
+<h4>George Herbert</h4>
+<p><em>"A most glorious saint and seer"</em> → Henry Vaughan বলেছেন</p>
+<p><strong>বিখ্যাত কবিতা:</strong></p>
+<ol type="i">
+  <li>The Collar</li>
+  <li>The Easter Wings</li>
+</ol>
+<p><em>[পৃষ্ঠার নিচে লেখা নম্বর]: 01761164650</em></p>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-58">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#58</span>
+              <h2 class="card-topic">Commonwealth Period</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_28_2026-11-24_20-48-24.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>Commonwealth period</h3><ol type="i"><li>Thomas Hobbes</li><li>Jeremy Taylor</li></ol><h4>বিখ্যাত বই (Thomas Hobbes):</h4><ul><li>Leviathan</li><li>Natural Politics</li></ul><div class="note">[Note: জন মিল্টনের "Political pamphlets" এই যুগেই লেখা]</div>
+          </div>
+        </article>
+        
+    <div id="emptyState" class="empty-state">No matching pages found. Try a different keyword.</div>
+  </main>
+
+  <button type="button" id="backTop" class="back-top" title="Back to top" aria-label="Back to top">↑</button>
+  <script>
+(function() {
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('ocr_notes_theme');
+  if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    const syncLabel = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      themeBtn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+    };
+    syncLabel();
+    themeBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('ocr_notes_theme', next);
+      syncLabel();
+    });
+  }
+
+  const printBtn = document.getElementById('printBtn');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => window.print());
+  }
+
+  // Mobile auto-hide header on scroll down, show on scroll up
+  const header = document.querySelector('.site-header');
+  let lastY = window.scrollY;
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (header && window.innerWidth <= 768) {
+      if (y > 90 && y > lastY + 8) {
+        header.classList.add('nav-hidden');
+      } else if (y < lastY - 8 || y <= 40) {
+        header.classList.remove('nav-hidden');
+      }
+    } else if (header) {
+      header.classList.remove('nav-hidden');
+    }
+    if (backTop) {
+      backTop.classList.toggle('visible', y > 400);
+    }
+    lastY = y;
+  }, { passive: true });
+
+  if (backTop) {
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // Search filter
+  const searchInput = document.getElementById('searchInput');
+  const cards = Array.from(document.querySelectorAll('.page-card'));
+  const matchCount = document.getElementById('matchCount');
+  const emptyState = document.getElementById('emptyState');
+
+  if (searchInput && cards.length) {
+    const filterCards = () => {
+      const q = searchInput.value.trim().toLowerCase();
+      let shown = 0;
+      cards.forEach(card => {
+        const text = (card.dataset.search || card.textContent).toLowerCase();
+        const match = !q || text.includes(q);
+        card.classList.toggle('hidden', !match);
+        if (match) shown++;
+      });
+      if (matchCount) {
+        matchCount.textContent = q ? `${shown} / ${cards.length} pages` : `${cards.length} pages`;
+      }
+      if (emptyState) {
+        emptyState.style.display = shown === 0 ? 'block' : 'none';
+      }
+    };
+    searchInput.addEventListener('input', filterCards);
+    filterCards();
+  }
+
+  // Quick jump
+  const jumpSelect = document.getElementById('jumpSelect');
+  if (jumpSelect) {
+    jumpSelect.addEventListener('change', () => {
+      const id = jumpSelect.value;
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

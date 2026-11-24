@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Affairs — OCR Study Notes (19 Pages)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --accent: #0284c7;
+  --accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+  --note-bg: #fffbeb;
+  --note-border: #f59e0b;
+  --qa-bg: #f0f9ff;
+  --qa-border: #0ea5e9;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #273449;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --note-bg: rgba(245, 158, 11, 0.12);
+  --note-border: #fbbf24;
+  --qa-bg: rgba(14, 165, 233, 0.12);
+  --qa-border: #38bdf8;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+.site-header.nav-hidden {
+  transform: translateY(-100%);
+}
+.header-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+.header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.brand .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.subject-nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 0 4px;
+  scrollbar-width: thin;
+}
+.subject-nav a {
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  background: var(--surface-alt);
+  border: 1px solid transparent;
+}
+.subject-nav a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.subject-nav a.active {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+}
+.search-input {
+  flex: 1 1 220px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+.search-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.jump-select {
+  flex: 1 1 200px;
+  max-width: 340px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+}
+.match-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+.page-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  scroll-margin-top: 150px;
+}
+.page-card.hidden {
+  display: none;
+}
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+}
+.card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.card-topic {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.filename-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  opacity: 0.85;
+}
+.card-body {
+  padding: 16px 20px;
+  overflow-x: auto;
+}
+.card-body h2, .card-body h3 {
+  margin: 14px 0 8px;
+  color: var(--accent);
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+.card-body h3:first-child, .card-body h2:first-child {
+  margin-top: 0;
+}
+.card-body h4 {
+  margin: 12px 0 6px;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.card-body p {
+  margin: 6px 0;
+}
+.card-body ul, .card-body ol {
+  margin: 6px 0 10px;
+  padding-left: 22px;
+}
+.card-body li {
+  margin: 4px 0;
+}
+.card-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.93rem;
+}
+.card-body th, .card-body td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.card-body th {
+  background: var(--surface-alt);
+  font-weight: 700;
+}
+.card-body tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--surface-alt) 45%, transparent);
+}
+.card-body .note {
+  background: var(--note-bg);
+  border-left: 4px solid var(--note-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body .qa {
+  background: var(--qa-bg);
+  border-left: 4px solid var(--qa-border);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+}
+.card-body hr {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 14px 0;
+}
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+.back-top.visible {
+  display: inline-flex;
+}
+/* Hub Grid */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--card-accent, var(--accent));
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+.hub-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--card-accent, var(--accent));
+}
+.hub-card .bn-name {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.hub-card .count-pill {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--surface-alt);
+  color: var(--text);
+}
+.summary-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.summary-banner h2 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.summary-banner p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+@media (max-width: 768px) {
+  .header-inner { padding: 8px 12px; }
+  .brand h1 { font-size: 1.05rem; }
+  .card-header { padding: 10px 14px; }
+  .card-body { padding: 12px 14px; font-size: 15px; }
+  .controls-bar { gap: 6px; }
+  .jump-select { max-width: 100%; }
+}
+@media print {
+  .site-header, .back-top, .controls-bar, .subject-nav { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .container { max-width: 100%; padding: 0; }
+  .page-card { break-inside: avoid-page; box-shadow: none; border: 1px solid #ccc; margin-bottom: 12pt; }
+  .card-header { background: #f3f4f6 !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <h1>International Affairs</h1>
+          <span class="subtitle">আন্তর্জাতিক বিষয়াবলি • 19 pages</span>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="btn" id="themeToggle">🌙 Dark</button>
+          <button type="button" class="btn" id="printBtn">🖨️ Print</button>
+        </div>
+      </div>
+      <nav class="subject-nav" aria-label="Subjects">
+        <a href="index.html" class="">🏠 All Subjects (250)</a>
+<a href="english_literature.html" class="">English Literature (58)</a>
+<a href="bangla_literature.html" class="">Bangla Literature (51)</a>
+<a href="mental_ability.html" class="">Mental Ability (34)</a>
+<a href="mathematics.html" class="">Mathematics &amp; Mathematical Reasoning (32)</a>
+<a href="bangladesh_affairs.html" class="">Bangladesh Affairs (31)</a>
+<a href="international_affairs.html" class="active">International Affairs (19)</a>
+<a href="bcs_syllabus.html" class="">BCS Written Syllabus (25)</a>
+      </nav>
+      <div class="controls-bar">
+        <input type="search" id="searchInput" class="search-input" placeholder="Search notes in Bengali or English..." aria-label="Search notes">
+        <select id="jumpSelect" class="jump-select" aria-label="Quick jump">
+          <option value="">Jump to topic / page...</option><option value="page-1">#1 — তাজমহল ও ভারত মানচিত্র (উত্তর ও উত্তর-পূর্ব ভারত)</option><option value="page-2">#2 — এশিয়া পরিচিতি: চীন (৩টি বিপ্লব, তিয়েন আনমেন স্কয়ার, পিংপং ডিপ্...</option><option value="page-3">#3 — চীন মানচিত্র, তিব্বত, হংকং ও ম্যাকাও [11]</option><option value="page-4">#4 — দক্ষিণ এশিয়ার ৮ দেশ, মুদ্রা ও রাজধানী</option><option value="page-5">#5 — শ্রীলঙ্কা ও মালদ্বীপ (মানচিত্র ও গুরুত্বপূর্ণ তথ্য)</option><option value="page-6">#6 — যুক্তরাষ্ট্র (USA) মানচিত্র ও গুরুত্বপূর্ণ তথ্য</option><option value="page-7">#7 — আমেরিকার স্বাধীনতা ও সংবিধান</option><option value="page-8">#8 — কোরিয়া ও জাপান (মানচিত্র ও গুরুত্বপূর্ণ তথ্য)</option><option value="page-9">#9 — ইউরোপ (স্ক্যান্ডিনেভিয়া, বাল্টিক অঞ্চল, জার্মানি ও হিটলার)</option><option value="page-10">#10 — ইউরোপের বিখ্যাত ব্যক্তি ও বলকান অঞ্চল</option><option value="page-11">#11 — পশ্চিম ও দক্ষিণ ইউরোপ (ফ্রান্স, ইতালি, স্পেন, পর্তুগাল ও গুরুত...</option><option value="page-12">#12 — ফ্রান্স ও ইতালির বিখ্যাত ব্যক্তি</option><option value="page-13">#13 — যুক্তরাজ্য (UK / গ্রেট ব্রিটেন) মানচিত্র ও গুরুত্বপূর্ণ তথ্য</option><option value="page-14">#14 — ইউরোপীয় ইউনিয়ন, সদর দপ্তর ও পশ্চিম-দক্ষিণ ইউরোপ মানচিত্র</option><option value="page-15">#15 — রাশিয়া ও ককেশাস অঞ্চল (মানচিত্র ও গুরুত্বপূর্ণ তথ্য)</option><option value="page-16">#16 — আসিয়ান (দক্ষিণ-পূর্ব এশিয়া: ইন্দোনেশিয়া, ফিলিপাইন, থাইল্যান্ড,...</option><option value="page-17">#17 — মায়ানমার (বার্মা) মানচিত্র ও রোহিঙ্গা সংকট</option><option value="page-18">#18 — ভারতের উল্লেখযোগ্য ব্যক্তিত্ব ও বাবরি মসজিদ</option><option value="page-19">#19 — দেশ পরিচিতি — ভারত, কাশ্মীর ও ভারত-পাকিস্তান/চীন যুদ্ধ</option>
+        </select>
+        <span id="matchCount" class="match-count">19 pages</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+        <article class="page-card" id="page-1">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#1</span>
+              <h2 class="card-topic">তাজমহল ও ভারত মানচিত্র (উত্তর ও উত্তর-পূর্ব ভারত)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_31_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>তাজমহল</h3>
+<ul>
+  <li><strong>নির্মাণ:</strong> সম্রাট শাহজাহান</li>
+  <li><strong>অবস্থান:</strong> উত্তরপ্রদেশের আগ্রায় (যমুনা নদীর তীরে)</li>
+  <li><strong>নির্মাণকাল ও শ্রমিক:</strong> ২২ হাজার শ্রমিক, ২০ বছর সময় লাগে</li>
+  <li><strong>স্থপতি:</strong> (খালি রাখা হয়েছে)</li>
+</ul>
+
+<h4>ভারত ও সীমান্তবর্তী অঞ্চলের মানচিত্র</h4>
+<p>[চিত্র: ভারত ও বাংলাদেশের সীমান্ত, জম্মু কাশ্মীর, পাকিস্তান, নেপাল, উত্তর প্রদেশ, সিকিম, ভুটান, চীন, অরুণাচল এবং শিলিগুড়ি করিডোর (চিকেন নেক)-এর হাতে আঁকা মানচিত্র]</p>
+<ul>
+  <li><strong>জম্মু কাশ্মীর</strong></li>
+  <li><strong>পাকিস্তান</strong> (পশ্চিম সীমান্তে)</li>
+  <li><strong>নেপাল</strong></li>
+  <li><strong>উত্তর প্রদেশ:</strong> ফতেহপুর সিক্রি, তাজমহল, বাবরি মসজিদ</li>
+  <li><strong>সিকিম:</strong> সিকিম দখল (১৯৭৫ সালে)</li>
+  <li><strong>ভুটান</strong>, <strong>চীন</strong>, <strong>অরুণাচল</strong></li>
+  <li><strong>চিকেন নেক (Chicken neck):</strong> শিলিগুড়ি করিডোর</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-2">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#2</span>
+              <h2 class="card-topic">এশিয়া পরিচিতি: চীন (৩টি বিপ্লব, তিয়েন আনমেন স্কয়ার, পিংপং ডিপ্লোম্যাসি)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_32_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>এশিয়া পরিচিতি — চীন (আয়তনে ৪র্থ)</h3>
+
+<h4>চীনের ৩টি বিপ্লব</h4>
+<table>
+  <thead>
+    <tr>
+      <th>জাতীয়তাবাদী বিপ্লব</th>
+      <th>সমাজতান্ত্রিক / কমিউনিস্ট বিপ্লব</th>
+      <th>সাংস্কৃতিক বিপ্লব</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li>১৯১১ - ১৯১২ সালে</li>
+          <li>সান ইয়াত সেন</li>
+          <li>মাঞ্চু (চিং) রাজবংশের পতন</li>
+          <li>প্রজাতন্ত্র প্রতিষ্ঠা</li>
+          <li>১ম প্রেসিডেন্ট সান ইয়াত সেন → "আধুনিক চীনের জনক"</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>১৯৪৯ সালে</li>
+          <li>মাও সেতুং</li>
+          <li>পুঁজিবাদ (-)</li>
+          <li>সমাজতন্ত্র (+)</li>
+          <li>ক্ষমতাচ্যুত হয় চিয়াং কাইশেক (পালিয়ে তাইওয়ান যান)</li>
+          <li>মাও সেতুং চীনের নামকরণ করেন গণচীন (গণপ্রজাতন্ত্রী চীন)</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>১৯৬৬ - ৭৬ (১০ বছর)</li>
+          <li>মাও সেতুং</li>
+          <li>সমাজতান্ত্রিক ও সাম্যবাদী সংস্কৃতির বিকাশ</li>
+        </ul>
+        <p><strong>নোট:</strong> মাও সেতুং চীনা কমিউনিস্ট পার্টি প্রতিষ্ঠা → ১৯২১ সালে</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>তিয়েন আনমেন স্কয়ার আন্দোলন</h4>
+<ul>
+  <li>চীনের বেইজিং-এ হয়</li>
+  <li>১০,০০০ শিক্ষার্থী + বুদ্ধিজীবী</li>
+  <li>গণতন্ত্র + মত প্রকাশের স্বাধীনতার জন্য</li>
+</ul>
+
+<h4>Ping Pong Diplomacy (টেবিল টেনিস)</h4>
+<ul>
+  <li>১৯৪৯ সালে কাইশেক তাইওয়ানে পালালে তাইওয়ানকেও চীন ঘোষণা করা হয়। এরপর চীন ও USA এর মধ্যে দ্বন্দ্ব শুরু হয়।</li>
+  <li>১৯৭১ সালে টেবিল টেনিস খেলাকে কেন্দ্র করে বৈরিতা কমে।</li>
+  <li>দুই দেশের মধ্যে কূটনৈতিক সম্পর্ক স্থাপনের পথ সুগম হয়।</li>
+</ul>
+<div class="note">
+  <p><strong>প্রবাহচিত্র:</strong> Table Tennis → Friendship → Diplomacy → China + USA</p>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-3">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#3</span>
+              <h2 class="card-topic">চীন মানচিত্র, তিব্বত, হংকং ও ম্যাকাও</h2>
+            </div>
+            <div class="card-meta">
+              <span class="badge">11</span>
+              <span class="filename-tag">photo_33_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>চীন ও আশেপাশের অঞ্চলের মানচিত্র</h3>
+<p>[চিত্র: চীন, মঙ্গোলিয়া, জিনজিয়াং প্রদেশ, তিব্বত, গোবি মরুভূমি, চীনের মহাপ্রাচীর, বেইজিং, হংকং, ম্যাকাও, তাইওয়ান, ফরমোজা প্রণালী, পূর্ব চীন সাগর, দক্ষিণ চীন সাগর এবং বিরোধপূর্ণ দ্বীপসমূহের হাতে আঁকা মানচিত্র]</p>
+<ul>
+  <li><strong>জিনজিয়াং প্রদেশ:</strong> উইঘুর মুসলিম</li>
+  <li><strong>মঙ্গোলিয়া ও গোবি মরুভূমি:</strong> এশিয়ার সবচেয়ে বড় মরুভূমি</li>
+  <li><strong>চীনের মহাপ্রাচীর (৮৮৫০ km):</strong> মঙ্গোলীয়দের হাত থেকে বাঁচার জন্য</li>
+  <li><strong>বেইজিং</strong></li>
+  <li><strong>তিব্বত দখল (১৯৫৯):</strong> নিষিদ্ধ দেশ; নিষিদ্ধ নগরী লাসা; ধর্মীয় নেতা দালাইলামা; ভারতে নির্বাসিত দালাইলামা</li>
+  <li><strong>ইন্দোচীন (৩):</strong> লাওস, ভিয়েতনাম, কম্বোডিয়া</li>
+  <li><strong>তাইওয়ান:</strong> পূর্বনাম ফরমোজা; জাপানের অধীনে ছিল; <strong>ফরমোজা প্রণালী</strong></li>
+  <li><strong>সেনকাকু দ্বীপ:</strong> বিরোধ: চীন + জাপান</li>
+  <li><strong>প্যারাসেল দ্বীপ:</strong> বিরোধ: চীন + তাইওয়ান + ভিয়েতনাম</li>
+  <li><strong>স্প্র্যাটলি দ্বীপ:</strong> চীন + ভিয়েতনাম</li>
+</ul>
+
+<h4>হংকং ও ম্যাকাও</h4>
+<table>
+  <thead>
+    <tr>
+      <th>হংকং</th>
+      <th>ম্যাকাও</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li><strong>আফিম যুদ্ধ (চীন vs UK)</strong></li>
+          <li>UK এর অধীনে ১৫৫ বছর</li>
+          <li>১ম আফিম যুদ্ধ (১৮৩৯-৪২): চীন ব্রিটেনের কাছে পরাজিত হলে হংকং UK এর উপনিবেশে পরিণত হয়</li>
+          <li>১৮৯৮ সালে ৯৯ বছরের জন্য UK হংকং ইজারা নেয়</li>
+          <li>১৯৯৭ সালে আবার ইজারা নেয় ৫০ বছরের জন্য</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>পর্তুগিজ হতে স্বাধীন (১৯৯৯) (৪৪২ বছর)</li>
+          <li>এশিয়ায় ইউরোপের প্রাচীনতম উপনিবেশ</li>
+          <li>ইউরোপের সর্বশেষ উপনিবেশ</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <p><strong>*** (১৯৯৭ সালে চালু) "চীনে এক দেশে দুই নীতি প্রযোজ্য":</strong></p>
+  <ul>
+    <li><strong>চীনে:</strong> সমাজতন্ত্র (১৯৪৯)</li>
+    <li><strong>হংকং-এ:</strong> পুঁজিবাদ (১৯৯৭ - ২০৪৭)</li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-4">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#4</span>
+              <h2 class="card-topic">দক্ষিণ এশিয়ার ৮ দেশ, মুদ্রা ও রাজধানী</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_34_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>দক্ষিণ এশিয়ার ৮ দেশ (UK এর অধীনে ছিল)</h3>
+<p>[চিত্র: দক্ষিণ এশিয়ার ৮টি দেশের (আফগানিস্তান, পাকিস্তান, ভারত, নেপাল, ভুটান, বাংলাদেশ, শ্রীলঙ্কা, মালদ্বীপ) এবং সীমান্ত রেখাসমূহের (Line of Actual Control, Line of Control, ২৪° অক্ষরেখা, র‍্যাডক্লিফ লাইন, ম্যাকমোহন লাইন, পক প্রণালী) হাতে আঁকা মানচিত্র]</p>
+<ul>
+  <li><strong>আফগানিস্তান:</strong> UK থেকে ১ম স্বাধীনতা লাভ</li>
+  <li><strong>পাকিস্তান ও ভারত:</strong> Line of Control, ২৪° অক্ষরেখা, র‍্যাডক্লিফ লাইন (ভারত ও বাংলাদেশ/পাকিস্তান)</li>
+  <li><strong>ভারত ও চীন:</strong> Line of Actual Control, ম্যাকমোহন লাইন</li>
+  <li><strong>ভুটান:</strong> স্থলবেষ্টিত দেশ; সমুদ্রবন্দর নেই; নৌবাহিনী নেই; ভাষা: জংখা; কার্বন ঋণাত্মক দেশ; ১ম ধূমপান মুক্ত দেশ; বজ্র ড্রাগনের দেশ; বাংলাদেশকে ১ম স্বীকৃতি (৬ই ডিসেম্বর)</li>
+  <li><strong>নেপাল:</strong> এশিয়ার ধর্মনিরপেক্ষ রাষ্ট্র; হিমালয় কন্যা; মাউন্ট এভারেস্ট; আয়তনে প্রায় বাংলাদেশের সমান</li>
+  <li><strong>পক প্রণালী:</strong> (ভারত : শ্রীলঙ্কা)</li>
+  <li><strong>শ্রীলঙ্কা:</strong> পূর্বনাম: সিংহল; বিশ্বের ১ম নারী প্রধানমন্ত্রী: শ্রীমাভো বন্দরনায়েক (১৯৬০); সাংবিধানিকভাবে এশিয়ার একমাত্র বৌদ্ধ রাষ্ট্র; দক্ষিণ এশিয়ার একমাত্র দ্বীপ রাষ্ট্র</li>
+  <li><strong>মালদ্বীপ:</strong> UK থেকে সর্বশেষ স্বাধীন (১৯৬৫); আয়তন ও জনসংখ্যায় এশিয়ার ক্ষুদ্রতম</li>
+</ul>
+
+<h4>দক্ষিণ এশিয়ার মুদ্রা ও রাজধানী</h4>
+<table>
+  <thead>
+    <tr>
+      <th>দেশ</th>
+      <th>রাজধানী</th>
+      <th>মুদ্রা</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ভারত</td><td>নয়াদিল্লী</td><td>রুপি (আরও ব্যবহার করে: সিচেলিস, মরিশাস)</td></tr>
+    <tr><td>পাকিস্তান</td><td>ইসলামাবাদ</td><td>রুপি</td></tr>
+    <tr><td>নেপাল</td><td>কাঠমান্ডু</td><td>রুপি</td></tr>
+    <tr><td>শ্রীলঙ্কা</td><td>জয়বর্ধনপুর কোট্টে</td><td>রুপি</td></tr>
+    <tr><td>বাংলাদেশ</td><td>ঢাকা</td><td>টাকা</td></tr>
+    <tr><td>আফগানিস্তান</td><td>কাবুল</td><td>আফগানি</td></tr>
+    <tr><td>মালদ্বীপ</td><td>মালে</td><td>রুপিয়া (ইন্দোনেশিয়ার মুদ্রাও রুপিয়া)</td></tr>
+    <tr><td>ভুটান</td><td>থিম্পু</td><td>গুলট্রাম</td></tr>
+  </tbody>
+</table>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-5">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#5</span>
+              <h2 class="card-topic">শ্রীলঙ্কা ও মালদ্বীপ (মানচিত্র ও গুরুত্বপূর্ণ তথ্য)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_35_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>শ্রীলঙ্কা</h3>
+<p>[চিত্র: শ্রীলঙ্কা ও দক্ষিণ ভারতের তামিলনাড়ু, পক উপসাগর, পক প্রণালী, রামেশ্বর দ্বীপ, মান্নার উপসাগর, বঙ্গোপসাগর, জাফনা, এলিফ্যান্ট পাস, মান্নার দ্বীপ, অ্যাডামস পিক, ক্যান্ডি, কলম্বো ও অনুরাধাপুরের হাতে আঁকা মানচিত্র]</p>
+<ul>
+  <li><strong>জাফনা:</strong> তামিল LTTE</li>
+  <li><strong>Elephant pass:</strong> জাফনাকে মূল ভূখণ্ডের সাথে যুক্ত করেছে</li>
+  <li><strong>মান্নার দ্বীপ:</strong> মুসলিম অধ্যুষিত</li>
+  <li><strong>অ্যাডামস পিক:</strong> হযরত আদম (আ:) স্মৃতি বিজড়িত</li>
+  <li><strong>রামেশ্বর দ্বীপ</strong>, <strong>পক প্রণালী</strong>, <strong>পক উপসাগর</strong>, <strong>মান্নার উপসাগর</strong>, <strong>তামিলনাড়ু</strong>, <strong>বঙ্গোপসাগর</strong></li>
+  <li><strong>Kandy:</strong> সাংস্কৃতিক রাজধানী</li>
+  <li><strong>কলম্বো:</strong> বাণিজ্যিক রাজধানী; বৃহত্তম শহর ও সমুদ্র বন্দর</li>
+  <li><strong>অনুরাধাপুর:</strong> প্রাচীনতম রাজধানী ও বৌদ্ধ তীর্থকেন্দ্র</li>
+</ul>
+
+<h3>মালদ্বীপ</h3>
+<p>[চিত্র: মালদ্বীপের দ্বীপপুঞ্জ, ভারত মহাসাগর (1700 km দক্ষিণে) এবং দিয়াগো গার্সিয়া দ্বীপের হাতে আঁকা মানচিত্র]</p>
+<ul>
+  <li>১২০০ দ্বীপের সমষ্টি (২৯৮ বর্গ কি.মি)</li>
+  <li>নিজস্ব সেনাবাহিনী নেই</li>
+  <li>এশিয়ায় মাথাপিছু আয় ও শিক্ষার হারে সর্বোচ্চ</li>
+  <li>জলবায়ু পরিবর্তনের ব্যাপকতা তুলে ধরার জন্য পানির নিচে বৈঠক করেছিল। <strong>কারণ:</strong> (i) পরিবেশ সচেতনতা, (ii) আর্থিক সক্ষমতা</li>
+</ul>
+<h4>দিয়াগো গার্সিয়া দ্বীপ (ভারত মহাসাগরে ১৭০০ km দক্ষিণে)</h4>
+<ul>
+  <li>ব্রিটেনের অধীনে</li>
+  <li>মার্কিন নৌঘাঁটি বিদ্যমান</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-6">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#6</span>
+              <h2 class="card-topic">যুক্তরাষ্ট্র (USA) মানচিত্র ও গুরুত্বপূর্ণ তথ্য</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_36_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>USA [৫০টি অঙ্গরাজ্য] — (৫০ × ২) = ১০০ জন সিনেটর</h3>
+<p><strong>কলম্বাস আমেরিকা আবিষ্কার:</strong> ১৪৯২ সালে</p>
+<p>[চিত্র: যুক্তরাষ্ট্র (USA), আলাস্কা, হাওয়াই, মার্শাল দ্বীপপুঞ্জ, কানাডা, মেক্সিকো, কিউবা, বেরিং প্রণালী, ফ্লোরিডা প্রণালী, ৪৯° অক্ষরেখা, সনোরা লাইন এবং গুরুত্বপূর্ণ শহর ও স্থানের হাতে আঁকা মানচিত্র]</p>
+<ul>
+  <li><strong>আলাস্কা:</strong> রাশিয়ার কাছ থেকে ক্রয় করে (১৮৬৭); আয়তনে বৃহত্তম (পাশে Russia, চুকচি সাগর, বেরিং প্রণালী, বেরিং সাগর)</li>
+  <li><strong>মার্শাল দ্বীপপুঞ্জ:</strong> স্বাধীন ও সার্বভৌম; Compact of Free Association (COFA) চুক্তির মাধ্যমে যুক্ত; প্রতিরক্ষা ও নিরাপত্তা দেয়</li>
+  <li><strong>কানাডা ও USA সীমান্ত:</strong> ৪৯° অক্ষরেখা</li>
+  <li><strong>নিউইয়র্ক (important place):</strong> বিগ অ্যাপেল; ওয়াল স্ট্রিট (শেয়ার বাজারের জন্য বিখ্যাত); জাতিসংঘের সদর দপ্তর</li>
+  <li><strong>স্ট্যাচু অব লিবার্টি:</strong> স্বাধীনতার ১০০ বছর উপলক্ষে ফ্রান্স USA কে উপহার দেয় ১৮৮৬ সালে; USA এর স্বাধীনতার প্রতীক</li>
+  <li><strong>পেন্টাগন:</strong> USA এর প্রতিরক্ষা বিভাগের সদর দপ্তর</li>
+  <li><strong>ওয়াশিংটন ডিসি:</strong> হোয়াইট হাউস (ওভাল অফিস আছে); ক্যাপিটল হিল</li>
+  <li><strong>ওয়াটার গেট ভবন:</strong> ডেমোক্রেটিক দলের প্রধান কার্যালয়; ওয়াটার গেট কেলেঙ্কারীর সাথে জড়িত</li>
+  <li><strong>লুইসিয়ানা:</strong> ফ্রান্সের কাছ থেকে ক্রয়</li>
+  <li><strong>হাওয়াই (USA, ৫০তম অঙ্গরাজ্য):</strong> মাওনা লোয়া (পৃথিবীর বৃহত্তম আগ্নেয়গিরি); হনুলুলু; <strong>পার্ল হারবার নৌঘাঁটি</strong> — জাপান আক্রমণ করে ১৯৪১ সালের ৭ ডিসেম্বর, ফলে USA ২য় বিশ্বযুদ্ধে সরাসরি জড়িয়ে পড়ে</li>
+  <li><strong>মেক্সিকো ও সীমান্ত:</strong> সনোরা লাইন; মেক্সিকো উপসাগর; আটলান্টিক; ফ্লোরিডা প্রণালী</li>
+  <li><strong>কিউবা:</strong> গুয়ানতানামো বে কারাগার (মার্কিন যুক্তরাষ্ট্রের)</li>
+</ul>
+
+<h4>ক্যালিফোর্নিয়া</h4>
+<ul>
+  <li>সর্বাধিক ইলেক্টোরাল ভোট: ৫৫টি (সংশোধিত: এখন ৫৪টি)</li>
+  <li><strong>লস এঞ্জেলেস:</strong> চলচ্চিত্র শিল্প কেন্দ্র (হলিউড)</li>
+  <li>জনসংখ্যায় বৃহত্তম অঙ্গরাজ্য</li>
+  <li><strong>সিলিকন ভ্যালি:</strong> Technology এবং Innovation এর অন্যতম প্রধান কেন্দ্র</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-7">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#7</span>
+              <h2 class="card-topic">আমেরিকার স্বাধীনতা ও সংবিধান</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_37_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>আমেরিকা</h3>
+<ul>
+  <li>পৃথিবীর সবচেয়ে ছোট সংবিধান</li>
+  <li>স্বাধীনতা লাভ: ১৭৭৬ সালের ৪ জুলাই (ব্রিটেনের কাছ থেকে)</li>
+  <li>সাহায্য: ফ্রান্স</li>
+  <li>আনুষ্ঠানিকভাবে স্বাধীনতা লাভ: ১৭৮৩ সালে → <strong>১ম ভার্সাই চুক্তির</strong> মাধ্যমে
+    <ul>
+      <li>USA + ব্রিটেন এর মধ্যে স্বাক্ষরিত হয়</li>
+      <li>ভার্সাই ফ্রান্সের প্যারিসে অবস্থিত</li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-8">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#8</span>
+              <h2 class="card-topic">কোরিয়া ও জাপান (মানচিত্র ও গুরুত্বপূর্ণ তথ্য)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_38_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>কোরিয়া ও জাপান</h3>
+<div class="note">
+  <p><strong>সানশাইন পলিসি:</strong> ১৯৯৮ সালে দুই কোরিয়ার মধ্যে উত্তেজনা প্রশমিত করে সৌহার্দ্যপূর্ণ আচরণ বজায় রাখার লক্ষ্যে যে নীতি গ্রহণ করা হয় তাই সানশাইন পলিসি।</p>
+  <p><strong>উদ্যোক্তাঃ</strong> কিম দায়ে জুং (২০০০ সালে এই নীতির জন্য শান্তি নোবেল পান)</p>
+</div>
+<p>[চিত্র: উত্তর ও দক্ষিণ কোরিয়া (৩৮° অক্ষরেখা, পানমুনজম, কোরিয়া প্রণালী) এবং জাপানের প্রধান ৪টি দ্বীপ (হোক্কাইডো, হনসু, শিকোকু, কিউশু), কুড়িল দ্বীপপুঞ্জ, টোকিও, হিরোশিমা, নাগাসাকি, কিয়োটো, ওকিনাওয়া ও সেনকাকু দ্বীপের হাতে আঁকা মানচিত্র]</p>
+
+<h4>কোরিয়া</h4>
+<ul>
+  <li><strong>উত্তর কোরিয়া:</strong> সমাজতন্ত্র; USSR এর দখলে যায়; ৮ম পারমাণবিক শক্তিধর দেশ</li>
+  <li><strong>৩৮° অক্ষরেখা:</strong> ১৯৪৫ সালে পৃথক</li>
+  <li><strong>দক্ষিণ কোরিয়া:</strong> পুঁজিবাদ; USA এর দখলে</li>
+  <li><strong>কোরিয়া যুদ্ধ:</strong> (১৯৫০ - ১৯৫৩)</li>
+  <li><strong>জাপানের দখল:</strong> ১৯১০ সালে দখল (২য় বিশ্বযুদ্ধ পর্যন্ত দখল)</li>
+  <li><strong>পানমুনজম (শান্তিপল্লী):</strong> মধ্যবর্তী অসামরিক এলাকা। দুই দেশের মধ্যে যেকোন বৈঠক এখানে অনুষ্ঠিত হয়। ১৯৫৩ সালের যুদ্ধবিরতি এখানে হয়।</li>
+  <li><strong>মুদ্রা তুলনা:</strong> চীন (ইউয়ান) &gt; জাপান (ইয়েন) &gt; কোরিয়া (উন)</li>
+  <li><strong>কোরিয়া প্রণালী</strong></li>
+</ul>
+
+<h4>জাপান (Japan)</h4>
+<ul>
+  <li>পূর্বনাম: নিপ্পন; সূর্যোদয়ের দেশ; এশিয়ার পূর্বে অবস্থান; প্রাচ্যের গ্রেট ব্রিটেন</li>
+  <li><strong>পার্লামেন্ট:</strong> ডায়েট</li>
+  <li><strong>প্রধান ৪টি দ্বীপ:</strong> হোক্কাইডো, হনসু দ্বীপ (ফুজিয়ামা আগ্নেয়গিরি), শিকোকু, কিউশু</li>
+  <li><strong>কুড়িল দ্বীপপুঞ্জ:</strong> বিরোধ: রাশিয়া - জাপান (২য় বিশ্বযুদ্ধে রাশিয়া দখল করে)</li>
+  <li><strong>টোকিও:</strong> জনসংখ্যায় বিশ্বে ১ম; G-7 সদস্য দেশ (একমাত্র এশীয়)</li>
+  <li><strong>হিরোশিমা:</strong> প্রথম আনবিক বোমা নিক্ষেপ; ৬ই আগস্ট, ১৯৪৫; লিটল বয় বোমা</li>
+  <li><strong>নাগাসাকি:</strong> ৯ আগস্ট, ১৯৪৫; ফ্যাটম্যান; Statue of peace অবস্থিত</li>
+  <li><strong>বোমা নিক্ষেপের নির্দেশ:</strong> হ্যারি এস ট্রুম্যান</li>
+  <li><strong>ওকিনাওয়া:</strong> USA এর নৌঘাঁটি রয়েছে</li>
+  <li><strong>কিয়োটো শহর:</strong> জাপানের প্রাচীন শহর; "কিয়োটো প্রটোকল" জলবায়ু চুক্তি (১৯৯৭ সালে)</li>
+  <li><strong>সেনকাকু দ্বীপ</strong></li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-9">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#9</span>
+              <h2 class="card-topic">ইউরোপ (স্ক্যান্ডিনেভিয়া, বাল্টিক অঞ্চল, জার্মানি ও হিটলার)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_39_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ইউরোপ</h3>
+<ul>
+  <li><strong>গ্রীনল্যান্ড (ডেনমার্ক):</strong> পৃথিবীর বৃহত্তম দ্বীপ</li>
+  <li><strong>নর্ডিক দেশের মুদ্রা কৌশল (ফি ডে আ সু ন):</strong> ফি (ফিনল্যান্ড) → মুদ্রা: ইউরো; ডে আ সু ন (ডেনমার্ক, আইসল্যান্ড, সুইডেন, নরওয়ে) → ক্রোনা</li>
+</ul>
+<p>[চিত্র: উত্তর ও মধ্য ইউরোপ — আইসল্যান্ড, নরওয়ে, সুইডেন, ফিনল্যান্ড, ডেনমার্ক, রাশিয়া, বাল্টিক অঞ্চল (এস্তোনিয়া, লাটভিয়া, লিথুয়ানিয়া), বেলারুশ, পোল্যান্ড, পূর্ব ও পশ্চিম জার্মানি, বার্লিন, অস্ট্রিয়া এবং ওডার-নিস লাইনের হাতে আঁকা মানচিত্র]</p>
+
+<h4>স্ক্যান্ডিনেভিয়া ও বাল্টিক অঞ্চল</h4>
+<ul>
+  <li><strong>স্ক্যান্ডিনেভিয়া অঞ্চল:</strong> আইসল্যান্ড, নরওয়ে, সুইডেন, ডেনমার্ক, ফিনল্যান্ড</li>
+  <li><strong>Scandinavian Peninsula:</strong> লম্বা সরু স্থলভাগ</li>
+  <li><strong>নরওয়ে:</strong> নিশিথ সূর্যের দেশ; <strong>হেমারফাস্ট</strong> (সবচেয়ে উত্তরের নগরী)</li>
+  <li><strong>ফিনল্যান্ড:</strong> ইউরোপে নারীরা ১ম ভোটাধিকার পায়</li>
+  <li><strong>বাল্টিক অঞ্চল (বাল্টিক সাগর সংলগ্ন):</strong> এস্তোনিয়া, লাটভিয়া, লিথুয়ানিয়া</li>
+  <li><strong>বেলারুশ</strong>, <strong>Russia</strong></li>
+</ul>
+
+<h4>জার্মানি ও হিটলার</h4>
+<ul>
+  <li><strong>ওডার নিস লাইন:</strong> জার্মানি ও পোল্যান্ডের সীমান্ত</li>
+  <li><strong>পশ্চিম জার্মানি (রাজধানী: বন)</strong> ও <strong>পূর্ব জার্মানি (রাজধানী: বার্লিন)</strong></li>
+  <li><strong>বার্লিন প্রাচীর (১৯৬১ - ১৯৮৯):</strong> পূর্ব জার্মানী নির্মাণ করে; ১৯৮৯ সালে ভেঙ্গে ফেলা হয়</li>
+  <li><strong>দুই জার্মানি একত্রিত:</strong> ১৯৯০ সালের ৩ অক্টোবর</li>
+  <li><strong>অস্ট্রিয়া:</strong> হিটলারের জন্মগ্রহণ; ১৯৩৮ সালে অস্ট্রিয়াকে জার্মানির অংশ ঘোষণা</li>
+  <li><strong>হিটলার:</strong>
+    <ul>
+      <li>পুলিশবাহিনী: গেস্টাপো</li>
+      <li>রাজনৈতিক দল: নাৎসি পার্টি</li>
+      <li>১৯৩৪ সালে চ্যান্সেলর হন</li>
+      <li>হলোকাস্ট গণহত্যার মাধ্যমে ৬০ লাখ ইহুদি হত্যা করে</li>
+      <li>বিখ্যাত উক্তিঃ "যুদ্ধই জীবন যুদ্ধই সার্বজনীন"</li>
+      <li>আত্মজীবনী গ্রন্থঃ Mein Kampf (My struggle)</li>
+      <li>আত্মসমর্পণঃ (৭ মে, ১৯৪৫)</li>
+    </ul>
+  </li>
+  <li><strong>২য় বিশ্বযুদ্ধের সূচনা:</strong> হিটলার ১৯৩৯ সালে পোল্যান্ড আক্রমণের মাধ্যমে ২য় বিশ্বযুদ্ধ শুরু হয়।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-10">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#10</span>
+              <h2 class="card-topic">ইউরোপের বিখ্যাত ব্যক্তি ও বলকান অঞ্চল</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_40_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>বিখ্যাত ব্যক্তি</h3>
+<ul>
+  <li><strong>অটোভন বিসমার্ক:</strong>
+    <ul>
+      <li>আধুনিক জার্মানির জনক</li>
+      <li>"Blood and Iron Policy" গ্রহণ (১৮৬২)</li>
+      <li>জার্মানির ১ম চ্যান্সেলর</li>
+    </ul>
+  </li>
+  <li><strong>কার্ল মার্কস:</strong>
+    <ul>
+      <li>সমাজতন্ত্রের জনক</li>
+      <li><em>Das Capital</em> (বিখ্যাত বই) → রুশ বিপ্লবে অনুপ্রেরণা</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>বলকান অঞ্চল</h3>
+<p>[চিত্র: বলকান অঞ্চল — অস্ট্রিয়া, সাবেক যুগোস্লাভিয়া (স্লোভেনিয়া, ক্রোয়েশিয়া, বসনিয়া হার্জেগোভিনা, মন্টিনিগ্রো, সার্বিয়া, কসোভো, নর্থ মেসিডোনিয়া), রোমানিয়া, বুলগেরিয়া, গ্রিস, তুরস্ক, কৃষ্ণ সাগর, মর্মর সাগর, এজিয়ান সাগর, বসফরাস ও দার্দানেলিস প্রণালীর হাতে আঁকা মানচিত্র]</p>
+<ul>
+  <li><strong>অস্ট্রিয়া:</strong> ইউরোপের প্রবেশদ্বার; <strong>ভিয়েনা সদরদপ্তর:</strong> IAEA, OPEC</li>
+  <li><strong>সাবেক যুগোস্লাভিয়া:</strong> স্লোভেনিয়া, ক্রোয়েশিয়া, বসনিয়া হার্জেগোভিনা, মন্টিনিগ্রো, সার্বিয়া, কসোভো (মুসলিম), North মেসিডোনিয়া</li>
+  <li><strong>রোমানিয়া</strong>, <strong>বুলগেরিয়া</strong></li>
+  <li><strong>তুরস্ক ও প্রণালী:</strong> কৃষ্ণ সাগর, মর্মর সাগর, এজিয়ান সাগর; বসফরাস প্রণালি ও দার্দানেলিস প্রণালি; <strong>ইস্তাম্বুল শহর</strong> (এশিয়া + ইউরোপ)</li>
+  <li><strong>গ্রিস (SPAA):</strong>
+    <ul>
+      <li>দার্শনিক পরম্পরা: সক্রেটিস → প্লেটো → এরিস্টটল → আলেকজান্ডার</li>
+      <li>সর্বপ্রথম দর্শন চর্চা</li>
+      <li>গণতন্ত্রের সূতিকাগার / আতুরঘর</li>
+      <li><strong>হোমারঃ</strong> গ্রিসের বিখ্যাত অন্ধ কবি [ইলিয়াড ও ওডেসি দুটি মহাকাব্য রচনা]</li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-11">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#11</span>
+              <h2 class="card-topic">পশ্চিম ও দক্ষিণ ইউরোপ (ফ্রান্স, ইতালি, স্পেন, পর্তুগাল ও গুরুত্বপূর্ণ চুক্তি)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_41_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>পশ্চিম ও দক্ষিণ ইউরোপ (ফ্রান্স, ইতালি ও আইবেরীয় উপদ্বীপ)</h3>
+<p>[চিত্র: ফ্রান্স, স্পেন, পর্তুগাল, ইতালি, নেদারল্যান্ড, বেলজিয়াম, জার্মানি, সুইজারল্যান্ড, অস্ট্রিয়া, কর্সিকা, সিসিলি, মরক্কো, জিব্রাল্টার প্রণালী, ইংলিশ চ্যানেল ও চ্যানেল টানেলের হাতে আঁকা মানচিত্র]</p>
+
+<h4>ফ্রান্স ও নেপোলিয়ন</h4>
+<ul>
+  <li><strong>বাস্তিল দুর্গ (কারাগার):</strong> ১৭৮৯ সালের ১৪ই জুলাই পতন (ফরাসি বিপ্লব শুরু)</li>
+  <li><strong>ফরাসি বিপ্লব:</strong> ১৭৮৯ সালে; স্লোগান: স্বাধীনতা, সাম্য ও ভ্রাতৃত্ব; ফরাসি বিপ্লবের শিশু: নেপোলিয়ন</li>
+  <li><strong>কর্সিকা দ্বীপ:</strong> নেপোলিয়নের জন্ম</li>
+  <li><strong>নেপোলিয়ন:</strong> সম্রাট হন (১৮০৪); ১৮১৩ সালে লিপজিক-এ পরাজিত; সেন্ট অ্যালবা (১ম নির্বাসিত, ১৮১৪)</li>
+  <li><strong>ওয়াটারলু যুদ্ধক্ষেত্র (১৮১৫):</strong> যুদ্ধ: নেপোলিয়ন + ডিউক অব ওয়েলিংটন; পরাজয়ের পর সেন্ট হেলেনা দ্বীপে নির্বাসন (১৮১৫, ২য়) এবং ১৮২১ সালে সেখানে মৃত্যুবরণ</li>
+  <li><strong>গুরুত্বপূর্ণ স্থান:</strong> এলিসি প্রাসাদ, আইফেল টাওয়ার, ভার্সাই শহর</li>
+  <li><strong>প্রতিবেশী ও প্রণালী:</strong> নেদারল্যান্ড, বেলজিয়াম, ইংলিশ চ্যানেল, চ্যানেল টানেল, সুইজারল্যান্ড; <strong>জার্মানী</strong> (২য় বিশ্বযুদ্ধে ফ্রান্স জার্মানির কাছে আত্মসমর্পণ করে)</li>
+</ul>
+
+<h4>স্পেন, পর্তুগাল ও ইতালি</h4>
+<ul>
+  <li><strong>পর্তুগাল ও স্পেন:</strong> লাইন অব ডিমারকেশন; আটলান্টিক মহাসাগর; ভূমধ্যসাগর</li>
+  <li><strong>জিব্রাল্টার প্রণালী:</strong> পৃথক করে ইউরোপ + আফ্রিকা (মরক্কো)</li>
+  <li><strong>ইতালি:</strong> ইউরোপের বুট বলা হয়; ছিদ্রায়িত রাষ্ট্র (অস্ট্রিয়ার দক্ষিণে)</li>
+  <li><strong>ভেনিস</strong>, <strong>সান ম্যারিনো</strong>, <strong>রোম</strong></li>
+  <li><strong>ফ্লোরেন্স শহর:</strong> রেনেসাঁ আন্দোলনের সূচনা</li>
+  <li><strong>ভ্যাটিক্যান সিটি:</strong> পৃথিবীর সবচেয়ে ছোট রাষ্ট্র</li>
+  <li><strong>সিসিলি দ্বীপ:</strong> আর্কিমিডিসের স্মৃতি বিজড়িত স্থান</li>
+</ul>
+
+<h4>প্যারিস ও ভার্সাই শহরের গুরুত্বপূর্ণ চুক্তিসমূহ</h4>
+<ul>
+  <li><strong>প্যারিস</strong> (City of culture, নটরডেম গির্জা, ল্যুভর জাদুঘর):
+    <ul>
+      <li><strong>প্যারিস চুক্তি (১৭৮৩):</strong> USA + ব্রিটেন — ফলাফলঃ মার্কিন সার্বভৌমত্ব স্বীকার</li>
+      <li><strong>প্যারিস শান্তি চুক্তি (১৯৭৩):</strong> USA + ভিয়েতনাম — ভিয়েতনাম যুদ্ধের অবসান</li>
+      <li><strong>ডেটন চুক্তি (১৯৯৫):</strong> বসনিয়া যুদ্ধের অবসান</li>
+    </ul>
+  </li>
+  <li><strong>ভার্সাই শহর:</strong>
+    <ul>
+      <li><strong>১ম ভার্সাই চুক্তি (১৭৮৩):</strong> USA + ব্রিটেন — "হল অব মিরর" প্রাসাদে</li>
+      <li><strong>২য় ভার্সাই চুক্তি (১৯১৯):</strong> মিত্র শক্তি + জার্মানী (অক্ষশক্তি) — জার্মানীকে যুদ্ধ অপরাধী চিহ্নিতকরণ, যুদ্ধের ক্ষয়ক্ষতি আদায়</li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-12">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#12</span>
+              <h2 class="card-topic">ফ্রান্স ও ইতালির বিখ্যাত ব্যক্তি</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_42_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ফ্রান্সের বিখ্যাত ব্যক্তি</h3>
+<ul>
+  <li><strong>নেপোলিয়ান বোনাপার্ট:</strong> বিখ্যাত উক্তিঃ "Give me a good mother, I will give you good nation"</li>
+  <li><strong>লুই পাস্তুর:</strong>
+    <ul>
+      <li>জীবাণু তত্ত্বের জনক</li>
+      <li>জলাতঙ্ক রোগের টীকা আবিষ্কার</li>
+    </ul>
+  </li>
+  <li><strong>জ্যাক রুশো:</strong>
+    <ul>
+      <li>ফরাসি বিপ্লবের স্লোগানের জনক</li>
+      <li>Famous book: <em>The Social Contract</em> (ফরাসি বিপ্লব নিয়ে লেখা)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>ইতালির বিখ্যাত ব্যক্তি</h3>
+<ul>
+  <li><strong>লিওনার্দো দ্য ভিঞ্চি:</strong>
+    <ul>
+      <li>ইতালির রেনেসাঁ সর্বশ্রেষ্ঠ পুরুষ</li>
+      <li>বিখ্যাত চিত্রকর্মঃ মোনালিসা</li>
+    </ul>
+  </li>
+  <li><strong>বেনিটো মুসোলিনী:</strong>
+    <ul>
+      <li>হিটলারের বন্ধু</li>
+      <li>ফ্যাসিবাদের প্রবক্তা</li>
+    </ul>
+  </li>
+  <li><strong>গ্যালিলিও:</strong> বিজ্ঞানী</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-13">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#13</span>
+              <h2 class="card-topic">যুক্তরাজ্য (UK / গ্রেট ব্রিটেন) মানচিত্র ও গুরুত্বপূর্ণ তথ্য</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_43_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>UK (গ্রেট ব্রিটেন)</h3>
+<ul>
+  <li>ইংল্যান্ড, ওয়েলস, স্কটল্যান্ড ও উত্তর আয়ারল্যান্ড</li>
+  <li>আধুনিক গণতন্ত্রের সূতিকাগার</li>
+  <li>Article 19: মানবাধিকার সংগঠন</li>
+</ul>
+<p>[চিত্র: যুক্তরাজ্য (England, Scotland, Wales, N. Ireland), আয়ারল্যান্ড (পান্নার দ্বীপ), লন্ডন, গ্রিনিচ মান মন্দির, উত্তর সাগর, আটলান্টিক মহাসাগর, ডোভার প্রণালী ও ইংলিশ চ্যানেলের হাতে আঁকা মানচিত্র]</p>
+
+<h4>গুরুত্বপূর্ণ ব্যক্তিত্ব ও ইতিহাস</h4>
+<ul>
+  <li><strong>মার্গারেট থ্যাচার (ব্রিটেনের ১ম নারী প্রধানমন্ত্রী):</strong> ফকল্যান্ড যুদ্ধ (১৯৮২, UK + Argentina, UK জয়) → উপাধি: লৌহ মানবী</li>
+  <li><strong>রানী ১ম এলিজাবেথ:</strong> ভার্জিন কুইন / চিরকুমারী</li>
+  <li><strong>উইনস্টন চার্চিল:</strong> ২য় বিশ্বযুদ্ধকালীন ব্রিটেনের প্রধানমন্ত্রী; সাহিত্যে নোবেল পান; গ্রন্থ: <em>"The history of the second world war"</em></li>
+  <li><strong>UK এর রাজা/রাণীকে সাংবিধানিকভাবে রাষ্ট্রপ্রধান বলে মনে করে (১৫টি দেশ):</strong> অস্ট্রেলিয়া, Canada, ফিজি, নিউজিল্যান্ড, পাপুয়া নিউগিনি প্রমুখ</li>
+  <li><strong>আয়ারল্যান্ড:</strong> পান্নার দ্বীপ</li>
+  <li><strong>ম্যাগনাকার্টা চুক্তি (১২১৫):</strong> স্বাক্ষরঃ রাজা জন; ব্রিটিশ শাসনতন্ত্রের বাইবেল</li>
+  <li><strong>শিল্প বিপ্লব সংঘটিত (অষ্টাদশ শতাব্দী):</strong> উপমহাদেশে নীল চাষের সূচনা হয়; সমগ্র ইউরোপ জুড়ে ছড়িয়ে পড়ে</li>
+  <li><strong>Bill of Rights (১৬৮৯):</strong> ফলাফল: নিয়মতান্ত্রিক রাজতন্ত্র</li>
+</ul>
+
+<h4>লন্ডন ও গুরুত্বপূর্ণ ভবনসমূহ</h4>
+<ul>
+  <li><strong>Greenwich, London:</strong> মান মন্দির</li>
+  <li><strong>ওয়েস্ট মিনিস্টার ভবন (টেমস নদীর তীরে):</strong> পার্লামেন্ট ভবন — হাউজ অব লর্ডস (উচ্চ), হাউজ অব কমন্স (নিম্ন); পৃথিবীর প্রাচীনতম গণতন্ত্র বিদ্যমান</li>
+  <li><strong>১০ নং ডাউনিং স্ট্রিট:</strong> প্রধানমন্ত্রীর বাসভবন</li>
+  <li><strong>১১ নং ডাউনিং স্ট্রিট:</strong> অর্থমন্ত্রীর কার্যালয়</li>
+  <li><strong>বাকিংহাম প্যালেস:</strong> রাজ পরিবারের বাসভবন</li>
+  <li><strong>হোয়াইট হল:</strong> রাজ পরিবারের প্রশাসনিক সদর দপ্তর / ব্রিটিশ সরকারের কার্যালয়</li>
+  <li><strong>সংলগ্ন জলরাশি:</strong> আটলান্টিক মহাসাগর, উত্তর সাগর, ডোভার প্রণালী, ইংলিশ চ্যানেল (দক্ষিণে ফ্রান্স)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-14">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#14</span>
+              <h2 class="card-topic">ইউরোপীয় ইউনিয়ন, সদর দপ্তর ও পশ্চিম-দক্ষিণ ইউরোপ মানচিত্র</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_44_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>ইউরোপীয় ইউনিয়ন ও গুরুত্বপূর্ণ সদর দপ্তর (মানচিত্র)</h3>
+<p>[চিত্র: পশ্চিম ও দক্ষিণ ইউরোপের মানচিত্র — ফ্রান্স (প্যারিস), বেলজিয়াম (ব্রাসেলস), নেদারল্যান্ড (ম্যাসট্রিচট), সুইজারল্যান্ড (জেনেভা, আল্পস পর্বতমালা, গথার্ড বেস টানেল), ইতালি (রোম), স্পেন (কাতালোনিয়া, সেউটা, মেলিয়া), পর্তুগাল ও মরক্কো]</p>
+
+<h4>ইউরোপীয় ইউনিয়ন (EU) ও বেলজিয়াম</h4>
+<ul>
+  <li><strong>ইউরোপীয় ইউনিয়ন (EU):</strong> গঠিত ম্যাসট্রিচট চুক্তি (১৯৯২ সালে, ম্যাসট্রিচট শহর, নেদারল্যান্ড); বিশ্বের সবচেয়ে বড় বাণিজ্য সংস্থা; একক মুদ্রা ইউরো (চালু: ১৯৯৯, ১ জানুয়ারী; জনক: রবার্ট মুন্ডেল); সদর দপ্তর: ব্রাসেলস</li>
+  <li><strong>বেলজিয়াম / ব্রাসেলস:</strong> NATO এর সদর দপ্তর; ইউরোপের ককপিট / রণক্ষেত্র; ২য় বিশ্বযুদ্ধের বাফার স্টেট; ওয়াটার লু যুদ্ধ ক্ষেত্র</li>
+  <li><strong>প্যারিস (সদর দপ্তর):</strong> UNESCO</li>
+</ul>
+
+<h4>সুইজারল্যান্ড ও ইতালি</h4>
+<ul>
+  <li><strong>সুইজারল্যান্ড:</strong>
+    <ul>
+      <li>আল্পস পর্বতমালা → ইউরোপের সর্বোচ্চ পর্বতমালা</li>
+      <li>গথার্ড বেস টানেল → পৃথিবীর দীর্ঘতম</li>
+      <li><strong>জেনেভা (সম্মেলনের শহর) — সদরদপ্তর:</strong> WHO, WTO, ILO, ITU, Red cross</li>
+    </ul>
+  </li>
+  <li><strong>রোম (Italy):</strong> সদরদপ্তর: FAO; সাত পাহাড়ের দেশ/শহর; পোপের শহর; চির শান্তির শহর</li>
+</ul>
+
+<h4>পর্তুগাল, স্পেন ও মরক্কো</h4>
+<ul>
+  <li><strong>পর্তুগাল:</strong> "ভাস্কো দাগামা" — ভারতীয় উপমহাদেশে ১ম বাণিজ্য করতে আসে</li>
+  <li><strong>স্পেন:</strong> "Light house of Europe"; পাবলো পিকাসো (বিখ্যাত চিত্রশিল্পী); কাতালোনিয়া (স্বাধীনতাকামী)</li>
+  <li><strong>সেউটা ও মেলিয়া:</strong> স্পেনের অংশ (মরক্কো সীমান্তে অবস্থিত)</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-15">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#15</span>
+              <h2 class="card-topic">রাশিয়া ও ককেশাস অঞ্চল (মানচিত্র ও গুরুত্বপূর্ণ তথ্য)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_45_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>রাশিয়া</h3>
+<ul>
+  <li>পৃথিবীর সবচেয়ে বড় দেশ</li>
+  <li>সর্বাধিক ১৪ টি দেশের সাথে সীমানা</li>
+  <li>আফগানিস্তান দখল: ১৯৭৯ → সৈন্য প্রত্যাহার: ১৯৮৯</li>
+</ul>
+<p>[চিত্র: রাশিয়া (ইউরোপ ও এশিয়া অংশ), মস্কো, ইউক্রেন, ক্রিমিয়া, ককেশাস অঞ্চল (চেচনিয়া, দ. ওশেটিয়া, জর্জিয়া, আজারবাইজান, আর্মেনিয়া, নাগার্নো-কারাবাখ), তাতার প্রণালী ও সাখালিন দ্বীপের হাতে আঁকা মানচিত্র]</p>
+
+<h4>গুরুত্বপূর্ণ অঞ্চল ও যুদ্ধসমূহ</h4>
+<ul>
+  <li><strong>মস্কো:</strong> প্রেসিডেন্টের সরকারি বাসভবন (ক্রেমলিন); রেড স্কয়ার (ঐতিহাসিক স্থান)</li>
+  <li><strong>ইউক্রেন:</strong> ইউরোপের রুটির ঝুড়ি</li>
+  <li><strong>ক্রিমিয়া:</strong> ২০১৪ সালে রাশিয়া দখল; ক্রিমিয়ার যুদ্ধ (১৮৫৩-৫৬): রুশ সাম্রাজ্য + অটোমান সাম্রাজ্য (জয়লাভ: অটোমান সাম্রাজ্য)</li>
+  <li><strong>চেচনিয়া (রাশিয়া + চেচনিয়া):</strong> ১ম চেচেন যুদ্ধ (১৯৯৪-৯৬); ২য় চেচেন যুদ্ধ (১৯৯৯-২০০০)</li>
+  <li><strong>ককেশাস অঞ্চল:</strong> দক্ষিণ ওশেটিয়া, জর্জিয়া, আজারবাইজান, আর্মেনিয়া</li>
+  <li><strong>নাগার্নো কারাবাখ করিডোর:</strong> দ্বন্দ্ব: আজারবাইজান + আর্মেনিয়া</li>
+  <li><strong>তাতার প্রণালী</strong> ও <strong>সাখালিন দ্বীপ</strong> (নৌঘাঁটি বিদ্যমান)</li>
+</ul>
+
+<div class="note">
+  <h4>অতিরিক্ত নোট (স্টিকি নোট):</h4>
+  <ul>
+    <li>১ম পঞ্চবার্ষিকী পরিকল্পনা গ্রহণ করে → সাবেক সোভিয়েত ইউনিয়ন</li>
+    <li>২য় বিশ্বযুদ্ধের সময় রাশিয়ার প্রেসিডেন্ট → স্ট্যালিন</li>
+    <li>রাশিয়া ইউক্রেনের ক্রিমিয়া উপদ্বীপ দখল করে → ২০১৪ সালের ১৬ মার্চ</li>
+    <li>ফাদার অব অল বোম্বস, ইন্টারফ্যাক্স ⇒ রাশিয়ার</li>
+    <li>প্রশান্ত মহাসাগরের কোথায় রাশিয়ার নৌঘাঁটি → সাখালিন দ্বীপে</li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-16">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#16</span>
+              <h2 class="card-topic">আসিয়ান (দক্ষিণ-পূর্ব এশিয়া: ইন্দোনেশিয়া, ফিলিপাইন, থাইল্যান্ড, পূর্ব তিমুর)</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_46_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>আসিয়ান (দক্ষিণ-পূর্ব এশিয়া)</h3>
+<p>[চিত্র: দক্ষিণ-পূর্ব এশিয়ার মানচিত্র — মায়ানমার, লাওস, থাইল্যান্ড (গোল্ডেন ট্রায়াঙ্গেল), মালয়েশিয়া, সিঙ্গাপুর, ব্রুনাই, ইন্দোনেশিয়া (সুমাত্রা, আচেহ, জাভা, বালি, বোর্নিও/কালিমান্তান, সুলাওয়েসি, ইরিয়ান জায়া), ফিলিপাইন (লুজন, ম্যানিলা, ভিসায়াস, মিন্দানাও, সুবিক বে), গুয়াম, পূর্ব তিমুর, মালাক্কা প্রণালী ও সুন্দা প্রণালী]</p>
+
+<h4>মূল ভূখণ্ড ও ফিলিপাইন</h4>
+<ul>
+  <li><strong>গোল্ডেন ট্রায়াঙ্গেল (মায়ানমার, লাওস, থাইল্যান্ড):</strong> মাদক উৎপাদনের জন্য বিখ্যাত</li>
+  <li><strong>থাইল্যান্ড:</strong> কখনো কোনো দেশের উপনিবেশ ছিল না; শ্বেত হস্তির দেশ</li>
+  <li><strong>গুয়াম:</strong> মার্কিন নৌ ঘাঁটি বিদ্যমান</li>
+  <li><strong>ফিলিপাইন:</strong> প্রধান দ্বীপ লুজন, ভিসায়াস, মিন্দানাও (মুসলিম অধ্যুষিত); <strong>ম্যানিলা</strong> (IRRI সদরদপ্তর, ADB); <strong>সুবিক বে</strong> (১৯৯২ সালে USA ফিলিপাইনকে হস্তান্তর করে)</li>
+  <li><strong>মালয়েশিয়া</strong>, <strong>সিঙ্গাপুর</strong>, <strong>ব্রুনাই</strong>, <strong>মালাক্কা প্রণালী</strong>, <strong>ভারত মহাসাগর</strong></li>
+</ul>
+
+<h4>ইন্দোনেশিয়া</h4>
+<ul>
+  <li>প্রায় ১৭,৪০০+ দ্বীপ (সুমাত্রা, জাভা, বোর্নিও দ্বীপ [এশিয়ার বৃহত্তম] / কালিমান্তান, সুলাওয়েসি, ইরিয়ান জায়া; জাভা সাগর, সুন্দা প্রণালী, রাজধানী জাকার্তা)</li>
+  <li><strong>আচেহ প্রদেশ:</strong> শারিয়াহ আইন চালু; স্বাধীনতাকামী</li>
+  <li><strong>জনক:</strong> আহমেদ সুকর্ণ → মেয়ে: <strong>মেঘবতী সুকর্ণপুত্রী</strong> (মুসলিম বিশ্বের ১ম মহিলা প্রেসিডেন্ট)</li>
+  <li>পঞ্চশীল নীতি বিদ্যমান</li>
+  <li><strong>বড়বুদুর:</strong> বৌদ্ধ স্থাপনা (বিশ্বের বৃহত্তম)</li>
+  <li><strong>বালি দ্বীপ:</strong> পর্যটনের জন্য বিখ্যাত</li>
+  <li><strong>বান্দুং শহর:</strong> ১৯৫৫ সালে বান্দুং সম্মেলন (সদ্য স্বাধীন এশিয়া ও আফ্রিকার দেশগুলো নিয়ে হয়; NAM বা জোট নিরপেক্ষ আন্দোলনের ভিত্তি শক্তিশালী হয়)</li>
+</ul>
+
+<h4>পূর্ব তিমুর</h4>
+<ul>
+  <li>স্বাধীনতা: ২০০২ সালে (একই সালে জাতিসংঘের সদস্য পদ)</li>
+  <li>এশিয়ার সর্বশেষ স্বাধীন দেশ</li>
+  <li>প্রধান ধর্ম খ্রিস্টান</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-17">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#17</span>
+              <h2 class="card-topic">মায়ানমার (বার্মা) মানচিত্র ও রোহিঙ্গা সংকট</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_47_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>মায়ানমার (বার্মা)</h3>
+<ul>
+  <li>প্যাগোডার দেশ</li>
+  <li>নাম পরিবর্তন: ১৯৮৯</li>
+</ul>
+<p>[চিত্র: মায়ানমার ও বাংলাদেশ (BAN) সীমান্ত, মংডু, রাখাইন/আরাকান রাজ্য এবং কায়িন/কারেন রাজ্যের হাতে আঁকা মানচিত্র]</p>
+<ul>
+  <li><strong>অং সান সুচি (গণতন্ত্রের মানসকন্যা):</strong>
+    <ul>
+      <li>NLD: National League for Democracy</li>
+      <li>১৯৯০ সালে জয়লাভ করেও সামরিক জান্তার কাছ থেকে ক্ষমতা লাভ করতে পারে নাই</li>
+      <li>১৯৯১ সালে শান্তিতে নোবেল পান</li>
+    </ul>
+  </li>
+  <li><strong>জাফরানি বিপ্লব (২০০৭):</strong> বৌদ্ধ ভিক্ষুদের আন্দোলন (জ্বালানীর মূল্য বৃদ্ধির প্রতিবাদে)</li>
+  <li><strong>কায়িন / কারেন রাজ্য:</strong> "কারেন" যোদ্ধারা সংগ্রাম করছে স্বাধীনতার জন্য</li>
+  <li><strong>রাখাইন রাজ্য / আরাকান রাজ্য (রোহিঙ্গা মুসলিম) ও মংডু:</strong>
+    <ul>
+      <li><strong>আরসা (ARSA / হাতে লেখা RASA):</strong> রোহিঙ্গাদের সশস্ত্র সংগঠন</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="note">
+  <h4>অতিরিক্ত নোট (স্টিকি নোট):</h4>
+  <ul>
+    <li>সীমান্তরক্ষী বাহিনী → BGP</li>
+    <li>রোহিঙ্গা বাস করে → রাখাইন রাজ্যে (নাগরিকত্ব হারায় ১৯৮২; ভোটাধিকার হারায় ২০১৫)</li>
+    <li>রোহিঙ্গাদের উপর পরিচালিত অভিযান → অপারেশন ক্লিয়ারেন্স, অপারেশন এথনিক ক্লিনজিং</li>
+    <li>'গাম্বিয়া' মায়ানমারের বিরুদ্ধে ICJ তে মামলা করে</li>
+  </ul>
+</div>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-18">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#18</span>
+              <h2 class="card-topic">ভারতের উল্লেখযোগ্য ব্যক্তিত্ব ও বাবরি মসজিদ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_58_2026-11-24_20-48-06.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>মহাত্মা গান্ধী</h3>
+<ul>
+  <li><strong>ভারতের জাতির জনক</strong> (কোন রাষ্ট্রীয় পদ গ্রহণ করেননি কখনো)।</li>
+  <li><strong>আসল নাম:</strong> মোহনদাস করমচাঁদ গান্ধী।</li>
+  <li><strong>উপাধি:</strong> মহাত্মা গান্ধী (রবীন্দ্রনাথ ঠাকুর দেন)।</li>
+  <li>১৯৪৮ সালে মারা যান।</li>
+  <li><strong>অসহযোগ আন্দোলন:</strong> ১৯২০–২২</li>
+  <li><strong>ভারত ছাড় আন্দোলন:</strong> ১৯৪২</li>
+  <li><strong>রাজনৈতিক উত্থান:</strong> দক্ষিণ আফ্রিকায় (<em>ইন্ডিয়ান অপিনিয়ন</em> পত্রিকা সম্পাদনা); নেলসন ম্যান্ডেলা তাঁর দ্বারা অনুপ্রাণিত।</li>
+  <li><strong>আত্মজীবনী:</strong> <em>"The Story of Experiment with Truth"</em></li>
+</ul>
+
+<h3>দাদা ভাই নওরোজি</h3>
+<ul>
+  <li>গ্র্যান্ড ওল্ড ম্যান অব ইন্ডিয়া।</li>
+  <li>১ম ব্রিটিশ পার্লামেন্টের member (ভারতীয়দের মধ্যে)।</li>
+</ul>
+
+<h3>রাজীব গান্ধী</h3>
+<ul>
+  <li>বোফর্স কেলেংকারী।</li>
+  <li><strong>হত্যাকারী:</strong> LTTE (শ্রীলংকার গেরিলা বাহিনী) — (নলিনী)।</li>
+</ul>
+
+<h3>মাদার তেরেসা</h3>
+<ul>
+  <li><strong>জন্ম:</strong> মেসিডোনিয়া — ১৯১০</li>
+  <li><strong>জাতি:</strong> আলবেনীয়</li>
+  <li>১৯৪৮ সালে ভারতের নাগরিক।</li>
+  <li>১৯৫০: মিশনারিজ অব চ্যারিটি প্রতিষ্ঠা।</li>
+  <li>১৯৭৯ সালে শান্তিতে নোবেল পান।</li>
+  <li><strong>মৃত্যু:</strong> ১৯৯৭ সালে।</li>
+</ul>
+
+<h3>বাবরী মসজিদ</h3>
+<ul>
+  <li>নির্মাতা: জহির উদ্দিন বাবর (১৫২৭)।</li>
+  <li>অবস্থান: উত্তরপ্রদেশ, অযোধ্যায়।</li>
+  <li>ধ্বংস: ১৯৯২ সালের ৬ ডিসেম্বর।</li>
+</ul>
+          </div>
+        </article>
+        
+        <article class="page-card" id="page-19">
+          <div class="card-header">
+            <div class="card-title-wrap">
+              <span class="card-num">#19</span>
+              <h2 class="card-topic">দেশ পরিচিতি — ভারত, কাশ্মীর ও ভারত-পাকিস্তান/চীন যুদ্ধ</h2>
+            </div>
+            <div class="card-meta">
+              
+              <span class="filename-tag">photo_68_2026-11-24_20-48-07.jpg</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>দেশ পরিচিতি</h3>
+<p><strong>1947 সালের 18 July</strong> ভারত স্বাধীনতা আইন পাশ হয়:</p>
+<ul>
+  <li><strong>১৪ই আগস্ট:</strong> পাকিস্তান স্বাধীনতা</li>
+  <li><strong>১৫ই আগস্ট:</strong> ভারত স্বাধীন হয়</li>
+</ul>
+
+<h4>ভারত</h4>
+<ul>
+  <li>প্রজাতন্ত্র: ১৯৫০ সালের ২৬ জানুয়ারী।</li>
+</ul>
+
+<h4>কাশ্মীর</h4>
+<ul>
+  <li>৩৭০ ধারা (ভারতের সংবিধানে)।</li>
+  <li>পৃথিবীর ভূস্বর্গ।</li>
+  <li>২০১৯ সালে অঙ্গরাজ্যের মর্যাদা হারায়।</li>
+  <li>ভারতের অন্তর্ভুক্ত হয় ১৯৪৭ সালেই।</li>
+</ul>
+
+<h4>কাশ্মীর নিয়ে যুদ্ধ</h4>
+<ul>
+  <li><strong>পাকিস্তানের সাথে ৩ বার:</strong>
+    <ol>
+      <li><strong>১৯৪৭</strong> (১ম যুদ্ধ)</li>
+      <li><strong>১৯৬৫</strong> (২য় যুদ্ধ) — পাকিস্তান "অপারেশন গ্র্যান্ড স্লাম" [হাতে লেখা: অপারেশন গ্র্যান্ড স্লান] নামে হামলা চালায়; ১৯৬৬ সালে উজবেকিস্তানে <strong>"তাসখন্দ"</strong> চুক্তির মাধ্যমে যুদ্ধের সমাপ্তি ঘটে।</li>
+      <li><strong>১৯৯৯</strong> (৩য় যুদ্ধ) — <strong>"কার্গিল যুদ্ধ"</strong> (কার্গিল কাশ্মীরের একটি জেলার নাম)।</li>
+    </ol>
+  </li>
+  <li><strong>চীনের সাথে একবার:</strong>
+    <ul>
+      <li><strong>১৯৬২ সালে</strong> — একই সালে অরুণাচল নিয়েও যুদ্ধ হয় (7 sisters)।</li>
+    </ul>
+  </li>
+</ul>
+          </div>
+        </article>
+        
+    <div id="emptyState" class="empty-state">No matching pages found. Try a different keyword.</div>
+  </main>
+
+  <button type="button" id="backTop" class="back-top" title="Back to top" aria-label="Back to top">↑</button>
+  <script>
+(function() {
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('ocr_notes_theme');
+  if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    const syncLabel = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      themeBtn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+    };
+    syncLabel();
+    themeBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('ocr_notes_theme', next);
+      syncLabel();
+    });
+  }
+
+  const printBtn = document.getElementById('printBtn');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => window.print());
+  }
+
+  // Mobile auto-hide header on scroll down, show on scroll up
+  const header = document.querySelector('.site-header');
+  let lastY = window.scrollY;
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (header && window.innerWidth <= 768) {
+      if (y > 90 && y > lastY + 8) {
+        header.classList.add('nav-hidden');
+      } else if (y < lastY - 8 || y <= 40) {
+        header.classList.remove('nav-hidden');
+      }
+    } else if (header) {
+      header.classList.remove('nav-hidden');
+    }
+    if (backTop) {
+      backTop.classList.toggle('visible', y > 400);
+    }
+    lastY = y;
+  }, { passive: true });
+
+  if (backTop) {
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // Search filter
+  const searchInput = document.getElementById('searchInput');
+  const cards = Array.from(document.querySelectorAll('.page-card'));
+  const matchCount = document.getElementById('matchCount');
+  const emptyState = document.getElementById('emptyState');
+
+  if (searchInput && cards.length) {
+    const filterCards = () => {
+      const q = searchInput.value.trim().toLowerCase();
+      let shown = 0;
+      cards.forEach(card => {
+        const text = (card.dataset.search || card.textContent).toLowerCase();
+        const match = !q || text.includes(q);
+        card.classList.toggle('hidden', !match);
+        if (match) shown++;
+      });
+      if (matchCount) {
+        matchCount.textContent = q ? `${shown} / ${cards.length} pages` : `${cards.length} pages`;
+      }
+      if (emptyState) {
+        emptyState.style.display = shown === 0 ? 'block' : 'none';
+      }
+    };
+    searchInput.addEventListener('input', filterCards);
+    filterCards();
+  }
+
+  // Quick jump
+  const jumpSelect = document.getElementById('jumpSelect');
+  if (jumpSelect) {
+    jumpSelect.addEventListener('change', () => {
+      const id = jumpSelect.value;
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('hidden');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
